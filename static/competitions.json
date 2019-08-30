@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Premier League 2019-2020",
+        "slug": "england_premier_league_2019_2020",
+        "apifootball_id": 524
+    },
+    {
+        "name": "Ligue 1 2019-2020",
+        "slug": "france_ligue_1_2019_2020",
+        "apifootball_id": 525
+    },
+    {
+        "name": "Bundesliga 2019-2020",
+        "slug": "germany_bundesliga_1_2019_2020",
+        "apifootball_id": 754
+    },
+    {
+        "name": "La Liga 2019-2020",
+        "slug": "spain_primera_division_2019_2020",
+        "apifootball_id": 775
+    },
+    {
+        "name": "La Liga 2 2019-2020",
+        "slug": "spain_segunda_division_2019_2020",
+        "apifootball_id": 776
+    },
+    {
+        "name": "Super League 2019-2020",
+        "slug": "switzerland_super_league_2019_2020",
+        "apifootball_id": 576
+    },
+    {
+        "name": "Challenge League 2019-2020",
+        "slug": "switzerland_challenge_league_2019_2020",
+        "apifootball_id": 585
+    },
+    {
+        "name": "Swiss Cup 2020",
+        "slug": "switzerland_swiss_cup_2019_2020",
+        "apifootball_id": 100
+    }
+]
