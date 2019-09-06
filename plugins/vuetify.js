@@ -11,7 +11,7 @@ export default ctx => {
             dark: false,
             themes: {
                 light: {
-                    primary: 'E65100', // orange darken-4
+                    primary: 'FF4500', // orange darken-4
                     accent: 'E0E0E0', // grey lighten-1
                     secondary: colors.amber.darken3,
                     info: colors.teal.lighten1,

@@ -23,20 +23,25 @@
                     <v-autocomplete :items="loadedCompetitions" label="Select a competition" item-text="name" item-value="slug" single-line :return-object="true" v-model="selectedCompetition"></v-autocomplete>
                     <!-- </v-flex> -->
                 </v-col>
+				<!-- selectedCompetition: {{ selectedCompetition }}<br /><br /> -->
+				<v-col sm="6" offset-sm="3" v-if="selectedCompetition.type === 'League'">
+                    <v-text-field v-model="selectedCompetition.rounds" type="number" label="Total rounds" hint="Typically 38 for a league with 20 teams" :persistent-hint="true"></v-text-field>
+                </v-col>
+
                 <!-- <v-flex xs12 sm6 offset-sm3 class="text-xs-center"> -->
                 <v-col cols="12" class="text-center">
-                    <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition" :loading="loading">
+                    <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition || (selectedCompetition.type === 'League' && !selectedCompetition.rounds)" :loading="loading">
                         Add competition
                     </v-btn><br />
                     <!-- <v-layout class="align-center" v-if="loading"> -->
                     <v-row justify="center" align="center" v-if="loading">
                         <v-col>
                             <p class="text-center">
-								Database insert:<br />
+								Insert into database<br />
                                 {{ loadedMessage }}
 							</p>
                             <v-alert dense outlined prominent type="warning" icon="mdi-alert-outline">
-                                This request will retrieve all matches for the competition as well as all events and all statistics for each match. So it can take <strong>some time</strong> to complete. Please be patient and wait until a message is returned back.
+                                This request will retrieve all matches for the competition as well as all events and all statistics for each match. So it will take <strong>some time</strong> to complete. Please be patient and wait until a message is returned back.
                             </v-alert>
                         </v-col>
                         <!-- </v-layout> -->

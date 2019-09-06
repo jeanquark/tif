@@ -137,7 +137,7 @@
 	export default {
 		layout: 'layoutBack',
 		created() {
-			this.$store.dispatch('competitions/fetchCompetitions')
+			this.$store.dispatch('competitions/fetchAllCompetitions')
 			this.$store.dispatch('teams/fetchTeams')
 		},
 		data() {
@@ -187,7 +187,7 @@
 				return this.$store.getters['loading']
 			},
 			loadedCompetitions() {
-				return this.$store.getters['competitions/loadedCompetitions']
+				return this.$store.getters['competitions/loadedAllCompetitions']
 			},
 			changed() {
 				// console.log('changed!')

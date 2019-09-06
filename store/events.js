@@ -112,7 +112,7 @@ export const actions = {
     fetchEventsByDateByCompetition({ commit }, payload) {
 		return new Promise((resolve, reject) => {
 			try {
-				console.log('fetchEventsByDateByCompetition action: ', payload)
+				console.log('Call to fetchEventsByDateByCompetition action: ', payload)
 				const date_competition = `${payload.date}_${payload.competition}`
 				firebase
 					.database()

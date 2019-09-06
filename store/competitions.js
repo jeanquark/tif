@@ -6,17 +6,25 @@ import slugify from '../helpers/slugify.js'
 import moment from 'moment'
 
 export const state = () => ({
-    loadedCompetitions: [],
+	competitions: {},
+	allCompetitions: [],
 	loadedCompetitionsByCountry: [],
 	competitionsByDate: {}
 })
 
 export const mutations = {
-    setEmptyCompetitions(state) {
-        state.loadedCompetitions = []
+    // setEmptyCompetitions(state) {
+    //     state.loadedCompetitions = []
+	// },
+	setAllCompetitions(state, payload) {
+		state.allCompetitions = payload
     },
     setCompetitions(state, payload) {
-        state.loadedCompetitions = payload
+		// state.loadedCompetitions = payload
+		console.log('payload: ', payload)
+		state.competitions = Object.assign({}, state.competitions, {
+            [payload.id]: payload
+        })
     },
     setCompetitionsByCountry(state, payload) {
         // state.loadedCompetitions = payload
@@ -43,6 +51,42 @@ export const mutations = {
 }
 
 export const actions = {
+	fetchCompetition({ commit }, payload) {
+		console.log('Call to fetchCompetition action: ', payload)
+		firebase
+            .database()
+			.ref('/competitions')
+			.orderByChild('slug')
+            .equalTo(payload)
+            .on('value', function(snapshot) {
+				let competition = {}
+                for (const key in snapshot.val()) {
+                    competition = {
+                        ...snapshot.val()[key],
+                        id: key
+                    }
+				}
+				// console.log('competition: ', competition)
+				commit('setCompetitions', competition)
+            })
+	},
+	fetchAllCompetitions({ commit }) {
+        console.log('Call to fetchCompetitions action')
+        firebase
+            .database()
+            .ref('/competitions/')
+            .on('value', function(snapshot) {
+                const competitionsArray = []
+                for (const key in snapshot.val()) {
+                    competitionsArray.push({
+                        ...snapshot.val()[key],
+                        id: key
+                    })
+				}
+				console.log('competitionsArray: ', competitionsArray)
+                commit('setAllCompetitions', competitionsArray)
+            })
+    },
     fetchCompetitionsByCountry({ commit }, payload) {
         return new Promise(resolve => {
             firebase
@@ -69,26 +113,8 @@ export const actions = {
                 })
         })
     },
-    // Fetch all competitions
-    fetchCompetitions({ commit }) {
-        console.log('fetchCompetitions')
-        firebase
-            .database()
-            .ref('/competitions/')
-            .on('value', function(snapshot) {
-                const competitionsArray = []
-                for (const key in snapshot.val()) {
-                    competitionsArray.push({
-                        ...snapshot.val()[key],
-                        id: key
-                    })
-                }
-                commit('setCompetitions', competitionsArray)
-            })
-    },
-
     async fetchCompetitionsByDate({ commit }, payload) {
-        console.log('fetchCompetitionsByDay: ', payload)
+        console.log('Call to fetchCompetitionsByDay action: ', payload)
         const snapshot = await firebase
             .database()
             .ref(`/dateCompetitions/${payload}`)
@@ -116,44 +142,65 @@ export const actions = {
             console.log('newCompetitionKey: ', newCompetitionKey)
 
             // 2) Define countries object
-            const countries = {}
-            countries[slugify(payload.country)] = {
+            const competitionCountries = {}
+            competitionCountries[slugify(payload.country)] = {
                 name: payload.country,
                 slug: slugify(payload.country)
-            }
+			}
+			const competitionName = payload.name
+			const competitionSlug = newCompetitionKey
+			const competitionImage = `${slugify(payload.country)}_${slugify(payload.name)}.png`
+			const competitionType = slugify(payload.type)
 
             // 3) Create competition node
             let updates = {}
 
-            const newCompetition = {
-                active: false,
-                activity: {
-                    name: 'Sport',
-                    slug: 'sport'
-                },
-                category: {
-                    name: 'Football',
-                    slug: 'football'
-                },
-                apifootball_id: payload.league_id,
-                apifootball_country: payload.country,
-                apifootball_name: payload.name,
-                apifootball_season: payload.season,
-                season_start: payload.season_start,
-                season_end: payload.season_end,
-                name: payload.name,
-                slug: newCompetitionKey,
-                countries,
-                image: `${slugify(payload.country)}_${slugify(payload.name)}.png`,
-                season: `${payload.season} - ${parseInt(payload.season) + 1}`,
-                _created_at: moment().unix(),
-                _updated_at: moment().unix()
-            }
-            updates[`/competitions/${newCompetitionKey}`] = newCompetition
-            console.log('newCompetition: ', newCompetition)
+            // const newCompetition = {
+            //     active: false,
+            //     activity: {
+            //         name: 'Sport',
+            //         slug: 'sport'
+            //     },
+            //     category: {
+            //         name: 'Football',
+            //         slug: 'football'
+            //     },
+            //     apifootball_id: payload.league_id,
+            //     apifootball_country: payload.country,
+            //     apifootball_name: payload.name,
+            //     apifootball_season: payload.season,
+            //     season_start: payload.season_start,
+            //     season_end: payload.season_end,
+            //     name: payload.name,
+            //     slug: newCompetitionKey,
+            //     countries,
+            //     image: `${slugify(payload.country)}_${slugify(payload.name)}.png`,
+			// 	season: `${payload.season} - ${parseInt(payload.season) + 1}`,
+			// 	type: slugify(payload.type),
+            //     _created_at: moment().unix(),
+            //     _updated_at: moment().unix()
+            // }
+            updates[`/competitions/${newCompetitionKey}/active`] = false
+            updates[`/competitions/${newCompetitionKey}/activity`] = { name: 'Sport', slug: 'sport' }
+            updates[`/competitions/${newCompetitionKey}/category`] = { name: 'Football', slug: 'football' }
+            updates[`/competitions/${newCompetitionKey}/apifootball_id`] = payload.league_id
+            updates[`/competitions/${newCompetitionKey}/apifootball_country`] = payload.country
+			updates[`/competitions/${newCompetitionKey}/apifootball_name`] = payload.name
+			updates[`/competitions/${newCompetitionKey}/apifootball_season`] = payload.season
+            updates[`/competitions/${newCompetitionKey}/season_start`] = payload.season_start
+            updates[`/competitions/${newCompetitionKey}/season_end`] = payload.season_end
+            updates[`/competitions/${newCompetitionKey}/name`] = competitionName
+            updates[`/competitions/${newCompetitionKey}/slug`] = competitionSlug
+            updates[`/competitions/${newCompetitionKey}/countries`] = competitionCountries
+            updates[`/competitions/${newCompetitionKey}/image`] = competitionImage
+            updates[`/competitions/${newCompetitionKey}/season`] = `${payload.season} - ${parseInt(payload.season) + 1}`
+			updates[`/competitions/${newCompetitionKey}/type`] = competitionType
+			updates[`/competitions/${newCompetitionKey}/rounds`] = parseInt(payload.rounds)
+            updates[`/competitions/${newCompetitionKey}/_created_at`] = moment().unix()
+            updates[`/competitions/${newCompetitionKey}/_updated_at`] = moment().unix()
 
             // 4) Retrieve all fixtures of the competition
-            const leagueId = newCompetition.apifootball_id
+            const leagueId = payload.league_id
             const competitionEvents = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/fixtures/league/${leagueId}`, {
                 headers: {
                     Accept: 'application/json',
@@ -167,25 +214,27 @@ export const actions = {
                 const eventId = event.fixture_id
                 commit('setMessage', `${event.homeTeam.team_name} vs ${event.awayTeam.team_name}`, { root: true })
 
-                const competitionSlug = newCompetition.slug
                 const eventDate = moment(event.event_date).format('YYYY-MM-DD')
                 const roundShort = /\d/.test(event.round) ? event.round.substring(event.round.lastIndexOf('-') + 2) : event.round
 
                 // 5.1) Update dateCompetitions node
                 const dateCompetition = {
-                    name: newCompetition.name,
+                    name: competitionName,
                     slug: competitionSlug,
-                    countries: newCompetition.countries,
-                    image: newCompetition.image,
-                    date: eventDate
+                    countries: competitionCountries,
+                    image: competitionImage,
+					date: eventDate,
+					type: competitionType
                 }
                 updates[`dateCompetitions/${slugify(eventDate)}/${competitionSlug}`] = dateCompetition
 
 				// 5.2) Update events node
-				event['competition_name'] = newCompetition.name
-				event['competition_slug'] = newCompetition.slug
+				event['competition_name'] = competitionName
+				event['competition_slug'] = competitionSlug
                 event['competition_round'] = `${competitionSlug}_${roundShort}`
 				event['date_competition'] = `${slugify(eventDate)}_${competitionSlug}`
+				event['date'] = moment(event.event_date).format('YYYY-MM_DD')
+				event['date_iso8601'] = event.event_date
 				event['time'] = moment(event.event_date).format('HH:mm')
                 event['time_utc'] = moment(event.event_date).utc().format('HH:mm')
                 event['homeTeam_id'] = event.homeTeam.team_id
@@ -195,11 +244,19 @@ export const actions = {
                 event['awayTeam_id'] = event.awayTeam.team_id
                 event['awayTeam_name'] = event.awayTeam.team_name
                 event['awayTeam_slug'] = slugify(event.awayTeam.team_name)
-                event['awayTeam_score'] = event.goalsAwayTeam
+				event['awayTeam_score'] = event.goalsAwayTeam
+				event['status'] = event.status
+				event['statusShort'] = event.statusShort
+                event['round'] = event.round
+				event['roundShort'] = roundShort
+				event['elapsed'] = event.elapsed
+				event['venue'] = event.venue
+				event['referee'] = event.referee
                 event['homeTeam'] = null
                 event['goalsHomeTeam'] = null
                 event['awayTeam'] = null
-                event['goalsAwayTeam'] = null
+				event['goalsAwayTeam'] = null
+				event['event_date'] = null
 
                 updates[`/events/${eventId}`] = event
 
@@ -369,8 +426,11 @@ export const actions = {
 }
 
 export const getters = {
+	loadedAllCompetitions(state) {
+		return state.allCompetitions
+	},
     loadedCompetitions(state) {
-        return state.loadedCompetitions
+        return state.competitions
     },
     loadedCompetitionsByCountry(state) {
         return state.loadedCompetitionsByCountry

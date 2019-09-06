@@ -1,7 +1,6 @@
 const express = require('express'),
-	  moment = require('moment'),
-	  // axios = require('axios'),
-	  admin = require('firebase-admin'),
+	//   admin = require('firebase-admin'),
+	  admin = require('../services/firebase-admin-init'),
 	  unirest = require('unirest');
 
 const app = express();
@@ -15,7 +14,7 @@ const app = express();
 // }
 
 function getLeagueStanding(league) {
-	const url = `https://api-football-v1.p.rapidapi.com/leagueTable/${league}`;
+	const url = `https://api-football-v1.p.rapidapi.com/v2/leagueTable/${league}`;
 	return unirest.get(url).headers({
 		'Accept': 'application/json',
         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
@@ -29,30 +28,31 @@ module.exports = app.use(async function(req, res, next) {
 		const competitionsArray = []
         const competitions = await admin.database().ref('/competitions').once('value')
         competitions.forEach(competition => {
-            if (competition.val().status === 'active') {
+            if (competition.val().active === true) {
                 competitionsArray.push({
                     name: competition.val().name,
                     slug: competition.val().slug,
                     league_id: competition.val().apifootball_id,
-                    status: competition.val().status,
+                    active: competition.val().active,
                     countries: competition.val().countries
                 })
             }
-        });
+		});
+		console.log('competitionsArray: ', competitionsArray);
 
         // console.log('competitionsArray: ', competitionsArray);
 		let updates = {};
 
 		// 2) Then for each active competition, parse current standing
 		for (let competition of competitionsArray) {
-			// console.log(competition.slug);
+			console.log('competition: ', competition);
 			const response = await getLeagueStanding(competition.league_id);
 
 			// Object.values(response.data.api.standings).forEach(teams => {
 			Object.values(response.body.api.standings).forEach(teams => {
 				teams.forEach(team => {
 					// console.log('team: ', team);
-					updates[`/standings_new3/${competition.slug}/standing/${team.rank}`] = team;
+					updates[`/standings/${competition.slug}/${team.rank}`] = team;
 				});
 			});
 		};
@@ -63,6 +63,6 @@ module.exports = app.use(async function(req, res, next) {
         res.status(200).send('GET request to APIFootball to fetch all standings succeeded!');
 	} catch (error) {
 		console.log('error: ', error)
-		res.end('GET request to APIFootball to fetch all standings failed: ', error.toString());
+		res.end(`GET request to APIFootball to fetch all standings failed: ${error}`);
 	}
 });

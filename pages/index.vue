@@ -4,7 +4,8 @@
             <v-container grid-list >
                 <div class="fullpage-container" >
                     <div class="fullpage-wp" v-fullpage="opts" ref="fullpage"  id="scroll-target">
-                        <div class="page-1 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 1" v-scroll:#scroll-target="onScroll" >
+                        <!-- <div class="page-1 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 1" v-scroll:#scroll-target="onScroll" > -->
+                        <div class="page-1 page" v-scroll:#scroll-target="onScroll" >
                             <!-- <v-layout row wrap justify-center align-center class="upperHalf"> -->
 							<v-row no-gutters justify="center" align="center" class="upperHalf">
                                 <div class="buttonsUpperHalf">
@@ -23,7 +24,8 @@
 							</v-row>
                         </div>
 
-                        <div class="page-2 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 2">
+                        <!-- <div class="page-2 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 2"> -->
+                        <div class="page-2 page">
                             <h2 class="part-2" v-animate="{value: 'bounceInRight'}">Page 2 - How it works</h2>
 
                             <!-- <v-layout justify-center align-center class="my-2"> -->
@@ -45,7 +47,8 @@
 							</v-row>
                         </div>
 
-                        <div class="page-3 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 3">
+                        <!-- <div class="page-3 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 3"> -->
+                        <div class="page-3 page">
                             <h2 class v-animate="{value: 'bounceInTop'}">Page 3 - Contact us</h2>
                         </div>
                     </div>
