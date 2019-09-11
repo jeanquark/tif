@@ -5,7 +5,7 @@
         <v-btn text icon to="/gamemode">
             <v-icon>mdi-menu</v-icon>
         </v-btn>
-        GAMEMODE
+        GAMEMODE 
         <v-spacer></v-spacer>
         <!-- loadedUser: {{ loadedUser }} -->
         <!-- <v-img :src="loadedUser.picture" max-width="20"></v-img> -->

@@ -66,7 +66,8 @@ export const actions = {
         if (req.user) {
             console.log('User is logged in from nuxtServerInit')
             const userId = req.user.uid
-            console.log('userId: ', userId)
+            console.log('userId from nuxtServerInit: ', userId)
+            // console.log('req.user from nuxtServerInit: ', req.user)
             commit('users/setLoadedUser', req.user, { root: true })
 
             // await dispatch('users/loadedUser2', userId, { root: true})
@@ -103,13 +104,13 @@ export const actions = {
         try {
             // console.log('nuxtClientInit')
             // const userId2 = rootState.users.loadedUser ? rootState.users.loadedUser.id : null
-            const userId = rootGetters['users/loadedUser'] ? rootGetters['users/loadedUser'].uid : null
-            // console.log('userId from nuxtClientInit: ', userId)
+            const userId = rootGetters['users/loadedUser'] ? rootGetters['users/loadedUser']['uid'] : null
+            console.log('userId from nuxtClientInit: ', userId)
             // const userId = 'AdGWmQi4aadNeVgQxkfRKZHQzvb2'
             if (userId) {
                 firebase.database().ref(`/users/${userId}`).on('value', function(snapshot) {
                     // console.log('snapshot.val() from nuxtClientInit: ', snapshot.val())
-                    commit('users/setLoadedUser', snapshot.val(), { root: true })
+                    commit('users/setLoadedUser', {...snapshot.val(), uid: userId }, { root: true })
                 })
             }
         } catch (error) {

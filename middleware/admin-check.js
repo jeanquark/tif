@@ -12,15 +12,15 @@ export default function({ store, redirect, error }) {
                 .auth()
                 .currentUser.getIdTokenResult()
                 .then(idTokenResult => {
-                    // console.log(idTokenResult)
-                    // if (!!idTokenResult.claims.admin) {
-                    //     console.log("Authenticated as admin")
-                    // } else {
-                    //     console.log(
-                    //         "Authenticated but no admin priviledges, redirect to homepage"
-                    //     )
-                    //     return redirect("/gamemode")
-                    // }
+                    console.log(idTokenResult)
+                    if (!!idTokenResult.claims.admin) {
+                        console.log("Authenticated as admin")
+                    } else {
+                        console.log(
+                            "Authenticated but no admin priviledges, redirect to homepage"
+                        )
+                        return redirect("/gamemode")
+                    }
                 })
                 .catch(error => {
                     console.log(error)

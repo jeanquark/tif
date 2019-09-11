@@ -6,8 +6,9 @@ import slugify from '../helpers/slugify.js'
 import moment from 'moment'
 
 export const state = () => ({
-	competitions: {},
-	allCompetitions: [],
+	competitions: [],
+    competitionsObject: {},
+	// allCompetitions: [],
 	loadedCompetitionsByCountry: [],
 	competitionsByDate: {}
 })
@@ -16,13 +17,16 @@ export const mutations = {
     // setEmptyCompetitions(state) {
     //     state.loadedCompetitions = []
 	// },
-	setAllCompetitions(state, payload) {
-		state.allCompetitions = payload
-    },
+	// setAllCompetitions(state, payload) {
+	// 	state.allCompetitions = payload
+ //    },
     setCompetitions(state, payload) {
-		// state.loadedCompetitions = payload
-		console.log('payload: ', payload)
-		state.competitions = Object.assign({}, state.competitions, {
+        console.log('payload: ', payload)
+		state.competitions = payload
+    },
+    setCompetitionsObject(state, payload) {
+        console.log('payload: ', payload)
+        state.competitionsObject = Object.assign({}, state.competitionsObject, {
             [payload.id]: payload
         })
     },
@@ -67,10 +71,10 @@ export const actions = {
                     }
 				}
 				// console.log('competition: ', competition)
-				commit('setCompetitions', competition)
+				commit('setCompetitionsObject', competition)
             })
 	},
-	fetchAllCompetitions({ commit }) {
+	fetchCompetitions({ commit }) {
         console.log('Call to fetchCompetitions action')
         firebase
             .database()
@@ -84,7 +88,7 @@ export const actions = {
                     })
 				}
 				console.log('competitionsArray: ', competitionsArray)
-                commit('setAllCompetitions', competitionsArray)
+                commit('setCompetitions', competitionsArray)
             })
     },
     fetchCompetitionsByCountry({ commit }, payload) {
@@ -224,7 +228,8 @@ export const actions = {
                     countries: competitionCountries,
                     image: competitionImage,
 					date: eventDate,
-					type: competitionType
+					type: competitionType,
+                    rounds: parseInt(payload.rounds)
                 }
                 updates[`dateCompetitions/${slugify(eventDate)}/${competitionSlug}`] = dateCompetition
 
@@ -233,8 +238,9 @@ export const actions = {
 				event['competition_slug'] = competitionSlug
                 event['competition_round'] = `${competitionSlug}_${roundShort}`
 				event['date_competition'] = `${slugify(eventDate)}_${competitionSlug}`
-				event['date'] = moment(event.event_date).format('YYYY-MM_DD')
+				event['date'] = moment(event.event_date).format('YYYY-MM-DD')
 				event['date_iso8601'] = event.event_date
+                event['timestamp'] = event.event_timestamp
 				event['time'] = moment(event.event_date).format('HH:mm')
                 event['time_utc'] = moment(event.event_date).utc().format('HH:mm')
                 event['homeTeam_id'] = event.homeTeam.team_id
@@ -252,11 +258,32 @@ export const actions = {
 				event['elapsed'] = event.elapsed
 				event['venue'] = event.venue
 				event['referee'] = event.referee
+                event['notificationScore'] = {
+                    homeTeam_id: event.homeTeam.team_id,
+                    // homeTeam_short: ,
+                    homeTeam_name: event.homeTeam.team_name,
+                    homeTeam_score: event.goalsHomeTeam,
+                    awayTeam_id: event.awayTeam.team_id,
+                    // awayTeam_short: ,
+                    awayTeam_name: event.awayTeam.team_name,
+                    awayTeam_score: event.goalsAwayTeam
+                }
+                event['notificationStatus'] = {
+                    homeTeam_id: event.homeTeam.team_id,
+                    // homeTeam_short: ,
+                    homeTeam_name: event.homeTeam.team_name,
+                    awayTeam_id: event.awayTeam.team_id,
+                    // awayTeam_short: ,
+                    awayTeam_name: event.awayTeam.team_name,
+                    statusShort: event.statusShort,
+                    score: event.score
+                }
                 event['homeTeam'] = null
                 event['goalsHomeTeam'] = null
                 event['awayTeam'] = null
 				event['goalsAwayTeam'] = null
 				event['event_date'] = null
+                event['event_timestamp'] = null
 
                 updates[`/events/${eventId}`] = event
 
@@ -426,11 +453,14 @@ export const actions = {
 }
 
 export const getters = {
-	loadedAllCompetitions(state) {
-		return state.allCompetitions
-	},
+	// loadedAllCompetitions(state) {
+	// 	return state.allCompetitions
+	// },
     loadedCompetitions(state) {
         return state.competitions
+    },
+    loadedCompetitionsObject(state) {
+        return state.competitionsObject
     },
     loadedCompetitionsByCountry(state) {
         return state.loadedCompetitionsByCountry

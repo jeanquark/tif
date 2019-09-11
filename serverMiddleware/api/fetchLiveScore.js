@@ -11,7 +11,8 @@ const express = require('express'),
 const app = express()
 
 function getLiveScore() {
-    const url = 'https://api-football-v1.p.rapidapi.com/fixtures/live'
+    // const url = 'https://api-football-v1.p.rapidapi.com/fixtures/live'
+    const url = 'https://api-football-v1.p.rapidapi.com/v2/fixtures/live'
     return unirest.get(url).headers({
         Accept: 'application/json',
         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
@@ -52,10 +53,11 @@ module.exports = app.use(async function(req, res, next) {
 		]
 		
 		const readFile = util.promisify(fs.readFile)
-		const competitions = await readFile('./helpers/activeCompetitions4.json', 'utf8')
-		console.log('competitions: ', JSON.parse(competitions))
-		const abc = JSON.parse(competitions)
-		abc.forEach(competition => {
+        // const competitions = await readFile('./helpers/activeCompetitions4.json', 'utf8')
+		const activeCompetitions = await readFile('./static/activeCompetitions.json', 'utf8')
+		console.log('activeCompetitions: ', JSON.parse(activeCompetitions))
+		const competitions = JSON.parse(activeCompetitions)
+		competitions.forEach(competition => {
 			console.log('competition: ', competition)
 		})
 
@@ -132,19 +134,23 @@ module.exports = app.use(async function(req, res, next) {
                 // updates[`/events/${id}/goalsHomeTeam`] = match.goalsHomeTeam;
                 updates[`/events/${id}/homeTeam_goals`] = match.goalsHomeTeam
                 // updates[`/events/${id}/goalsVisitorTeam`] = match.goalsAwayTeam;
-                updates[`/events/${id}/visitorTeam_goals`] = match.goalsAwayTeam
-                updates[`/events/${id}/halftime_score`] = match.score.halftime
-				updates[`/events/${id}/final_score`] = match.score.final
-				updates[`/events/${id}/penalty`] = match.score.penalty
-                updates[`/events/${id}/extratime`] = match.score.extratime
-                updates[`/events/${id}/elapsed`] = match.elapsed
+                updates[`/events/${id}/awayTeam_goals`] = match.goalsAwayTeam
+                updates[`/events/${id}/score`] = match.score
+                // updates[`/events/${id}/halftime_score`] = match.score.halftime
+				// updates[`/events/${id}/final_score`] = match.score.final
+				// updates[`/events/${id}/penalty`] = match.score.penalty
+                // updates[`/events/${id}/extratime`] = match.score.extratime
+                updates[`/events/${id}/elapsed`] = match.elapsed,
+                updates[`/events/${id}/notificationScore/homeTeam_score] = match.goalsHomeTeam
+                updates[`/events/${id}/notificationScore/awayTeam_score] = match.goalsAwayTeam
+                updates[`/events/${id}/notificationStatus/statusShort] = match.statusShort
             }
         }
 
-        await admin
-            .database()
-            .ref()
-            .update(updates)
+        // await admin
+        //     .database()
+        //     .ref()
+        //     .update(updates)
 
         console.log('End of request!')
 

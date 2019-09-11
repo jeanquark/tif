@@ -6,13 +6,16 @@ import moment from 'moment'
 
 export const state = () => ({
 	// loadedSubscriptions: [],
-	userSubscriptions: []
+	// userSubscriptions: []
+	userSubscriptions: {}
 })
 
 export const mutations = {
 	setUserSubscriptions(state, payload) {
-		// console.log('def')
-		state.userSubscriptions = payload
+		// state.userSubscriptions = payload
+		state.userSubscriptions = Object.assign({}, state.userSubscriptions, {
+			[payload.team]: payload.subscription
+		})
 	},
 	// createSubscription(state, payload) {
 	//     state.loadedSubscriptions.push(payload)
@@ -62,21 +65,26 @@ export const actions = {
 			try {
 				console.log('fetchUserSubscriptions: ', payload)
 				// const userId = firebase.auth().currentUser.uid
-				// const userId = rootGetters['users/loadedUser'].uid
-				// console.log('userId: ', userId)
+				const userId = rootGetters['users/loadedUser']['uid']
+				console.log('userId: ', userId)
+				const userId2 = rootGetters['users/loadedUser']['id']
+				console.log('userId2: ', userId2)
 				firebase
 					.database()
 					.ref('/subscriptions/')
 					.orderByChild('endpoint')
 					.equalTo(payload)
 					.on('value', function (snapshot) {
-						const subscriptionsArray = []
+						snapshot.forEach(subscription => {
+							commit('setUserSubscriptions', { team: subscription.val().team_slug, subscription: { ...subscription.val(), id: subscription.key }})
+						})
+						// const subscriptionsArray = []
 
-						for (const key in snapshot.val()) {
-							subscriptionsArray.push({ ...snapshot.val()[key], id: key })
-						}
-						console.log('subscriptionsArray: ', subscriptionsArray)
-						commit('setUserSubscriptions', subscriptionsArray)
+						// for (const key in snapshot.val()) {
+						// 	subscriptionsArray.push({ ...snapshot.val()[key], id: key })
+						// }
+						// console.log('subscriptionsArray: ', subscriptionsArray)
+						// commit('setUserSubscriptions', subscriptionsArray)
 						resolve()
 					})
 			} catch (error) {
@@ -122,10 +130,12 @@ export const actions = {
 					endpoint: newSubscription.endpoint,
 					keys: newSubscription.keys,
 					user_id: userId,
-					team: {
-						name: team.name,
-						slug: team.slug
-					},
+					team_slug: team.slug,
+					team_name: team.name,
+					// team: {
+					// 	name: team.name,
+					// 	slug: team.slug
+					// },
 					notifications: {
 						goals: true,
 						game_starts: true,
@@ -153,47 +163,52 @@ export const actions = {
 			throw error
 		}
 	},
-	// Create a new subscription
-	async createSubscription_TOBEDELETED({ commit, getters }, payload) {
-		// commit('setLoading', true, { root: true })
-		let updates = {}
-
-		console.log(payload)
-		const teams = payload.teams
-		const newSub = payload.newSub
-		const userId = firebase.auth().currentUser.uid
-
-		for (let team of teams) {
-			const dataObject = {
-				endpoint: newSub.endpoint,
-				keys: newSub.keys,
-				user_id: userId,
-				created_at: moment().unix(),
-				team: {
-					name: team.name,
-					slug: team.slug
-				}
-			}
-			console.log('dataObject: ', dataObject)
-
-			const newSubscriptionKey = firebase
-				.database()
-				.ref()
-				.child('/subscriptions/')
-				.push().key
-			updates['/subscriptions/' + newSubscriptionKey] = dataObject
-		}
-		console.log('updates: ', updates)
-
-		return
-	},
-	async updateUserSubscription({ commit }, payload) {
-		console.log('updateUserSubscription: ', payload)
+	
+	async updateUserSubscriptions({ commit, rootGetters }, payload) {
 		try {
+			console.log('updateUserSubscription: ', payload)
 			let updates = {}
-			updates[`/subscriptions/${payload.subscriptionId}/notifications`] = payload.subscriptionNotifications
-			const abc = await firebase.database().ref().update(updates)
-			console.log('abc: ', abc)
+			if (payload.createNewSubscription) { // Create new subscription
+				const newSubscription = JSON.parse(payload.pushSubscription)
+				const userId = rootGetters['users/loadedUser']['id']
+				console.log('userId: ', userId)
+				const newSubscriptionKey = firebase
+					.database()
+					.ref()
+					.child('/subscriptions/')
+					.push().key
+
+				const key = `team_${payload.notificationType}`
+				
+				const newSubscriptionObject = {
+					endpoint: newSubscription.endpoint,
+					keys: newSubscription.keys,
+					user_id: userId,
+					team_slug: payload.team.slug,
+					team_name: payload.team.name,
+					team_apifootball_id: payload.team.apifootball_id,
+					notifications: {
+						[payload.notificationType]: true
+					},
+					[key]: `${payload.team.apifootball_id}_${payload.notificationType}`,
+					deviceIdentifier: payload.deviceIdentifier,
+					created_at: moment().unix()
+				}
+				console.log('newSubscriptionObject: ', newSubscriptionObject)
+				updates[`/subscriptions/${newSubscriptionKey}`] = newSubscriptionObject				
+			} else { // Update existing subscription
+				console.log('payload2: ', payload)
+				const key = `team_${payload.notificationType}`
+				let value
+				if (payload.value) {
+					value = `${payload.team.apifootball_id}_${payload.notificationType}`
+				} else {
+					value = null
+				}
+				updates[`/subscriptions/${payload.subscription.id}/notifications/${payload.notificationType}`] = payload.value
+				updates[`/subscriptions/${payload.subscription.id}/${key}`] = value
+			}
+			await firebase.database().ref().update(updates)
 		} catch (error) {
 			console.log('error: ', error)
 			throw error
@@ -226,16 +241,26 @@ export const actions = {
 	},
 	async deleteUserSubscriptions({ commit, rootGetters }, payload) {
 		try {
+			// console.log('payload: ', payload)
+			const { deviceIdentifier } = payload
+			// console.log('deviceIdentifier: ', deviceIdentifier)
+			const userUid = rootGetters['users/loadedUser']['uid']
 			// const userId = rootGetters['users/loadedUser']['id']
-			console.log('payload: ', payload)
-			const userId = firebase.auth().currentUser
-			console.log('userId: ', userId)
+			// const authUser = firebase.auth().currentUser
+			console.log('userUid: ', userUid)
+			// console.log('userId: ', userId)
+			// console.log('authUser: ', authUser)
 			let updates = {}
 
-			const subscriptions = await firebase.database().ref('/subscriptions').orderByChild('user_id').equalTo(userId).once('value')
+			const subscriptions = await firebase.database().ref('/subscriptions').orderByChild('user_id').equalTo(userUid).once('value')
 
 			subscriptions.forEach(subscription => {
-				updates[`/subscriptions/${subscription.key}`] = null
+				// console.log('subscription.val().deviceIdentifier: ', subscription.val().deviceIdentifier)
+				// console.log('deviceIdentifier: ', deviceIdentifier)
+				if (subscription.val().deviceIdentifier === deviceIdentifier) {
+					console.log('delete subscription!')
+					updates[`/subscriptions/${subscription.key}`] = null	
+				}
 			})
 			await firebase.database().ref().update(updates)
 		} catch (error) {
@@ -244,7 +269,7 @@ export const actions = {
 		}
 	},
 	// Delete a subscription
-	async deleteSubscription_TOBEDELETED({ commit, dispatch, rootState }, endpoint) {
+	async TOBEDELETED_deleteSubscription({ commit, dispatch, rootState }, endpoint) {
 		try {
 			console.log('endpoint: ', endpoint)
 			commit('setLoading', true, { root: true })

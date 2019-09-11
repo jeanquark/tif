@@ -26,6 +26,7 @@ export const state = () => ({
 
 export const mutations = {
     setLoadedUser(state, payload) {
+        // console.log('Entering setLoadedUser mutation: ', payload)
         state.loadedUser = payload
     }
     // setAllUsers(state, payload) {
@@ -123,7 +124,7 @@ export const actions = {
             .database()
             .ref(`/users/${userId}`)
             .on('value', function(snapshot) {
-                commit('setLoadedUser', snapshot.val())
+                commit('setLoadedUser', { ...snapshot.val(), uid: userId })
             })
     },
     fetchAuthenticatedUser({ commit }, payload) {

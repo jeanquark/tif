@@ -1,0 +1,25 @@
+[
+    {
+        "england_premier_league_2019_2020": {
+            "apifootball_id": 524
+        },
+        "france_ligue_1_2019_2020": {
+            "apifootball_id": 525
+        },
+        "germany_bundesliga_1_2019_2020": {
+            "apifootball_id": 754
+        },
+        "spain_primera_division_2019_2020": {
+            "apifootball_id": 775
+        },
+        "spain_segunda_division_2019_2020": {
+            "apifootball_id": 776
+        },
+        "switzerland_super_league_2019_2020": {
+            "apifootball_id": 576
+        },
+        "switzerland_challenge_league_2019_2020": {
+            "apifootball_id": 585
+        }
+    }
+]

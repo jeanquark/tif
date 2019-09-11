@@ -1,9 +1,14 @@
 <template>
 	<div>
-		<v-breadcrumbs divider="/">
-            <v-breadcrumbs-item v-for="item in items" :to="item.to" :key="item.text" :exact="true" :disabled="item.disabled">
-                {{ item.text }}
-            </v-breadcrumbs-item>
+        <v-breadcrumbs :items="items">
+            <template v-slot:item="props">
+                <v-breadcrumbs-item :to="props.item.to" nuxt exact :disabled="props.item.disabled">
+                    {{ props.item.text }}
+                </v-breadcrumbs-item>
+            </template>
+            <template v-slot:divider>
+                <v-icon>mdi-chevron-right</v-icon>
+            </template>
         </v-breadcrumbs>
 
 		<v-flex xs12 sm8 offset-sm2>
@@ -11,35 +16,34 @@
 				<!-- loadedCompetition: {{ loadedCompetition }}<br /><br /> -->
 				<!-- loadedTeamsByCompetition: {{ loadedTeamsByCompetition }}<br /><br /> -->
 				<v-card-title>
-					<v-layout justify-center>
-						<h2>Edit {{ loadedCompetition.name }}</h2>
-					</v-layout>
+					<v-row justify="center">
+						<h3>Edit {{ loadedCompetition.name }}</h3>
+					</v-row>
 				</v-card-title>
 
 				<v-card-text>
-					<v-layout row wrap justify-center>
-						<v-flex xs12 class="text-xs-center">
-							<!-- <v-img :src="`/images/competitions/${loadedCompetition.image}`" max-width="300" class="justify-center text-xs-center"></v-img> -->
+					<v-row justify="center">
+						<v-col cols="12" class="text-center">
 							<img :src="`/images/competitions/${loadedCompetition.image}`" width="300px" class="" v-if="loadedCompetition.image" />
 							<span v-else>No image</span>
-						</v-flex>
-						<v-flex xs12 class="text-xs-center mt-3">
-							<h2>Teams: {{ loadedTeamsByCompetition ? loadedTeamsByCompetition.length : 'No teams' }}</h2>
-						</v-flex>
-					</v-layout>
-					<v-layout row wrap justify-center>
-						<v-flex xs6 sm4 md3 class="pa-4" v-for="team in loadedTeamsByCompetition" :key="team.id">
+						</v-col>
+						<v-col class="text-center">
+							<h2 class="">Teams: {{ loadedTeamsByCompetition ? loadedTeamsByCompetition.length : 'No teams' }}</h2>
+						</v-col>
+					</v-row>
+					<v-row justify="center">
+						<v-col cols="6" sm="4" md="3" class="pa-4" v-for="team in loadedTeamsByCompetition" :key="team.id">
 							<v-img :src="`/images/teams/${team.image}`" v-if="team.image"></v-img>
 							<v-img src="/images/no_image.png" v-else></v-img>
-							<p class="text-xs-center mt-2">{{ team.name }}</p>
-						</v-flex>
-					</v-layout>
+							<p class="text-center mt-2">{{ team.name }}</p>
+						</v-col>
+					</v-row>
 				</v-card-text>
 
 				<v-card-actions>
-					<v-layout justify-center>
-						<v-btn color="success" :loading="loading" @click.stop="fetchTeamsByCompetition()">Get 	teams</v-btn>
-					</v-layout>
+					<v-row justify="center">
+						<v-btn color="success" :loading="loading" @click.stop="fetchTeamsByCompetition()">Get teams</v-btn>
+					</v-row>
 				</v-card-actions>
 			</v-card>
 		</v-flex>

@@ -48,13 +48,15 @@
             </v-row>
             <v-row no-gutters align="center" class="primary" style="height: 20%;">
                 <v-col cols="12">
-                    <span class="white--text">jeanquark</span>
+                    <span class="white--text" v-if="loadedUser">Welcome, {{ loadedUser.username }}</span>
                 </v-col>
             </v-row>
         </v-col>
 
         <v-col cols="2" class="primary">
-            <v-img src="/images/scoremodeLogo.png"></v-img>
+			<nuxt-link to="/gamemode">
+            	<v-img src="/images/scoremodeLogo.png"></v-img>
+			</nuxt-link>
         </v-col>
     </v-row>
 
@@ -65,7 +67,11 @@
 		data() {
 			return {}
 		},
-		computed: {}
+		computed: {
+            loadedUser () {
+                return this.$store.getters['users/loadedUser']
+            }
+        }
 	}
 </script>
 

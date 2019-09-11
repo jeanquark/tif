@@ -19,7 +19,10 @@ export const actions = {
 		console.log('fetchUserTeams action called')
         return new Promise((resolve, reject) => {
 			try {
-				const userId = rootGetters['users/loadedUser'].id
+                const userUid = rootGetters['users/loadedUser']['uid']
+                console.log('userUid: ', userUid)
+				const userId = rootGetters['users/loadedUser']['id']
+                console.log('userId: ', userId)
                 firebase
                     .database()
                     .ref(`userTeams/${userId}`)
@@ -57,6 +60,7 @@ export const actions = {
                     slug: payload.slug,
                     image: payload.image,
                     country: payload.country,
+                    apifootball_id: payload.apifootball_id,
                     _created_at: moment().unix()
                 })
 

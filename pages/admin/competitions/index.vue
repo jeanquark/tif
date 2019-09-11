@@ -137,7 +137,7 @@
 	export default {
 		layout: 'layoutBack',
 		created() {
-			this.$store.dispatch('competitions/fetchAllCompetitions')
+			this.$store.dispatch('competitions/fetchCompetitions')
 			this.$store.dispatch('teams/fetchTeams')
 		},
 		data() {
@@ -187,7 +187,7 @@
 				return this.$store.getters['loading']
 			},
 			loadedCompetitions() {
-				return this.$store.getters['competitions/loadedAllCompetitions']
+				return this.$store.getters['competitions/loadedCompetitions']
 			},
 			changed() {
 				// console.log('changed!')
@@ -202,9 +202,12 @@
 						obj[item.slug] = item
 						return obj
 					}, {})
-				const competitionObject = arrayToObject(this.loadedCompetitions)
-				// console.log(competitionObject)
-				return competitionObject
+				if (this.loadedCompetitions) {
+					const competitionObject = arrayToObject(this.loadedCompetitions)
+					// console.log(competitionObject)
+					return competitionObject
+				}
+				return
 			}
 		},
 		methods: {

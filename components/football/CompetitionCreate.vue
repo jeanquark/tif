@@ -38,7 +38,7 @@
                         <v-col>
                             <p class="text-center">
 								Insert into database<br />
-                                {{ loadedMessage }}
+                                <span class="grey--text">{{ loadedMessage }}</span>
 							</p>
                             <v-alert dense outlined prominent type="warning" icon="mdi-alert-outline">
                                 This request will retrieve all matches for the competition as well as all events and all statistics for each match. So it will take <strong>some time</strong> to complete. Please be patient and wait until a message is returned back.

@@ -18,7 +18,7 @@
             <!-- <v-toolbar-title>TIF</v-toolbar-title> -->
 			<v-btn small color="success" nuxt to="/gamemode" class="ml-2">
 				<v-icon class="mr-2">mdi-arrow-left</v-icon>
-				To the site
+				Back to site
 			</v-btn>
             <v-spacer></v-spacer>
             <v-btn small color="primary" class="mr-2" @click="logout">Logout</v-btn>

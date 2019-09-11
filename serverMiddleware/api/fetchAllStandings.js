@@ -1,17 +1,9 @@
 const express = require('express'),
-	//   admin = require('firebase-admin'),
-	  admin = require('../services/firebase-admin-init'),
+	  admin = require('firebase-admin'),
+	//   admin = require('../services/firebase-admin-init'),
 	  unirest = require('unirest');
 
 const app = express();
-// const api_key = process.env.APIFOOTBALL_KEY;
-// console.log('api_key: ', api_key);
-// axios.defaults.headers.common['X-RapidAPI-Key'] = api_key;
-
-// function getLeagueStanding2(league) {
-// 	const url = `https://api-football-v1.p.rapidapi.com/leagueTable/${league}`;
-// 	return axios.get(url);
-// }
 
 function getLeagueStanding(league) {
 	const url = `https://api-football-v1.p.rapidapi.com/v2/leagueTable/${league}`;
@@ -19,6 +11,26 @@ function getLeagueStanding(league) {
 		'Accept': 'application/json',
         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
 	});
+}
+
+function slugify(text) {
+    if (text) {
+        return text
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, '_') // Replace spaces with -
+            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+            .replace(/\-/g, '_') // Replace single - with single _
+            .replace(/\-\-+/g, '_') // Replace multiple - with single _
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/ü/, 'u') // Trim - from end of text
+            .replace(/ä/, 'a') // Trim - from end of text
+            .replace(/é/, 'e') // Trim - from end of text
+            .replace(/è/, 'e') // Trim - from end of text
+            .replace(/ö/, 'o') // Trim - from end of text
+    } else {
+        return
+    }
 }
 
 // To be called once a day
@@ -48,11 +60,22 @@ module.exports = app.use(async function(req, res, next) {
 			console.log('competition: ', competition);
 			const response = await getLeagueStanding(competition.league_id);
 
-			// Object.values(response.data.api.standings).forEach(teams => {
 			Object.values(response.body.api.standings).forEach(teams => {
 				teams.forEach(team => {
 					// console.log('team: ', team);
-					updates[`/standings/${competition.slug}/${team.rank}`] = team;
+					// updates[`/standings/${competition.slug}/${team.rank}`] = team;
+					updates[`/standings/${competition.slug}/${team.rank}/team_id`] = team.team_id;
+					updates[`/standings/${competition.slug}/${team.rank}/team_name`] = team.teamName;
+					updates[`/standings/${competition.slug}/${team.rank}/team_slug`] = slugify(team.teamName);
+					updates[`/standings/${competition.slug}/${team.rank}/all`] = team.all;
+					updates[`/standings/${competition.slug}/${team.rank}/home`] = team.home;
+					updates[`/standings/${competition.slug}/${team.rank}/away`] = team.away;
+					updates[`/standings/${competition.slug}/${team.rank}/goalsDiff`] = team.goalsDiff;
+					updates[`/standings/${competition.slug}/${team.rank}/points`] = team.points;
+					updates[`/standings/${competition.slug}/${team.rank}/forme`] = team.forme;
+					updates[`/standings/${competition.slug}/${team.rank}/description`] = team.description;
+					updates[`/standings/${competition.slug}/${team.rank}/lastUpdate`] = team.lastUpdate;
+					updates[`/standings/${competition.slug}/${team.rank}/teamName`] = null;
 				});
 			});
 		};
