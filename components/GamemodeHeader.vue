@@ -1,60 +1,79 @@
 <template>
-    <v-row no-gutters align="center" justify="center" class="elevation-12 custom-height" style="border: 2px solid green;">
-        <v-col cols="2" class="" style="border: 1px solid blue; height: 100%;">
-            <v-img src="/images/tifLogo.png" max-height="100%"></v-img>
-            <!-- <br /><br /><br /><br /> -->
+    <v-row no-gutters class="elevation-12 custom-height" style="">
+        <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+            <v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
         </v-col>
-        <v-col cols="8" style="border: 1px solid purple; height: 100%;">
-            <v-row no-gutters justify="center" align="center" style="border: 1px solid green; height: 80%;">
-                <v-col cols="12" style="height: 100%;">
-                    <v-row no-gutters justify="center" align="center" style="height: 70%;">
-                        <v-col cols="3" align="center" class="justify-center align-center black" style="border: 1px dashed orangered; height: 100%;">
-                            <span class="display-1 align-center primary--text font-weight-bold">1</span>
-                        </v-col>
-                        <v-col cols="3">
-                            <h2>2</h2>
-                        </v-col>
-                        <v-col cols="3">
-                            3
-                        </v-col>
-                        <v-col cols="3">
-                            4
-                        </v-col>
+        <v-col cols="8" style="height: 100%;">
+            <v-row no-gutters justify="center" align="center" style="height: 80%;">
+                <v-col cols="12" align-self="stretch">
+                    <v-row no-gutters style="height: 70%;">
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">1</h1>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">2</h1>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed red;">
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">3</h1>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">4</h1>
+                            </v-col>
+                        </v-hover>
                     </v-row>
-                    <v-row no-gutters justify="center" align="center" style="border: 1px solid grey; height: 30%;">
-                        <v-col cols="3" class="justify-center align-center black" style="border: 1px dashed orangered; height: 100%;">
-                            <span class="title text-uppercase text-center font-weight-bold white--text">sports</span>
-                        </v-col>
-                        <v-col cols="3">
-                            <span class="text-center text-uppercase" :class="{'title': $vuetify.breakpoint.md}">compétitions</span>
-                        </v-col>
-                        <v-col cols="3">
-                            équipes
-                        </v-col>
-                        <v-col cols="3">
-                            fans
-                        </v-col>
+                    <v-row no-gutters style="height: 30%;">
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <span class="text-uppercase custom-font white--text">sports</span>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <span class="text-uppercase custom-font white--text">compétitions</span>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
+                                <span class="text-uppercase custom-font white--text">équipes</span>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
+                                <span class="text-uppercase custom-font white--text">fans</span>
+                            </v-col>
+                        </v-hover>
                     </v-row>
                 </v-col>
             </v-row>
-            <v-row no-gutters align="center" style="2px solid brown; height:20%;">
-                <v-col cols="12" class="text-left">
+            <v-row no-gutters style="height:20%;">
+                <v-col cols="12" class="primary d-flex justify-start align-center text-left white--text">
                     Welcome jeanquark!
                 </v-col>
             </v-row>
             
         </v-col>
-
-        <v-col cols="2" class="" style="border: 1px solid blue;">
-            <v-img src="/images/tifLogo.png" max-height="100%"></v-img>
-            
-        </v-col>
+        
+        <v-hover v-slot:default="{ hover }">
+            <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+                <v-img src="/images/tifLogo.png"></v-img>
+            </v-col>
+        </v-hover>
     </v-row>
 </template>
 
 <script>
 	import firebase from 'firebase/app'
 	export default {
+        mounted () {
+            console.log('breakpoint: ', this.$vuetify.breakpoint)
+        },
 		data() {
 			return {}
 		},
@@ -73,14 +92,18 @@
 	}
 </script>
 
-<!--<style lang="styl" scoped>-->
-<style scoped>
-    /*.small-height {
-        height: 100px;
+<!--<style scoped>
+    .custom-height {
+        @media $this.$vuetify.breakpoints.sm-only {
+            height: 20px;
+        }
+    }
+    .small-height {
+        height: 20px;
     }
     .large-height {
-        height: 180px;
-    }*/
+        height: 300px;
+    }
     /*.custom-height
         height 100px
         @media $display-breakpoints.xs-only
@@ -93,4 +116,42 @@
             font-size 2em
         @media $display-breakpoints.lg-and-up
             font-size 5em*/
+</style>-->
+    <!-- .custom-selector
+        font-size 3em
+        @media $display-breakpoints.xs-only
+            font-size 2em
+        @media $display-breakpoints.lg-and-up
+            font-size 5em -->
+
+<style lang="sass">
+    .red2
+        color: red
+</style>
+
+<style scoped>
+    .custom-height {
+        height: 180px;
+    }
+    .custom-font {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    @media screen and (max-width: 960px) {
+        .custom-height {
+            height: 150px;
+        }
+        .custom-font {
+            font-size: .8em;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .custom-height {
+            height: 100px;
+        }
+        .custom-font {
+            font-size: .6em;
+        }
+    }
+    
 </style>

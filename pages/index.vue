@@ -1,7 +1,8 @@
 <template>
     <v-app v-cloak style="background-color: #000;">
-        <v-content>
-            <v-container grid-list >
+        <!-- <v-content> -->
+            <!-- <v-container grid-list > -->
+           	<v-container>
                 <div class="fullpage-container" >
                     <div class="fullpage-wp" v-fullpage="opts" ref="fullpage"  id="scroll-target">
                         <!-- <div class="page-1 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 1" v-scroll:#scroll-target="onScroll" > -->
@@ -69,7 +70,7 @@
             <v-dialog v-model="forgotPasswordModal" width="750">
                 <ForgotPassword />
             </v-dialog>
-        </v-content>
+        <!-- </v-content> -->
     </v-app>
 </template>
 

@@ -102,7 +102,7 @@
 		// 	console.log('asyncData: ', context)
 		// },
 		mounted() {
-
+			
 		},
 		async created() {
 			await this.changeConfederation()

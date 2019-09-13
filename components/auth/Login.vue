@@ -6,7 +6,7 @@
         </v-card-title>
         <v-card-text class="card-text">
             <v-form>
-                <v-alert type="error" :value="error" v-if="error" class="mb-4">
+                <v-alert type="error" :value="error" v-if="error" class="my-4">
                     {{ $t(`auth-validation-rules.${error.code}`) }}
                 </v-alert>
                 <v-text-field prepend-icon="mdi-account" name="email" label="Email" type="email" v-model="form.email"></v-text-field>

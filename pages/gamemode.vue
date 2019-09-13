@@ -10,6 +10,13 @@
 				showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br />
                 <!-- loadedUser: {{ loadedUser }}<br /><br /> -->
 
+                <v-progress-linear
+        color="amber"
+        height="25"
+        value="50"
+        reactive
+      ></v-progress-linear>
+
                 <v-row no-gutters justify="center" align="center" class="my-4">
                     <v-col cols="12" sm="4" class="text-center">
                         <v-text-field name="username" label="Username" type="text" v-model="loadedUser.username"></v-text-field>
