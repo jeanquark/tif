@@ -17,10 +17,10 @@
                 <!-- <v-btn small class="success" @click="toggleEvents">{{ eventsByDay ? 'Events by round' : 'Events by day' }}</v-btn> -->
                 <!-- loadedActiveCompetitions: {{ loadedActiveCompetitions }}<br /><br /> -->
                 <!-- loadedCompetitionsByDate: {{ loadedCompetitionsByDate }}<br /><br /> -->
-                loadedCompetitions: {{ loadedCompetitions }}<br /><br />
-                selectedDate: {{ selectedDate }}<br /><br />
-                selectedCompetition: {{ selectedCompetition }}<br /><br />
-                expandedPanel: {{ expandedPanel }}<br /><br />
+                <!-- loadedCompetitions: {{ loadedCompetitions }}<br /><br /> -->
+                <!-- selectedDate: {{ selectedDate }}<br /><br /> -->
+                <!-- selectedCompetition: {{ selectedCompetition }}<br /><br /> -->
+                <!-- expandedPanel: {{ expandedPanel }}<br /><br /> -->
                 <!-- loadedEventsByDateByCompetition: {{ loadedEventsByDateByCompetition }}<br /><br /> -->
 
                 <!-- <div style="height: 200px;"></div> -->
@@ -55,7 +55,7 @@
                                 <v-expansion-panel-content class="" style="border: 1px dashed pink;" v-if="!standings">
                                     <!-- <competitionResults></competitionResults>
 									<competitionStandings></competitionStandings> -->
-                                    <v-row no-gutters justify="start" align="center" class="py-2" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" style="border: 1px solid green;">
+                                    <v-row no-gutters justify="start" align="center" class="py-2" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)" style="border: 1px solid green;">
                                         <v-col class="">
                                         	<v-row no-gutters align="center">
                                             	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
@@ -79,26 +79,27 @@
                                             </v-row>
                                         </v-col>
                                     </v-row>
-                                    
                                 </v-expansion-panel-content>
                                 <v-expansion-panel-content style="border: 1px solid dashed pink;" v-else>
+                                	<!-- :headers="standingsHeader" -->
                                 	<v-data-table
-                                		:headers="standingsHeader"
 									    :items="loadedStandingsByCompetition"
 									    :items-per-page="100"
 									    :disabled-pagination="true"
 									    hide-default-footer
 									    class="elevation-1"
 									>
-										<!-- <template v-slot:header="{ headers }">
+										<!-- <template v-slot:header="{ headers }" @sort="alert('sorting')"> -->
+										<template v-slot:header="{ headers }">
 											<thead>
 												<tr align="center">
-													<th :colspan="header.colspan" class="text-center" v-for="header in standingsHeader">
+													<th class="text-center" v-for="header in standingsHeader">
 														{{ header.text }}
 													</th>
 												</tr>
 											</thead>
-										</template> -->
+										</template>
+
 										<template v-slot:body="{ items }">
 											<tbody>
 									          	<tr v-for="item in items" :key="item.name">
@@ -128,25 +129,19 @@
 									            		</span>
 									            	</td>
 									            	<td>
-									            		<v-icon small :color="game === 'W' ? 'success' : game === 'L' ? 'error' : 'default'" v-for="game in item.forme.split('')">
+									            		<v-icon small :color="game === 'W' ? 'success' : game === 'L' ? 'error' : 'default'" v-for="(game, index) in item.forme.split('')" :key="index">
 									            			mdi-circle
 									            		</v-icon>
 									            	</td>
 									          	</tr>
+									          	<tr>
+									          		<td colspan="12" class="text-right" v-if="items[0]">
+									          			last update: {{ items[0]['lastUpdate'] | moment('LL') }}
+													</td>
+									          	</tr>
 									        </tbody>
     									</template>
-									</v-data-table>
-                                	<!-- <v-row no-gutters align="center" v-for="team in loadedStandingsByCompetition" :key="team.slug" style="border: 1px solid purple;">
-                                		<v-col>
-                                			{{ team.rank }}
-                                		</v-col>
-                                		<v-col>
-                                			<v-img :src="`/images/teams/${team.team_slug}_64_64.png`" max-width="40"></v-img>
-                                        <v-col>
-											{{ team.team_name }}
-                                    	</v-col>
-                                    	<v-col>
-                                    </v-row> -->
+									</v-data-table>                                    
                             	</v-expansion-panel-content>
                             </v-expansion-panel>
                         </v-expansion-panels>
@@ -155,13 +150,13 @@
 
                 <!-- Events by round -->
                 <hr>
-                <v-btn @click="switchEvents">Switch events</v-btn>
+                <!-- <v-btn @click="switchEvents">Switch events</v-btn>
                 selectedCountry: {{ this.selectedCountry }}<br /><br />
                 selectedCompetition: {{ this.selectedCompetition }}<br /><br />
                 eventsByRound: {{ eventsByRound }}<br /><br />
                 active_round_tab: {{ active_round_tab }}<br /><br />
                 expandedPanel: {{ expandedPanel }}<br /><br />
-                loadedEventsByCompetitionByRound: {{ loadedEventsByCompetitionByRound }}<br /><br />
+                loadedEventsByCompetitionByRound: {{ loadedEventsByCompetitionByRound }}<br /><br /> -->
                 <v-tabs center-active color="yellow" slider-color="blue" style="max-width: 1017px;" v-model="active_round_tab" @change="changeRound()" v-if="eventsByRound">
                     <v-tab v-for="(round) in selectedCompetition.rounds" :key="round" style="cursor: pointer;">
                         {{ round }}
@@ -182,11 +177,12 @@
                                         </v-row>
                                     </v-row>
                                     <span class="text-right mr-4">
-                                        <v-btn class="mx-2" style="max-width: 150px;" @click="">Standings</v-btn>
-                                        <v-btn class="mx-2" style="max-width: 150px;" @click="getEventsByDateByCompetition(getDate(active_day_tab), selectedCompetition)">By day</v-btn>
+                                        <v-btn class="mx-2" style="max-width: 150px;" @click.stop="getEventsByDateByCompetition(getDate(active_day_tab), selectedCompetition)">By day</v-btn>
+                                        <v-btn class="mx-2" style="max-width: 150px;" v-if="!standings" @click.stop="getStandingsByCompetition()">Standings</v-btn>
+                                        <v-btn class="mx-2" style="max-width: 150px;" v-if="standings" @click="getEventsByRound(competition)">By rounds</v-btn>
                                     </span>
                                 </v-expansion-panel-header>
-                                <v-expansion-panel-content style="border: 1px dashed pink;">
+                                <v-expansion-panel-content style="border: 1px dashed pink;" v-if="!standings">
                                     <v-row no-gutters justify="start" align="center" class="py-2" v-for="(event, index) in loadedEventsByCompetitionByRound" :key="index" style="border: 1px solid green;">
                                         <v-col class="">
                                         	<v-row no-gutters align="center">
@@ -211,6 +207,68 @@
                                         </v-col>
                                     </v-row>
                                 </v-expansion-panel-content>
+                                <v-expansion-panel-content style="border: 1px solid dashed pink;" v-else>
+                                	<v-data-table
+									    :items="loadedStandingsByCompetition"
+									    :items-per-page="100"
+									    :disabled-pagination="true"
+									    hide-default-footer
+									    class="elevation-1"
+									>
+										<template v-slot:header="{ headers }">
+											<thead>
+												<tr align="center">
+													<th class="text-center" v-for="header in standingsHeader">
+														{{ header.text }}
+													</th>
+												</tr>
+											</thead>
+										</template>
+
+										<template v-slot:body="{ items }">
+											<tbody>
+									          	<tr v-for="item in items" :key="item.name">
+									            	<td class="text-center">{{ item.rank }}</td>
+									            	<td class="text-center">
+									            		<v-img :src="`/images/teams/${item.team_slug}_64_64.png`" max-width="40"></v-img>
+									            	</td>
+									            	<td class="text-center">
+									            		{{ item.team_name }}
+									           		</td>
+									            	<td class="subtitle-1 text-center"><b>{{ item.points }}</b></td>
+									            	<td class="text-center">{{ item.all.matchsPlayed }}</td>
+									            	<td class="text-center">{{ item.all.win }}</td>
+									            	<td class="text-center">{{ item.all.draw }}</td>
+									            	<td class="text-center">{{ item.all.lose }}</td>
+									            	<td class="text-center">{{ item.all.goalsFor }}</td>
+									            	<td class="text-center">{{ item.all.goalsAgainst }}</td>
+									            	<td>
+									            		<span v-if="item.goalsDiff > 0" class="success--text">
+									            			+ {{ item.goalsDiff }}
+									            		</span>
+									            		<span v-if="item.goalsDiff < 0" class="error--text">
+									            			{{ item.goalsDiff }}
+									            		</span>
+									            		<span v-if="item.goalsDiff === 0">
+									            			{{ item.goalsDiff }}
+									            		</span>
+									            	</td>
+									            	<td>
+									            		<v-icon small :color="game === 'W' ? 'success' : game === 'L' ? 'error' : 'default'" v-for="(game, index) in item.forme.split('')" :key="index">
+									            			mdi-circle
+									            		</v-icon>
+									            	</td>
+									          	</tr>
+									          	<tr>
+									          		<td colspan="12" class="text-right" v-if="items[0]">
+									          			last update: {{ items[0]['lastUpdate'] | moment('LL') }}
+													</td>
+									          	</tr>
+									        </tbody>
+
+    									</template>
+									</v-data-table>                                    
+                            	</v-expansion-panel-content>
                             </v-expansion-panel>
                         </v-expansion-panels>
                     </v-tab-item>
@@ -267,24 +325,33 @@
 				// rounds: [1, 2, 3, 4]
 				expandedPanel: '',
 				standingsHeader: [
-					{
-			            text: 'Rank',
-			            align: 'center',
-			            sortable: true,
-			            value: 'rank',
-			        },
-			        { text: '', align: 'center', sortable: false },
-			        { text: 'Team', align: 'center', value: 'team_name' },
-			        // { text: 'Team', align: 'center', value: 'team_name', colspan: 2 },
-			        { text: 'Points', align: 'center', value: 'points' },
-			        { text: 'Played', align: 'center', value: 'all.matchsPlayed' },
-			        { text: 'Wins', align: 'center', value: 'all.win' },
-			        { text: 'Draws', align: 'center', value: 'all.draw' },
-			        { text: 'Losses', align: 'center', value: 'all.lose' },
-			        { text: 'Goals for', align: 'center', value: 'all.goalsFor' },
-			        { text: 'Goals against', align: 'center', value: 'all.goalsAgainst' },
-			        { text: 'Diff', align: 'center', value: 'goalsDiff' },
-			        { text: 'Last 5 games', align: 'center', value: 'forme' },
+					{ text: 'Rank', sortable: true, value: 'rank' },
+			        { text: '', sortable: false },
+			        { text: 'Team', value: 'team_name' },
+			        // { text: 'Team', value: 'team_name', colspan: 2 },
+			        { text: 'Points', value: 'points' },
+			        { text: 'Played', value: 'all.matchsPlayed' },
+			        { text: 'Wins', value: 'all.win' },
+			        { text: 'Draws', value: 'all.draw' },
+			        { text: 'Losses', value: 'all.lose' },
+			        { text: 'Goals for', value: 'all.goalsFor' },
+			        { text: 'Goals against', value: 'all.goalsAgainst' },
+			        { text: 'Diff', value: 'goalsDiff' },
+			        { text: 'Last 5 games', value: 'forme' }
+
+					// { text: 'Rank', align: 'center', sortable: true, value: 'rank' },
+			  //       { text: '', align: 'center', sortable: false },
+			  //       { text: 'Team', align: 'center', value: 'team_name' },
+			  //       // { text: 'Team', align: 'center', value: 'team_name', colspan: 2 },
+			  //       { text: 'Points', align: 'center', value: 'points' },
+			  //       { text: 'Played', align: 'center', value: 'all.matchsPlayed' },
+			  //       { text: 'Wins', align: 'center', value: 'all.win' },
+			  //       { text: 'Draws', align: 'center', value: 'all.draw' },
+			  //       { text: 'Losses', align: 'center', value: 'all.lose' },
+			  //       { text: 'Goals for', align: 'center', value: 'all.goalsFor' },
+			  //       { text: 'Goals against', align: 'center', value: 'all.goalsAgainst' },
+			  //       { text: 'Diff', align: 'center', value: 'goalsDiff' },
+			  //       { text: 'Last 5 games', align: 'center', value: 'forme' },
 				]
 			}
 		},
@@ -427,7 +494,7 @@
 			},
 			goToEventPage(eventId) {
 				console.log('Go to event page')
-				// this.$router.push(`/event/${eventId}`)
+				this.$router.push(`/events/${eventId}`)
 			},
 			selectEventsByDay() {
 				this.eventsByRound = false

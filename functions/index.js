@@ -123,6 +123,10 @@ exports.listenToEventHomeTeamScoreUpdate = functions.database.ref('/events/{even
     console.log('change.before.val(): ', change.before.val())
     console.log('change.after.val(): ', change.after.val())
     console.log('context: ', context)
+    console.log('context.params: ', context.params)
+    console.log('context.params.eventId: ', context.params.eventId)
+
+
     const event = change.after.val()
     let eventType
 
@@ -130,10 +134,12 @@ exports.listenToEventHomeTeamScoreUpdate = functions.database.ref('/events/{even
     if (change.before.val().statusShort === 'NS' && event.statusShort === '1H') {
     	// Event has started
     	eventType = 'game_starts'
+    	console.log('eventType: game_starts')
     }
     if (event.statusShort === 'FT') {
     	// Event has ended
     	eventType = 'game_ends'
+    	console.log('eventType: game_ends')
     }
 
     if (eventType) {

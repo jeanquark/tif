@@ -7,7 +7,8 @@ import { resolveObject } from 'url'
 import slugify from '~/helpers/slugify'
 
 export const state = () => ({
-    loadedEvent: {},
+    // loadedEvent: {},
+    loadedEventsById: {},
     eventsByDateByCompetition: {},
     eventsByCompetitionByRound: {},
     loadedEventActionsUserNotification: {},
@@ -19,8 +20,13 @@ export const mutations = {
     setEmptyEvents(state) {
         state.loadedEvents = []
     },
-    setEvent(state, payload) {
-        state.loadedEvent = payload
+    // setEvent(state, payload) {
+    //     state.loadedEvent = payload
+    // },
+    setEventsById(state, payload) {
+        state.loadedEventsById = Object.assign({}, state.loadedEventsById, {
+            [payload.id]: payload
+        })
     },
     setEventsByDateByCompetition(state, payload) {
         console.log('Call to event/setEventsByDateByCompetition mutation', payload)
@@ -76,7 +82,40 @@ export const mutations = {
 }
 
 export const actions = {
-    async fetchEvent({ commit }, payload) {
+    async fetchEventById({ commit }, payload) {
+        console.log('fetchEventById action: ', payload)
+        return new Promise((resolve, reject) => {
+            try {
+                firebase
+                    .database()
+                    .ref('/events')
+                    .child(payload)
+                    .on('value', function(snapshot) {
+                        const event = { ...snapshot.val(), id: snapshot.key }
+                        commit('setEventsById', event)
+                        resolve()
+                    })
+
+                // Also add a listener
+                // firebase
+                //     .database()
+                //     .ref(`events/${payload}`)
+                //     .on('child_added', function(data) {
+                //         console.log('CHILD ADDED! ', data)
+                //     })
+                // firebase
+                //     .database()
+                //     .ref(`events/${payload}`)
+                //     .on('child_removed', function(data) {
+                //         console.log('CHILD REMOVED! ', data)
+                //     })
+            } catch (error) {
+                console.log('error: ', error)
+                reject(error)
+            }
+        })
+    },
+    async TOBEDELETED_fetchEvent({ commit }, payload) {
         console.log('fetchEvent: ', payload)
         return new Promise((resolve, reject) => {
             try {
@@ -442,8 +481,11 @@ export const actions = {
 }
 
 export const getters = {
-    loadedEvent(state) {
-        return state.loadedEvent
+    // loadedEvent(state) {
+    //     return state.loadedEvent
+    // },
+    loadedEventsById(state) {
+        return state.loadedEventsById
     },
     loadedEventsByDateByCompetition(state) {
         return state.eventsByDateByCompetition

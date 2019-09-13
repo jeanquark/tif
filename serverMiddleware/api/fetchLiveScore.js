@@ -140,10 +140,10 @@ module.exports = app.use(async function(req, res, next) {
 				// updates[`/events/${id}/final_score`] = match.score.final
 				// updates[`/events/${id}/penalty`] = match.score.penalty
                 // updates[`/events/${id}/extratime`] = match.score.extratime
-                updates[`/events/${id}/elapsed`] = match.elapsed,
-                updates[`/events/${id}/notificationScore/homeTeam_score] = match.goalsHomeTeam
-                updates[`/events/${id}/notificationScore/awayTeam_score] = match.goalsAwayTeam
-                updates[`/events/${id}/notificationStatus/statusShort] = match.statusShort
+                updates[`/events/${id}/elapsed`] = match.elapsed
+                updates[`/events/${id}/notificationScore/homeTeam_score`] = match.goalsHomeTeam
+                updates[`/events/${id}/notificationScore/awayTeam_score`] = match.goalsAwayTeam
+                updates[`/events/${id}/notificationStatus/statusShort`] = match.statusShort
             }
         }
 

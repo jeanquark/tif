@@ -59,7 +59,6 @@
 			</nuxt-link>
         </v-col>
     </v-row>
-
 </template>
 
 <script>
