@@ -1,75 +1,75 @@
 <template>
     <v-app v-cloak style="background-color: #000;">
         <!-- <v-content> -->
-            <!-- <v-container grid-list > -->
-           	<v-container>
-                <div class="fullpage-container" >
-                    <div class="fullpage-wp" v-fullpage="opts" ref="fullpage"  id="scroll-target">
-                        <!-- <div class="page-1 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 1" v-scroll:#scroll-target="onScroll" > -->
-                        <div class="page-1 page" v-scroll:#scroll-target="onScroll" >
-                            <!-- <v-layout row wrap justify-center align-center class="upperHalf"> -->
-							<v-row no-gutters justify="center" align="center" class="upperHalf">
-                                <div class="buttonsUpperHalf">
-                                    <v-btn color="default" @click.stop="openLoginModal">Login</v-btn>
-                                    <v-btn color="default" @click.stop="openRegisterModal">Register</v-btn>
-                                </div>
-                                <v-btn rounded large color="black" nuxt to="/scoremode" class="white--text" style="z-index: 100;">Score mode</v-btn>
-                                <span class="tifUpperHalf" style="z-index: 1;">TIF</span>
-							</v-row>
+        <!-- <v-container grid-list > -->
+        <v-container>
+            <div class="fullpage-container">
+                <div class="fullpage-wp" v-fullpage="opts" ref="fullpage" id="scroll-target">
+                    <!-- <div class="page-1 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 1" v-scroll:#scroll-target="onScroll" > -->
+                    <div class="page-1 page" v-scroll:#scroll-target="onScroll">
+                        <!-- <v-layout row wrap justify-center align-center class="upperHalf"> -->
+                        <v-row no-gutters justify="center" align="center" class="upperHalf">
+                            <div class="buttonsUpperHalf">
+                                <v-btn color="default" @click.stop="openLoginModal">Login</v-btn>
+                                <v-btn color="default" @click.stop="openRegisterModal">Register</v-btn>
+                            </div>
+                            <v-btn rounded large color="black" nuxt to="/scoremode" class="white--text" style="z-index: 100;">Score mode</v-btn>
+                            <span class="tifUpperHalf" style="z-index: 1;">TIF</span>
+                        </v-row>
+                        <!-- </v-layout> -->
+                        <!-- <v-layout justify-center align-center class="lowerHalf"> -->
+                        <v-row no-gutters justify="center" align="center" class="lowerHalf">
+                            <span class="tifLowerHalf transform">TIF</span>
+                            <v-btn rounded large color="black" nuxt to="/gamemode" class="white--text" style="z-index: 100;">Game mode</v-btn>
                             <!-- </v-layout> -->
-                            <!-- <v-layout justify-center align-center class="lowerHalf"> -->
-							<v-row no-gutters justify="center" align="center" class="lowerHalf">
-                                <span class="tifLowerHalf transform">TIF</span>
-                                <v-btn rounded large color="black" nuxt to="/gamemode" class="white--text" style="z-index: 100;">Game mode</v-btn>
-                            <!-- </v-layout> -->
-							</v-row>
-                        </div>
+                        </v-row>
+                    </div>
 
-                        <!-- <div class="page-2 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 2"> -->
-                        <div class="page-2 page">
-                            <h2 class="part-2" v-animate="{value: 'bounceInRight'}">Page 2 - How it works</h2>
+                    <!-- <div class="page-2 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 2"> -->
+                    <div class="page-2 page">
+                        <h2 class="part-2" v-animate="{value: 'bounceInRight'}">Page 2 - How it works</h2>
 
-                            <!-- <v-layout justify-center align-center class="my-2"> -->
-							<v-row justify="center" align="center" class="my-2">
-                                <!-- <v-flex xs12> -->
-								<v-col>
-                                    <!-- <p>loadedUser: {{ loadedUser }}</p> -->
-                                    Ici on peut placer des informations supplémentaires sur notre application.<br /><br />
-                                    <u>Par exemple:</u><br /><br />
-                                    
-                                        Nombre de joueurs<br />
-                                        Nombre de sports<br />
-                                        Nombre d'équipes<br />
-                                        Règles du jeu<br />
+                        <!-- <v-layout justify-center align-center class="my-2"> -->
+                        <v-row justify="center" align="center" class="my-2">
+                            <!-- <v-flex xs12> -->
+                            <v-col>
+                                <!-- <p>loadedUser: {{ loadedUser }}</p> -->
+                                Ici on peut placer des informations supplémentaires sur notre application.<br /><br />
+                                <u>Par exemple:</u><br /><br />
+
+                                Nombre de joueurs<br />
+                                Nombre de sports<br />
+                                Nombre d'équipes<br />
+                                Règles du jeu<br />
 
                                 <!-- </v-flex> -->
-								</v-col>
+                            </v-col>
                             <!-- </v-layout> -->
-							</v-row>
-                        </div>
+                        </v-row>
+                    </div>
 
-                        <!-- <div class="page-3 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 3"> -->
-                        <div class="page-3 page">
-                            <h2 class v-animate="{value: 'bounceInTop'}">Page 3 - Contact us</h2>
-                        </div>
+                    <!-- <div class="page-3 page" v-touch="{ up: () => onSwipe('up'), down: () => onSwipe('down') }" v-if="page === 3"> -->
+                    <div class="page-3 page">
+                        <h2 class v-animate="{value: 'bounceInTop'}">Page 3 - Contact us</h2>
                     </div>
                 </div>
-            </v-container>
+            </div>
+        </v-container>
 
-            <!-- Login Modal -->
-            <v-dialog :value="loginModal" width="500" :persistent="true">
-                <Login />
-            </v-dialog>
+        <!-- Login Modal -->
+        <v-dialog :value="loginModal" width="500" :persistent="true">
+            <Login />
+        </v-dialog>
 
-            <!-- Register Modal -->
-            <v-dialog v-model="registerModal" width="750" :persistent="true">
-                <Register />
-            </v-dialog>
+        <!-- Register Modal -->
+        <v-dialog v-model="registerModal" width="750" :persistent="true">
+            <Register />
+        </v-dialog>
 
-            <!-- Forgot Password Modal -->
-            <v-dialog v-model="forgotPasswordModal" width="750">
-                <ForgotPassword />
-            </v-dialog>
+        <!-- Forgot Password Modal -->
+        <v-dialog v-model="forgotPasswordModal" width="750">
+            <ForgotPassword />
+        </v-dialog>
         <!-- </v-content> -->
     </v-app>
 </template>
@@ -117,9 +117,9 @@
 			}
 		},
 		methods: {
-			onScroll (e) {
-        this.offsetTop = e.target.scrollTop
-      },
+			onScroll(e) {
+				this.offsetTop = e.target.scrollTop
+			},
 			onSwipe(direction) {
 				console.log('direction: ', direction)
 				// this.swipeDirection = direction

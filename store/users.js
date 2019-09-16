@@ -26,7 +26,10 @@ export const state = () => ({
 
 export const mutations = {
     setLoadedUser(state, payload) {
-        // console.log('Entering setLoadedUser mutation: ', payload)
+		console.log('Entering setLoadedUser mutation: ', payload)
+		if (payload['uid']) {
+			payload['id'] = payload['uid']
+		}
         state.loadedUser = payload
     }
     // setAllUsers(state, payload) {

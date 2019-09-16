@@ -3,53 +3,52 @@
         <v-card-title class="primary-title">
             <v-card-text class="text-md-center">
                 <h2>Football competition<i class="fa fa-futbol"></i></h2>
+                <!-- selectedCountry: {{ selectedCountry }}<br /><br /> -->
             </v-card-text>
         </v-card-title>
         <v-container>
-            <!-- <v-layout row wrap> -->
             <v-row>
-                <!-- <v-flex xs12 sm6 offset-sm3> -->
                 <v-col sm="6" offset-sm="3">
-                    <v-autocomplete :items="loadedCountries" label="Select a country" item-text="name" item-value="apifootball_name" single-line :return-object="true" v-model="selectedCountry"></v-autocomplete>
-                    <!-- </v-flex> -->
+                    <v-radio-group row v-model="competitionScope" class="justify-center">
+                        <v-radio color="primary" value="national" label="National"></v-radio>
+                        <v-radio color="primary" value="international" label="International" @change="selectedCountry = { apifootball_name: 'world' }"></v-radio>
+                    </v-radio-group>
                 </v-col>
-                <!-- <v-flex xs12 sm6 offset-sm3> -->
+
+                <transition name="slide">
+                    <v-col sm="6" offset-sm="3" v-if="competitionScope === 'national'">
+                        <v-autocomplete :items="loadedCountries" label="Select a country" item-text="name" item-value="apifootball_name" single-line :return-object="true" v-model="selectedCountry" @change="fetchCompetitionsByCountryAndSeason"></v-autocomplete>
+                    </v-col>
+                </transition>
+
                 <v-col sm="6" offset-sm="3">
                     <v-autocomplete :items="loadedSeasons" label="Select year of the starting season" item-text="name" item-value="slug" single-line :return-object="true" v-model="selectedSeason" @change="fetchCompetitionsByCountryAndSeason"></v-autocomplete>
-                    <!-- </v-flex> -->
                 </v-col>
-                <!-- <v-flex xs12 sm6 offset-sm3> -->
+
                 <v-col sm="6" offset-sm="3">
                     <v-autocomplete :items="loadedCompetitions" label="Select a competition" item-text="name" item-value="slug" single-line :return-object="true" v-model="selectedCompetition"></v-autocomplete>
-                    <!-- </v-flex> -->
                 </v-col>
-				<!-- selectedCompetition: {{ selectedCompetition }}<br /><br /> -->
-				<v-col sm="6" offset-sm="3" v-if="selectedCompetition.type === 'League'">
+                <v-col sm="6" offset-sm="3" v-if="selectedCompetition.type === 'League'">
                     <v-text-field v-model="selectedCompetition.rounds" type="number" label="Total rounds" hint="Typically 38 for a league with 20 teams" :persistent-hint="true"></v-text-field>
                 </v-col>
 
-                <!-- <v-flex xs12 sm6 offset-sm3 class="text-xs-center"> -->
                 <v-col cols="12" class="text-center">
                     <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition || (selectedCompetition.type === 'League' && !selectedCompetition.rounds)" :loading="loading">
                         Add competition
                     </v-btn><br />
-                    <!-- <v-layout class="align-center" v-if="loading"> -->
                     <v-row justify="center" align="center" v-if="loading">
                         <v-col>
                             <p class="text-center">
-								Insert into database<br />
+                                Insert into database<br />
                                 <span class="grey--text">{{ loadedMessage }}</span>
-							</p>
+                            </p>
                             <v-alert dense outlined prominent type="warning" icon="mdi-alert-outline">
                                 This request will retrieve all matches for the competition as well as all events and all statistics for each match. So it will take <strong>some time</strong> to complete. Please be patient and wait until a message is returned back.
                             </v-alert>
                         </v-col>
-                        <!-- </v-layout> -->
                     </v-row>
-                    <!-- </v-flex> -->
                 </v-col>
             </v-row>
-            <!-- </v-layout> -->
         </v-container>
     </v-card>
 </template>
@@ -70,14 +69,7 @@
 				console.log('error: ', error)
 			}
 		},
-		mounted() {
-			// console.log(
-			// 	'moment: ',
-			// 	moment()
-			// 		.add('-1', 'year')
-			// 		.format('YYYY')
-			// )
-		},
+		mounted() {},
 		data() {
 			return {
 				items: [
@@ -100,7 +92,8 @@
 				loadedCompetitions: [],
 				selectedCountry: '',
 				selectedSeason: '',
-				selectedCompetition: ''
+				selectedCompetition: '',
+				competitionScope: 'national'
 			}
 		},
 		computed: {
@@ -176,5 +169,38 @@
 	}
 	.input-group__details {
 		padding-top: 10px;
+	}
+	.slide-enter-active {
+		-moz-transition-duration: 0.3s;
+		-webkit-transition-duration: 0.3s;
+		-o-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+		-moz-transition-timing-function: ease-in;
+		-webkit-transition-timing-function: ease-in;
+		-o-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+	}
+
+	.slide-leave-active {
+		-moz-transition-duration: 0.3s;
+		-webkit-transition-duration: 0.3s;
+		-o-transition-duration: 0.3s;
+		transition-duration: 0.3s;
+		-moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+		-webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+		-o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+		transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	}
+
+	.slide-enter-to,
+	.slide-leave {
+		max-height: 100px;
+		overflow: hidden;
+	}
+
+	.slide-enter,
+	.slide-leave-to {
+		overflow: hidden;
+		max-height: 0;
 	}
 </style>

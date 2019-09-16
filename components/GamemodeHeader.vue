@@ -1,8 +1,10 @@
 <template>
     <v-row no-gutters class="elevation-12 custom-height" style="">
-        <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
-            <v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
-        </v-col>
+		<v-hover v-slot:default="{ hover }">
+			<v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+				<v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
+			</v-col>
+		</v-hover>
         <v-col cols="8" style="height: 100%;">
             <v-row no-gutters justify="center" align="center" style="height: 80%;">
                 <v-col cols="12" align-self="stretch">
@@ -52,9 +54,12 @@
                     </v-row>
                 </v-col>
             </v-row>
-            <v-row no-gutters style="height:20%;">
-                <v-col cols="12" class="primary d-flex justify-start align-center text-left white--text">
-                    Welcome jeanquark!
+            <v-row no-gutters align="center" class="primary" style="height:20%;">
+				<v-col cols="6" class="text-left white--text">
+                    <span class="">Welcome jeanquark!</span>
+                </v-col>
+				<v-col cols="6" class="text-right white--text">
+					<v-btn x-small to="/admin" class="success">Admin</v-btn>
                 </v-col>
             </v-row>
             

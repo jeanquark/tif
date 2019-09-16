@@ -232,7 +232,8 @@ exports.listenToEventsAwayTeamGoalsUpdate = functions.database.ref('/events/{eve
     console.log('change.before.val(): ', change.before.val())
     console.log('change.after.val(): ', change.after.val())
     console.log('context: ', context)
-    const event = change.after.val();
+	const event = change.after.val()
+	const eventId = context.params.eventId
 
     // 1) Initialize Webpush module with our Vapid keys
 	const vapidPublicKey = functions.config().vapid.public_key
@@ -270,10 +271,11 @@ exports.listenToEventsAwayTeamGoalsUpdate = functions.database.ref('/events/{eve
 			.sendNotification(
 				pushConfig,
 				JSON.stringify({
-					title: `${event.homeTeam_short} vs ${event.awayTeam_short}: ${event.homeTeam_score}-${event.awayTeam_score}`,
+					title: `${event.homeTeam_name} vs ${event.awayTeam_name}: ${event.homeTeam_score}-${event.awayTeam_score}`,
 					content: "Congratulations, you've earned 20$fans!",
-					icon: '/static/images/icons/icon_256x256.png',
-					badge: '/static/images/icons/icon_96x96.png',
+					icon: '/images/icons/icon_256x256.png',
+					badge: '/images/icons/icon_96x96.png',
+					link: `/events/${eventId}`,
 					vibrate: [100, 50, 100]
 				})
 			)
@@ -298,6 +300,7 @@ exports.listenToEventsAwayTeamGoalsUpdate = functions.database.ref('/events/{eve
 					content: "Congratulations, you've earned 20$fans!",
 					icon: '/static/images/icons/icon_256x256.png',
 					badge: '/static/images/icons/icon_96x96.png',
+					link: `/events/${eventId}`,
 					vibrate: [100, 50, 100]
 				})
 			)

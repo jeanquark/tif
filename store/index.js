@@ -100,7 +100,7 @@ export const actions = {
             console.log('User is not logged in from nuxtServerInit')
         }
     },
-    nuxtClientInit({ commit, rootState, rootGetters }, context) { // Added package (not present in default nuxt)
+    nuxtClientInit({ commit, rootState, rootGetters }, context) { // Added package (not present in Nuxt by default)
         try {
             // console.log('nuxtClientInit')
             // const userId2 = rootState.users.loadedUser ? rootState.users.loadedUser.id : null
@@ -110,7 +110,7 @@ export const actions = {
             if (userId) {
                 firebase.database().ref(`/users/${userId}`).on('value', function(snapshot) {
                     // console.log('snapshot.val() from nuxtClientInit: ', snapshot.val())
-                    commit('users/setLoadedUser', {...snapshot.val(), uid: userId }, { root: true })
+                    commit('users/setLoadedUser', {...snapshot.val(), id: userId }, { root: true })
                 })
             }
         } catch (error) {

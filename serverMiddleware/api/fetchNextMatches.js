@@ -9,7 +9,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-console.log('APIFOOTBALL_KEY: ', process.env.APIFOOTBALL_KEY);
+// console.log('APIFOOTBALL_KEY: ', process.env.APIFOOTBALL_KEY);
 
 // const today = moment().format('YYYY-MM-DD');
 // const in1day = moment().add(1, 'days').format('YYYY-MM-DD');

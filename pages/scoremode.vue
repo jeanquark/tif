@@ -93,7 +93,7 @@
 										<template v-slot:header="{ headers }">
 											<thead>
 												<tr align="center">
-													<th class="text-center" v-for="header in standingsHeader">
+													<th class="text-center" v-for="header in standingsHeader" :key="header.text">
 														{{ header.text }}
 													</th>
 												</tr>
@@ -218,7 +218,7 @@
 										<template v-slot:header="{ headers }">
 											<thead>
 												<tr align="center">
-													<th class="text-center" v-for="header in standingsHeader">
+													<th class="text-center" v-for="header in standingsHeader" :key="header.text">
 														{{ header.text }}
 													</th>
 												</tr>

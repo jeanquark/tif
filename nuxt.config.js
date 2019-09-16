@@ -200,12 +200,12 @@ export default {
         ],
 		'nuxt-client-init-module',
 		'fullpage-nuxt',
-		'@nuxtjs/sentry'
+		// '@nuxtjs/sentry'
 	],
-	sentry: {
-        dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
-        config: {} // Additional config
-    },
+	// sentry: {
+    //     dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
+    //     config: {} // Additional config
+    // },
     /*
      ** Build configuration
      */

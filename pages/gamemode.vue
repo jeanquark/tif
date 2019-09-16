@@ -1,21 +1,19 @@
 <template>
-    <v-container fluid fill-height style="padding: 0px; max-width: 1017px;">
+    <v-container style="padding: 0px; max-width: 1017px;">
         <div id="overlay" @click="removeOverlay"></div>
         <v-row no-gutters justify="center" align="center">
             <v-col cols="12" style="background: #EEEEEE;">
 
                 <gamemode-header />
 
-                loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
-				showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br />
-                <!-- loadedUser: {{ loadedUser }}<br /><br /> -->
+                <div>
+					loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
+					loadedUserSubscriptionsObject: {{ loadedUserSubscriptionsObject }}<br /><br />
+                	showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br />
+                	<!-- loadedUser: {{ loadedUser }}<br /><br /> -->
+				</div>
 
-                <v-progress-linear
-        color="amber"
-        height="25"
-        value="50"
-        reactive
-      ></v-progress-linear>
+                <v-progress-linear color="amber" height="25" value="50" reactive></v-progress-linear>
 
                 <v-row no-gutters justify="center" align="center" class="my-4">
                     <v-col cols="12" sm="4" class="text-center">
@@ -46,25 +44,18 @@
                 </v-row>
 
                 <v-row no-gutters justify="center" align="center" class="my-2" v-if="!showSubscribeToPushNotifications">
-                	<v-col cols="12" sm="6">
-                		<v-alert
-                			dark
-                			text
-                			color="warning"
-                			icon="mdi-exclamation"
-      						border="left"
-      						prominent
-      					>
-      						You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator.
-  						</v-alert>
-					</v-col>
+                    <v-col cols="12" sm="6">
+                        <v-alert dark text color="warning" icon="mdi-exclamation" border="left" prominent>
+                            You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator.
+                        </v-alert>
+                    </v-col>
                 </v-row>
 
                 <v-row no-gutters justify="center" align="center" class="my-2" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications">
                     <v-col cols="12" class="my-2">
-                        <h3 class="text-center">Notifications status on this device</h3>
+                        <h3 class="text-center">Notifications status on your device</h3>
                     </v-col>
-                    <v-col cols="12" sm="6" md="4" v-for="(team, index) in loadedUserTeams" :key="team.id">
+                    <v-col cols="12" sm="6" md="4" v-for="team in loadedUserTeams" :key="team.id">
                         <v-card class="ma-2 pa-3">
                             <v-card-title primary-title class="text-xs-center">
                                 <v-col cols="6">
@@ -77,24 +68,32 @@
                             <v-card-text>
                                 <v-row no-gutters justify="start" align="center">
                                     <v-col cols="6">
-                                        <v-switch color="primary" label="Goals exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['goals']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Goals new" @change="toggleSubscription(team, 'goals')" v-else></v-switch>
+										<v-switch color="primary" label="Goals" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['goals']"></v-switch>
+
+                                        <!-- <v-switch color="primary" label="Goals exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['goals']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
+                                        <v-switch color="primary" label="Goals new"  @change="toggleSubscription(team, 'goals')" v-else></v-switch> -->
 
                                         <!-- <v-switch color="primary" label="Goals" @change="toggleSubscription(loadedUserSubscriptions[team.slug], 'goals', team, loadedUserSubscriptions[team.slug]['notifications']['goals'], false)" v-model="loadedUserSubscriptions[team.slug]['notifications']['goals']" v-if="loadedUserSubscriptions[team.slug] && loadedUserSubscriptions[team.slug]['notifications']['goals']"></v-switch>
                                         <v-switch color="primary" label="Goals" @change="toggleSubscription(loadedUserSubscriptions[team.slug], 'goals', team, true)" v-else></v-switch> -->
                                     </v-col>
                                     <v-col cols="6">
-                                    	<v-switch color="primary" label="Game starts in 30 minutes exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts_in_30_minutes']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game starts in 30 minutes new" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" v-else></v-switch>
-                                        
+										<v-switch color="primary" label="Game starts in 30 minutes" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_starts_in_30_minutes']"></v-switch>
+
+                                        <!-- <v-switch color="primary" label="Game starts in 30 minutes exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts_in_30_minutes']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
+                                        <v-switch color="primary" label="Game starts in 30 minutes new" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" v-else></v-switch> -->
+
                                     </v-col>
                                     <v-col cols="6">
-                                    	<v-switch color="primary" label="Game starts exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game starts new" @change="toggleSubscription(team, 'game_starts')" v-else></v-switch>
+										<v-switch color="primary" label="Game starts" @change="toggleSubscription(team, 'game_starts')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_starts']"></v-switch>
+
+                                        <!-- <v-switch color="primary" label="Game starts exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
+                                        <v-switch color="primary" label="Game starts new" @change="toggleSubscription(team, 'game_starts')" v-else></v-switch> -->
                                     </v-col>
                                     <v-col cols="6">
-                                    	<v-switch color="primary" label="Game ends exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_ends']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game ends new" @change="toggleSubscription(team, 'game_ends')" v-else></v-switch>
+										<v-switch color="primary" label="Game ends" @change="toggleSubscription(team, 'game_ends')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_ends']"></v-switch>
+
+                                        <!-- <v-switch color="primary" label="Game ends exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_ends']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
+                                        <v-switch color="primary" label="Game ends new" @change="toggleSubscription(team, 'game_ends')" v-else></v-switch> -->
                                     </v-col>
                                 </v-row>
                             </v-card-text>
@@ -104,10 +103,6 @@
             </v-col>
         </v-row>
 
-        
-
-
-        
     </v-container>
 </template>
 
@@ -154,15 +149,16 @@
 			console.log('screen.height: ', window.screen.height)
 			console.log('navigator.navigator.userAgent: ', slugify(window.navigator.userAgent))
 
-			const abc = this.$store.getters['users/loadedUser']
-			console.log('abc.uid: ', abc.uid)
+			const loadedUser = this.$store.getters['users/loadedUser']
+			console.log('loadedUser.id: ', loadedUser['id'])
+			console.log('loadedUser.uid: ', loadedUser['uid'])
 			await this.checkUserSubscriptions(false)
 		},
 		data() {
 			return {
 				showAddToHomeScreenButton: false,
 				showSubscribeToPushNotifications: false,
-				checkSubscriptionButtonLoading: false,
+				checkSubscriptionButtonLoading: false
 			}
 		},
 		computed: {
@@ -173,7 +169,48 @@
 				return this.$store.getters['userTeams/loadedUserTeams']
 			},
 			loadedUserSubscriptions() {
-				return this.$store.getters['subscriptions/loadedUserSubscriptions']
+				// return this.$store.getters['subscriptions/loadedUserSubscriptions']
+				const array = this.$store.getters['subscriptions/loadedUserSubscriptions']
+				console.log('array: ', array)
+				return array
+
+				// let abc = {}
+				// array.reduce((obj, item) => {
+				// 	obj[item.id] = item
+				// 	console.log('obj: ', obj)
+				// 	abc = obj
+				// 	// return obj
+				// }, {})
+				// console.log('abc: ', abc)
+
+				// const userSubscriptions = {}
+				// this.loadedUserTeams.forEach(team => {
+				// 	// if (!userSubscriptions[team]) {
+				// 	userSubscriptions[team.id] = {
+				// 		''
+				// 	}
+				// 	// }
+				// })
+				// console.log('userSubscriptions: ', userSubscriptions)
+
+				return this.loadedUserTeams.reduce((obj, item) => {
+					// console.log('item.slug: ', item.slug)
+					// console.log('array2: ', array[0].team_slug)
+					const abc = array.find(subscription => subscription.team_slug == item.slug)
+					// console.log('abc: ', abc)
+					obj[item.id] = { notifications: abc ? abc.notifications : {} }
+					// console.log('obj: ', obj)
+					// abc = obj
+					return obj
+				}, {})
+				// return {}
+			},
+			loadedUserSubscriptionsObject () {
+				return this.loadedUserTeams.reduce((obj, item) => {
+					const abc = this.loadedUserSubscriptions.find(subscription => subscription.team_slug == item.slug)
+					obj[item.id] = { notifications: abc ? abc.notifications : {} }
+					return obj
+				}, {})
 			}
 		},
 		methods: {
@@ -289,8 +326,10 @@
 			async toggleSubscription(team, notificationType) {
 				try {
 					console.log('toggleSubscription: ', team, notificationType)
-					const subscription = this.loadedUserSubscriptions[team.slug]
+					// const subscription = this.loadedUserSubscriptions[team.slug]
+					const subscription = this.loadedUserSubscriptions.find(team => team.slug === team.slug)
 					console.log('subscription: ', subscription)
+					// return
 
 					if (Notification.permission === 'default') {
 						document.getElementById('overlay').style.display = 'block'
@@ -327,11 +366,11 @@
 						})
 						// console.log('subscriptions: ', subscriptions)
 					} else {
-						const value = subscription['notifications'][notificationType]
+						const value = this.loadedUserSubscriptionsObject[team.slug]['notifications'][notificationType]
 						console.log('value: ', value)
-						await this.$store.dispatch('subscriptions/updateUserSubscriptions', { 
-							subscription, 
-							notificationType, 
+						await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
+							subscription,
+							notificationType,
 							team,
 							value
 						})
@@ -343,6 +382,7 @@
 						theme: 'metroui'
 					}).show()
 				} catch (error) {
+					console.log('error: ', error)
 					new Noty({
 						type: 'error',
 						text: 'Sorry, an error occured and your subscription could not be updated.',
