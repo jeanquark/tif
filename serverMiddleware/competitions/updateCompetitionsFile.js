@@ -13,15 +13,25 @@ app.use(bodyParser.json())
 
 module.exports = app.use(async function(req, res, next) {
     try {
-		const competitions = req.body.competitions
-		console.log('competitions: ', competitions)
+		// console.log('req.body: ', req.body)
+		const { competitions } = req.body
 		
-		// await writeJsonFile('./helpers/activeCompetitions7.json', JSON.stringify(competitions, null, 4), {chown: false, mode: false})
+		const newCompetitionsArray = []
+		competitions.forEach(competition => {
+			if (competition.active) {
+				newCompetitionsArray.push({
+					name: competition.name,
+					slug: competition.slug,
+					apifootball_id: competition.apifootball_id
+				})
+			}
+		})
+		// console.log('newCompetitionsArray: ', newCompetitionsArray)
 
 		const writeFile = util.promisify(fs.writeFile)
-		await writeFile(`${publicPath}/competitions.json`, JSON.stringify(competitions, null, 4))
+		await writeFile(`${publicPath}/activeCompetitions.json`, JSON.stringify(newCompetitionsArray, null, 4))
 		
-		res.send(competitions)
+		res.send(newCompetitionsArray)
 		
     } catch (error) {
         console.log('error: ', error)

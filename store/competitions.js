@@ -377,7 +377,11 @@ export const actions = {
     // Update a competition
     async toggleCompetitionActiveStatus({ commit, dispatch }, payload) {
         try {
-            console.log(payload)
+			console.log('payload: ', payload)
+			await axios.post('/competitions/update-competitions-file', payload)
+			// console.log('abc: ', abc)
+			// throw 'error'
+			
             payload['_updated_at'] = moment().unix()
 
             let updates = {}

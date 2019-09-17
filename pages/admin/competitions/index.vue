@@ -252,10 +252,14 @@
 			onChange(newJson) {
 				this.newJSON = newJson
 			},
-			toggleCompetitionActiveStatus(competition) {
+			async toggleCompetitionActiveStatus(competition) {
 				try {
 					console.log('updateCompetitionActiveStatus: ', competition)
-					this.$store.dispatch('competitions/toggleCompetitionActiveStatus', competition)
+					// return
+					// await axios.post('/update-active-competitions', competition)
+					console.log('this.loadedCompetitions: ', this.loadedCompetitions)
+					// return
+					this.$store.dispatch('competitions/toggleCompetitionActiveStatus', { competitions: this.loadedCompetitions })
 					new Noty({
 						type: 'success',
 						text: 'Competition status updated successfully!',
