@@ -92,6 +92,7 @@ export const actions = {
             })
     },
     fetchCompetitionsByCountry({ commit }, payload) {
+        // console.log('Call  to fetchCompetitionsByCountry action: ', payload)
         return new Promise(resolve => {
             firebase
                 .database()

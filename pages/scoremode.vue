@@ -1,5 +1,6 @@
 <template>
-    <v-container fluid fill-height style="padding: 0px; max-width: 1017px;">
+    <!-- <v-container fluid fill-height style="padding: 0px; max-width: 1017px;"> -->
+    <v-container style="padding: 0px; max-width: 1017px;">
         <v-row no-gutters>
             <v-col cols="12" style="background: #EEEEEE;">
                 <scoremode-header />
@@ -40,37 +41,38 @@
                                     </template>
                                     <v-row class="text-left white--text font-weight-bold align-center">
                                         <span class="subtitle mx-2">{{ competition.name }}</span>
-                                        <v-img :src="`/images/competitions/${competition.image}`" max-width="30" class="mr-2"></v-img>
+                                        <v-img :src="`/images/competitions/${competition.image}`" max-width="30" class="mr-1"></v-img>
                                         <v-row class="white--text align-center mx-2" v-for="country in competition.countries" :key="country.slug">
                                             <span class="subtitle mx-2">{{ country.name }}</span>
-                                            <v-img :src="`/images/countries/${country.slug}.png`" max-width="30" class="mr-2"></v-img>
+                                            <v-img :src="`/images/countries/${country.slug}.png`" max-width="30" class="mr-1"></v-img>
                                         </v-row>
                                     </v-row>
                                     <span class="text-right mr-4" v-if="competition.type === 'league'">
-                                        <v-btn class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && standings" @click.stop="getEventsByDateByCompetition(getDate(day), competition)">By day</v-btn>
-                                        <v-btn class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && !standings" @click.stop="getStandingsByCompetition()">Standings</v-btn>
-                                        <v-btn class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index" @click="getEventsByRound(competition)">By rounds</v-btn>
+                                        <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && standings" @click.stop="getEventsByDateByCompetition(getDate(day), competition)">By day</v-btn>
+                                        <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && !standings" @click.stop="getStandingsByCompetition()">Standings</v-btn>
+                                        <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index" @click="getEventsByRound(competition)">By rounds</v-btn>
                                     </span>
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="" style="border: 1px dashed pink;" v-if="!standings">
                                     <!-- <competitionResults></competitionResults>
 									<competitionStandings></competitionStandings> -->
-                                    <v-row no-gutters justify="start" align="center" class="py-2" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)" style="border: 1px solid green;">
+                                    <v-row no-gutters justify="start" align="center" class="py-2 row" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)" style="border: 1px solid green;">
                                         <v-col class="">
                                         	<v-row no-gutters align="center">
                                             	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
                                             	<span>{{ event.homeTeam_name }}</span>
+								                &nbsp;eventId: {{ event.id }}
                                             </v-row>
                                         </v-col>
                                         <v-col class="text-center">
-											eventId: {{ event.id }}
                                             {{ event.status }} <br />
                                             <span v-if="event.statusShort !== 'NS'">
-                                            	{{ event.homeTeam_score }} - {{ event.awayTeam_score }}
+                                                {{ event.homeTeam_score }} - {{ event.awayTeam_score }}
                                             </span>
-                                            <!-- <span v-else> -->
+                                            <span v-else>
+                                                <!-- {{ event.venue }} -->
                                             	{{ event.timestamp | moment('HH:mm') }}
-                                            <!-- </span> -->
+                                            </span>
                                         </v-col>
                                         <v-col class="">
                                         	<v-row no-gutters justify="end" align="center">
@@ -682,22 +684,26 @@
 </script>
 
 <style scoped>
-	.tableRow {
+	/*.tableRow {
 		height: 50px;
-		/* border: 1px solid #000; */
 	}
 	.tableRow:hover {
 		cursor: pointer;
 		color: #fff;
 		background: var(--v-primary-base);
-	}
+	}*/
+    .row:hover {
+        cursor: pointer;
+        background: var(--v-primary-base);
+        color: #FFF;
+    }
 	.background-grey {
 		background: #eeeeee;
 	}
-	.background-grey:hover {
+	/*.background-grey:hover {
 		background: var(--v-primary-base);
-	}
-	>>>.v-expansion-panel-content__wrap {
-		/*padding: 0;*/
-	}
+	}*/
+	/*>>>.v-expansion-panel-content__wrap {
+		padding: 0;
+	}*/
 </style>

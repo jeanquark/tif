@@ -51,10 +51,10 @@
 
 <script>
 	import Events from '~/components/event/Events'
-	import Teams from '~/components/event/Teams'
+	// import Teams from '~/components/event/Teams'
 	import Statistics from '~/components/event/Statistics'
 	export default {
-		components: { Events, Teams, Statistics },
+		components: { Events, Statistics },
 		// layout: 'layoutGamemode',
 		layout: 'layoutScoremode',
 		async created() {

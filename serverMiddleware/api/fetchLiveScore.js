@@ -26,38 +26,38 @@ module.exports = app.use(async function(req, res, next) {
 		// console.log('activeCompetitions2: ', activeCompetitions2)
 		// console.log('activeCompetitions3: ', activeCompetitions3)
 
-		const competitionsArray = [
-            {
-                england_premier_league_2019_2020: {
-                    apifootball_id: 524
-                },
-                france_ligue_1_2019_2020: {
-                    apifootball_id: 525
-                },
-                germany_bundesliga_1_2019_2020: {
-                    apifootball_id: 754
-                },
-                spain_primera_division_2019_2020: {
-                    apifootball_id: 775
-                },
-                spain_segunda_division_2019_2020: {
-                    apifootball_id: 776
-                },
-                switzerland_super_league_2019_2020: {
-                    apifootball_id: 576
-                },
-                switzerland_challenge_league_2019_2020: {
-                    apifootball_id: 585
-                }
-            }
-		]
+		// const competitionsArray = [
+  //           {
+  //               england_premier_league_2019_2020: {
+  //                   apifootball_id: 524
+  //               },
+  //               france_ligue_1_2019_2020: {
+  //                   apifootball_id: 525
+  //               },
+  //               germany_bundesliga_1_2019_2020: {
+  //                   apifootball_id: 754
+  //               },
+  //               spain_primera_division_2019_2020: {
+  //                   apifootball_id: 775
+  //               },
+  //               spain_segunda_division_2019_2020: {
+  //                   apifootball_id: 776
+  //               },
+  //               switzerland_super_league_2019_2020: {
+  //                   apifootball_id: 576
+  //               },
+  //               switzerland_challenge_league_2019_2020: {
+  //                   apifootball_id: 585
+  //               }
+  //           }
+		// ]
 		
 		const readFile = util.promisify(fs.readFile)
         // const competitions = await readFile('./helpers/activeCompetitions4.json', 'utf8')
-		const activeCompetitions = await readFile('./static/activeCompetitions.json', 'utf8')
-		console.log('activeCompetitions: ', JSON.parse(activeCompetitions))
-		const competitions = JSON.parse(activeCompetitions)
-		competitions.forEach(competition => {
+		const competitions = await readFile('./static/activeCompetitions.json', 'utf8')
+		console.log('competitions: ', JSON.parse(competitions))
+		const activeCompetitions = JSON.parse(competitions)
+		activeCompetitions.forEach(competition => {
 			console.log('competition: ', competition)
 		})
 
@@ -77,13 +77,17 @@ module.exports = app.use(async function(req, res, next) {
 		// })
 		// console.log('competitions: ', competitions)
 
-		fs.writeFile("./helpers/activeCompetitions4.json", JSON.stringify(competitionsArray, null, 4), function(err) {
-			if (err) {
-				return console.log('err: ', err);
-			}
+
+
+		// fs.writeFile("./helpers/activeCompetitions4.json", JSON.stringify(competitionsArray, null, 4), function(err) {
+		// 	if (err) {
+		// 		return console.log('err: ', err);
+		// 	}
 		
-			console.log("The file was saved!");
-		}); 
+		// 	console.log("The file was saved!");
+		// }); 
+
+
 
 		// const abc = competitionsArray.forEach(function (competition) {
 		// 	console.log('competition2: ', competition)
@@ -107,7 +111,7 @@ module.exports = app.use(async function(req, res, next) {
         // console.log('competitionsArray: ', competitionsArray)
 
         // const response = await getLiveScore()
-        res.status(200).send('GET request to APIFootball to fetch live scores succeeded!')		
+        // res.status(200).send('GET request to APIFootball to fetch live scores succeeded!')
 
         // console.log('response.status: ', response.status);
 		// console.log('response.body.api.fixtures: ', response.body.api.fixtures);
@@ -126,7 +130,7 @@ module.exports = app.use(async function(req, res, next) {
         for (let match of Object.values(response.body.api.fixtures)) {
             // console.log('match: ', match);
             // console.log('match.league_id: ', match.league_id);
-            if (competitionsArray.find(competition => competition.apifootball_id == match.league_id)) {
+            if (activeCompetitions.find(competition => competition.apifootball_id == match.league_id)) {
                 console.log('match: ', match)
                 const id = match.fixture_id
                 updates[`/events/${id}/status`] = match.status

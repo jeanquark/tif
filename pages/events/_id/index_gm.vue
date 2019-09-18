@@ -186,7 +186,7 @@
             </div>
             <div>
                 <events v-if="activeComponent === 'events'" :eventId="eventId" />
-                <teams v-if="activeComponent === 'teams'" :eventId="eventId" />
+                <!-- <teams v-if="activeComponent === 'teams'" :eventId="eventId" /> -->
                 <statistics v-if="activeComponent === 'statistics'" :eventId="eventId" />
             </div>
         </v-container>
@@ -195,10 +195,10 @@
 
 <script>
 	import Events from '~/components/event/Events'
-	import Teams from '~/components/event/Teams'
+	// import Teams from '~/components/event/Teams'
 	import Statistics from '~/components/event/Statistics'
 	export default {
-		components: { Events, Teams, Statistics },
+		components: { Events, Statistics },
 		// layout: 'layoutGamemode',
 		layout: 'layoutScoremode',
 		async created() {

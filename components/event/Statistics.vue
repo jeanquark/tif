@@ -1,22 +1,27 @@
 <template>
     <div style="background: #FFF;" class="py-3">
-        <!-- loadedGameStatisticsByEvent: {{ loadedGameStatisticsByEvent }}<br /><br /> -->
-		<v-row no-gutters justify="center" align="center" class="my-4" v-for="statistic in loadedGameStatisticsByEvent" :key="statistic.slug">
+        loadedGameStatisticsByEvent: {{ loadedGameStatisticsByEvent }}<br /><br />
+		<v-row no-gutters justify="center" align="center" class="my-4" v-for="statistic in loadedGameStatisticsByEvent" :key="statistic.slug" v-if="loadedGameStatisticsByEvent.length > 0">
 			<div v-if="statistic.home">
-			<v-col cols="12" class="text-center primary--text py-2">
-				{{ statistic.name }}
-			</v-col>
-			<v-col cols="1" class="text-right pr-2">
-				{{ statistic.home }}
-			</v-col>
-			<v-col cols="10" class="text-center">
-			<v-progress-linear :value="getPercent(statistic.home, statistic.away)" height="20" color="amber">
-			</v-progress-linear>
-			</v-col>
-			<v-col cols="1" class="text-left pl-2">
-				{{ statistic.away }}
-			</v-col>
+				<v-col cols="12" class="text-center primary--text py-2">
+					{{ statistic.name }}
+				</v-col>
+				<v-col cols="1" class="text-right pr-2">
+					{{ statistic.home }}
+				</v-col>
+				<v-col cols="10" class="text-center">
+					<v-progress-linear :value="getPercent(statistic.home, statistic.away)" height="20" color="amber">
+					</v-progress-linear>
+				</v-col>
+				<v-col cols="1" class="text-left pl-2">
+					{{ statistic.away }}
+				</v-col>
 			</div>
+		</v-row>
+		<v-row no-gutters v-else>
+			<v-col cols="12">
+				<h2 class="text-center">No statistics</h2>
+			</v-col>
 		</v-row>
     </div>
 </template>

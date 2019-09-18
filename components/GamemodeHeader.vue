@@ -1,7 +1,7 @@
 <template>
     <v-row no-gutters class="elevation-12 custom-height" style="">
 		<v-hover v-slot:default="{ hover }">
-			<v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+			<v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="" @click="redirectTo('/gamemode')">
 				<v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
 			</v-col>
 		</v-hover>
@@ -10,45 +10,46 @@
                 <v-col cols="12" align-self="stretch">
                     <v-row no-gutters style="height: 70%;">
                         <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed red;" @click="redirectTo('/teams')">
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">{{ loadedUserTeams.length }}</h1>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
                             <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
                                 <h1 :class="hover ? 'white--text' : 'primary--text'">1</h1>
                             </v-col>
                         </v-hover>
                         <v-hover v-slot:default="{ hover }">
                             <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
-                                <h1 :class="hover ? 'white--text' : 'primary--text'">2</h1>
-                            </v-col>
-                        </v-hover>
-                        <v-hover v-slot:default="{ hover }">
-                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed red;">
-                                <h1 :class="hover ? 'white--text' : 'primary--text'">3</h1>
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">120</h1>
                             </v-col>
                         </v-hover>
                         <v-hover v-slot:default="{ hover }">
                             <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
-                                <h1 :class="hover ? 'white--text' : 'primary--text'">4</h1>
+                                <h1 :class="hover ? 'white--text' : 'primary--text'">580</h1>
                             </v-col>
                         </v-hover>
                     </v-row>
                     <v-row no-gutters style="height: 30%;">
+                        
                         <v-hover v-slot:default="{ hover }">
-                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
-                                <span class="text-uppercase custom-font white--text">sports</span>
-                            </v-col>
-                        </v-hover>
-                        <v-hover v-slot:default="{ hover }">
-                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
-                                <span class="text-uppercase custom-font white--text">compétitions</span>
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
+                                <span class="text-uppercase custom-font white--text">mes équipes</span>
                             </v-col>
                         </v-hover>
                         <v-hover v-slot:default="{ hover }">
                             <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
-                                <span class="text-uppercase custom-font white--text">équipes</span>
+                                <span class="text-uppercase custom-font white--text">Niveau</span>
                             </v-col>
                         </v-hover>
                         <v-hover v-slot:default="{ hover }">
-                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="border: 1px dashed primary;">
-                                <span class="text-uppercase custom-font white--text">fans</span>
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <span class="text-uppercase custom-font white--text">$fans</span>
+                            </v-col>
+                        </v-hover>
+                        <v-hover v-slot:default="{ hover }">
+                            <v-col cols="3" class="d-flex justify-center align-center" :class="hover ? 'primary' : 'black'" style="">
+                                <span class="text-uppercase custom-font white--text">tokens</span>
                             </v-col>
                         </v-hover>
                     </v-row>
@@ -85,14 +86,20 @@
 		computed: {
 			loadedUser() {
 				return this.$store.getters['users/loadedUser']
-			}
+			},
+            loadedUserTeams() {
+                return this.$store.getters['userTeams/loadedUserTeams']
+            }
 		},
 		methods: {
 			async logout() {
 				console.log('logout')
 				await this.$store.dispatch('firebase-auth/signOut')
 				this.$router.push('/')
-			}
+			},
+            redirectTo(route) {
+                this.$router.push(route)
+            }
 		}
 	}
 </script>
@@ -141,6 +148,9 @@
     .custom-font {
         font-size: 1.2em;
         font-weight: bold;
+    }
+    .primary:hover {
+        cursor: pointer;
     }
     @media screen and (max-width: 960px) {
         .custom-height {

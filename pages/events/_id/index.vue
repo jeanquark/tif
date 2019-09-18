@@ -1,19 +1,20 @@
 <template>
     <v-container style="max-width: 1017px;" v-if="event.id">
-		event: {{ event }}<br /><br />
+		<!-- event: {{ event }}<br /><br /> -->
         <div class="background-image">
             <v-row no-gutters style="border: 1px solid red; background-color: rgb(0,0,0,0.25);">
                 <v-col cols="12" justify="center" align="center" class="game-info">
                     <span class="text-center">
+                    	<!-- <v-img :src="`/images/competitions/${event.competition_slug}.png`" max-width="20"></v-img> -->
                         {{ event.competition_name }}<br />
-                        {{ event.roundShort }} Round
+                        Round {{ event.roundShort }}
                     </span>
                 </v-col>
             </v-row>
 
             <v-row no-gutters justify="center" align="center" style="border: 1px solid red;">
                 <v-col cols="2" align="center" class="" style="border: 1px dashed orangered;">
-                    <v-img src="/images/switzerland.png" class="text-center" max-width="70%" style="margin: auto;"></v-img>
+                    <v-img :src="`/images/teams/${event.homeTeam_slug}.png`" class="text-center" max-width="70%" style="margin: auto;"></v-img>
                     <!-- <img src="/images/switzerland.png" class="text-center" max-width="70%" /> -->
                 </v-col>
                 <v-col cols="3" justify="center" class="text-center">
@@ -29,7 +30,7 @@
                     <div class="box-pf" style="border: 1px dashed green;">12.456 PF</div>
                 </v-col>
                 <v-col cols="2" class="justify-center align-center" style="border: 1px dashed orangered;">
-                    <v-img src="/images/switzerland.png" class="" max-width="70%" style="margin: auto;"></v-img>
+                    <v-img :src="`/images/teams/${event.awayTeam_slug}.png`" class="" max-width="70%" style="margin: auto;"></v-img>
                 </v-col>
             </v-row>
 
@@ -41,11 +42,12 @@
                 </v-col>
                 <v-col cols="4" class="text-center" style="border: 1px dashed red;">
                     <div class="box-livescore" style="">
-                        <span style="text-align: center;" v-if="event.statusShort === 'FT'">
+                        <span class="text-center title" style="" v-if="event.statusShort === 'FT'">
 							{{ event.score.fulltime }}
 						</span>
 						<span style="text-align: center;" v-else>
-							{{ event.date }} - {{ event.time }}
+							{{ event.date }}<br />
+							{{ event.time }}
 						</span>
                     </div>
                 </v-col>
@@ -82,9 +84,9 @@
                         résumé du match
                     </div>
                 </v-col>
-                <v-col cols="4" :class="{ active: activeComponent === 'teams' }">
-                    <div class="box-link" @click="activeComponent = 'teams'">
-                        <span class="">équipes</span>
+                <v-col cols="4" :class="{ active: activeComponent === 'players' }">
+                    <div class="box-link" @click="activeComponent = 'players'">
+                        <span class="">joueurs</span>
                     </div>
                 </v-col>
                 <v-col cols="4" :class="{ active: activeComponent === 'statistics' }">
@@ -97,8 +99,8 @@
             <v-row no-gutters style="">
                 <v-col cols="12">
                     <game v-if="activeComponent === 'game'" :eventId="eventId" />
-					<events v-if="activeComponent === 'events'" :eventId="eventId" :homeTeamId="event.homeTeam_id" :awayTeamId="event.awayTeam_id" />
-                	<teams v-if="activeComponent === 'teams'" :eventId="eventId" />
+					<events v-if="activeComponent === 'events'" :eventId="eventId" :homeTeamId="event.homeTeam_id" :awayTeamId="event.awayTeam_id" :homeTeamSlug="event.homeTeam_slug" :awayTeamSlug="event.awayTeam_slug" />
+                	<players v-if="activeComponent === 'players'" :eventId="eventId" :homeTeamId="event.homeTeam_id" :awayTeamId="event.awayTeam_id" :homeTeamSlug="event.homeTeam_slug" :awayTeamSlug="event.awayTeam_slug" />
                 	<statistics v-if="activeComponent === 'statistics'" :eventId="eventId" />
                 </v-col>
             </v-row>
@@ -111,10 +113,10 @@
 <script>
 	import Game from '~/components/event/Game'
 	import Events from '~/components/event/Events'
-	import Teams from '~/components/event/Teams'
+	import Players from '~/components/event/Players'
 	import Statistics from '~/components/event/Statistics'
 	export default {
-		components: { Game, Events, Teams, Statistics },
+		components: { Game, Events, Players, Statistics },
 		layout: 'layoutGamemode',
 		// layout: 'layoutScoreMode',
 		async created() {
@@ -156,7 +158,7 @@
 				// actionsModal: false,
 				eventId: '',
 				event: {},
-				activeComponent: 'events'
+				activeComponent: 'game'
 			}
 		},
 		methods: {

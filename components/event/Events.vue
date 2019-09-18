@@ -4,7 +4,7 @@
         <!-- eventId: {{ eventId }}<br /><br /> -->
         <!-- homeTeamId: {{ homeTeamId }}<br /><br /> -->
         <!-- awayTeamId: {{ awayTeamId }}<br /><br /> -->
-        <!-- loadedEventsByEvent: {{ loadedEventsByEvent }}<br /><br /> -->
+        loadedEventsByEvent: {{ loadedEventsByEvent }}<br /><br />
 
         <v-row no-gutters justify="center" align="center" class="" style="color: #FFF;">
             <v-col cols="12" class="py-2">
@@ -13,8 +13,14 @@
                 </h3>
             </v-col>
         </v-row>
-        <v-row no-gutters class="my-0 py-1" v-for="(event, index) in loadedEventsByEvent" :key="index">
-			<!-- :class="index % 2 === 0 ? 'white' : ''" -->
+        <v-row no-gutters class="my-0 py-1" v-for="(event, index) in loadedEventsByEvent" :key="index" v-if="loadedEventsByEvent && loadedEventsByEvent.length > 0">
+            <!-- :class="index % 2 === 0 ? 'white' : ''" -->
+            <!-- <v-col cols="12" class="py-2">
+                <h3 class="text-center">
+                    Temps forts du match
+                </h3>
+            </v-col> -->
+			<!--  -->
             <v-col cols="6" v-if="event.team_id === homeTeamId" style="">
                 <v-row no-gutters align="center">
                     <v-col cols="8" class="text-right" style="border: 0px dashed red;">
@@ -41,6 +47,11 @@
                         {{ event.player }}
                     </v-col>
                 </v-row>
+            </v-col>
+        </v-row>
+        <v-row no-gutters v-else>
+            <v-col cols="12">
+                <h2 class="text-center">No events for this game yet</h2>
             </v-col>
         </v-row>
     </div>

@@ -8,14 +8,17 @@
 
                 <div>
 					loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
-					loadedUserSubscriptionsObject: {{ loadedUserSubscriptionsObject }}<br /><br />
-                	showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br />
+					<!-- loadedUserSubscriptionsObject: {{ loadedUserSubscriptionsObject }}<br /><br /> -->
+                	<!-- showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br /> -->
                 	<!-- loadedUser: {{ loadedUser }}<br /><br /> -->
 				</div>
 
-                <v-progress-linear color="amber" height="25" value="50" reactive></v-progress-linear>
+				<div class="my-5">
+					<h2 class="text-center">Page principale gamemode</h2><br />
+					<h4 class="text-center">Le design doit encore être précisé</h4>
+				</div>
 
-                <v-row no-gutters justify="center" align="center" class="my-4">
+                <!-- <v-row no-gutters justify="center" align="center" class="my-4">
                     <v-col cols="12" sm="4" class="text-center">
                         <v-text-field name="username" label="Username" type="text" v-model="loadedUser.username"></v-text-field>
                     </v-col>
@@ -37,7 +40,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                </v-row>
+                </v-row> -->
 
                 <v-row no-gutters justify="center">
                     <v-btn color="success" class="elevation-0" @click="addToHomescreen" v-if="showAddToHomeScreenButton">Install app to homescreen</v-btn>
@@ -53,7 +56,7 @@
 
                 <v-row no-gutters justify="center" align="center" class="my-2" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications">
                     <v-col cols="12" class="my-2">
-                        <h3 class="text-center">Notifications status on your device</h3>
+                        <h3 class="text-center">Notifications status on this device</h3>
                     </v-col>
                     <v-col cols="12" sm="6" md="4" v-for="team in loadedUserTeams" :key="team.id">
                         <v-card class="ma-2 pa-3">
@@ -69,31 +72,15 @@
                                 <v-row no-gutters justify="start" align="center">
                                     <v-col cols="6">
 										<v-switch color="primary" label="Goals" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['goals']"></v-switch>
-
-                                        <!-- <v-switch color="primary" label="Goals exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['goals']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Goals new"  @change="toggleSubscription(team, 'goals')" v-else></v-switch> -->
-
-                                        <!-- <v-switch color="primary" label="Goals" @change="toggleSubscription(loadedUserSubscriptions[team.slug], 'goals', team, loadedUserSubscriptions[team.slug]['notifications']['goals'], false)" v-model="loadedUserSubscriptions[team.slug]['notifications']['goals']" v-if="loadedUserSubscriptions[team.slug] && loadedUserSubscriptions[team.slug]['notifications']['goals']"></v-switch>
-                                        <v-switch color="primary" label="Goals" @change="toggleSubscription(loadedUserSubscriptions[team.slug], 'goals', team, true)" v-else></v-switch> -->
                                     </v-col>
                                     <v-col cols="6">
-										<v-switch color="primary" label="Game starts in 30 minutes" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_starts_in_30_minutes']"></v-switch>
-
-                                        <!-- <v-switch color="primary" label="Game starts in 30 minutes exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts_in_30_minutes']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game starts in 30 minutes new" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" v-else></v-switch> -->
-
+										<v-switch color="primary" label="Game starts in 30 minutes" @change="toggleSubscription(team, 'game_starts_in_30_minutes')" :disabled="true" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_starts_in_30_minutes']"></v-switch>
                                     </v-col>
                                     <v-col cols="6">
 										<v-switch color="primary" label="Game starts" @change="toggleSubscription(team, 'game_starts')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_starts']"></v-switch>
-
-                                        <!-- <v-switch color="primary" label="Game starts exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_starts']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game starts new" @change="toggleSubscription(team, 'game_starts')" v-else></v-switch> -->
                                     </v-col>
                                     <v-col cols="6">
 										<v-switch color="primary" label="Game ends" @change="toggleSubscription(team, 'game_ends')" v-model="loadedUserSubscriptionsObject[team.slug]['notifications']['game_ends']"></v-switch>
-
-                                        <!-- <v-switch color="primary" label="Game ends exists" @change="toggleSubscription(team, 'goals')" v-model="loadedUserSubscriptions[team.slug]['notifications']['game_ends']" v-if="loadedUserSubscriptions[team.slug]"></v-switch>
-                                        <v-switch color="primary" label="Game ends new" @change="toggleSubscription(team, 'game_ends')" v-else></v-switch> -->
                                     </v-col>
                                 </v-row>
                             </v-card-text>
@@ -152,7 +139,7 @@
 			const loadedUser = this.$store.getters['users/loadedUser']
 			console.log('loadedUser.id: ', loadedUser['id'])
 			console.log('loadedUser.uid: ', loadedUser['uid'])
-			await this.checkUserSubscriptions(false)
+			await this.checkUserSubscriptions()
 		},
 		data() {
 			return {
@@ -228,7 +215,7 @@
 					deferredPrompt = null
 				})
 			},
-			async checkUserSubscriptions(displayMessage = true) {
+			async checkUserSubscriptions() {
 				try {
 					console.log('Call to checkSubscription method')
 					// console.log('loadedUser: ', this.loadedUser.uid)
@@ -325,11 +312,9 @@
 			},
 			async toggleSubscription(team, notificationType) {
 				try {
-					console.log('toggleSubscription: ', team, notificationType)
-					// const subscription = this.loadedUserSubscriptions[team.slug]
-					const subscription = this.loadedUserSubscriptions.find(team => team.slug === team.slug)
-					console.log('subscription: ', subscription)
-					// return
+					// console.log('toggleSubscription: ', team, notificationType)
+					const subscription = this.loadedUserSubscriptions.find(subscription => subscription.team_slug === team.slug)
+					// console.log('subscription: ', subscription)
 
 					if (Notification.permission === 'default') {
 						document.getElementById('overlay').style.display = 'block'

@@ -92,23 +92,33 @@ export const actions = {
     },
     async deselectUserTeam({ commit, rootGetters }, payload) {
         try {
-            console.log('deselectUserTeam: ', payload)
-            const userId = rootGetters['users/loadedUser'].id
+            const { teamSlug, userSubscriptions } = payload
+            const subscription = userSubscriptions.find(subscription => subscription.team_slug === teamSlug)
+            console.log('teamSlug: ', teamSlug)
+            console.log('userSubscriptions: ', userSubscriptions)
+            console.log('subscription: ', subscription)
+            // return
+            const userId = rootGetters['users/loadedUser']['id']
 
             // Update userTeams node
             await firebase
                 .database()
-                .ref(`userTeams/${userId}/${payload.slug}`)
+                .ref(`userTeams/${userId}/${teamSlug}`)
                 .remove()
 
             // Update teamUser node
             await firebase
                 .database()
-                .ref(`teamUsers/${payload.slug}`)
+                .ref(`teamUsers/${teamSlug}`)
                 .remove()
 
+            // Update subscriptions node
+            if (subscription) {
+                await firebase.database().ref(`subscriptions/${subscription.id}`).remove()
+            }
+
             // Update team counter through transaction
-            const teamRef = firebase.database().ref(`teams/${payload.slug}`)
+            const teamRef = firebase.database().ref(`teams/${teamSlug}`)
             await teamRef.transaction(function(team) {
                 if (team) {
                     if (!team.usersCount) {

@@ -7,10 +7,11 @@
                 <!-- loadedTeamsByCompetition: {{ loadedTeamsByCompetition }}<br /><br /> -->
                 <!-- selectedCompetition: {{ selectedCompetition }}<br /><br /> -->
                 <!-- loadedUserTeams: {{ loadedUserTeams }}<br /><br /> -->
+                loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
 
                 <gamemode-header />
 
-                <v-row no-gutters justify="center" align="center" class="m-4">
+                <v-row no-gutters justify="center" align="center" class="mt-4" v-if="loadedUserTeams.length > 0">
                     <v-col cols="12" class="text-center my-3">
                         <h2>My Teams</h2>
                 	</v-col>
@@ -29,9 +30,9 @@
                 	</v-col>
             	</v-row>
 
-                <v-row no-gutters>
+                <v-row no-gutters class="mt-4">
                     <v-col cols="12" class="text-center">
-                    	<h2>Select teams</h2>
+                    	<h2 class="mb-2">Select teams</h2>
                     </v-col>
 
                     <v-col>
@@ -132,6 +133,9 @@
 			},
 			loadedUserTeams() {
 				return this.$store.getters['userTeams/loadedUserTeams']
+			},
+			loadedUserSubscriptions() {
+				return this.$store.getters['subscriptions/loadedUserSubscriptions']
 			},
 			confederations() {
 				return [
@@ -305,7 +309,7 @@
 			async deselectTeam(team) {
 				try {
 					console.log('deselectTeam: ', team)
-					await this.$store.dispatch('userTeams/deselectUserTeam', team)
+					await this.$store.dispatch('userTeams/deselectUserTeam', { teamSlug: team.slug, userSubscriptions: this.loadedUserSubscriptions })
 					new Noty({
 						type: 'success',
 						text: `You successfully unfollow ${team.name} &#128546;`,
