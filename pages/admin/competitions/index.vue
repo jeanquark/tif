@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-breadcrumbs :items="items">
+        <v-breadcrumbs :items="links">
             <template v-slot:item="props">
                 <v-breadcrumbs-item :to="props.item.to" nuxt exact :disabled="props.item.disabled">
                     {{ props.item.text }}
@@ -143,7 +143,7 @@
 		data() {
 			return {
 				search: '',
-				items: [
+				links: [
 					{
 						text: 'Dashboard',
 						to: '/admin',

@@ -136,7 +136,7 @@ exports.listenToEventHomeTeamScoreUpdate = functions.database.ref('/events/{even
     	eventType = 'game_starts'
     	console.log('eventType: game_starts')
     }
-    if (event.statusShort === 'FT') {
+    if (change.before.val().statusShoer === '2H' && event.statusShort === 'FT') {
     	// Event has ended
     	eventType = 'game_ends'
     	console.log('eventType: game_ends')

@@ -2,13 +2,19 @@
     <v-container style="max-width: 1017px;" v-if="event.id">
 		<!-- event: {{ event }}<br /><br /> -->
         <div class="background-image">
-            <v-row no-gutters style="border: 1px solid red; background-color: rgb(0,0,0,0.25);">
-                <v-col cols="12" justify="center" align="center" class="game-info">
-                    <span class="text-center">
+            <v-row no-gutters align="center" style="border: 1px solid red; background-color: rgb(0,0,0,0.25);">
+            	<v-col></v-col>
+                <v-col class="justify-center game-info">
+                    <div class="text-center">
                     	<!-- <v-img :src="`/images/competitions/${event.competition_slug}.png`" max-width="20"></v-img> -->
                         {{ event.competition_name }}<br />
                         Round {{ event.roundShort }}
-                    </span>
+                    </div>
+                </v-col>
+                <v-col class="game-info">
+                    <div class="text-right mr-2">
+                        <font-awesome-icon :icon="['fas', 'arrow-circle-left']" size="2x" class="icon" @click="redirectToHomepage" />
+                    </div>
                 </v-col>
             </v-row>
 
@@ -101,7 +107,7 @@
                     <game v-if="activeComponent === 'game'" :eventId="eventId" />
 					<events v-if="activeComponent === 'events'" :eventId="eventId" :homeTeamId="event.homeTeam_id" :awayTeamId="event.awayTeam_id" :homeTeamSlug="event.homeTeam_slug" :awayTeamSlug="event.awayTeam_slug" />
                 	<players v-if="activeComponent === 'players'" :eventId="eventId" :homeTeamId="event.homeTeam_id" :awayTeamId="event.awayTeam_id" :homeTeamSlug="event.homeTeam_slug" :awayTeamSlug="event.awayTeam_slug" />
-                	<statistics v-if="activeComponent === 'statistics'" :eventId="eventId" />
+                	<statistics v-if="activeComponent === 'statistics'" :eventId="eventId" :homeTeamSlug="event.homeTeam_slug" :awayTeamSlug="event.awayTeam_slug" />
                 </v-col>
             </v-row>
 
@@ -162,7 +168,7 @@
 			}
 		},
 		methods: {
-			goBack() {
+			redirectToHomepage() {
 				this.$router.replace('/gamemode')
 			}
 		}
@@ -172,6 +178,10 @@
 <style scoped>
 	.active {
 		background: var(--v-primary-base);
+	}
+	.icon:hover {
+		cursor: pointer;
+		color: orangered;
 	}
 	.background-image {
 		background-image: url(/images/stade.svg);

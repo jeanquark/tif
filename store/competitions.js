@@ -279,6 +279,8 @@ export const actions = {
                     statusShort: event.statusShort,
                     score: event.score
                 }
+                event['date_homeTeamId'] = `${slugify(eventDate)}_${event.homeTeam.team_id}`
+                event['date_awayTeamId'] = `${slugify(eventDate)}_${event.awayTeam.team_id}`
                 event['homeTeam'] = null
                 event['goalsHomeTeam'] = null
                 event['awayTeam'] = null

@@ -1,7 +1,6 @@
 <template>
     <v-card class="elevation-12">
-        <v-card-title justify="center" align="center" class="card-title">
-            <!-- <h2 class="white--text">Login</h2> -->
+        <v-card-title justify="center" align="center" class="primary white--text mb-4">
 			Login
         </v-card-title>
         <v-card-text class="card-text">
@@ -14,28 +13,19 @@
             </v-form>
         </v-card-text>
         <v-card-actions class="card-actions">
-            <!-- <v-layout row wrap justify-center> -->
 			<v-row no-gutters justify="center">
-                <!-- <v-flex xs12 class="text-xs-center mb-3"> -->
 				<v-col cols="12" class="text-center mb-3">
                     <v-btn color="success" :loading="loadingSignIn" @click="signUserIn">Login</v-btn>
 				</v-col>
-                <!-- </v-flex> -->
-                <!-- <v-flex xs12 sm6 class="pa-2"> -->
 				<v-col cols="12" sm="6" class="text-center pa-2">
-
                     <v-btn block color="#df4a32" class="white--text" :loading="loadingGoogle" @click="signInWithGoogle">Login with Google&nbsp;
                         <font-awesome-icon :icon="['fab', 'google']" />
                     </v-btn>
-                <!-- </v-flex> -->
 				</v-col>
-                <!-- <v-flex xs12 sm6 class="pa-2"> -->
 				<v-col cols="12" sm="6" class="text-center pa-2">
-				
                     <v-btn block color="#3c5a99" class="white--text" :loading="loadingFacebook" @click="signInWithFacebook">Login with Facebook&nbsp;
                         <font-awesome-icon :icon="['fab', 'facebook-f']" />
                     </v-btn>
-                <!-- </v-flex> -->
 				</v-col>
 
                 <v-btn text color="primary" class="mt-3" @click.stop="switchToRegister">
@@ -45,7 +35,6 @@
                 <v-btn text color="default" class="mt-3" @click.stop="closeLoginModal">Cancel</v-btn>
 
 			</v-row>
-            <!-- </v-layout> -->
         </v-card-actions>
     </v-card>
 </template>

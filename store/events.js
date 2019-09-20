@@ -9,6 +9,7 @@ import slugify from '~/helpers/slugify'
 export const state = () => ({
     // loadedEvent: {},
     loadedEventsById: {},
+    userEventsByDate: {},
     eventsByDateByCompetition: {},
     eventsByCompetitionByRound: {},
     loadedEventActionsUserNotification: {},
@@ -26,6 +27,12 @@ export const mutations = {
     setEventsById(state, payload) {
         state.loadedEventsById = Object.assign({}, state.loadedEventsById, {
             [payload.id]: payload
+        })
+    },
+    setUserEventsByDate(state, payload) {
+        console.log('setUserEventsByDate: ', payload)
+        state.userEventsByDate = Object.assign({}, state.userEventsByDate, {
+            [payload.date]: payload.events
         })
     },
     setEventsByDateByCompetition(state, payload) {
@@ -209,7 +216,51 @@ export const actions = {
 			}
 		})
 	},
-    loadedCompetitionEvents({ commit }, payload) {
+    async fetchUserEventsByDate ({ commit, rootGetters }, payload) {
+        try {
+            console.log('[Call to fetchUserEventsByDate action:] ', payload)
+            // 1) Get user teams
+            const userTeams = rootGetters['userTeams/loadedUserTeams']
+            // console.log('userTeams: ', userTeams)
+            const date = payload
+            // console.log('date: ', date)
+
+            // 2) For each team, retrieve events for the selected day
+            for (let team of userTeams) {
+                // console.log('team: ', team)
+                const date_homeTeamId = `${date}_${team.apifootball_id}`
+                const date_awayTeamId = `${date}_${team.apifootball_id}`
+                // console.log('date_homeTeamId: ', date_homeTeamId)
+                // console.log('date_awayTeamId: ', date_awayTeamId)
+                firebase.database().ref('/events').orderByChild('date_homeTeamId').equalTo(date_homeTeamId).on('value', function(snapshot) {
+                    const eventsObject = {}
+                    snapshot.forEach(event => {
+                        console.log('event.key: ', event.key)
+                        if (event && event.key) {
+                            eventsObject[event.key] = { ...event.val(), id: event.key }
+                            console.log('commit!')
+                            commit('setUserEventsByDate', { date, events: eventsObject})
+                        }
+                    })
+                })
+                firebase.database().ref('/events').orderByChild('date_homeTeamId').equalTo(date_homeTeamId).on('value', function(snapshot) {
+                    const eventsObject = {}
+                    snapshot.forEach(event => {
+                        console.log('event.key: ', event.key)
+                        if (event && event.key) {
+                            eventsObject[event.key] = { ...event.val(), id: event.key }
+                            console.log('commit!')
+                            commit('setUserEventsByDate', { date, events: eventsObject})
+                        }
+                    })
+                })
+            }
+        } catch (error) {
+            console.log('error: ', error)
+            throw error
+        }
+    },
+    TOBEDELETED_loadedCompetitionEvents({ commit }, payload) {
         // console.log('payload: ', payload)
         const competitionId = parseInt(payload.livescore_api_id)
         console.log('competitionId: ', competitionId)
@@ -486,6 +537,9 @@ export const getters = {
     // },
     loadedEventsById(state) {
         return state.loadedEventsById
+    },
+    loadedUserEventsByDate(state) {
+        return state.userEventsByDate
     },
     loadedEventsByDateByCompetition(state) {
         return state.eventsByDateByCompetition

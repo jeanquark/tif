@@ -24,10 +24,10 @@ export const actions = {
 			try {
 				console.log('fetchUserSubscriptions: ', payload)
 				// const userId = firebase.auth().currentUser.uid
-				const userId = rootGetters['users/loadedUser']['uid']
+				const userUid = rootGetters['users/loadedUser']['uid']
+				console.log('userUid: ', userUid)
+				const userId = rootGetters['users/loadedUser']['id']
 				console.log('userId: ', userId)
-				const userId2 = rootGetters['users/loadedUser']['id']
-				console.log('userId2: ', userId2)
 				firebase
 					.database()
 					.ref('/subscriptions/')
@@ -69,10 +69,6 @@ export const actions = {
 					user_id: userId,
 					team_slug: team.slug,
 					team_name: team.name,
-					// team: {
-					// 	name: team.name,
-					// 	slug: team.slug
-					// },
 					notifications: {
 						goals: true,
 						game_starts: true,
@@ -101,12 +97,12 @@ export const actions = {
 		}
 	},
 	
-	async updateUserSubscriptions({ commit, rootGetters }, payload) {
+	async updateUserSubscriptions({ commit, rootGetters, dispatch }, payload) {
 		try {
 			console.log('updateUserSubscription: ', payload)
+			const newSubscription = JSON.parse(payload.pushSubscription)
 			let updates = {}
 			if (payload.createNewSubscription) { // Create new subscription
-				const newSubscription = JSON.parse(payload.pushSubscription)
 				const userId = rootGetters['users/loadedUser']['id']
 				console.log('userId: ', userId)
 				const newSubscriptionKey = firebase
@@ -146,6 +142,7 @@ export const actions = {
 				updates[`/subscriptions/${payload.subscription.id}/${key}`] = value
 			}
 			await firebase.database().ref().update(updates)
+			dispatch('fetchUserSubscriptions', newSubscription.endpoint)
 		} catch (error) {
 			console.log('error: ', error)
 			throw error

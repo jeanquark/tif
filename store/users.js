@@ -17,8 +17,8 @@ function b64DecodeUnicode(str) {
 }
 
 export const state = () => ({
-    loadedUser: null
-    // loadedAllUsers: [],
+    loadedUser: null,
+    users: []
     // loadedAvatarImages: [],
     // loadedUserTeams: [],
     // updateUser: null,
@@ -27,14 +27,14 @@ export const state = () => ({
 export const mutations = {
     setLoadedUser(state, payload) {
 		console.log('Entering setLoadedUser mutation: ', payload)
-		if (payload['uid']) {
+		if (payload && payload['uid']) {
 			payload['id'] = payload['uid']
 		}
         state.loadedUser = payload
-    }
-    // setAllUsers(state, payload) {
-    //     state.loadedAllUsers = payload
-    // },
+    },
+    setUsers(state, payload) {
+        state.users = payload
+    },
     // setAvatarImages(state, payload) {
     //     state.loadedAvatarImages = payload
     // },
@@ -49,7 +49,7 @@ export const mutations = {
 }
 
 export const actions = {
-    loadedAllUsers({ commit }) {
+    fetchUsers({ commit }) {
         try {
             firebase
                 .database()
@@ -61,7 +61,7 @@ export const actions = {
                         usersArray.push({ ...snapshot.val()[key] })
                     }
                     // console.log(postsArray)
-                    commit('setAllUsers', usersArray)
+                    commit('setUsers', usersArray)
                 })
         } catch (error) {
             console.log(error)
@@ -117,7 +117,8 @@ export const actions = {
                 })
         } catch (error) {
             console.log(error)
-            throw new Error(error)
+            // throw new Error(error)
+            throw error
         }
     },
     fetchUser({ commit }, payload) {
@@ -142,7 +143,7 @@ export const actions = {
                 commit('setLoadedUser', snapshot.val())
             })
     },
-    fetchAuthenticatedUser2({ commit }, payload) {
+    TOBEDELETED_fetchAuthenticatedUser2({ commit }, payload) {
         console.log('Call to fetchAuthenticatedUser action: ', payload)
         return new Promise((resolve, reject) => {
             try {
@@ -160,7 +161,7 @@ export const actions = {
             }
         })
     },
-    loadedUser2({ commit }, payload) {
+    TOBEDELETED_loadedUser2({ commit }, payload) {
         console.log('Entering loadedUser action: ', payload)
         return new Promise((resolve, reject) => {
             try {
@@ -329,10 +330,10 @@ export const actions = {
             commit('setError', error, { root: true })
         }
     },
-    async updateUserTeams({ commit }, payload) {
+    async TOBEDELETED_updateUserTeams({ commit }, payload) {
         // SEE userTeams.js file
     },
-    async updateUserTeams2({ commit, state, dispatch }, payload) {
+    async TOBEDELETED_updateUserTeams2({ commit, state, dispatch }, payload) {
         try {
             const userId = firebase.auth().currentUser.uid
             console.log('userId: ', userId)
@@ -580,6 +581,53 @@ export const actions = {
             }).show()
             console.log(error)
         }
+    },
+    async deleteUser ( { commit }, payload) {
+        try {
+            console.log('payload: ', payload)
+            const { userId } = payload 
+            let updates = {}
+
+            // 1) Delete user authentication object in firebase via server call
+            await axios.post('/users/delete-user', { userId })
+
+            // 2) Delete user in users node
+            updates[`/users/${userId}`] = null
+
+            // 3) Delete user in userTeams node
+            updates[`/userTeams/${userId}`] = null
+
+            // 4) Delete user in teamUsers node
+            const teamUsersArray = []
+            const teamUsers = await firebase.database().ref('/teamUsers').orderByChild(userId).equalTo(true).once('value')
+            teamUsers.forEach(team => {
+                teamUsersArray.push(team.key)
+            })
+            // console.log('teamUsersArray: ', teamUsersArray)
+
+            teamUsersArray.forEach(teamId => {
+                console.log('teamId: ', teamId)
+                updates[`/teamUsers/${teamId}/${userId}`] = null
+            })
+
+            // 5) Delete user in subscriptions node
+            const userSubscriptionsArray = []
+            const userSubscriptions = await firebase.database().ref('/subscriptions').orderByChild('user_id').equalTo(userId).once('value')
+            userSubscriptions.forEach(subscription => {
+                userSubscriptionsArray.push( { ...subscription.val(), id: subscription.key })
+            })
+            // console.log('userSubscriptionsArray: ', userSubscriptionsArray)
+            userSubscriptionsArray.forEach(subscription => {
+                updates[`/subscriptions/${subscription.id}`] = null
+            })
+            // console.log('updates: ', updates)
+            return
+
+            // await firebase.database().ref().update(updates)
+        } catch (error) {
+            // console.log('error from vuex action: ', error)
+            throw error
+        }
     }
 }
 
@@ -587,8 +635,8 @@ export const getters = {
     loadedUser(state) {
         return state.loadedUser
     },
-    loadedAllUsers(state) {
-        return state.loadedAllUsers
+    loadedUsers(state) {
+        return state.users
     },
     loadedAvatarImages(state) {
         return state.loadedAvatarImages

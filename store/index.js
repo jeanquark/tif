@@ -10,7 +10,11 @@ export const state = () => ({
     error: null,
     loginModal: false,
 	registerModal: false,
-	message: ''
+	message: '',
+    activeTab: 'date',
+    activeDateTab: 10,
+    activeRoundTab: 0,
+    activeCompetition: {}
 })
 
 export const mutations = {
@@ -45,7 +49,25 @@ export const mutations = {
 	},
 	clearMessage (state) {
 		state.message = ''
-	}
+	},
+    // Set event active tab (by date/by round)
+    setActiveTab (state, payload) {
+        state.activeTab = payload
+    },
+    // Set active tab when scrolling through events by date
+    setActiveDateTab (state, payload) {
+        state.activeDateTab = payload
+    },
+    // Set active tab when scrolling throught eventy by round
+    setActiveRoundTab (state, payload) {
+        // console.log('setActiveRoundTab: ', payload)
+        state.activeRoundTab = payload
+    },
+    // Set active competition for retieving events by round
+    setActiveCompetition (state, payload) {
+        console.log('setActiveCompetition: ', payload)
+        state.activeCompetition = payload
+    }
 }
 
 export const actions = {
@@ -140,5 +162,17 @@ export const getters = {
 	},
 	message(state) {
 		return state.message
-	}
+	},
+    loadedActiveTab(state) {
+        return state.activeTab
+    },
+    loadedActiveDateTab(state) {
+        return state.activeDateTab
+    },
+    loadedActiveRoundTab(state) {
+        return state.activeRoundTab
+    },
+    loadedActiveCompetition(state) {
+        return state.activeCompetition
+    }
 }

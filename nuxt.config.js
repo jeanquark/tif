@@ -123,7 +123,11 @@ export default {
 		{
 			path: '/competitions/update-competitions-file', // POST request with { competitions } as body data
 			handler: '~/serverMiddleware/competitions/updateCompetitionsFile'
-		}
+		},
+        {
+            path: '/users/delete-user', // POST request with { userId } as body data
+            handler: '~/serverMiddleware/users/deleteUser'
+        }
 	],
     /*
      ** Nuxt.js dev-modules

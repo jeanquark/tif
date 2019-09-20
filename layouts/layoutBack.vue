@@ -83,36 +83,36 @@
 						to: '/admin/competitions',
 						exact: false
 					},
-					{
-						icon: 'mdi-soccer',
-						text: 'Teams',
-						to: '/admin/teams',
-						exact: false
-					},
-					{
-						icon: 'mdi-stadium',
-						text: 'Stadiums',
-						to: '/admin/stadiums',
-						exact: false
-					},
-					{
-						icon: 'mdi-calendar',
-						text: 'Events',
-						to: '/admin/events',
-						exact: false
-					},
-					{
-						icon: 'mdi-translate',
-						text: 'Translation',
-						to: '/admin/translations',
-						exact: false
-					},
-					{
-						icon: 'mdi-database',
-						text: 'API',
-						to: '/admin/api',
-						exact: false
-					}
+					// {
+					// 	icon: 'mdi-soccer',
+					// 	text: 'Teams',
+					// 	to: '/admin/teams',
+					// 	exact: false
+					// },
+					// {
+					// 	icon: 'mdi-stadium',
+					// 	text: 'Stadiums',
+					// 	to: '/admin/stadiums',
+					// 	exact: false
+					// },
+					// {
+					// 	icon: 'mdi-calendar',
+					// 	text: 'Events',
+					// 	to: '/admin/events',
+					// 	exact: false
+					// },
+					// {
+					// 	icon: 'mdi-translate',
+					// 	text: 'Translation',
+					// 	to: '/admin/translations',
+					// 	exact: false
+					// },
+					// {
+					// 	icon: 'mdi-database',
+					// 	text: 'API',
+					// 	to: '/admin/api',
+					// 	exact: false
+					// }
 				]
 			}
 		},

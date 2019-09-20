@@ -7,46 +7,31 @@
                 <gamemode-header />
 
                 <div>
-					loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
+					<!-- loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br /> -->
 					<!-- loadedUserSubscriptionsObject: {{ loadedUserSubscriptionsObject }}<br /><br /> -->
                 	<!-- showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br /> -->
                 	<!-- loadedUser: {{ loadedUser }}<br /><br /> -->
+                	loadedActiveTab: {{ loadedActiveTab }}<br /><br />
+                	eventsByDate: {{ eventsByDate }}<br /><br />
+                	eventsByRound: {{ eventsByRound }}<br /><br />
 				</div>
 
 				<div class="my-5">
 					<h2 class="text-center">Page principale gamemode</h2><br />
-					<h4 class="text-center">Le design doit encore être précisé</h4>
+					<h4 class="text-center">Ici se trouve la partie "gamemode solo" avec les actions quotidiennes du joueur destinées à faire progresser son fan (travail, loisirs, ...)</h4>
 				</div>
-
-                <!-- <v-row no-gutters justify="center" align="center" class="my-4">
-                    <v-col cols="12" sm="4" class="text-center">
-                        <v-text-field name="username" label="Username" type="text" v-model="loadedUser.username"></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="4">
-                        <v-btn small color="success" @click.stop="updateUsername">Update username</v-btn>
-                    </v-col>
-                    <v-col cols="12" class="mb-2 text-center">
-                        <h2>My Teams</h2>
-                    </v-col>
-                    <v-col cols="4" sm="3" class="text-center" v-for="team in loadedUserTeams" :key="team.slug">
-                        <v-card class="ma-3 pt-2">
-                            <v-img :src="`/images/teams/${team.image}`" :lazy-src="`/images/teams/${team.image}`" :aspect-ratio="1" class="ma-4 pa-2"></v-img>
-                            <v-card-actions>
-                                <v-row justify="center" align="center">
-                                    <v-col cols="12" class="text-center">
-                                        {{ team.name }}
-                                    </v-col>
-                                </v-row>
-                            </v-card-actions>
-                        </v-card>
-                    </v-col>
-                </v-row> -->
-
-                <v-row no-gutters justify="center">
-                    <v-btn color="success" class="elevation-0" @click="addToHomescreen" v-if="showAddToHomeScreenButton">Install app to homescreen</v-btn>
+				
+				<v-row no-gutters class="my-5">
+                	<events-by-date @switchToRound="onSwitchToRound" v-if="eventsByDate"/>
+                	<events-by-round @switchToDate="onSwitchToDate" v-if="eventsByRound"/>
                 </v-row>
 
-                <v-row no-gutters justify="center" align="center" class="my-2" v-if="!showSubscribeToPushNotifications">
+                <v-row no-gutters justify="center" class="my-5">
+                	<br /><br /><br />
+                    <v-btn color="success" class="elevation-0" @click="addToHomescreen()" v-if="showAddToHomeScreenButton">Install app to homescreen</v-btn>
+                </v-row>
+
+                <!--<v-row no-gutters justify="center" align="center" class="my-2" v-if="!showSubscribeToPushNotifications">
                     <v-col cols="12" sm="6">
                         <v-alert dark text color="warning" icon="mdi-exclamation" border="left" prominent>
                             You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator.
@@ -86,29 +71,35 @@
                             </v-card-text>
                         </v-card>
                     </v-col>
-                </v-row>
+                </v-row>-->
             </v-col>
         </v-row>
-
+		
+		<subscriptions />
     </v-container>
 </template>
 
 <script>
-	import GamemodeHeader from '~/components/GamemodeHeader'
 	import Noty from 'noty'
-	import axios from 'axios'
-	import slugify from '~/helpers/slugify.js'
+	// import axios from 'axios'
+	// import slugify from '~/helpers/slugify.js'
+	import GamemodeHeader from '~/components/GamemodeHeader'
+	import EventsByDate from '~/components/events/EventsByDate'
+	import EventsByRound from '~/components/events/EventsByRound'
+	import Subscriptions from '~/components/Subscriptions'
 
 	// PWA Install to Homescreen
 	let deferredPrompt
 
 	export default {
-		components: { GamemodeHeader },
+		components: { GamemodeHeader, Subscriptions, EventsByDate, EventsByRound },
 		layout: 'layoutGamemode',
 		async created() {
 			if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
 				await this.$store.dispatch('userTeams/fetchUserTeams')
 			}
+			this.eventsByDate = this.$store.getters['loadedActiveTab'] === 'date'
+			this.eventsByRound = this.$store.getters['loadedActiveTab'] === 'round'
 		},
 		async mounted() {
 			window.addEventListener('beforeinstallprompt', e => {
@@ -118,89 +109,49 @@
 			})
 
 			// Configure Web Push Notifications
-			if (!('serviceWorker' in navigator)) {
-				// Service Worker isn't supported on this browser, disable or hide UI.
-				alert('Service Worker is not supported on this browser')
-				return
-			}
+			// if (!('serviceWorker' in navigator)) {
+			// 	// Service Worker isn't supported on this browser, disable or hide UI.
+			// 	alert('Service Worker is not supported on this browser')
+			// 	return
+			// }
 
-			if (!('PushManager' in window)) {
-				// Push isn't supported on this browser, disable or hide UI.
-				alert('Push is not supported on this browser')
-				return
-			}
-			if (Notification.permission !== 'denied') {
-				this.showSubscribeToPushNotifications = true
-			}
-			console.log('screen.width: ', window.screen.width)
-			console.log('screen.height: ', window.screen.height)
-			console.log('navigator.navigator.userAgent: ', slugify(window.navigator.userAgent))
+			// if (!('PushManager' in window)) {
+			// 	// Push isn't supported on this browser, disable or hide UI.
+			// 	alert('Push is not supported on this browser')
+			// 	return
+			// }
+			// if (Notification.permission !== 'denied') {
+			// 	this.showSubscribeToPushNotifications = true
+			// }
+			// console.log('screen.width: ', window.screen.width)
+			// console.log('screen.height: ', window.screen.height)
+			// console.log('navigator.navigator.userAgent: ', slugify(window.navigator.userAgent))
 
-			const loadedUser = this.$store.getters['users/loadedUser']
-			console.log('loadedUser.id: ', loadedUser['id'])
-			console.log('loadedUser.uid: ', loadedUser['uid'])
-			await this.checkUserSubscriptions()
+			// const loadedUser = this.$store.getters['users/loadedUser']
+			// console.log('loadedUser.id: ', loadedUser['id'])
+			// console.log('loadedUser.uid: ', loadedUser['uid'])
+			// await this.checkUserSubscriptions()
 		},
 		data() {
 			return {
 				showAddToHomeScreenButton: false,
-				showSubscribeToPushNotifications: false,
-				checkSubscriptionButtonLoading: false
+				eventsByDate: true,
+				eventsByRound: false,
+				// selectedCompetition: {}
 			}
 		},
 		computed: {
 			loadedUser() {
 				return this.$store.getters['users/loadedUser']
 			},
-			loadedUserTeams() {
-				return this.$store.getters['userTeams/loadedUserTeams']
-			},
-			loadedUserSubscriptions() {
-				// return this.$store.getters['subscriptions/loadedUserSubscriptions']
-				const array = this.$store.getters['subscriptions/loadedUserSubscriptions']
-				console.log('array: ', array)
-				return array
-
-				// let abc = {}
-				// array.reduce((obj, item) => {
-				// 	obj[item.id] = item
-				// 	console.log('obj: ', obj)
-				// 	abc = obj
-				// 	// return obj
-				// }, {})
-				// console.log('abc: ', abc)
-
-				// const userSubscriptions = {}
-				// this.loadedUserTeams.forEach(team => {
-				// 	// if (!userSubscriptions[team]) {
-				// 	userSubscriptions[team.id] = {
-				// 		''
-				// 	}
-				// 	// }
-				// })
-				// console.log('userSubscriptions: ', userSubscriptions)
-
-				return this.loadedUserTeams.reduce((obj, item) => {
-					// console.log('item.slug: ', item.slug)
-					// console.log('array2: ', array[0].team_slug)
-					const abc = array.find(subscription => subscription.team_slug == item.slug)
-					// console.log('abc: ', abc)
-					obj[item.id] = { notifications: abc ? abc.notifications : {} }
-					// console.log('obj: ', obj)
-					// abc = obj
-					return obj
-				}, {})
-				// return {}
-			},
-			loadedUserSubscriptionsObject () {
-				return this.loadedUserTeams.reduce((obj, item) => {
-					const abc = this.loadedUserSubscriptions.find(subscription => subscription.team_slug == item.slug)
-					obj[item.id] = { notifications: abc ? abc.notifications : {} }
-					return obj
-				}, {})
+			loadedActiveTab () {
+				return this.$store.getters['loadedActiveTab']
 			}
 		},
 		methods: {
+			removeOverlay() {
+				document.getElementById('overlay').style.display = 'none'
+			},
 			addToHomescreen() {
 				deferredPrompt.prompt()
 				// Wait for the user to respond to the prompt
@@ -214,51 +165,6 @@
 					}
 					deferredPrompt = null
 				})
-			},
-			async checkUserSubscriptions() {
-				try {
-					console.log('Call to checkSubscription method')
-					// console.log('loadedUser: ', this.loadedUser.uid)
-					// 1) Check if navigator supports Service Worker and Push notifications
-					if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
-						// Service Worker isn't supported on this browser, disable or hide UI.
-						// Push isn't supported on this browser, disable or hide UI.
-						new Noty({
-							type: 'warning',
-							text: 'Your current navigator does not support push notifications',
-							timeout: 5000,
-							theme: 'metroui'
-						}).show()
-						return
-					}
-
-					// 2) Check if user has accepted push notifications from the browser
-					const permission = Notification.permission
-					console.log('permission: ', permission)
-					if (permission === 'granted') {
-						const serviceWorkerRegistration = await navigator.serviceWorker.register('/sw.js')
-						console.log('serviceWorkerRegistration: ', serviceWorkerRegistration)
-						const pushSubscription = await serviceWorkerRegistration.pushManager.getSubscription()
-						console.log('pushSubscription: ', pushSubscription)
-						if (pushSubscription && pushSubscription.endpoint) {
-							this.$store.dispatch('subscriptions/fetchUserSubscriptions', pushSubscription.endpoint)
-							this.userIsSubscribedToPushNotifications = true
-							console.log('pushSubscription.endpoint: ', pushSubscription.endpoint)
-						} else {
-							this.showSubscribeToPushNotifications = true
-							console.log('No subscriptions')
-							const deviceIdentifier = `screenWidth=${window.screen.width}&screenHeight=${window.screen.height}&userAgent=${slugify(window.navigator.userAgent)}`
-							console.log('deviceIdentifier: ', deviceIdentifier)
-
-							await this.$store.dispatch('subscriptions/deleteUserSubscriptions', { deviceIdentifier })
-						}
-					} else if (permission === 'default') {
-						this.showSubscribeToPushNotifications = true
-					}
-				} catch (error) {
-					console.log('error: ', error)
-					// this.$sentry.captureException(new Error('CheckUserSubscriptions error'))
-				}
 			},
 			async updateUsername() {
 				try {
@@ -279,123 +185,24 @@
 					}).show()
 				}
 			},
-			removeOverlay() {
-				document.getElementById('overlay').style.display = 'none'
+			onSwitchToRound(competition) {
+				console.log('onSwitchToRound: ', competition)
+				this.eventsByDate = false
+				this.eventsByRound = true
+				// this.selectedCompetition = competition
+				this.$store.commit('setActiveTab', 'round')
+				this.$store.commit('setActiveCompetition', competition)
 			},
-			askPermissionToPushNotifications() {
-				return new Promise(function(resolve, reject) {
-					const permissionResult = Notification.requestPermission(function(result) {
-						resolve(result)
-					})
-
-					// console.log('permissionResult: ', permissionResult)
-					if (permissionResult) {
-						permissionResult.then(resolve, reject)
-					}
-				}).then(function(permissionResult) {
-					return permissionResult
-				})
-			},
-			urlBase64ToUint8Array(base64String) {
-				try {
-					const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
-					const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/')
-					const rawData = window.atob(base64)
-					const outputArray = new Uint8Array(rawData.length)
-					for (let i = 0; i < rawData.length; ++i) {
-						outputArray[i] = rawData.charCodeAt(i)
-					}
-					return outputArray
-				} catch (error) {
-					throw error
-				}
-			},
-			async toggleSubscription(team, notificationType) {
-				try {
-					// console.log('toggleSubscription: ', team, notificationType)
-					const subscription = this.loadedUserSubscriptions.find(subscription => subscription.team_slug === team.slug)
-					// console.log('subscription: ', subscription)
-
-					if (Notification.permission === 'default') {
-						document.getElementById('overlay').style.display = 'block'
-						const permissionResult = await this.askPermissionToPushNotifications()
-						console.log('permissionResult: ', permissionResult)
-						if (permissionResult === 'denied') {
-							this.showSubscribeToPushNotifications = false
-						}
-						document.getElementById('overlay').style.display = 'none'
-						return
-					}
-					// console.log('abc')
-					if (!subscription) {
-						// Create new subscription
-						// 1) Register Service Worker
-						const registration = await navigator.serviceWorker.register('/sw.js')
-
-						// 2) Subscribe a user with PushManager
-						const subscribeOptions = {
-							userVisibleOnly: true,
-							applicationServerKey: this.urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
-						}
-
-						const pushSubscription = await registration.pushManager.subscribe(subscribeOptions)
-						console.log('pushSubscription: ', JSON.stringify(pushSubscription))
-
-						// 3) Add subscriptions to database
-						const subscriptions = await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
-							pushSubscription: JSON.stringify(pushSubscription),
-							notificationType,
-							team,
-							deviceIdentifier: `screenWidth=${window.screen.width}&screenHeight=${window.screen.height}&userAgent=${slugify(window.navigator.userAgent)}`,
-							createNewSubscription: true
-						})
-						// console.log('subscriptions: ', subscriptions)
-					} else {
-						const value = this.loadedUserSubscriptionsObject[team.slug]['notifications'][notificationType]
-						console.log('value: ', value)
-						await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
-							subscription,
-							notificationType,
-							team,
-							value
-						})
-					}
-					new Noty({
-						type: 'success',
-						text: 'Successfully updated subscription!',
-						timeout: 5000,
-						theme: 'metroui'
-					}).show()
-				} catch (error) {
-					console.log('error: ', error)
-					new Noty({
-						type: 'error',
-						text: 'Sorry, an error occured and your subscription could not be updated.',
-						timeout: 5000,
-						theme: 'metroui'
-					}).show()
-				}
+			onSwitchToDate() {
+				console.log('onSwitchToDate')
+				this.eventsByRound = false
+				this.eventsByDate = true
+				this.$store.commit('setActiveTab', 'date')
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	.hover {
-		border: 2px solid var(--v-primary-base);
-		cursor: pointer;
-	}
-	#overlay {
-		position: fixed; /* Sit on top of the page content */
-		display: none; /* Hidden by default */
-		width: 100%; /* Full width (cover the whole page) */
-		height: 100%; /* Full height (cover the whole page) */
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-		z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-		cursor: pointer; /* Add a pointer on hover */
-	}
+
 </style>

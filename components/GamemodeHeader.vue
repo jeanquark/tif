@@ -60,7 +60,8 @@
                     <span class="">Welcome jeanquark!</span>
                 </v-col>
 				<v-col cols="6" class="text-right white--text">
-					<v-btn x-small to="/admin" class="success">Admin</v-btn>
+                    <v-btn x-small to="/admin" class="success">Admin</v-btn>
+					<v-btn x-small class="warning" @click="logout()">Logout</v-btn>
                 </v-col>
             </v-row>
             

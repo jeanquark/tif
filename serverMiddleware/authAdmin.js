@@ -9,8 +9,7 @@ global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest
 module.exports = app.use(function(req, res, next) {
     console.log("AUTH ADMIN")
     getIdTokenFromRequest(req, res).then(idToken => {
-        console.log("idToken:")
-        console.log(idToken)
+        console.log("idToken: ", idToken)
         if (idToken) {
             admin
                 .auth()
