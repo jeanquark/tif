@@ -45,39 +45,58 @@ export const actions = {
     async selectUserTeam({ commit, getters, rootGetters }, payload) {
         try {
             console.log('selectUserTeams: ', payload)
-			const userId = rootGetters['users/loadedUser'].id
+            const { team } = payload
+			const userId = rootGetters['users/loadedUser']['id']
 			
-			if (getters['loadedUserTeams'].find(team => team.id === payload.id)) {
+			if (getters['loadedUserTeams'].find(userTeam => userTeam.id === team.id)) {
 				throw 'team_already_picked'
 			}
 
-            // Update userTeams node
-            await firebase
-                .database()
-                .ref(`userTeams/${userId}/${payload.slug}`)
-                .update({
-                    name: payload.name,
-                    slug: payload.slug,
-                    image: payload.image,
-                    country: payload.country,
-                    apifootball_id: payload.apifootball_id,
-                    _created_at: moment().unix()
-                })
+            let updates = {}
 
-            // Update teamUser node
-            await firebase
-                .database()
-                .ref(`teamUsers/${payload.slug}`)
-                .update({
-                    [userId]: true
-                })
+            // 1) Update userTeams node
+            updates[`userTeams/${userId}/${team.slug}`] = {
+                name: team.name,
+                slug: team.slug,
+                image: team.image,
+                country: team.country,
+                apifootball_id: team.apifootball_id,
+                _created_at: moment().unix()
+            }
+
+            // 2) Update teamUser node
+            updates[`teamUsers/${team.slug}/${userId}`] = true
+
+            await firebase.database().ref().update(updates)
+
+            // Update userTeams node
+            // await firebase
+            //     .database()
+            //     .ref(`userTeams/${userId}/${team.slug}`)
+            //     .update({
+            //         name: payload.name,
+            //         slug: payload.slug,
+            //         image: payload.image,
+            //         country: payload.country,
+            //         apifootball_id: payload.apifootball_id,
+            //         _created_at: moment().unix()
+            //     })
+
+            // // Update teamUser node
+            // await firebase
+            //     .database()
+            //     .ref(`teamUsers/${payload.slug}`)
+            //     .update({
+            //         [userId]: true
+            //     })
 
             // Update team counter with a transaction
-            await firebase
+            firebase
                 .database()
-                .ref(`teams/${payload.slug}`)
+                .ref(`teams/${team.slug}`)
                 .transaction(function(team) {
                     if (team) {
+                        console.log('team: ', team)
                         if (!team.usersCount) {
                             team.usersCount = 1
                         } else {
@@ -100,26 +119,41 @@ export const actions = {
             // return
             const userId = rootGetters['users/loadedUser']['id']
 
+            let updates = {}
+
+            // 1) Update userTeams node
+            updates[`userTeams/${userId}/${teamSlug}`] = null
+
+            // 2) Update teamUser node
+            updates[`teamUsers/${teamSlug}/${userId}`] = null
+
+            // 3) Update subscriptions node
+            if (subscription) {
+                updates[`subscriptions/${subscription.id}`] = null
+            }
+
+            await firebase.database().ref().update(updates)
+
             // Update userTeams node
-            await firebase
-                .database()
-                .ref(`userTeams/${userId}/${teamSlug}`)
-                .remove()
+            // await firebase
+            //     .database()
+            //     .ref(`userTeams/${userId}/${teamSlug}`)
+            //     .remove()
 
             // Update teamUser node
-            await firebase
-                .database()
-                .ref(`teamUsers/${teamSlug}`)
-                .remove()
+            // await firebase
+            //     .database()
+            //     .ref(`teamUsers/${teamSlug}`)
+            //     .remove()
 
             // Update subscriptions node
-            if (subscription) {
-                await firebase.database().ref(`subscriptions/${subscription.id}`).remove()
-            }
+            // if (subscription) {
+            //     await firebase.database().ref(`subscriptions/${subscription.id}`).remove()
+            // }
 
             // Update team counter through transaction
             const teamRef = firebase.database().ref(`teams/${teamSlug}`)
-            await teamRef.transaction(function(team) {
+            teamRef.transaction(function(team) {
                 if (team) {
                     if (!team.usersCount) {
                         team.usersCount = 0

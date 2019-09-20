@@ -57,7 +57,7 @@
             </v-row>
             <v-row no-gutters align="center" class="primary" style="height:20%;">
 				<v-col cols="6" class="text-left white--text">
-                    <span class="">Welcome jeanquark!</span>
+                    <span class="">Welcome {{ loadedUser.username }}!</span>
                 </v-col>
 				<v-col cols="6" class="text-right white--text">
                     <v-btn x-small to="/admin" class="success">Admin</v-btn>
@@ -151,6 +151,9 @@
         font-weight: bold;
     }
     .primary:hover {
+        cursor: pointer;
+    }
+    .black:hover {
         cursor: pointer;
     }
     @media screen and (max-width: 960px) {

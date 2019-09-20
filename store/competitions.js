@@ -136,7 +136,6 @@ export const actions = {
     // Create a new competition
     async createCompetition({ commit }, payload) {
         try {
-            // commit('setLoading', true, { root: true })
             console.log('payload: ', payload)
             // commit('setMessage', 'Ceci est un message 4', { root: true })
             // return
@@ -160,31 +159,6 @@ export const actions = {
             // 3) Create competition node
             let updates = {}
 
-            // const newCompetition = {
-            //     active: false,
-            //     activity: {
-            //         name: 'Sport',
-            //         slug: 'sport'
-            //     },
-            //     category: {
-            //         name: 'Football',
-            //         slug: 'football'
-            //     },
-            //     apifootball_id: payload.league_id,
-            //     apifootball_country: payload.country,
-            //     apifootball_name: payload.name,
-            //     apifootball_season: payload.season,
-            //     season_start: payload.season_start,
-            //     season_end: payload.season_end,
-            //     name: payload.name,
-            //     slug: newCompetitionKey,
-            //     countries,
-            //     image: `${slugify(payload.country)}_${slugify(payload.name)}.png`,
-			// 	season: `${payload.season} - ${parseInt(payload.season) + 1}`,
-			// 	type: slugify(payload.type),
-            //     _created_at: moment().unix(),
-            //     _updated_at: moment().unix()
-            // }
             updates[`/competitions/${newCompetitionKey}/active`] = false
             updates[`/competitions/${newCompetitionKey}/activity`] = { name: 'Sport', slug: 'sport' }
             updates[`/competitions/${newCompetitionKey}/category`] = { name: 'Football', slug: 'football' }
@@ -200,7 +174,9 @@ export const actions = {
             updates[`/competitions/${newCompetitionKey}/image`] = competitionImage
             updates[`/competitions/${newCompetitionKey}/season`] = `${payload.season} - ${parseInt(payload.season) + 1}`
 			updates[`/competitions/${newCompetitionKey}/type`] = competitionType
-			updates[`/competitions/${newCompetitionKey}/rounds`] = parseInt(payload.rounds)
+            if (payload.rounds) { // Rounds property is specified by user when adding a league-type competition
+                updates[`/competitions/${newCompetitionKey}/rounds`] = parseInt(payload.rounds)
+            }
             updates[`/competitions/${newCompetitionKey}/_created_at`] = moment().unix()
             updates[`/competitions/${newCompetitionKey}/_updated_at`] = moment().unix()
 
@@ -230,7 +206,7 @@ export const actions = {
                     image: competitionImage,
 					date: eventDate,
 					type: competitionType,
-                    rounds: parseInt(payload.rounds)
+                    rounds: payload.rounds ? parseInt(payload.rounds) : null
                 }
                 updates[`dateCompetitions/${slugify(eventDate)}/${competitionSlug}`] = dateCompetition
 
@@ -381,37 +357,40 @@ export const actions = {
     async toggleCompetitionActiveStatus({ commit, dispatch }, payload) {
         try {
 			console.log('payload: ', payload)
-			await axios.post('/competitions/update-competitions-file', payload)
-			// console.log('abc: ', abc)
-			// throw 'error'
+            const { competitions, competition } = payload
+
+            // 1) Update active competitions file on the server
+			await axios.post('/competitions/update-competitions-file', { competitions })
 			
-            payload['_updated_at'] = moment().unix()
+            competition['_updated_at'] = moment().unix()
 
             let updates = {}
-            // 1) Update all events that are part of the competition
+
+            // 2) Update all events that are part of the competition
             const competitionEvents = await firebase
                 .database()
                 .ref('/events')
                 .orderByChild('competition_slug')
-                .equalTo(payload.slug)
+                .equalTo(competition.slug)
                 .once('value')
+
+            // console.log('competitionEvents: ', competitionEvents)
             competitionEvents.forEach(event => {
-                // console.log('event.val(): ', event.val())
-                if (event.val().competition_active) {
+                if (event.val() && event.val().competition_active) {
                     updates[`/events/${event.key}/competition_active`] = false
                 } else {
                     updates[`/events/${event.key}/competition_active`] = true
                 }
             })
-            // 2) Update competitions node
-            updates[`/competitions/${payload.slug}`] = payload
+
+            // 3) Update competitions node
+            updates[`/competitions/${competition.slug}`] = competition
+            // console.log('updates: ', updates)
 
             await firebase
                 .database()
                 .ref()
                 .update(updates)
-
-            // dispatch('loadedCompetitions')
         } catch (error) {
             throw error
         }

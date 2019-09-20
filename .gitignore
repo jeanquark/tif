@@ -58,6 +58,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env-tif-jm
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -93,3 +94,4 @@ dist
 # Firebase connection
 .serviceAccountKey.js
 .serviceAccountKey.json
+.serviceAccountKey-tif-jm.json

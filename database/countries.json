@@ -1,0 +1,4250 @@
+{
+  "afghanistan" : {
+    "alpha2" : "AF",
+    "alpha3" : "AFG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "afghanistan.png",
+    "name" : "Afghanistan",
+    "ranking_confederation" : 29,
+    "slug" : "afghanistan"
+  },
+  "aland_islands" : {
+    "alpha2" : "AX",
+    "alpha3" : "ALA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "aland_islands.png",
+    "name" : "Aland Islands",
+    "slug" : "aland_islands"
+  },
+  "albania" : {
+    "alpha2" : "AL",
+    "alpha3" : "ALB",
+    "apifootball_id" : "",
+    "apifootball_name" : "Albania",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "albania.png",
+    "name" : "Albania",
+    "ranking_confederation" : 35,
+    "slug" : "albania"
+  },
+  "algeria" : {
+    "alpha2" : "DZ",
+    "alpha3" : "DZA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Algeria",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "algeria.png",
+    "name" : "Algeria",
+    "ranking_confederation" : 13,
+    "slug" : "algeria"
+  },
+  "american_samoa" : {
+    "alpha2" : "AS",
+    "alpha3" : "ASA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "american_samoa.png",
+    "name" : "American Samoa",
+    "ranking_confederation" : 8,
+    "slug" : "american_samoa"
+  },
+  "andorra" : {
+    "alpha2" : "AD",
+    "alpha3" : "AND",
+    "apifootball_id" : "",
+    "apifootball_name" : "Andorra",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "andorra.png",
+    "name" : "Andorra",
+    "ranking_confederation" : 54,
+    "slug" : "andorra"
+  },
+  "angola" : {
+    "alpha2" : "AO",
+    "alpha3" : "AGO",
+    "apifootball_id" : "",
+    "apifootball_name" : "Angola",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "angola.png",
+    "name" : "Angola",
+    "ranking_confederation" : 32,
+    "slug" : "angola"
+  },
+  "anguilla" : {
+    "alpha2" : "AI",
+    "alpha3" : "AIA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "anguilla.png",
+    "name" : "Anguilla",
+    "ranking_confederation" : 34,
+    "slug" : "anguilla"
+  },
+  "antarctica" : {
+    "alpha2" : "AQ",
+    "alpha3" : "ATA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "antartica.png",
+    "name" : "Antarctica",
+    "slug" : "antarctica"
+  },
+  "antigua_and_barbuda" : {
+    "alpha2" : "AG",
+    "alpha3" : "ATG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "antigua_and_barbuda.png",
+    "name" : "Antigua and Barbuda",
+    "ranking_confederation" : 12,
+    "slug" : "antigua_and_barbuda"
+  },
+  "argentina" : {
+    "alpha2" : "AR",
+    "alpha3" : "ARG",
+    "apifootball_id" : "",
+    "apifootball_name" : "Argentina",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "argentina.png",
+    "name" : "Argentina",
+    "ranking_confederation" : 3,
+    "slug" : "argentina"
+  },
+  "armenia" : {
+    "alpha2" : "AM",
+    "alpha3" : "ARM",
+    "apifootball_id" : "",
+    "apifootball_name" : "Armenia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "armenia.png",
+    "name" : "Armenia",
+    "ranking_confederation" : 42,
+    "slug" : "armenia"
+  },
+  "aruba" : {
+    "alpha2" : "AW",
+    "alpha3" : "ABW",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "aruba.png",
+    "name" : "Aruba",
+    "ranking_confederation" : 28,
+    "slug" : "aruba"
+  },
+  "australia" : {
+    "alpha2" : "AU",
+    "alpha3" : "AUS",
+    "apifootball_id" : "",
+    "apifootball_name" : "Australia",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "australia.png",
+    "name" : "Australia",
+    "ranking_confederation" : 4,
+    "slug" : "australia"
+  },
+  "austria" : {
+    "alpha2" : "AT",
+    "alpha3" : "AUT",
+    "apifootball_id" : "",
+    "apifootball_name" : "Austria",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "austria.png",
+    "name" : "Austria",
+    "ranking_confederation" : 11,
+    "slug" : "austria"
+  },
+  "azerbaijan" : {
+    "alpha2" : "AZ",
+    "alpha3" : "AZE",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "azerbaijan.png",
+    "name" : "Azerbaijan",
+    "ranking_confederation" : 26,
+    "slug" : "azerbaijan"
+  },
+  "bahamas" : {
+    "alpha2" : "BS",
+    "alpha3" : "BHS",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "bahamas.png",
+    "name" : "Bahamas",
+    "ranking_confederation" : 35,
+    "slug" : "bahamas"
+  },
+  "bahrain" : {
+    "alpha2" : "BH",
+    "alpha3" : "BHR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "bahrain.png",
+    "name" : "Bahrain",
+    "ranking_confederation" : 19,
+    "slug" : "bahrain"
+  },
+  "bangladesh" : {
+    "alpha2" : "BD",
+    "alpha3" : "BGD",
+    "apifootball_id" : "",
+    "apifootball_name" : "Bangladesh",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "bangladesh.png",
+    "name" : "Bangladesh",
+    "ranking_confederation" : 38,
+    "slug" : "bangladesh"
+  },
+  "barbados" : {
+    "alpha2" : "BB",
+    "alpha3" : "BRB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "continent_fr" : "Amérique",
+    "image" : "barbados.png",
+    "name" : "Barbados",
+    "ranking_confederation" : 18,
+    "slug" : "barbados"
+  },
+  "belarus" : {
+    "alpha2" : "BY",
+    "alpha3" : "BLR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Belarus",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "belarus.png",
+    "name" : "Belarus",
+    "ranking_confederation" : 24,
+    "slug" : "belarus"
+  },
+  "belgium" : {
+    "alpha2" : "BE",
+    "alpha3" : "BEL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Belgium",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "belgium.png",
+    "name" : "Belgium",
+    "ranking_confederation" : 8,
+    "slug" : "belgium"
+  },
+  "belize" : {
+    "alpha2" : "BZ",
+    "alpha3" : "BLZ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "belize.png",
+    "name" : "Belize",
+    "ranking_confederation" : 19,
+    "slug" : "belize"
+  },
+  "benin" : {
+    "alpha2" : "BJ",
+    "alpha3" : "BEN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "benin.png",
+    "name" : "Benin",
+    "ranking_confederation" : 19,
+    "slug" : "benin"
+  },
+  "bermuda" : {
+    "alpha2" : "BM",
+    "alpha3" : "BER",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "bermuda.png",
+    "name" : "Bermuda",
+    "ranking_confederation" : 22,
+    "slug" : "bermuda"
+  },
+  "bhutan" : {
+    "alpha2" : "BT",
+    "alpha3" : "BTN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "bhutan.png",
+    "name" : "Bhutan",
+    "ranking_confederation" : 39,
+    "slug" : "bhutan"
+  },
+  "bolivia" : {
+    "alpha2" : "BO",
+    "alpha3" : "BOL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Bolivia",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "bolivia.png",
+    "name" : "Bolivia",
+    "ranking_confederation" : 10,
+    "slug" : "bolivia"
+  },
+  "bosnia_and_herzegovina" : {
+    "alpha2" : "BA",
+    "alpha3" : "BIH",
+    "apifootball_id" : "",
+    "apifootball_name" : "Bosnia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "bosnia_and_herzegovina.png",
+    "name" : "Bosnia and Herzegovina",
+    "ranking_confederation" : 39,
+    "slug" : "bosnia_and_herzegovina"
+  },
+  "botswana" : {
+    "alpha2" : "BW",
+    "alpha3" : "BWA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "botswana.png",
+    "name" : "Botswana",
+    "ranking_confederation" : 42,
+    "slug" : "botswana"
+  },
+  "bouvet_island" : {
+    "alpha2" : "BV",
+    "alpha3" : "BVT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "bouvet_island.png",
+    "name" : "Bouvet Island",
+    "slug" : "bouvet_island"
+  },
+  "brazil" : {
+    "alpha2" : "BR",
+    "alpha3" : "BRA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Brazil",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "brazil.png",
+    "name" : "Brazil",
+    "ranking_confederation" : 1,
+    "slug" : "brazil"
+  },
+  "british_indian_ocean_territory" : {
+    "alpha2" : "IO",
+    "alpha3" : "IOT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "british_indian_ocean_territory.png",
+    "name" : "British Indian Ocean Territory",
+    "slug" : "british_indian_ocean_territory"
+  },
+  "british_virgin_islands" : {
+    "alpha2" : "VG",
+    "alpha3" : "VGB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "british_virgin_islands.png",
+    "name" : "British Virgin Islands",
+    "ranking_confederation" : 32,
+    "slug" : "british_virgin_islands"
+  },
+  "brunei_darussalam" : {
+    "alpha2" : "BN",
+    "alpha3" : "BRN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "brunei_darussalam.png",
+    "name" : "Brunei Darussalam",
+    "ranking_confederation" : 43,
+    "slug" : "brunei_darussalam"
+  },
+  "bulgaria" : {
+    "alpha2" : "BG",
+    "alpha3" : "BGR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Bulgaria",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "bulgaria.png",
+    "name" : "Bulgaria",
+    "ranking_confederation" : 28,
+    "slug" : "bulgaria"
+  },
+  "burkina_faso" : {
+    "alpha2" : "BF",
+    "alpha3" : "BFA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "burkina_faso.png",
+    "name" : "Burkina Faso",
+    "ranking_confederation" : 9,
+    "slug" : "burkina_faso"
+  },
+  "burundi" : {
+    "alpha2" : "BI",
+    "alpha3" : "BDI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "burundi.png",
+    "name" : "Burundi",
+    "ranking_confederation" : 37,
+    "slug" : "burundi"
+  },
+  "cambodia" : {
+    "alpha2" : "KH",
+    "alpha3" : "KHM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "cambodia.png",
+    "name" : "Cambodia",
+    "ranking_confederation" : 36,
+    "slug" : "cambodia"
+  },
+  "cameroon" : {
+    "alpha2" : "CM",
+    "alpha3" : "CMR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "cameroon.png",
+    "name" : "Cameroon",
+    "ranking_confederation" : 7,
+    "slug" : "cameroon"
+  },
+  "canada" : {
+    "alpha2" : "CA",
+    "alpha3" : "CAN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Canada",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "canada.png",
+    "name" : "Canada",
+    "ranking_confederation" : 8,
+    "slug" : "canada"
+  },
+  "cape_verde" : {
+    "alpha2" : "CV",
+    "alpha3" : "CPV",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "cape_verde.png",
+    "name" : "Cape Verde",
+    "ranking_confederation" : 15,
+    "slug" : "cape_verde"
+  },
+  "cayman_islands" : {
+    "alpha2" : "KY",
+    "alpha3" : "CAY",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "cayman_islands.png",
+    "name" : "Cayman Islands",
+    "ranking_confederation" : 31,
+    "slug" : "cayman_islands"
+  },
+  "central_african_republic" : {
+    "alpha2" : "CF",
+    "alpha3" : "CAF",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "central_african_republic.png",
+    "name" : "Central African Republic",
+    "ranking_confederation" : 27,
+    "slug" : "central_african_republic"
+  },
+  "chad" : {
+    "alpha2" : "TD",
+    "alpha3" : "TCD",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "chad.png",
+    "name" : "Chad",
+    "ranking_confederation" : 49,
+    "slug" : "chad"
+  },
+  "chile" : {
+    "alpha2" : "CL",
+    "alpha3" : "CHL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Chile",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "chile.png",
+    "name" : "Chile",
+    "name_fr" : "Chili",
+    "ranking_confederation" : 5,
+    "slug" : "chile"
+  },
+  "china" : {
+    "alpha2" : "CN",
+    "alpha3" : "CHN",
+    "apifootball_id" : "",
+    "apifootball_name" : "China",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "china.png",
+    "name" : "China",
+    "ranking_confederation" : 8,
+    "slug" : "china"
+  },
+  "christmas_island" : {
+    "alpha2" : "CX",
+    "alpha3" : "CXR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "christmas_island.png",
+    "name" : "Christmas Island",
+    "slug" : "christmas_island"
+  },
+  "cocos_islands" : {
+    "alpha2" : "CC",
+    "alpha3" : "CCK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "cocos_islands.png",
+    "name" : "Cocos Islands",
+    "slug" : "cocos_islands"
+  },
+  "colombia" : {
+    "alpha2" : "CO",
+    "alpha3" : "COL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Colombia",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "colombia.png",
+    "name" : "Colombia",
+    "ranking_confederation" : 4,
+    "slug" : "colombia"
+  },
+  "comoros" : {
+    "alpha2" : "KM",
+    "alpha3" : "COM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "comoros.png",
+    "name" : "Comoros",
+    "ranking_confederation" : 43,
+    "slug" : "comoros"
+  },
+  "cook_islands" : {
+    "alpha2" : "CK",
+    "alpha3" : "COK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "cook_islands.png",
+    "name" : "Cook Islands",
+    "ranking_confederation" : 9,
+    "slug" : "cook_islands"
+  },
+  "costa_rica" : {
+    "alpha2" : "CR",
+    "alpha3" : "CRI",
+    "apifootball_id" : "",
+    "apifootball_name" : "Costa-Rica",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "costa_rica.png",
+    "name" : "Costa Rica",
+    "ranking_confederation" : 3,
+    "slug" : "costa_rica"
+  },
+  "croatia" : {
+    "alpha2" : "HR",
+    "alpha3" : "HRV",
+    "apifootball_id" : "",
+    "apifootball_name" : "Croatia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "croatia.png",
+    "name" : "Croatia",
+    "ranking_confederation" : 17,
+    "slug" : "croatia"
+  },
+  "cuba" : {
+    "alpha2" : "CU",
+    "alpha3" : "CUB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "cuba.png",
+    "name" : "Cuba",
+    "ranking_confederation" : 23,
+    "slug" : "cuba"
+  },
+  "curacao" : {
+    "alpha2" : "CW",
+    "alpha3" : "CUW",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "curacao.png",
+    "name" : "Curacao",
+    "name_fr" : "Curacao",
+    "ranking_confederation" : 9,
+    "slug" : "curacao"
+  },
+  "cyprus" : {
+    "alpha2" : "CY",
+    "alpha3" : "CYP",
+    "apifootball_id" : "",
+    "apifootball_name" : "Cyprus",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "cyprus.png",
+    "name" : "Cyprus",
+    "ranking_confederation" : 15,
+    "slug" : "cyprus"
+  },
+  "czech_republic" : {
+    "alpha2" : "CZ",
+    "alpha3" : "CZE",
+    "apifootball_id" : "",
+    "apifootball_name" : "Czech-Republic",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "czech_republic.png",
+    "name" : "Czech Republic",
+    "ranking_confederation" : 13,
+    "slug" : "czech_republic"
+  },
+  "democratic_peoples_republic_of_korea" : {
+    "alpha2" : "KP",
+    "alpha3" : "PRK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "democratic_peoples_republic_of_korea.png",
+    "name" : "Democratic People's Republic of Korea",
+    "ranking_confederation" : 22,
+    "slug" : "democratic_peoples_republic_of_korea"
+  },
+  "denmark" : {
+    "alpha2" : "DK",
+    "alpha3" : "DNK",
+    "apifootball_id" : "",
+    "apifootball_name" : "Denmark",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "denmark.png",
+    "name" : "Denmark",
+    "ranking_confederation" : 14,
+    "slug" : "denmark"
+  },
+  "djibouti" : {
+    "alpha2" : "DJ",
+    "alpha3" : "DJI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "djibouti.png",
+    "name" : "Djibouti",
+    "ranking_confederation" : 52,
+    "slug" : "djibouti"
+  },
+  "dominica" : {
+    "alpha2" : "DM",
+    "alpha3" : "DMA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "dominica.png",
+    "name" : "Dominica",
+    "ranking_confederation" : 24,
+    "slug" : "dominica"
+  },
+  "dominican_republic" : {
+    "alpha2" : "DO",
+    "alpha3" : "DOM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "dominican_republic.png",
+    "name" : "Dominican Republic",
+    "ranking_confederation" : 17,
+    "slug" : "dominican_republic"
+  },
+  "ecuador" : {
+    "alpha2" : "EC",
+    "alpha3" : "ECU",
+    "apifootball_id" : "",
+    "apifootball_name" : "Ecuador",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "ecuador.png",
+    "name" : "Ecuador",
+    "ranking_confederation" : 9,
+    "slug" : "ecuador"
+  },
+  "egypt" : {
+    "alpha2" : "EG",
+    "alpha3" : "EGY",
+    "apifootball_id" : "",
+    "apifootball_name" : "Egypt",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "egypt.png",
+    "name" : "Egypt",
+    "ranking_confederation" : 8,
+    "slug" : "egypt"
+  },
+  "el_salvador" : {
+    "alpha2" : "SV",
+    "alpha3" : "SLV",
+    "apifootball_id" : "",
+    "apifootball_name" : "El-Salvador",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "el_salvador.png",
+    "name" : "El Salvador",
+    "ranking_confederation" : 6,
+    "slug" : "el_salvador"
+  },
+  "england" : {
+    "alpha2" : "",
+    "alpha3" : "",
+    "apifootball_id" : "",
+    "apifootball_name" : "England",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "england.png",
+    "name" : "England",
+    "ranking_confederation" : 2,
+    "slug" : "england"
+  },
+  "equatorial_guinea" : {
+    "alpha2" : "GQ",
+    "alpha3" : "GNQ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "equatorial_guinea.png",
+    "name" : "Equatorial Guinea",
+    "ranking_confederation" : 39,
+    "slug" : "equatorial_guinea"
+  },
+  "eritrea" : {
+    "alpha2" : "ER",
+    "alpha3" : "ERI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "eritrea.png",
+    "name" : "Eritrea",
+    "ranking_confederation" : 53,
+    "slug" : "eritrea"
+  },
+  "estonia" : {
+    "alpha2" : "EE",
+    "alpha3" : "EST",
+    "apifootball_id" : "",
+    "apifootball_name" : "Estonia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "estonia.png",
+    "name" : "Estonia",
+    "ranking_confederation" : 51,
+    "slug" : "estonia"
+  },
+  "ethiopia" : {
+    "alpha2" : "ET",
+    "alpha3" : "ETH",
+    "apifootball_id" : "",
+    "apifootball_name" : "Ethiopia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "ethiopia.png",
+    "name" : "Ethiopia",
+    "ranking_confederation" : 44,
+    "slug" : "ethiopia"
+  },
+  "falkland_islands" : {
+    "alpha2" : "FK",
+    "alpha3" : "FLK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "falkland_islands.png",
+    "name" : "Falkland Islands",
+    "slug" : "falkland_islands"
+  },
+  "faroe_islands" : {
+    "alpha2" : "FO",
+    "alpha3" : "FRO",
+    "apifootball_id" : "",
+    "apifootball_name" : "Faroe-Islands",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "faroe_islands.png",
+    "name" : "Faroe Islands",
+    "ranking_confederation" : 53,
+    "slug" : "faroe_islands"
+  },
+  "federated_states_of_micronesia" : {
+    "alpha2" : "FM",
+    "alpha3" : "FSM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "federated_states_of_micronesia.png",
+    "name" : "Federated States of Micronesia",
+    "slug" : "federated_states_of_micronesia"
+  },
+  "fiji" : {
+    "alpha2" : "FJ",
+    "alpha3" : "FJI",
+    "apifootball_id" : "",
+    "apifootball_name" : "Fiji",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "fiji.png",
+    "name" : "Fiji",
+    "ranking_confederation" : 7,
+    "slug" : "fiji"
+  },
+  "finland" : {
+    "alpha2" : "FI",
+    "alpha3" : "FIN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Finland",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "finland.png",
+    "name" : "Finland",
+    "ranking_confederation" : 42,
+    "slug" : "finland"
+  },
+  "france" : {
+    "alpha2" : "FR",
+    "alpha3" : "FRA",
+    "apifootball_id" : "",
+    "apifootball_name" : "France",
+    "competitions" : true,
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "france.png",
+    "name" : "France",
+    "ranking_confederation" : 5,
+    "slug" : "france"
+  },
+  "french_guiana" : {
+    "alpha2" : "GF",
+    "alpha3" : "GUF",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "french_guiana.png",
+    "name" : "French Guiana",
+    "slug" : "french_guiana"
+  },
+  "french_polynesia" : {
+    "alpha2" : "PF",
+    "alpha3" : "PYF",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "french_polynesia.png",
+    "name" : "French Polynesia",
+    "slug" : "french_polynesia"
+  },
+  "french_southern_territories" : {
+    "alpha2" : "TF",
+    "alpha3" : "ATF",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "french_southern_territories.png",
+    "name" : "French Southern Territories",
+    "slug" : "french_southern_territories"
+  },
+  "gabon" : {
+    "alpha2" : "GA",
+    "alpha3" : "GAB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "gabon.png",
+    "name" : "Gabon",
+    "ranking_confederation" : 18,
+    "slug" : "gabon"
+  },
+  "gambia" : {
+    "alpha2" : "GM",
+    "alpha3" : "GMB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "gambia.png",
+    "name" : "Gambia",
+    "ranking_confederation" : 47,
+    "slug" : "gambia"
+  },
+  "georgia" : {
+    "alpha2" : "GE",
+    "alpha3" : "GEO",
+    "apifootball_id" : "",
+    "apifootball_name" : "Georgia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "georgia.png",
+    "name" : "Georgia",
+    "ranking_confederation" : 48,
+    "slug" : "georgia"
+  },
+  "germany" : {
+    "alpha2" : "DE",
+    "alpha3" : "DEU",
+    "apifootball_id" : "",
+    "apifootball_name" : "Germany",
+    "competitions" : true,
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "germany.png",
+    "name" : "Germany",
+    "ranking_confederation" : 3,
+    "slug" : "germany"
+  },
+  "ghana" : {
+    "alpha2" : "GH",
+    "alpha3" : "GHA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "ghana.png",
+    "name" : "Ghana",
+    "ranking_confederation" : 6,
+    "slug" : "ghana"
+  },
+  "gibraltar" : {
+    "alpha2" : "GI",
+    "alpha3" : "GIB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "gibraltar.png",
+    "name" : "Gibraltar",
+    "ranking_confederation" : 46,
+    "slug" : "gibraltar"
+  },
+  "greece" : {
+    "alpha2" : "GR",
+    "alpha3" : "GRC",
+    "apifootball_id" : "",
+    "apifootball_name" : "Greece",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "greece.png",
+    "name" : "Greece",
+    "ranking_confederation" : 16,
+    "slug" : "greece"
+  },
+  "greenland" : {
+    "alpha2" : "GL",
+    "alpha3" : "GRL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "greenland.png",
+    "name" : "Greenland",
+    "slug" : "greenland"
+  },
+  "grenada" : {
+    "alpha2" : "GD",
+    "alpha3" : "GRD",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "grenada.png",
+    "name" : "Grenada",
+    "ranking_confederation" : 21,
+    "slug" : "grenada"
+  },
+  "guadeloupe" : {
+    "alpha2" : "GP",
+    "alpha3" : "GLP",
+    "apifootball_id" : "",
+    "apifootball_name" : "Guadeloupe",
+    "continent" : "",
+    "image" : "guadeloupe.png",
+    "name" : "Guadeloupe",
+    "slug" : "guadeloupe"
+  },
+  "guam" : {
+    "alpha2" : "GU",
+    "alpha3" : "GUM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "guam.png",
+    "name" : "Guam",
+    "ranking_confederation" : 42,
+    "slug" : "guam"
+  },
+  "guatemala" : {
+    "alpha2" : "GT",
+    "alpha3" : "GTM",
+    "apifootball_id" : "",
+    "apifootball_name" : "Guatemala",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "guatemala.png",
+    "name" : "Guatemala",
+    "ranking_confederation" : 15,
+    "slug" : "guatemala"
+  },
+  "guinea" : {
+    "alpha2" : "GN",
+    "alpha3" : "GIN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Guinea",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "guinea.png",
+    "name" : "Guinea",
+    "ranking_confederation" : 12,
+    "slug" : "guinea"
+  },
+  "guinea_bissau" : {
+    "alpha2" : "GW",
+    "alpha3" : "GNB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "guinea_bissau.png",
+    "name" : "Guinea-Bissau",
+    "ranking_confederation" : 31,
+    "slug" : "guinea_bissau"
+  },
+  "guyana" : {
+    "alpha2" : "GY",
+    "alpha3" : "GUY",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "guyana.png",
+    "name" : "Guyana",
+    "ranking_confederation" : 25,
+    "slug" : "guyana"
+  },
+  "haiti" : {
+    "alpha2" : "HT",
+    "alpha3" : "HTI",
+    "apifootball_id" : "",
+    "apifootball_name" : "Haiti",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "haiti.png",
+    "name" : "Haiti",
+    "ranking_confederation" : 11,
+    "slug" : "haiti"
+  },
+  "heard_island_and_mcdonald_islands" : {
+    "alpha2" : "HM",
+    "alpha3" : "HMD",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "heard_islands_and_mcdonald_islands.png",
+    "name" : "Heard Island and McDonald Islands",
+    "slug" : "heard_island_and_mcdonald_islands"
+  },
+  "honduras" : {
+    "alpha2" : "HN",
+    "alpha3" : "HND",
+    "apifootball_id" : "",
+    "apifootball_name" : "Honduras",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "honduras.png",
+    "name" : "Honduras",
+    "ranking_confederation" : 5,
+    "slug" : "honduras"
+  },
+  "hong_kong" : {
+    "alpha2" : "HK",
+    "alpha3" : "HKG",
+    "apifootball_id" : "",
+    "apifootball_name" : "Hong-Kong",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "hong_kong.png",
+    "name" : "Hong Kong",
+    "ranking_confederation" : 27,
+    "slug" : "hong_kong"
+  },
+  "hungary" : {
+    "alpha2" : "HU",
+    "alpha3" : "HUN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Hungary",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "hungary.png",
+    "name" : "Hungary",
+    "ranking_confederation" : 33,
+    "slug" : "hungary"
+  },
+  "iceland" : {
+    "alpha2" : "IS",
+    "alpha3" : "ISL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Iceland",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "iceland.png",
+    "name" : "Iceland",
+    "ranking_confederation" : 44,
+    "slug" : "iceland"
+  },
+  "india" : {
+    "alpha2" : "IN",
+    "alpha3" : "IND",
+    "apifootball_id" : "",
+    "apifootball_name" : "India",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "india.png",
+    "name" : "India",
+    "ranking_confederation" : 18,
+    "slug" : "india"
+  },
+  "indonesia" : {
+    "alpha2" : "ID",
+    "alpha3" : "IDN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Indonesia",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "indonesia.png",
+    "name" : "Indonesia",
+    "ranking_confederation" : 33,
+    "slug" : "indonesia"
+  },
+  "iran" : {
+    "alpha2" : "IR",
+    "alpha3" : "IRN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Iran",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "iran.png",
+    "name" : "Iran",
+    "ranking_confederation" : 1,
+    "slug" : "iran"
+  },
+  "iraq" : {
+    "alpha2" : "IQ",
+    "alpha3" : "IRQ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "iraq.png",
+    "name" : "Iraq",
+    "ranking_confederation" : 9,
+    "slug" : "iraq"
+  },
+  "ireland" : {
+    "alpha2" : "IE",
+    "alpha3" : "IRL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Ireland",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "ireland.png",
+    "name" : "Ireland",
+    "ranking_confederation" : 41,
+    "slug" : "ireland"
+  },
+  "isle_of_man" : {
+    "alpha2" : "IM",
+    "alpha3" : "IMN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "isle_of_man.png",
+    "name" : "Isle of Man",
+    "slug" : "isle_of_man"
+  },
+  "israel" : {
+    "alpha2" : "IL",
+    "alpha3" : "ISR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Israel",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "israel.png",
+    "name" : "Israel",
+    "ranking_confederation" : 22,
+    "slug" : "israel"
+  },
+  "italy" : {
+    "alpha2" : "IT",
+    "alpha3" : "ITA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Italy",
+    "competitions" : true,
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "italy.png",
+    "name" : "Italy",
+    "ranking_confederation" : 4,
+    "slug" : "italy"
+  },
+  "ivory_coast" : {
+    "alpha2" : "CI",
+    "alpha3" : "CIV",
+    "apifootball_id" : "",
+    "apifootball_name" : "Ivory Coast",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "ivory_coast.png",
+    "name" : "Ivory Coast",
+    "ranking_confederation" : 11,
+    "slug" : "ivory_coast"
+  },
+  "jamaica" : {
+    "alpha2" : "JM",
+    "alpha3" : "JAM",
+    "apifootball_id" : "",
+    "apifootball_name" : "Jamaica",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "jamaica.png",
+    "name" : "Jamaica",
+    "ranking_confederation" : 4,
+    "slug" : "jamaica"
+  },
+  "japan" : {
+    "alpha2" : "JP",
+    "alpha3" : "JPN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Japan",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "japan.png",
+    "name" : "Japan",
+    "ranking_confederation" : 2,
+    "slug" : "japan"
+  },
+  "jordan" : {
+    "alpha2" : "JO",
+    "alpha3" : "JOR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Jordan",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "jordan.png",
+    "name" : "Jordan",
+    "ranking_confederation" : 16,
+    "slug" : "jordan"
+  },
+  "kazakhstan" : {
+    "alpha2" : "KZ",
+    "alpha3" : "KAZ",
+    "apifootball_id" : "",
+    "apifootball_name" : "Kazakhstan",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "kazakhstan.png",
+    "name" : "Kazakhstan",
+    "ranking_confederation" : 24,
+    "slug" : "kazakhstan"
+  },
+  "kenya" : {
+    "alpha2" : "KE",
+    "alpha3" : "KEN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Kenya",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "kenya.png",
+    "name" : "Kenya",
+    "ranking_confederation" : 23,
+    "slug" : "kenya"
+  },
+  "kiribati" : {
+    "alpha2" : "KI",
+    "alpha3" : "KIR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "kiribati.png",
+    "name" : "Kiribati",
+    "slug" : "kiribati"
+  },
+  "kosovo" : {
+    "alpha2" : "KO",
+    "alpha3" : "KOS",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "kosovo.png",
+    "name" : "Kosovo",
+    "ranking_confederation" : 49,
+    "slug" : "kosovo"
+  },
+  "kuwait" : {
+    "alpha2" : "KW",
+    "alpha3" : "KWT",
+    "apifootball_id" : "",
+    "apifootball_name" : "Kuwait",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "kuwait.png",
+    "name" : "Kuwait",
+    "ranking_confederation" : 31,
+    "slug" : "kuwait"
+  },
+  "kyrgyzstan" : {
+    "alpha2" : "KG",
+    "alpha3" : "KGZ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "kyrgyzstan.png",
+    "name" : "Kyrgyzstan",
+    "ranking_confederation" : 14,
+    "slug" : "kyrgyzstan"
+  },
+  "lao_people_democratic_republic" : {
+    "alpha2" : "LA",
+    "alpha3" : "LAO",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "lao_people_democratic_republic.png",
+    "name" : "Lao People Democratic Republic",
+    "ranking_confederation" : 41,
+    "slug" : "lao_people_democratic_republic"
+  },
+  "latvia" : {
+    "alpha2" : "LV",
+    "alpha3" : "LVA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Latvia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "latvia.png",
+    "name" : "Latvia",
+    "ranking_confederation" : 37,
+    "slug" : "latvia"
+  },
+  "lebanon" : {
+    "alpha2" : "LB",
+    "alpha3" : "LBN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Lebanon",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "lebanon.png",
+    "name" : "Lebanon",
+    "ranking_confederation" : 12,
+    "slug" : "lebanon"
+  },
+  "lesotho" : {
+    "alpha2" : "LS",
+    "alpha3" : "LSO",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "lesotho.png",
+    "name" : "Lesotho",
+    "ranking_confederation" : 41,
+    "slug" : "lesotho"
+  },
+  "liberia" : {
+    "alpha2" : "LR",
+    "alpha3" : "LBR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "liberia.png",
+    "name" : "Liberia",
+    "ranking_confederation" : 45,
+    "slug" : "liberia"
+  },
+  "libyan_arab_jamahiriya" : {
+    "alpha2" : "LY",
+    "alpha3" : "LBY",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "libyan_arab_jamahiriya.png",
+    "name" : "Libyan Arab Jamahiriya",
+    "ranking_confederation" : 24,
+    "slug" : "libyan_arab_jamahiriya"
+  },
+  "liechtenstein" : {
+    "alpha2" : "LI",
+    "alpha3" : "LIE",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "liechtenstein.png",
+    "name" : "Liechtenstein",
+    "ranking_confederation" : 31,
+    "slug" : "liechtenstein"
+  },
+  "lithuania" : {
+    "alpha2" : "LT",
+    "alpha3" : "LTU",
+    "apifootball_id" : "",
+    "apifootball_name" : "Lithuania",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "lithuania.png",
+    "name" : "Lithuania",
+    "ranking_confederation" : 36,
+    "slug" : "lithuania"
+  },
+  "luxembourg" : {
+    "alpha2" : "LU",
+    "alpha3" : "LUX",
+    "apifootball_id" : "",
+    "apifootball_name" : "Luxembourg",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "luxembourg.png",
+    "name" : "Luxembourg",
+    "ranking_confederation" : 40,
+    "slug" : "luxembourg"
+  },
+  "macao" : {
+    "alpha2" : "MO",
+    "alpha3" : "MCA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "macao.png",
+    "name" : "Macao",
+    "ranking_confederation" : 37,
+    "slug" : "macao"
+  },
+  "macedonia" : {
+    "alpha2" : "MK",
+    "alpha3" : "FYR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Macedonia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "macedonia.png",
+    "name" : "Macedonia",
+    "ranking_confederation" : 34,
+    "slug" : "macedonia"
+  },
+  "madagascar" : {
+    "alpha2" : "MG",
+    "alpha3" : "MDG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "madagascar.png",
+    "name" : "Madagascar",
+    "name_fr" : "Madagascar",
+    "ranking_confederation" : 25,
+    "slug" : "madagascar"
+  },
+  "malawi" : {
+    "alpha2" : "MW",
+    "alpha3" : "MWI",
+    "apifootball_id" : "",
+    "apifootball_name" : "Malawi",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "malawi.png",
+    "name" : "Malawi",
+    "ranking_confederation" : 33,
+    "slug" : "malawi"
+  },
+  "malaysia" : {
+    "alpha2" : "MY",
+    "alpha3" : "MYS",
+    "apifootball_id" : "",
+    "apifootball_name" : "Malaysia",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "malaysia.png",
+    "name" : "Malaysia",
+    "ranking_confederation" : 32,
+    "slug" : "malaysia"
+  },
+  "maldives" : {
+    "alpha2" : "MV",
+    "alpha3" : "MDV",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "maldives.png",
+    "name" : "Maldives",
+    "ranking_confederation" : 30,
+    "slug" : "maldives"
+  },
+  "mali" : {
+    "alpha2" : "ML",
+    "alpha3" : "MLI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "mali.png",
+    "name" : "Mali",
+    "ranking_confederation" : 10,
+    "slug" : "mali"
+  },
+  "malta" : {
+    "alpha2" : "MT",
+    "alpha3" : "MLT",
+    "apifootball_id" : "",
+    "apifootball_name" : "Malta",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "malta.png",
+    "name" : "Malta",
+    "ranking_confederation" : 45,
+    "slug" : "malta"
+  },
+  "marshall_islands" : {
+    "alpha2" : "MH",
+    "alpha3" : "MHL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "marshall_islands.png",
+    "name" : "Marshall Islands",
+    "slug" : "marshall_islands"
+  },
+  "martinique" : {
+    "alpha2" : "MQ",
+    "alpha3" : "MTQ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "martinique.png",
+    "name" : "Martinique",
+    "slug" : "martinique"
+  },
+  "mauritania" : {
+    "alpha2" : "MR",
+    "alpha3" : "MRT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "mauritania.png",
+    "name" : "Mauritania",
+    "ranking_confederation" : 21,
+    "slug" : "mauritania"
+  },
+  "mauritius" : {
+    "alpha2" : "MU",
+    "alpha3" : "MUS",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "mauritius.png",
+    "name" : "Mauritius",
+    "ranking_confederation" : 46,
+    "slug" : "mauritius"
+  },
+  "mayotte" : {
+    "alpha2" : "YT",
+    "alpha3" : "MYT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "mayotte.png",
+    "name" : "Mayotte",
+    "slug" : "mayotte"
+  },
+  "mexico" : {
+    "alpha2" : "MX",
+    "alpha3" : "MEX",
+    "apifootball_id" : "",
+    "apifootball_name" : "Mexico",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "mexico.png",
+    "name" : "Mexico",
+    "ranking_confederation" : 1,
+    "slug" : "mexico"
+  },
+  "monaco" : {
+    "alpha2" : "MC",
+    "alpha3" : "MCO",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "monaco.png",
+    "name" : "Monaco",
+    "slug" : "monaco"
+  },
+  "mongolia" : {
+    "alpha2" : "MN",
+    "alpha3" : "MNG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "mongolia.png",
+    "name" : "Mongolia",
+    "ranking_confederation" : 40,
+    "slug" : "mongolia"
+  },
+  "montenegro" : {
+    "alpha2" : "ME",
+    "alpha3" : "MNE",
+    "apifootball_id" : "",
+    "apifootball_name" : "Montenegro",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "montenegro.png",
+    "name" : "Montenegro",
+    "ranking_confederation" : 50,
+    "slug" : "montenegro"
+  },
+  "montserrat" : {
+    "alpha2" : "MS",
+    "alpha3" : "MSR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "montserrat.png",
+    "name" : "Montserrat",
+    "ranking_confederation" : 29,
+    "slug" : "montserrat"
+  },
+  "morocco" : {
+    "alpha2" : "MA",
+    "alpha3" : "MAR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Morocco",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "morocco.png",
+    "name" : "Morocco",
+    "ranking_confederation" : 4,
+    "slug" : "morocco"
+  },
+  "mozambique" : {
+    "alpha2" : "MZ",
+    "alpha3" : "MOZ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "mozambique.png",
+    "name" : "Mozambique",
+    "ranking_confederation" : 30,
+    "slug" : "mozambique"
+  },
+  "myanmar" : {
+    "alpha2" : "MM",
+    "alpha3" : "MMR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "myanmar.png",
+    "name" : "Myanmar",
+    "ranking_confederation" : 26,
+    "slug" : "myanmar"
+  },
+  "namibia" : {
+    "alpha2" : "NA",
+    "alpha3" : "NAM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "namibia.png",
+    "name" : "Namibia",
+    "ranking_confederation" : 28,
+    "slug" : "namibia"
+  },
+  "nauru" : {
+    "alpha2" : "NR",
+    "alpha3" : "NRU",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "nauru.png",
+    "name" : "Nauru",
+    "slug" : "nauru"
+  },
+  "nepal" : {
+    "alpha2" : "NP",
+    "alpha3" : "NPL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "nepal.png",
+    "name" : "Nepal",
+    "ranking_confederation" : 35,
+    "slug" : "nepal"
+  },
+  "netherlands" : {
+    "alpha2" : "NL",
+    "alpha3" : "NLD",
+    "apifootball_id" : "",
+    "apifootball_name" : "Netherlands",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "netherlands.png",
+    "name" : "Netherlands",
+    "ranking_confederation" : 12,
+    "slug" : "netherlands"
+  },
+  "netherlands_antilles" : {
+    "alpha2" : "AN",
+    "alpha3" : "ANT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "netherlands_antilles.png",
+    "name" : "Netherlands Antilles",
+    "slug" : "netherlands_antilles"
+  },
+  "new_caledonia" : {
+    "alpha2" : "NC",
+    "alpha3" : "NCL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "new_caledonia.png",
+    "name" : "New Caledonia",
+    "ranking_confederation" : 3,
+    "slug" : "new_caledonia"
+  },
+  "new_zealand" : {
+    "alpha2" : "NZ",
+    "alpha3" : "NZL",
+    "apifootball_id" : "",
+    "apifootball_name" : "New-Zealand",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "new_zealand.png",
+    "name" : "New Zealand",
+    "ranking_confederation" : 1,
+    "slug" : "new_zealand"
+  },
+  "nicaragua" : {
+    "alpha2" : "NI",
+    "alpha3" : "NIC",
+    "apifootball_id" : "",
+    "apifootball_name" : "Nicaragua",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "nicaragua.png",
+    "name" : "Nicaragua",
+    "ranking_confederation" : 13,
+    "slug" : "nicaragua"
+  },
+  "niger" : {
+    "alpha2" : "NE",
+    "alpha3" : "NER",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "niger.png",
+    "name" : "Niger",
+    "ranking_confederation" : 22,
+    "slug" : "niger"
+  },
+  "nigeria" : {
+    "alpha2" : "NG",
+    "alpha3" : "NGA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "nigeria.png",
+    "name" : "Nigeria",
+    "ranking_confederation" : 3,
+    "slug" : "nigeria"
+  },
+  "niue" : {
+    "alpha2" : "NU",
+    "alpha3" : "NIU",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "niue.png",
+    "name" : "Niue",
+    "slug" : "niue"
+  },
+  "norfolk_islands" : {
+    "alpha2" : "NF",
+    "alpha3" : "NFK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "norfolk_island.png",
+    "name" : "Norfolk Islands",
+    "slug" : "norfolk_islands"
+  },
+  "northern_ireland" : {
+    "alpha2" : "",
+    "alpha3" : "NIR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "northern_ireland.png",
+    "name" : "Northern Ireland",
+    "ranking_confederation" : 52,
+    "slug" : "northern_ireland"
+  },
+  "northern_mariana_islands" : {
+    "alpha2" : "MP",
+    "alpha3" : "MNP",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "northern_mariana_islands.png",
+    "name" : "Northern Mariana Islands",
+    "slug" : "northern_mariana_islands"
+  },
+  "norway" : {
+    "alpha2" : "NO",
+    "alpha3" : "NOR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Norway",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "norway.png",
+    "name" : "Norway",
+    "ranking_confederation" : 21,
+    "slug" : "norway"
+  },
+  "occupied_palestinian_territory" : {
+    "alpha2" : "PS",
+    "alpha3" : "PLE",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "occupied_palestinian_territory.png",
+    "name" : "Occupied Palestinian Territory",
+    "ranking_confederation" : 17,
+    "slug" : "occupied_palestinian_territory"
+  },
+  "oman" : {
+    "alpha2" : "OM",
+    "alpha3" : "OMN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "oman.png",
+    "name" : "Oman",
+    "ranking_confederation" : 13,
+    "slug" : "oman"
+  },
+  "pakistan" : {
+    "alpha2" : "PK",
+    "alpha3" : "PAK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "pakistan.png",
+    "name" : "Pakistan",
+    "ranking_confederation" : 46,
+    "slug" : "pakistan"
+  },
+  "palau" : {
+    "alpha2" : "PW",
+    "alpha3" : "PLW",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "palau.png",
+    "name" : "Palau",
+    "slug" : "palau"
+  },
+  "panama" : {
+    "alpha2" : "PA",
+    "alpha3" : "PAN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Panama",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "panama.png",
+    "name" : "Panama",
+    "ranking_confederation" : 7,
+    "slug" : "panama"
+  },
+  "papua_new_guinea" : {
+    "alpha2" : "PG",
+    "alpha3" : "PNG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "papua_new_guinea.png",
+    "name" : "Papua New Guinea",
+    "ranking_confederation" : 6,
+    "slug" : "papua_new_guinea"
+  },
+  "paraguay" : {
+    "alpha2" : "PY",
+    "alpha3" : "PRY",
+    "apifootball_id" : "",
+    "apifootball_name" : "Paraguay",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "paraguay.png",
+    "name" : "Paraguay",
+    "ranking_confederation" : 8,
+    "slug" : "paraguay"
+  },
+  "peru" : {
+    "alpha2" : "PE",
+    "alpha3" : "PER",
+    "apifootball_id" : "",
+    "apifootball_name" : "Peru",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "continent_fr" : "Amérique",
+    "image" : "peru.png",
+    "name" : "Peru",
+    "ranking_confederation" : 6,
+    "slug" : "peru"
+  },
+  "philippines" : {
+    "alpha2" : "PH",
+    "alpha3" : "PHL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "philippines.png",
+    "name" : "Philippines",
+    "ranking_confederation" : 24,
+    "slug" : "philippines"
+  },
+  "pitcairn" : {
+    "alpha2" : "PN",
+    "alpha3" : "PCN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "pitcairn.png",
+    "name" : "Pitcairn",
+    "slug" : "pitcairn"
+  },
+  "poland" : {
+    "alpha2" : "PL",
+    "alpha3" : "POL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Poland",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "poland.png",
+    "name" : "Poland",
+    "ranking_confederation" : 27,
+    "slug" : "poland"
+  },
+  "portugal" : {
+    "alpha2" : "PT",
+    "alpha3" : "PRT",
+    "apifootball_id" : "",
+    "apifootball_name" : "Portugal",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "portugal.png",
+    "name" : "Portugal",
+    "ranking_confederation" : 7,
+    "slug" : "portugal"
+  },
+  "puerto_rico" : {
+    "alpha2" : "PR",
+    "alpha3" : "PRI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "puerto_rico.png",
+    "name" : "Puerto Rico",
+    "ranking_confederation" : 27,
+    "slug" : "puerto_rico"
+  },
+  "qatar" : {
+    "alpha2" : "QA",
+    "alpha3" : "QAT",
+    "apifootball_id" : "",
+    "apifootball_name" : "Qatar",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "qatar.png",
+    "name" : "Qatar",
+    "ranking_confederation" : 5,
+    "slug" : "qatar"
+  },
+  "republic_of_korea" : {
+    "alpha2" : "KR",
+    "alpha3" : "KOR",
+    "apifootball_id" : "",
+    "apifootball_name" : "South-Korea",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "continent_fr" : "Asie",
+    "image" : "republic_of_korea.png",
+    "name" : "Republic of Korea",
+    "ranking_confederation" : 3,
+    "slug" : "republic_of_korea"
+  },
+  "republic_of_moldova" : {
+    "alpha2" : "MD",
+    "alpha3" : "MDA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Moldova",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "republic_of_moldova.png",
+    "name" : "Republic of Moldova",
+    "name_fr" : "République de Moldovie",
+    "ranking_confederation" : 38,
+    "slug" : "republic_of_moldova"
+  },
+  "republic_of_south_sudan" : {
+    "alpha2" : "SS",
+    "alpha3" : "SSD",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "republic_of_south_sudan.png",
+    "name" : "Republic of South Sudan",
+    "ranking_confederation" : 48,
+    "slug" : "republic_of_south_sudan"
+  },
+  "republic_of_the_congo" : {
+    "alpha2" : "CG",
+    "alpha3" : "COG",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "republic_of_the_congo.png",
+    "name" : "Republic of the Congo",
+    "ranking_confederation" : 20,
+    "slug" : "republic_of_the_congo"
+  },
+  "reunion" : {
+    "alpha2" : "RE",
+    "alpha3" : "REU",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "reunion.png",
+    "name" : "Reunion",
+    "slug" : "reunion"
+  },
+  "romania" : {
+    "alpha2" : "RO",
+    "alpha3" : "ROU",
+    "apifootball_id" : "",
+    "apifootball_name" : "Romania",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "romania.png",
+    "name" : "Romania",
+    "ranking_confederation" : 32,
+    "slug" : "romania"
+  },
+  "russia" : {
+    "alpha2" : "RU",
+    "alpha3" : "RUS",
+    "apifootball_id" : "",
+    "apifootball_name" : "Russia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "russia.png",
+    "name" : "Russia",
+    "ranking_confederation" : 6,
+    "slug" : "russia"
+  },
+  "rwanda" : {
+    "alpha2" : "RW",
+    "alpha3" : "RWA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "rwanda.png",
+    "name" : "Rwanda",
+    "ranking_confederation" : 38,
+    "slug" : "rwanda"
+  },
+  "saint_helena" : {
+    "alpha2" : "SH",
+    "alpha3" : "SHN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "saint_helena.png",
+    "name" : "Saint Helena",
+    "slug" : "saint_helena"
+  },
+  "saint_kitts_and_nevis" : {
+    "alpha2" : "KN",
+    "alpha3" : "KNA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "saint_kitts_and_nevis.png",
+    "name" : "Saint Kitts and Nevis",
+    "ranking_confederation" : 14,
+    "slug" : "saint_kitts_and_nevis"
+  },
+  "saint_lucia" : {
+    "alpha2" : "LC",
+    "alpha3" : "LCA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "saint_lucia.png",
+    "name" : "Saint Lucia",
+    "ranking_confederation" : 20,
+    "slug" : "saint_lucia"
+  },
+  "saint_pierre_and_miquelon" : {
+    "alpha2" : "PM",
+    "alpha3" : "SPM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "saint_pierre_and_miquelon.png",
+    "name" : "Saint-Pierre and Miquelon",
+    "slug" : "saint_pierre_and_miquelon"
+  },
+  "saint_vincent_and_the_grenadines" : {
+    "alpha2" : "VC",
+    "alpha3" : "VCT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "saint_vincent_and_the_grenadines.png",
+    "name" : "Saint Vincent and the Grenadines",
+    "ranking_confederation" : 26,
+    "slug" : "saint_vincent_and_the_grenadines"
+  },
+  "samoa" : {
+    "alpha2" : "WS",
+    "alpha3" : "WSM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "samoa.png",
+    "name" : "Samoa",
+    "ranking_confederation" : 10,
+    "slug" : "samoa"
+  },
+  "san_marino" : {
+    "alpha2" : "SM",
+    "alpha3" : "SMR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "san_marino.png",
+    "name" : "San Marino",
+    "ranking_confederation" : 55,
+    "slug" : "san_marino"
+  },
+  "sao_tome_and_principe" : {
+    "alpha2" : "ST",
+    "alpha3" : "STP",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "sao_tome_and_principe.png",
+    "name" : "Sao Tome and Principe",
+    "ranking_confederation" : 50,
+    "slug" : "sao_tome_and_principe"
+  },
+  "saudi_arabia" : {
+    "alpha2" : "SA",
+    "alpha3" : "SAU",
+    "apifootball_id" : "",
+    "apifootball_name" : "Saudi-Arabia",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "saudi_arabia.png",
+    "name" : "Saudi Arabia",
+    "ranking_confederation" : 7,
+    "slug" : "saudi_arabia"
+  },
+  "scotland" : {
+    "alpha2" : "",
+    "alpha3" : "SCO",
+    "apifootball_id" : "",
+    "apifootball_name" : "Scotland",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "scotland.png",
+    "name" : "Scotland",
+    "ranking_confederation" : 20,
+    "slug" : "scotland"
+  },
+  "senegal" : {
+    "alpha2" : "SN",
+    "alpha3" : "SEN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "senegal.png",
+    "name" : "Senegal",
+    "ranking_confederation" : 1,
+    "slug" : "senegal"
+  },
+  "serbia" : {
+    "alpha2" : "RS",
+    "alpha3" : "SRB",
+    "apifootball_id" : "",
+    "apifootball_name" : "Serbia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "serbia.png",
+    "name" : "Serbia",
+    "ranking_confederation" : 19,
+    "slug" : "serbia"
+  },
+  "seychelles" : {
+    "alpha2" : "SC",
+    "alpha3" : "SYC",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "seychelles.png",
+    "name" : "Seychelles",
+    "ranking_confederation" : 51,
+    "slug" : "seychelles"
+  },
+  "sierra_leone" : {
+    "alpha2" : "SL",
+    "alpha3" : "SLE",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "sierra_leone.png",
+    "name" : "Sierra Leone",
+    "ranking_confederation" : 29,
+    "slug" : "sierra_leone"
+  },
+  "singapore" : {
+    "alpha2" : "SG",
+    "alpha3" : "SGP",
+    "apifootball_id" : "",
+    "apifootball_name" : "Singapore",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "singapore.png",
+    "name" : "Singapore",
+    "name_fr" : "Singapour",
+    "ranking_confederation" : 34,
+    "slug" : "singapore"
+  },
+  "slovakia" : {
+    "alpha2" : "SK",
+    "alpha3" : "SVK",
+    "apifootball_id" : "",
+    "apifootball_name" : "Slovakia",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "slovakia.png",
+    "name" : "Slovakia",
+    "ranking_confederation" : 29,
+    "slug" : "slovakia"
+  },
+  "slovenia" : {
+    "alpha2" : "SI",
+    "alpha3" : "SVN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "slovenia.png",
+    "name" : "Slovenia",
+    "ranking_confederation" : 30,
+    "slug" : "slovenia"
+  },
+  "solomon_islands" : {
+    "alpha2" : "SB",
+    "alpha3" : "SLB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "solomon_islands.png",
+    "name" : "Solomon Islands",
+    "ranking_confederation" : 2,
+    "slug" : "solomon_islands"
+  },
+  "somalia" : {
+    "alpha2" : "SO",
+    "alpha3" : "SOM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "somalia.png",
+    "name" : "Somalia",
+    "ranking_confederation" : 54,
+    "slug" : "somalia"
+  },
+  "south_africa" : {
+    "alpha2" : "ZA",
+    "alpha3" : "ZAF",
+    "apifootball_id" : "",
+    "apifootball_name" : "South-Africa",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "south_africa.png",
+    "name" : "South Africa",
+    "ranking_confederation" : 14,
+    "slug" : "south_africa"
+  },
+  "south_georgia_and_the_south_sandwich_islands" : {
+    "alpha2" : "GS",
+    "alpha3" : "SGS",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "continent_fr" : "",
+    "image" : "south_georgia_and_the_south_sandwich_islands.png",
+    "name" : "South Georgia and the South Sandwich Islands",
+    "slug" : "south_georgia_and_the_south_sandwich_islands"
+  },
+  "spain" : {
+    "alpha2" : "ES",
+    "alpha3" : "ESP",
+    "apifootball_id" : "",
+    "apifootball_name" : "Spain",
+    "competitions" : true,
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "spain.png",
+    "name" : "Spain",
+    "ranking" : 1,
+    "ranking_confederation" : 1,
+    "slug" : "spain"
+  },
+  "sri_lanka" : {
+    "alpha2" : "LK",
+    "alpha3" : "LKA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "sri_lanka.png",
+    "name" : "Sri Lanka",
+    "ranking_confederation" : 45,
+    "slug" : "sri_lanka"
+  },
+  "sudan" : {
+    "alpha2" : "SD",
+    "alpha3" : "SDN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "sudan.png",
+    "name" : "Sudan",
+    "ranking_confederation" : 35,
+    "slug" : "sudan"
+  },
+  "suriname" : {
+    "alpha2" : "SR",
+    "alpha3" : "SUR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "suriname.png",
+    "name" : "Suriname",
+    "ranking_confederation" : 16,
+    "slug" : "suriname"
+  },
+  "svalbard_and_jan_mayen" : {
+    "alpha2" : "SJ",
+    "alpha3" : "SJM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "svalbard_and_jan_mayen.png",
+    "name" : "Svalbard and Jan Mayen",
+    "slug" : "svalbard_and_jan_mayen"
+  },
+  "swaziland" : {
+    "alpha2" : "SZ",
+    "alpha3" : "SWZ",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "swaziland.png",
+    "name" : "Swaziland",
+    "name_fr" : "Swaziland",
+    "ranking_confederation" : 40,
+    "slug" : "swaziland"
+  },
+  "sweden" : {
+    "alpha2" : "SE",
+    "alpha3" : "SWE",
+    "apifootball_id" : "",
+    "apifootball_name" : "Sweden",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "sweden.png",
+    "name" : "Sweden",
+    "ranking_confederation" : 23,
+    "slug" : "sweden"
+  },
+  "switzerland" : {
+    "alpha2" : "CH",
+    "alpha3" : "CHE",
+    "apifootball_id" : "",
+    "apifootball_name" : "Switzerland",
+    "competitions" : true,
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "switzerland.png",
+    "languages" : {
+      "allemand" : {
+        "name" : "Allemand",
+        "slug" : "allemand"
+      },
+      "francais" : {
+        "name" : "Français",
+        "slug" : "francais"
+      }
+    },
+    "name" : "Switzerland",
+    "ranking_confederation" : 18,
+    "slug" : "switzerland"
+  },
+  "syrian_arab_republic" : {
+    "alpha2" : "SY",
+    "alpha3" : "SYR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "syrian_arab_republic.png",
+    "name" : "Syrian Arab Republic",
+    "ranking_confederation" : 11,
+    "slug" : "syrian_arab_republic"
+  },
+  "tahiti" : {
+    "alpha2" : "",
+    "alpha3" : "TAH",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "tahiti.png",
+    "name" : "Tahiti",
+    "ranking_confederation" : 4,
+    "slug" : "tahiti"
+  },
+  "taiwan" : {
+    "alpha2" : "TW",
+    "alpha3" : "TWN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "taiwan.png",
+    "name" : "Taiwan",
+    "ranking_confederation" : 23,
+    "slug" : "taiwan"
+  },
+  "tajikistan" : {
+    "alpha2" : "TJ",
+    "alpha3" : "TJK",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "tajikistan.png",
+    "name" : "Tajikistan",
+    "name_fr" : "Tadjikistan",
+    "ranking_confederation" : 21,
+    "slug" : "tajikistan"
+  },
+  "tanzania" : {
+    "alpha2" : "TZ",
+    "alpha3" : "TZN",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "tanzania.png",
+    "name" : "Tanzania",
+    "ranking_confederation" : 36,
+    "slug" : "tanzania"
+  },
+  "thailand" : {
+    "alpha2" : "TH",
+    "alpha3" : "THA",
+    "apifootball_id" : "",
+    "apifootball_name" : "Thailand",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "thailand.png",
+    "name" : "Thailand",
+    "ranking_confederation" : 20,
+    "slug" : "thailand"
+  },
+  "the_democratic_republic_of_the_congo" : {
+    "alpha2" : "CD",
+    "alpha3" : "COD",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "the_democratic_republic_of_the_congo.png",
+    "name" : "The Democratic Republic of the Congo",
+    "ranking_confederation" : 5,
+    "slug" : "the_democratic_republic_of_the_congo"
+  },
+  "timor_leste" : {
+    "alpha2" : "TL",
+    "alpha3" : "TLS",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "timor_leste.png",
+    "name" : "Timor-Leste",
+    "ranking_confederation" : 44,
+    "slug" : "timor_leste"
+  },
+  "togo" : {
+    "alpha2" : "TG",
+    "alpha3" : "TGO",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "togo.png",
+    "name" : "Togo",
+    "ranking_confederation" : 34,
+    "slug" : "togo"
+  },
+  "tokelau" : {
+    "alpha2" : "TK",
+    "alpha3" : "TJKL",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "tokelau.png",
+    "name" : "Tokelau",
+    "slug" : "tokelau"
+  },
+  "tonga" : {
+    "alpha2" : "TO",
+    "alpha3" : "TON",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "tonga.png",
+    "name" : "Tonga",
+    "ranking_confederation" : 11,
+    "slug" : "tonga"
+  },
+  "trinidad_and_tobago" : {
+    "alpha2" : "TT",
+    "alpha3" : "TTO",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "trinidad_and_tobago.png",
+    "name" : "Trinidad and Tobago",
+    "ranking_confederation" : 10,
+    "slug" : "trinidad_and_tobago"
+  },
+  "tunisia" : {
+    "alpha2" : "TN",
+    "alpha3" : "TUN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Tunisia",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "tunisia.png",
+    "name" : "Tunisia",
+    "ranking_confederation" : 2,
+    "slug" : "tunisia"
+  },
+  "turkey" : {
+    "alpha2" : "TR",
+    "alpha3" : "TUR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Turkey",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "turkey.png",
+    "name" : "Turkey",
+    "ranking_confederation" : 10,
+    "slug" : "turkey"
+  },
+  "turkmenistan" : {
+    "alpha2" : "TM",
+    "alpha3" : "TKM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "turkmenistan.png",
+    "name" : "Turkmenistan",
+    "ranking_confederation" : 25,
+    "slug" : "turkmenistan"
+  },
+  "turks_and_caicos_islands" : {
+    "alpha2" : "TC",
+    "alpha3" : "TCA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "turks_and_caicos_islands.png",
+    "name" : "Turks and Caicos Islands",
+    "ranking_confederation" : 33,
+    "slug" : "turks_and_caicos_islands"
+  },
+  "tuvalu" : {
+    "alpha2" : "TV",
+    "alpha3" : "TUV",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "tuvalu.png",
+    "name" : "Tuvalu",
+    "slug" : "tuvalu"
+  },
+  "uganda" : {
+    "alpha2" : "UG",
+    "alpha3" : "UGA",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "uganda.png",
+    "name" : "Uganda",
+    "ranking_confederation" : 16,
+    "slug" : "uganda"
+  },
+  "ukraine" : {
+    "alpha2" : "IA",
+    "alpha3" : "UKR",
+    "apifootball_id" : "",
+    "apifootball_name" : "Ukraine",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "ukraine.png",
+    "name" : "Ukraine",
+    "ranking_confederation" : 9,
+    "slug" : "ukraine"
+  },
+  "united_arab_emirates" : {
+    "alpha2" : "AE",
+    "alpha3" : "ARE",
+    "apifootball_id" : "",
+    "apifootball_name" : "United-Arab-Emirates",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "united_arab_emirates.png",
+    "name" : "United Arab Emirates",
+    "ranking_confederation" : 6,
+    "slug" : "united_arab_emirates"
+  },
+  "united_kingdom" : {
+    "alpha2" : "GB",
+    "alpha3" : "GBR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "united_kingdom.png",
+    "name" : "United Kingdom",
+    "slug" : "united_kingdom"
+  },
+  "united_states" : {
+    "alpha2" : "US",
+    "alpha3" : "USA",
+    "apifootball_id" : "",
+    "apifootball_name" : "USA",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "North America",
+      "slug" : "north_america"
+    },
+    "image" : "united_states.png",
+    "name" : "United States",
+    "ranking_confederation" : 2,
+    "slug" : "united_states"
+  },
+  "united_states_minor_outlying_islands" : {
+    "alpha2" : "UM",
+    "alpha3" : "UMI",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "united_states_minor_outlying_islands.png",
+    "name" : "United States Minor Outlying Islands",
+    "slug" : "united_states_minor_outlying_islands"
+  },
+  "uruguay" : {
+    "alpha2" : "UY",
+    "alpha3" : "URY",
+    "apifootball_id" : "",
+    "apifootball_name" : "Uruguay",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "uruguay.png",
+    "name" : "Uruguay",
+    "ranking_confederation" : 2,
+    "slug" : "uruguay"
+  },
+  "us_virgin_islands" : {
+    "alpha2" : "VI",
+    "alpha3" : "VIR",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CONCACAF",
+      "slug" : "concacaf"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "us_virgin_islands.png",
+    "name" : "U.S. Virgin Islands",
+    "ranking_confederation" : 30,
+    "slug" : "us_virgin_islands"
+  },
+  "uzbekistan" : {
+    "alpha2" : "UZ",
+    "alpha3" : "UZB",
+    "apifootball_id" : "",
+    "apifootball_name" : "Uzbekistan",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "uzbekistan.png",
+    "name" : "Uzbekistan",
+    "ranking_confederation" : 10,
+    "slug" : "uzbekistan"
+  },
+  "vanuatu" : {
+    "alpha2" : "VU",
+    "alpha3" : "VUT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "OFC",
+      "slug" : "ofc"
+    },
+    "continent" : {
+      "name" : "Oceania",
+      "slug" : "oceania"
+    },
+    "image" : "vanuatu.png",
+    "name" : "Vanuatu",
+    "ranking_confederation" : 5,
+    "slug" : "vanuatu"
+  },
+  "vatican_city_state" : {
+    "alpha2" : "VA",
+    "alpha3" : "VAT",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "vatican_city_state.png",
+    "name" : "Vatican City State",
+    "slug" : "vatican_city_state"
+  },
+  "venezuela" : {
+    "alpha2" : "VE",
+    "alpha3" : "VEN",
+    "apifootball_id" : "",
+    "apifootball_name" : "Venezuela",
+    "confederation" : {
+      "name" : "CONMEBOL",
+      "slug" : "conmebol"
+    },
+    "continent" : {
+      "name" : "America",
+      "slug" : "america"
+    },
+    "image" : "venezuela.png",
+    "name" : "Venezuela",
+    "ranking_confederation" : 7,
+    "slug" : "venezuela"
+  },
+  "vietnam" : {
+    "alpha2" : "VN",
+    "alpha3" : "VNM",
+    "apifootball_id" : "",
+    "apifootball_name" : "Vietnam",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "vietnam.png",
+    "name" : "Vietnam",
+    "ranking_confederation" : 15,
+    "slug" : "vietnam"
+  },
+  "wales" : {
+    "alpha2" : "",
+    "alpha3" : "WAL",
+    "apifootball_id" : "",
+    "apifootball_name" : "Wales",
+    "confederation" : {
+      "name" : "UEFA",
+      "slug" : "uefa"
+    },
+    "continent" : {
+      "name" : "Europe",
+      "slug" : "europe"
+    },
+    "image" : "wales.png",
+    "name" : "Wales",
+    "ranking_confederation" : 47,
+    "slug" : "wales"
+  },
+  "wallis_and_futuna" : {
+    "alpha2" : "WF",
+    "alpha3" : "WLF",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : "",
+    "image" : "wallis_and_futuna.png",
+    "name" : "Wallis and Futuna",
+    "slug" : "wallis_and_futuna"
+  },
+  "western_sahara" : {
+    "alpha2" : "EH",
+    "alpha3" : "ESH",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "western_sahara.png",
+    "name" : "Western Sahara",
+    "slug" : "western_sahara"
+  },
+  "yemen" : {
+    "alpha2" : "YE",
+    "alpha3" : "YWM",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "AFC",
+      "slug" : "afc"
+    },
+    "continent" : {
+      "name" : "Asia",
+      "slug" : "asia"
+    },
+    "image" : "yemen.png",
+    "name" : "Yemen",
+    "ranking_confederation" : 28,
+    "slug" : "yemen"
+  },
+  "zambia" : {
+    "alpha2" : "ZM",
+    "alpha3" : "ZMB",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "zambia.png",
+    "name" : "Zambia",
+    "ranking_confederation" : 17,
+    "slug" : "zambia"
+  },
+  "zimbabwe" : {
+    "alpha2" : "ZW",
+    "alpha3" : "ZWE",
+    "apifootball_id" : "",
+    "apifootball_name" : "",
+    "confederation" : {
+      "name" : "CAF",
+      "slug" : "caf"
+    },
+    "continent" : {
+      "name" : "Africa",
+      "slug" : "africa"
+    },
+    "image" : "zimbabwe.png",
+    "name" : "Zimbabwe",
+    "ranking_confederation" : 26,
+    "slug" : "zimbabwe"
+  }
+}

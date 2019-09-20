@@ -11,9 +11,9 @@
 					<!-- loadedUserSubscriptionsObject: {{ loadedUserSubscriptionsObject }}<br /><br /> -->
                 	<!-- showSubscribeToPushNotifications: {{ showSubscribeToPushNotifications }}<br /><br /> -->
                 	<!-- loadedUser: {{ loadedUser }}<br /><br /> -->
-                	loadedActiveTab: {{ loadedActiveTab }}<br /><br />
-                	eventsByDate: {{ eventsByDate }}<br /><br />
-                	eventsByRound: {{ eventsByRound }}<br /><br />
+                	<!-- loadedActiveTab: {{ loadedActiveTab }}<br /><br /> -->
+                	<!-- eventsByDate: {{ eventsByDate }}<br /><br /> -->
+                	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
 				</div>
 
 				<div class="my-5">

@@ -2,22 +2,25 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 
 // var config = {
-//     apiKey: "AIzaSyAM6LAjoitrT8oBtMvK9JR7dIUDlcMJR7g",
-//     authDomain: "tif-jm.firebaseapp.com",
-//     databaseURL: "https://tif-jm.firebaseio.com",
-//     projectId: "tif-jm",
-//     storageBucket: "tif-pwa-a7970.appspot.com",
-//     messagingSenderId: "861826276315"
-// }
+//   apiKey: "AIzaSyDMELNgUHlgH5OeB9ibLRSLj-4TWyX0B8E",
+//   authDomain: "tif-jm.firebaseapp.com",
+//   databaseURL: "https://tif-jm.firebaseio.com",
+//   projectId: "tif-jm",
+//   storageBucket: "tif-jm.appspot.com",
+//   messagingSenderId: "780522905139",
+//   appId: "1:780522905139:web:7d5a8a1f635b7336"
+// };
+
 var config = {
-  apiKey: "AIzaSyDMELNgUHlgH5OeB9ibLRSLj-4TWyX0B8E",
-  authDomain: "tif-jm.firebaseapp.com",
-  databaseURL: "https://tif-jm.firebaseio.com",
-  projectId: "tif-jm",
-  storageBucket: "tif-jm.appspot.com",
-  messagingSenderId: "780522905139",
-  appId: "1:780522905139:web:7d5a8a1f635b7336"
+  	apiKey: "AIzaSyD0hAMw0yZMLVZdgRMn-DjeZb4LRSAo2ok",
+    authDomain: "this-is-fan.firebaseapp.com",
+    databaseURL: "https://this-is-fan.firebaseio.com",
+    projectId: "this-is-fan",
+    storageBucket: "",
+    messagingSenderId: "208056066716",
+    appId: "1:208056066716:web:7b0a6751d934b087b14359"
 };
+
 
 export default (!firebase.apps.length
   ? firebase.initializeApp(config)

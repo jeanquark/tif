@@ -8,7 +8,7 @@
             </v-col>
         </v-row>
 
-        <v-row no-gutters justify="center" align="center" class="my-2" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications">
+        <v-row no-gutters justify="center" align="center" class="my-2" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications && loadedUserTeams.length > 0">
             <v-col cols="12" class="my-2">
                 <h3 class="text-center">Notifications status on this device</h3>
             </v-col>

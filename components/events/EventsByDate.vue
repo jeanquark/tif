@@ -44,7 +44,7 @@
 	                        </template>
 	                        <v-row  no-gutters class="text-left white--text font-weight-bold align-center">
 	                            <span class="subtitle mx-2">{{ competition.name }}</span>
-	                            <v-img :src="`/images/competitions/${competition.image}`" max-width="30" class="mr-1"></v-img>
+	                            <v-img :src="`/images/competitions/${competition.image}`" lazy-src="/images/avatar.png" max-width="30" class="mr-1"></v-img>
 	                            <v-row no-gutters class="white--text align-center mx-2" v-for="country in competition.countries" :key="country.slug">
 	                                <span class="subtitle mx-2">{{ country.name }}</span>
 	                                <v-img :src="`/images/countries/${country.slug}.png`" max-width="30" class="mr-1"></v-img>
@@ -60,7 +60,26 @@
 	                        <v-row no-gutters justify="start" align="center" class="pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)">
 	                            <v-col class="">
 	                            	<v-row no-gutters align="center">
-	                                	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
+	                                	<!-- <v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" contain v-on:error="onImgError" max-width="40"></v-img>&nbsp; -->
+	                                	<v-img
+      :src="`/images/teams/${event.homeTeam_slug}_64_64.png`"
+      lazy-src="https://picsum.photos/id/11/100/60"
+      aspect-ratio="1"
+      class="grey lighten-2"
+      max-width="40"
+      max-height="300"
+      @error="onImgError"
+    >
+      <template v-slot:placeholder>
+        <v-row
+          class="fill-height ma-0"
+          align="center"
+          justify="center"
+        >
+          <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+        </v-row>
+      </template>
+    </v-img>
 	                                	<span>{{ event.homeTeam_name }}</span>
 						                &nbsp;[eventId: {{ event.id }}]
 	                                </v-row>
@@ -218,6 +237,9 @@
 			},
 		},
 		methods: {
+			onImgError () {
+				console.log('onImgError')
+			},
 			displayDate(day) {
 				return moment()
 					.add(day, 'days')

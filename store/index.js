@@ -151,7 +151,7 @@ export const getters = {
     loadingPage(state) {
         return state.loadingPage
     },
-    error(state) {
+    loadedError(state) {
         return state.error
     },
     loginModal (state) {

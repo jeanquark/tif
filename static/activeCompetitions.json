@@ -1,12 +1,12 @@
 [
     {
-        "name": "Premier League",
-        "slug": "england_premier_league_2019_2020",
-        "apifootball_id": 524
+        "name": "Schweizer Pokal",
+        "slug": "switzerland_schweizer_pokal_2019_2020",
+        "apifootball_id": 942
     },
     {
-        "name": "Ligue 1",
-        "slug": "france_ligue_1_2019_2020",
-        "apifootball_id": 525
+        "name": "Super League",
+        "slug": "switzerland_super_league_2019_2020",
+        "apifootball_id": 576
     }
 ]

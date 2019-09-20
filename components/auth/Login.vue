@@ -5,9 +5,14 @@
         </v-card-title>
         <v-card-text class="card-text">
             <v-form>
-                <v-alert type="error" :value="error" v-if="error" class="my-4">
-                    {{ $t(`auth-validation-rules.${error.code}`) }}
-                </v-alert>
+                <v-alert
+			      prominent
+			      type="error"
+			      v-if="loadedError"
+			    >
+			    	{{ $t(`auth-validation-rules.${loadedError.code}`) }}
+			    </v-alert>
+
                 <v-text-field prepend-icon="mdi-account" name="email" label="Email" type="email" v-model="form.email"></v-text-field>
                 <v-text-field prepend-icon="mdi-lock" id="password" name="password" label="Password" type="password" v-model="form.password"></v-text-field>
             </v-form>
@@ -57,8 +62,8 @@
 			}
 		},
 		computed: {
-			error() {
-				return this.$store.getters['error']
+			loadedError() {
+				return this.$store.getters['loadedError']
 			}
 		},
 		methods: {
@@ -82,7 +87,6 @@
 				try {
 					this.loadingGoogle = true
 					await this.$store.dispatch('firebase-auth/signInWithGooglePopup')
-					// console.log('OK, done! Redirect')
 					this.$router.replace('/gamemode')
 					this.$store.commit('closeLoginModal')
 				} catch (error) {

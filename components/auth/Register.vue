@@ -18,9 +18,15 @@
             </v-window-item>
 
             <v-window-item :value="2">
-                <v-alert type="error" :value="error" class="ma-4" v-if="error">
-                    {{ $t(`auth-validation-rules.${error.code}`) }}
-                </v-alert>
+                <v-alert
+			      prominent
+			      type="error"
+			      class="ma-3"
+			      v-if="loadedError"
+			    >
+			    	{{ $t(`auth-validation-rules.${loadedError.code}`) }}
+			    </v-alert>
+
                 <v-card-text>
                     <v-text-field label="Password" type="password" name="password" ref="password" v-validate="'required|min:6'" :error="errors.has('password')" :error-messages="errors.collect('password')" data-vv-as="Password" v-model="form.password"></v-text-field>
 
@@ -39,7 +45,7 @@
 					    v-model="form.birthyear"
 					></v-autocomplete> -->
 
-                    <v-menu ref="menu" v-model="birthdayMenu" :close-on-content-click="false" :nudge-right="40" lazy transition="scale-transition" offset-y full-width min-width="290px">
+                    <v-menu ref="menu" v-model="birthdayMenu" :close-on-content-click="false" :nudge-right="40" transition="scale-transition" offset-y full-width min-width="290px">
                         <template v-slot:activator="{ on }">
                             <v-text-field v-model="form.birthday" label="Birthday date" readonly v-on="on"></v-text-field>
                         </template>
@@ -48,25 +54,20 @@
 
                     <v-autocomplete name="country" :items="loadedCountries" chips color="blue-grey lighten-2" label="Select your country" item-text="name" :return-object="true" v-validate="'required'" :error="errors.has('country')" :error-messages="errors.collect('country')" data-vv-as="Country" v-model="form.country">
                         <template slot="selection" slot-scope="data">
-                            <v-chip :selected="data.selected" class="chip">
+                            <v-chip :input-value="data.selected" class="chip">
                                 <v-avatar>
                                     <img :src="`/images/countries/${data.item.image}`">
                                 </v-avatar>
-                                {{ data.item.name }}
+                                <span class="ml-2">{{ data.item.name }}</span>
                             </v-chip>
                         </template>
                         <template slot="item" slot-scope="data">
-                            <template v-if="typeof data.item !== 'object'">
-                                <v-list-tile-content v-text="data.item"></v-list-tile-content>
-                            </template>
-                            <template v-else>
-                                <v-list-tile-avatar>
-                                    <img :src="`/images/countries/${data.item.image}`">
-                                </v-list-tile-avatar>
-                                <v-list-tile-content>
-                                    <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-                                </v-list-tile-content>
-                            </template>
+                            <v-list-item-avatar>
+			                    <img :src="`/images/countries/${data.item.image}`">
+			                  </v-list-item-avatar>
+			                  <v-list-item-content>
+			                    <v-list-item-title v-html="data.item.name"></v-list-item-title>
+			                </v-list-item-content>
                         </template>
                     </v-autocomplete>
 
@@ -77,14 +78,11 @@
         <v-divider></v-divider>
 
         <v-card-actions>
-            <!-- <v-layout row wrap justify-center> -->
 			<v-row no-gutters justify="center">
-                <!-- <v-flex xs12 text-xs-center> -->
 				<v-col cols="12" class="text-center">
                     <v-btn text @click="step--" v-if="step !== 1">
                         Back
                     </v-btn>
-                    <!-- <v-spacer></v-spacer> -->
 
                     <v-btn :disabled="errors.items.length > 0 || !form.password_confirm > 0 || !form.country > 0" :loading="loading" color="success" v-if="step === 2" @click.stop="signUserUp">
                         Register
@@ -93,9 +91,7 @@
                     <v-btn color="success" @click="step++" v-if="step === 1">
                         Next
                     </v-btn>
-                <!-- </v-flex> -->
 				</v-col>
-                <!-- <v-flex xs12 text-xs-center mt-3> -->
 				<v-col cols="12" class="text-center mt-3">
 					<v-btn text @click="switchToLogin" v-if="step === 1">
                         Switch to login
@@ -103,16 +99,14 @@
                     <v-btn text color="primary" @click.stop="closeRegisterModal">
                         Cancel
                     </v-btn>
-                <!-- </v-flex> -->
 				</v-col>
 			</v-row>
-            <!-- </v-layout> -->
         </v-card-actions>
     </v-card>
 </template>
 
 <script>
-	import firebase from 'firebase/app'
+	// import firebase from 'firebase/app'
 	import Noty from 'noty'
 	export default {
 		layout: 'layoutFront',
@@ -131,16 +125,14 @@
 				birthday: '1984-02-28',
 				country: null
 			},
-			// birthyears: [],
-			// date: null,
 			birthdayMenu: false
 		}),
 		computed: {
 			loading() {
 				return this.$store.getters['loading']
 			},
-			error() {
-				return this.$store.getters['error']
+			loadedError() {
+				return this.$store.getters['loadedError']
 			},
 			currentTitle() {
 				switch (this.step) {
@@ -162,8 +154,8 @@
 			},
 			async signUserUp() {
 				try {
-					console.log('signUserUp')
-					console.log('this.form: ', this.form)
+					// console.log('signUserUp')
+					// console.log('this.form: ', this.form)
 					this.$store.commit('setLoading', true, { root: true })
 					// setTimeout(() => {
 					// 	}, 2000)

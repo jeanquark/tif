@@ -7,7 +7,7 @@
                 <!-- loadedTeamsByCompetition: {{ loadedTeamsByCompetition }}<br /><br /> -->
                 <!-- selectedCompetition: {{ selectedCompetition }}<br /><br /> -->
                 <!-- loadedUserTeams: {{ loadedUserTeams }}<br /><br /> -->
-                loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br />
+                <!-- loadedUserSubscriptions: {{ loadedUserSubscriptions }}<br /><br /> -->
 
                 <gamemode-header />
 
@@ -280,7 +280,7 @@
 			async selectTeam(team) {
 				try {
 					console.log('selectTeam: ', team)
-					await this.$store.dispatch('userTeams/selectUserTeam', team)
+					await this.$store.dispatch('userTeams/selectUserTeam', { team })
 					new Noty({
 						type: 'success',
 						text: `You now follow ${team.name} &#128522;`,

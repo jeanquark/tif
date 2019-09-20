@@ -1,0 +1,3953 @@
+{
+  "1899_hoffenheim" : {
+    "apifootball_id" : 167,
+    "apifootball_name" : "1899 Hoffenheim",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1899,
+    "image" : "1899_hoffenheim.png",
+    "name" : "1899 Hoffenheim",
+    "slug" : "1899_hoffenheim",
+    "venue_address" : "Dietmar-Hopp-Straße 1",
+    "venue_capacity" : 30164,
+    "venue_city" : "Sinsheim",
+    "venue_name" : "PreZero Arena",
+    "venue_surface" : "grass"
+  },
+  "alaves" : {
+    "apifootball_id" : 542,
+    "apifootball_name" : "Alaves",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1921,
+    "image" : "alaves.png",
+    "name" : "Alaves",
+    "slug" : "alaves",
+    "venue_address" : "Paseo de Cervantes",
+    "venue_capacity" : 19840,
+    "venue_city" : "Vitoria-Gasteiz",
+    "venue_name" : "Estadio de Mendizorroza",
+    "venue_surface" : "grass"
+  },
+  "albacete" : {
+    "apifootball_id" : 722,
+    "apifootball_name" : "Albacete",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1940,
+    "image" : "albacete.png",
+    "name" : "Albacete",
+    "slug" : "albacete",
+    "venue_address" : "Avenida de España",
+    "venue_capacity" : 17524,
+    "venue_city" : "Albacete",
+    "venue_name" : "Estadio Carlos Belmonte",
+    "venue_surface" : "grass"
+  },
+  "alcorcon" : {
+    "apifootball_id" : 711,
+    "apifootball_name" : "Alcorcon",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1971,
+    "image" : "alcorcon.png",
+    "name" : "Alcorcon",
+    "slug" : "alcorcon",
+    "venue_address" : "Avenida de Pablo Iglesias",
+    "venue_capacity" : 7000,
+    "venue_city" : "Alcorcón",
+    "venue_name" : "Estadio Santo Domingo",
+    "venue_surface" : "grass"
+  },
+  "almeria" : {
+    "apifootball_id" : 723,
+    "apifootball_name" : "Almeria",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1989,
+    "image" : "almeria.png",
+    "name" : "Almeria",
+    "slug" : "almeria",
+    "venue_address" : "Calle de Belladona",
+    "venue_capacity" : 21350,
+    "venue_city" : "Almería",
+    "venue_name" : "Estadio de los Juegos Mediterráneos",
+    "venue_surface" : "grass"
+  },
+  "amiens" : {
+    "apifootball_id" : 87,
+    "apifootball_name" : "Amiens",
+    "code" : "AMI",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1901,
+    "image" : "amiens.png",
+    "name" : "Amiens",
+    "slug" : "amiens",
+    "venue_address" : "25, rue du Chapître",
+    "venue_capacity" : 12297,
+    "venue_city" : "Amiens",
+    "venue_name" : "Stade Crédit Agricole de la Licorne",
+    "venue_surface" : "grass"
+  },
+  "angers" : {
+    "apifootball_id" : 77,
+    "apifootball_name" : "Angers",
+    "code" : "ANG",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1919,
+    "image" : "angers.png",
+    "name" : "Angers",
+    "slug" : "angers",
+    "venue_address" : "73, boulevard Pierre de Coubertin",
+    "venue_capacity" : 17835,
+    "venue_city" : "Angers",
+    "venue_name" : "Stade Raymond-Kopa",
+    "venue_surface" : "grass"
+  },
+  "arminia_bielefeld" : {
+    "apifootball_id" : 188,
+    "apifootball_name" : "Arminia Bielefeld",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1905,
+    "name" : "Arminia Bielefeld",
+    "slug" : "arminia_bielefeld",
+    "venue_address" : "Melanchthonstraße 31a",
+    "venue_capacity" : 27300,
+    "venue_city" : "Bielefeld",
+    "venue_name" : "SchücoArena",
+    "venue_surface" : "grass"
+  },
+  "arsenal" : {
+    "apifootball_id" : 42,
+    "apifootball_name" : "Arsenal",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1886,
+    "image" : "arsenal.png",
+    "name" : "Arsenal",
+    "slug" : "arsenal",
+    "usersCount" : 0,
+    "venue_address" : "Queensland Road",
+    "venue_capacity" : 60355,
+    "venue_city" : "London",
+    "venue_name" : "Emirates Stadium",
+    "venue_surface" : "grass"
+  },
+  "aston_villa" : {
+    "apifootball_id" : 66,
+    "apifootball_name" : "Aston Villa",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1874,
+    "image" : "aston_villa.png",
+    "name" : "Aston Villa",
+    "slug" : "aston_villa",
+    "venue_address" : "Trinity Road",
+    "venue_capacity" : 42788,
+    "venue_city" : "Birmingham",
+    "venue_name" : "Villa Park",
+    "venue_surface" : "grass"
+  },
+  "athletic_club" : {
+    "apifootball_id" : 531,
+    "apifootball_name" : "Athletic Club",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1898,
+    "image" : "athletic_club.png",
+    "name" : "Athletic Club",
+    "slug" : "athletic_club",
+    "venue_address" : "Rafael Moreno Pitxitxi Kalea",
+    "venue_capacity" : 53289,
+    "venue_city" : "Bilbao",
+    "venue_name" : "San Mamés Barria",
+    "venue_surface" : "grass"
+  },
+  "atlanta_united_fc" : {
+    "apifootball_id" : 1608,
+    "apifootball_name" : "Atlanta United FC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2014,
+    "image" : "atlanta_united_fc.png",
+    "name" : "Atlanta United FC",
+    "slug" : "atlanta_united_fc",
+    "venue_address" : "1 AMB Drive North West",
+    "venue_capacity" : 73019,
+    "venue_city" : "Atlanta, Georgia",
+    "venue_name" : "Mercedes-Benz Stadium",
+    "venue_surface" : "artificial turf"
+  },
+  "atlas" : {
+    "apifootball_id" : 2283,
+    "apifootball_name" : "Atlas",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1916,
+    "image" : "atlas.png",
+    "name" : "Atlas",
+    "slug" : "atlas",
+    "venue_address" : "Calle 7 Colinas No. 1772, Colonia Independencia",
+    "venue_capacity" : 56713,
+    "venue_city" : "Guadalajara",
+    "venue_name" : "Estadio Jalisco",
+    "venue_surface" : "grass"
+  },
+  "atletico_madrid" : {
+    "apifootball_id" : 530,
+    "apifootball_name" : "Atletico Madrid",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1903,
+    "image" : "atletico_madrid.png",
+    "name" : "Atletico Madrid",
+    "slug" : "atletico_madrid",
+    "usersCount" : 0,
+    "venue_address" : "Rosas",
+    "venue_capacity" : 68000,
+    "venue_city" : "Madrid",
+    "venue_name" : "Estadio Wanda Metropolitano",
+    "venue_surface" : "grass"
+  },
+  "atletico_san_luis" : {
+    "apifootball_id" : 2314,
+    "apifootball_name" : "Atletico San Luis",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 2013,
+    "image" : "atletico_san_luis.png",
+    "name" : "Atletico San Luis",
+    "slug" : "atletico_san_luis",
+    "venue_address" : "Avenida Malaquita 1030",
+    "venue_capacity" : 26400,
+    "venue_city" : "San Luis Potosí",
+    "venue_name" : "Estadio Alfonso Lastras Ramírez",
+    "venue_surface" : "grass"
+  },
+  "aves" : {
+    "apifootball_id" : 220,
+    "apifootball_name" : "Aves",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1930,
+    "image" : "aves.png",
+    "name" : "Aves",
+    "slug" : "aves",
+    "venue_address" : "Rua Luís Gonzaga Mendes de Carvalho 265",
+    "venue_capacity" : 8560,
+    "venue_city" : "Vila das Aves",
+    "venue_name" : "Estádio Clube Desportivo das Aves",
+    "venue_surface" : "grass"
+  },
+  "barcelona" : {
+    "apifootball_id" : 529,
+    "apifootball_name" : "Barcelona",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1899,
+    "image" : "barcelona.png",
+    "name" : "Barcelona",
+    "slug" : "barcelona",
+    "usersCount" : 4,
+    "venue_address" : "Carrer d&apos;Arístides Maillol",
+    "venue_capacity" : 99787,
+    "venue_city" : "Barcelona",
+    "venue_name" : "Camp Nou",
+    "venue_surface" : "grass"
+  },
+  "barnsley" : {
+    "apifootball_id" : 747,
+    "apifootball_name" : "Barnsley",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1887,
+    "name" : "Barnsley",
+    "slug" : "barnsley",
+    "venue_address" : "Grove Street",
+    "venue_capacity" : 23009,
+    "venue_city" : "Barnsley, South Yorkshire",
+    "venue_name" : "Oakwell",
+    "venue_surface" : "grass"
+  },
+  "bayer_leverkusen" : {
+    "apifootball_id" : 168,
+    "apifootball_name" : "Bayer Leverkusen",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1904,
+    "image" : "bayer_leverkusen.png",
+    "name" : "Bayer Leverkusen",
+    "slug" : "bayer_leverkusen",
+    "venue_address" : "Bismarckstr. 122-124",
+    "venue_capacity" : 30210,
+    "venue_city" : "Leverkusen",
+    "venue_name" : "BayArena",
+    "venue_surface" : "grass"
+  },
+  "bayern_munich" : {
+    "apifootball_id" : 157,
+    "apifootball_name" : "Bayern Munich",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1900,
+    "image" : "bayern_munich.png",
+    "name" : "Bayern Munich",
+    "slug" : "bayern_munich",
+    "venue_address" : "Werner-Heisenberg-Allee 25",
+    "venue_capacity" : 75000,
+    "venue_city" : "München",
+    "venue_name" : "Allianz Arena",
+    "venue_surface" : "grass"
+  },
+  "belenenses" : {
+    "apifootball_id" : 221,
+    "apifootball_name" : "Belenenses",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1919,
+    "image" : "belenenses.png",
+    "name" : "Belenenses",
+    "slug" : "belenenses",
+    "venue_capacity" : 38000,
+    "venue_city" : "Jamor, Oeiras",
+    "venue_name" : "Estádio Nacional",
+    "venue_surface" : "grass"
+  },
+  "benfica" : {
+    "apifootball_id" : 211,
+    "apifootball_name" : "Benfica",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1904,
+    "image" : "benfica.png",
+    "name" : "Benfica",
+    "slug" : "benfica",
+    "usersCount" : 0,
+    "venue_address" : "Rua José Maria Nicolau",
+    "venue_capacity" : 65647,
+    "venue_city" : "Lisboa",
+    "venue_name" : "Estádio do Sport Lisboa e Benfica (da Luz)",
+    "venue_surface" : "grass"
+  },
+  "birmingham" : {
+    "apifootball_id" : 54,
+    "apifootball_name" : "Birmingham",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1875,
+    "name" : "Birmingham",
+    "slug" : "birmingham",
+    "venue_address" : "St. Andrew&apos;s Road",
+    "venue_capacity" : 30009,
+    "venue_city" : "Birmingham",
+    "venue_name" : "St. Andrew's Stadium",
+    "venue_surface" : "grass"
+  },
+  "blackburn" : {
+    "apifootball_id" : 67,
+    "apifootball_name" : "Blackburn",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1875,
+    "name" : "Blackburn",
+    "slug" : "blackburn",
+    "venue_address" : "Nuttall Street",
+    "venue_capacity" : 31367,
+    "venue_city" : "Blackburn, Lancashire",
+    "venue_name" : "Ewood Park",
+    "venue_surface" : "grass"
+  },
+  "boavista" : {
+    "apifootball_id" : 222,
+    "apifootball_name" : "Boavista",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1903,
+    "image" : "boavista.png",
+    "name" : "Boavista",
+    "slug" : "boavista",
+    "venue_address" : "Rua O Primeiro de Janeiro, Boavista",
+    "venue_capacity" : 28263,
+    "venue_city" : "Porto",
+    "venue_name" : "Estádio do Bessa Século XXI",
+    "venue_surface" : "grass"
+  },
+  "bordeaux" : {
+    "apifootball_id" : 78,
+    "apifootball_name" : "Bordeaux",
+    "code" : "BOR",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1881,
+    "image" : "bordeaux.png",
+    "name" : "Bordeaux",
+    "slug" : "bordeaux",
+    "venue_address" : "Cours Jules Ladoumegue",
+    "venue_capacity" : 42115,
+    "venue_city" : "Bordeaux",
+    "venue_name" : "Stade Matmut-Atlantique",
+    "venue_surface" : "grass"
+  },
+  "borussia_dortmund" : {
+    "apifootball_id" : 165,
+    "apifootball_name" : "Borussia Dortmund",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1909,
+    "image" : "borussia_dortmund.png",
+    "name" : "Borussia Dortmund",
+    "slug" : "borussia_dortmund",
+    "venue_address" : "Strobelalle 50",
+    "venue_capacity" : 81365,
+    "venue_city" : "Dortmund",
+    "venue_name" : "Signal-Iduna-Park",
+    "venue_surface" : "grass"
+  },
+  "borussia_monchengladbach" : {
+    "apifootball_id" : 163,
+    "apifootball_name" : "Borussia Monchengladbach",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1900,
+    "image" : "borussia_monchengladbach.png",
+    "name" : "Borussia Monchengladbach",
+    "slug" : "borussia_monchengladbach",
+    "venue_address" : "Hennes-Weisweiler-Allee 1",
+    "venue_capacity" : 54057,
+    "venue_city" : "Mönchengladbach",
+    "venue_name" : "Stadion im BORUSSIA-PARK",
+    "venue_surface" : "grass"
+  },
+  "bournemouth" : {
+    "apifootball_id" : 35,
+    "apifootball_name" : "Bournemouth",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1899,
+    "image" : "bournemouth.png",
+    "name" : "Bournemouth",
+    "slug" : "bournemouth",
+    "venue_address" : "Dean Court, Kings Park",
+    "venue_capacity" : 12000,
+    "venue_city" : "Bournemouth, Dorset",
+    "venue_name" : "Vitality Stadium",
+    "venue_surface" : "grass"
+  },
+  "brentford" : {
+    "apifootball_id" : 55,
+    "apifootball_name" : "Brentford",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1889,
+    "name" : "Brentford",
+    "slug" : "brentford",
+    "venue_address" : "Braemar Road, London Borough of Hounslow",
+    "venue_capacity" : 12763,
+    "venue_city" : "Brentford, Middlesex",
+    "venue_name" : "Griffin Park",
+    "venue_surface" : "grass"
+  },
+  "brighton" : {
+    "apifootball_id" : 51,
+    "apifootball_name" : "Brighton",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1901,
+    "image" : "brighton.png",
+    "name" : "Brighton",
+    "slug" : "brighton",
+    "usersCount" : 0,
+    "venue_address" : "Village Way",
+    "venue_capacity" : 30750,
+    "venue_city" : "Falmer, East Sussex",
+    "venue_name" : "The American Express Community Stadium",
+    "venue_surface" : "grass"
+  },
+  "bristol_city" : {
+    "apifootball_id" : 56,
+    "apifootball_name" : "Bristol City",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1894,
+    "name" : "Bristol City",
+    "slug" : "bristol_city",
+    "venue_address" : "Ashton Road",
+    "venue_capacity" : 27000,
+    "venue_city" : "Bristol",
+    "venue_name" : "Ashton Gate",
+    "venue_surface" : "grass"
+  },
+  "bsc_young_boys" : {
+    "apifootball_id" : 565,
+    "apifootball_name" : "BSC Young Boys",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1898,
+    "image" : "bsc_young_boys.png",
+    "name" : "BSC Young Boys",
+    "slug" : "bsc_young_boys",
+    "usersCount" : 0,
+    "venue_address" : "Papiermühlestrasse 71",
+    "venue_capacity" : 31783,
+    "venue_city" : "Bern",
+    "venue_name" : "STADE DE SUISSE Wankdorf Bern",
+    "venue_surface" : "artificial turf"
+  },
+  "burnley" : {
+    "apifootball_id" : 44,
+    "apifootball_name" : "Burnley",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1882,
+    "image" : "burnley.png",
+    "name" : "Burnley",
+    "slug" : "burnley",
+    "venue_address" : "Harry Potts Way",
+    "venue_capacity" : 22546,
+    "venue_city" : "Burnley",
+    "venue_name" : "Turf Moor",
+    "venue_surface" : "grass"
+  },
+  "cadiz" : {
+    "apifootball_id" : 724,
+    "apifootball_name" : "Cadiz",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1910,
+    "image" : "cadiz.png",
+    "name" : "Cadiz",
+    "slug" : "cadiz",
+    "venue_address" : "Plaza de Madrid",
+    "venue_capacity" : 22000,
+    "venue_city" : "Cádiz",
+    "venue_name" : "Estadio Ramón de Carranza",
+    "venue_surface" : "grass"
+  },
+  "cardiff" : {
+    "apifootball_id" : 43,
+    "apifootball_name" : "Cardiff",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "Wales",
+    "founded" : 1889,
+    "name" : "Cardiff",
+    "slug" : "cardiff",
+    "venue_address" : "Leckwith Road",
+    "venue_capacity" : 33280,
+    "venue_city" : "Caerdydd",
+    "venue_name" : "Cardiff City Stadium",
+    "venue_surface" : "grass"
+  },
+  "celta_vigo" : {
+    "apifootball_id" : 538,
+    "apifootball_name" : "Celta Vigo",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1923,
+    "image" : "celta_vigo.png",
+    "name" : "Celta Vigo",
+    "slug" : "celta_vigo",
+    "venue_address" : "Avenida de Balaídos",
+    "venue_capacity" : 31800,
+    "venue_city" : "Vigo",
+    "venue_name" : "Abanca-Balaídos",
+    "venue_surface" : "grass"
+  },
+  "charlton" : {
+    "apifootball_id" : 1335,
+    "apifootball_name" : "Charlton",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1905,
+    "name" : "Charlton",
+    "slug" : "charlton",
+    "venue_address" : "Floyd Road, Charlton",
+    "venue_capacity" : 27111,
+    "venue_city" : "London",
+    "venue_name" : "The Valley",
+    "venue_surface" : "grass"
+  },
+  "chelsea" : {
+    "apifootball_id" : 49,
+    "apifootball_name" : "Chelsea",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1905,
+    "image" : "chelsea.png",
+    "name" : "Chelsea",
+    "slug" : "chelsea",
+    "venue_address" : "Fulham Road",
+    "venue_capacity" : 41841,
+    "venue_city" : "London",
+    "venue_name" : "Stamford Bridge",
+    "venue_surface" : "grass"
+  },
+  "chicago_fire" : {
+    "apifootball_id" : 1607,
+    "apifootball_name" : "Chicago Fire",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1997,
+    "image" : "chicago_fire.png",
+    "name" : "Chicago Fire",
+    "slug" : "chicago_fire",
+    "venue_address" : "7000 South Harlem Avenue",
+    "venue_capacity" : 21915,
+    "venue_city" : "Bridgeview, Illinois",
+    "venue_name" : "SeatGeek Stadium",
+    "venue_surface" : "grass"
+  },
+  "club_america" : {
+    "apifootball_id" : 2287,
+    "apifootball_name" : "Club America",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1916,
+    "image" : "club_america.png",
+    "name" : "Club America",
+    "slug" : "club_america",
+    "venue_address" : "Calzada de Tlalpan 3665, Coyoacán",
+    "venue_capacity" : 106187,
+    "venue_city" : "D.F.",
+    "venue_name" : "Estadio Azteca",
+    "venue_surface" : "grass"
+  },
+  "club_queretaro" : {
+    "apifootball_id" : 2290,
+    "apifootball_name" : "Club Queretaro",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1950,
+    "image" : "club_queretaro.png",
+    "name" : "Club Queretaro",
+    "slug" : "club_queretaro",
+    "venue_address" : "Avenida Luis Vega Monroy 409-4",
+    "venue_capacity" : 34130,
+    "venue_city" : "Santiago de Querétaro",
+    "venue_name" : "Estadio La Corregidora",
+    "venue_surface" : "grass"
+  },
+  "club_tijuana" : {
+    "apifootball_id" : 2280,
+    "apifootball_name" : "Club Tijuana",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 2006,
+    "image" : "club_tijuana.png",
+    "name" : "Club Tijuana",
+    "slug" : "club_tijuana",
+    "venue_address" : "Boulevard Agua Caliente 12027, Colonia Hipódromo",
+    "venue_capacity" : 29333,
+    "venue_city" : "Tijuana",
+    "venue_name" : "Estadio Caliente",
+    "venue_surface" : "artificial turf"
+  },
+  "colorado_rapids" : {
+    "apifootball_id" : 1610,
+    "apifootball_name" : "Colorado Rapids",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1996,
+    "image" : "colorado_rapids.png",
+    "name" : "Colorado Rapids",
+    "slug" : "colorado_rapids",
+    "venue_address" : "6000 Victory Way, Commerce City",
+    "venue_capacity" : 19734,
+    "venue_city" : "Denver, Colorado",
+    "venue_name" : "Dick's Sporting Goods Park",
+    "venue_surface" : "grass"
+  },
+  "columbus_crew" : {
+    "apifootball_id" : 1613,
+    "apifootball_name" : "Columbus Crew",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1996,
+    "image" : "columbus_crew.png",
+    "name" : "Columbus Crew",
+    "slug" : "columbus_crew",
+    "venue_address" : "1 Black and Gold Boulevard",
+    "venue_capacity" : 24650,
+    "venue_city" : "Columbus, Ohio",
+    "venue_name" : "MAPFRE Stadium",
+    "venue_surface" : "grass"
+  },
+  "cruz_azul" : {
+    "apifootball_id" : 2295,
+    "apifootball_name" : "Cruz Azul",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1927,
+    "image" : "cruz_azul.png",
+    "name" : "Cruz Azul",
+    "slug" : "cruz_azul",
+    "venue_address" : "Calzada de Tlalpan 3665, Coyoacán",
+    "venue_capacity" : 106187,
+    "venue_city" : "D.F.",
+    "venue_name" : "Estadio Azteca",
+    "venue_surface" : "grass"
+  },
+  "crystal_palace" : {
+    "apifootball_id" : 52,
+    "apifootball_name" : "Crystal Palace",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1905,
+    "image" : "crystal_palace.png",
+    "name" : "Crystal Palace",
+    "slug" : "crystal_palace",
+    "venue_address" : "Holmesdale Road",
+    "venue_capacity" : 26309,
+    "venue_city" : "London",
+    "venue_name" : "Selhurst Park",
+    "venue_surface" : "grass"
+  },
+  "dc_united" : {
+    "apifootball_id" : 1615,
+    "apifootball_name" : "DC United",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1996,
+    "image" : "dc_united.png",
+    "name" : "DC United",
+    "slug" : "dc_united",
+    "venue_address" : "32-60 R Street South West, Buzzard Point",
+    "venue_capacity" : 20600,
+    "venue_city" : "Washington, District of Columbia",
+    "venue_name" : "Audi Field",
+    "venue_surface" : "grass"
+  },
+  "deportivo_la_coruna" : {
+    "apifootball_id" : 544,
+    "apifootball_name" : "Deportivo La Coruna",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1906,
+    "image" : "deportivo_la_coruna.png",
+    "name" : "Deportivo La Coruna",
+    "slug" : "deportivo_la_coruna",
+    "venue_address" : "Calle Manuel Murguía",
+    "venue_capacity" : 34611,
+    "venue_city" : "La Coruña",
+    "venue_name" : "Estadio Abanca-Riazor",
+    "venue_surface" : "grass"
+  },
+  "derby" : {
+    "apifootball_id" : 69,
+    "apifootball_name" : "Derby",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1884,
+    "name" : "Derby",
+    "slug" : "derby",
+    "venue_address" : "Pride Park, Royal Way",
+    "venue_capacity" : 33597,
+    "venue_city" : "Derby",
+    "venue_name" : "Pride Park Stadium",
+    "venue_surface" : "grass"
+  },
+  "dijon" : {
+    "apifootball_id" : 89,
+    "apifootball_name" : "Dijon",
+    "code" : "DIJ",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1936,
+    "image" : "dijon.png",
+    "name" : "Dijon",
+    "slug" : "dijon",
+    "venue_address" : "Rue du Stade",
+    "venue_capacity" : 16098,
+    "venue_city" : "Dijon",
+    "venue_name" : "Stade Gaston-Gérard",
+    "venue_surface" : "grass"
+  },
+  "dynamo_dresden" : {
+    "apifootball_id" : 183,
+    "apifootball_name" : "Dynamo Dresden",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1953,
+    "name" : "Dynamo Dresden",
+    "slug" : "dynamo_dresden",
+    "venue_address" : "Lennéstraße 12",
+    "venue_capacity" : 32066,
+    "venue_city" : "Dresden",
+    "venue_name" : "DDV-Stadion",
+    "venue_surface" : "grass"
+  },
+  "eibar" : {
+    "apifootball_id" : 545,
+    "apifootball_name" : "Eibar",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1940,
+    "image" : "eibar.png",
+    "name" : "Eibar",
+    "slug" : "eibar",
+    "venue_address" : "Calle de Ipurúa",
+    "venue_capacity" : 7083,
+    "venue_city" : "Eibar",
+    "venue_name" : "Estadio Municipal de Ipurúa",
+    "venue_surface" : "grass"
+  },
+  "eintracht_frankfurt" : {
+    "apifootball_id" : 169,
+    "apifootball_name" : "Eintracht Frankfurt",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1899,
+    "image" : "eintracht_frankfurt.png",
+    "name" : "Eintracht Frankfurt",
+    "slug" : "eintracht_frankfurt",
+    "venue_address" : "Mörfelder Landstr. 362",
+    "venue_capacity" : 52300,
+    "venue_city" : "Frankfurt am Main",
+    "venue_name" : "Commerzbank-Arena",
+    "venue_surface" : "grass"
+  },
+  "elche" : {
+    "apifootball_id" : 797,
+    "apifootball_name" : "Elche",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1923,
+    "image" : "elche.png",
+    "name" : "Elche",
+    "slug" : "elche",
+    "venue_address" : "Avenida Manuel Martínez Valero 3",
+    "venue_capacity" : 36017,
+    "venue_city" : "Elche",
+    "venue_name" : "Estadio Manuel Martínez Valero",
+    "venue_surface" : "grass"
+  },
+  "erzgebirge_aue" : {
+    "apifootball_id" : 190,
+    "apifootball_name" : "Erzgebirge AUE",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1945,
+    "name" : "Erzgebirge AUE",
+    "slug" : "erzgebirge_aue",
+    "venue_address" : "Lößnitzer Str. 95",
+    "venue_capacity" : 16080,
+    "venue_city" : "Aue",
+    "venue_name" : "Erzgebirgsstadion",
+    "venue_surface" : "grass"
+  },
+  "espanyol" : {
+    "apifootball_id" : 540,
+    "apifootball_name" : "Espanyol",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1900,
+    "image" : "espanyol.png",
+    "name" : "Espanyol",
+    "slug" : "espanyol",
+    "venue_address" : "Avenida Baix Llobregat 100",
+    "venue_capacity" : 40423,
+    "venue_city" : "Cornella de Llobregat",
+    "venue_name" : "RCDE Stadium",
+    "venue_surface" : "grass"
+  },
+  "everton" : {
+    "apifootball_id" : 45,
+    "apifootball_name" : "Everton",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1878,
+    "image" : "everton.png",
+    "name" : "Everton",
+    "slug" : "everton",
+    "venue_address" : "Goodison Road",
+    "venue_capacity" : 40569,
+    "venue_city" : "Liverpool",
+    "venue_name" : "Goodison Park",
+    "venue_surface" : "grass"
+  },
+  "extremadura" : {
+    "apifootball_id" : 860,
+    "apifootball_name" : "Extremadura",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 2007,
+    "image" : "extremadura.png",
+    "name" : "Extremadura",
+    "slug" : "extremadura",
+    "venue_address" : "Calle de Badajoz",
+    "venue_capacity" : 11580,
+    "venue_city" : "Almendralejo",
+    "venue_name" : "Estadio Ciudad de Almendralejo",
+    "venue_surface" : "grass"
+  },
+  "famalicao" : {
+    "apifootball_id" : 242,
+    "apifootball_name" : "Famalicao",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1931,
+    "image" : "famalicao.png",
+    "name" : "Famalicao",
+    "slug" : "famalicao",
+    "venue_address" : "Alameda dos Bargos",
+    "venue_capacity" : 8000,
+    "venue_city" : "Vila Nova de Famalicão",
+    "venue_name" : "Estádio Municipal 22 de Junho",
+    "venue_surface" : "grass"
+  },
+  "fc_aarau" : {
+    "apifootball_id" : 2177,
+    "apifootball_name" : "FC Aarau",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1902,
+    "image" : "fc_aarau.png",
+    "name" : "FC Aarau",
+    "slug" : "fc_aarau",
+    "venue_address" : "Brügglifeldweg",
+    "venue_capacity" : 9249,
+    "venue_city" : "Aarau",
+    "venue_name" : "Stadion Brügglifeld",
+    "venue_surface" : "grass"
+  },
+  "fc_augsburg" : {
+    "apifootball_id" : 170,
+    "apifootball_name" : "FC Augsburg",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1907,
+    "image" : "fc_augsburg.png",
+    "name" : "FC Augsburg",
+    "slug" : "fc_augsburg",
+    "venue_address" : "Bürgermeister Ulrich-Straße 90",
+    "venue_capacity" : 30662,
+    "venue_city" : "Augsburg",
+    "venue_name" : "WWK Arena",
+    "venue_surface" : "grass"
+  },
+  "fc_basel_1893" : {
+    "apifootball_id" : 551,
+    "apifootball_name" : "FC Basel 1893",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1893,
+    "image" : "fc_basel_1893.png",
+    "name" : "FC Basel 1893",
+    "slug" : "fc_basel_1893",
+    "usersCount" : 0,
+    "venue_address" : "Sankt Jakob-Strasse 395",
+    "venue_capacity" : 38512,
+    "venue_city" : "Basel",
+    "venue_name" : "St. Jakob-Park",
+    "venue_surface" : "grass"
+  },
+  "fc_chiasso" : {
+    "apifootball_id" : 2181,
+    "apifootball_name" : "FC Chiasso",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1905,
+    "image" : "fc_chiasso.png",
+    "name" : "FC Chiasso",
+    "slug" : "fc_chiasso",
+    "venue_address" : "Via I Agosto",
+    "venue_capacity" : 11168,
+    "venue_city" : "Chiasso",
+    "venue_name" : "Stadio Comunale di Chiasso",
+    "venue_surface" : "grass"
+  },
+  "fc_cincinnati" : {
+    "apifootball_id" : 2242,
+    "apifootball_name" : "FC Cincinnati",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "image" : "fc_cincinnati.png",
+    "name" : "FC Cincinnati",
+    "slug" : "fc_cincinnati"
+  },
+  "fc_dallas" : {
+    "apifootball_id" : 1597,
+    "apifootball_name" : "FC Dallas",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1996,
+    "image" : "fc_dallas.png",
+    "name" : "FC Dallas",
+    "slug" : "fc_dallas",
+    "venue_address" : "6000 Main Street",
+    "venue_capacity" : 22565,
+    "venue_city" : "Frisco, Texas",
+    "venue_name" : "Toyota Stadium",
+    "venue_surface" : "grass"
+  },
+  "fc_heidenheim" : {
+    "apifootball_id" : 180,
+    "apifootball_name" : "FC Heidenheim",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1946,
+    "name" : "FC Heidenheim",
+    "slug" : "fc_heidenheim",
+    "venue_address" : "Schloßhaustraße 160",
+    "venue_capacity" : 15000,
+    "venue_city" : "Heidenheim an der Brenz",
+    "venue_name" : "Voith-Arena",
+    "venue_surface" : "grass"
+  },
+  "fc_juarez" : {
+    "apifootball_id" : 2298,
+    "apifootball_name" : "FC Juarez",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 2015,
+    "image" : "fc_juarez.png",
+    "name" : "FC Juarez",
+    "slug" : "fc_juarez",
+    "venue_address" : "Avenida Heroico Colegio Militar",
+    "venue_capacity" : 22300,
+    "venue_city" : "Ciudad Juárez",
+    "venue_name" : "Estadio Olímpico Benito Juárez",
+    "venue_surface" : "grass"
+  },
+  "fc_koln" : {
+    "apifootball_id" : 192,
+    "apifootball_name" : "FC Koln",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1948,
+    "image" : "fc_koln.png",
+    "name" : "FC Koln",
+    "slug" : "fc_koln",
+    "venue_address" : "Aachener Str. 999",
+    "venue_capacity" : 50076,
+    "venue_city" : "Köln",
+    "venue_name" : "RheinEnergieStadion",
+    "venue_surface" : "grass"
+  },
+  "fc_lugano" : {
+    "apifootball_id" : 606,
+    "apifootball_name" : "FC Lugano",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1908,
+    "image" : "fc_lugano.png",
+    "name" : "FC Lugano",
+    "slug" : "fc_lugano",
+    "venue_address" : "Via Trevano 100",
+    "venue_capacity" : 14873,
+    "venue_city" : "Lugano",
+    "venue_name" : "Stadio di Cornaredo",
+    "venue_surface" : "grass"
+  },
+  "fc_luzern" : {
+    "apifootball_id" : 644,
+    "apifootball_name" : "FC Luzern",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1901,
+    "image" : "fc_luzern.png",
+    "name" : "FC Luzern",
+    "slug" : "fc_luzern",
+    "usersCount" : 0,
+    "venue_address" : "Horwerstrasse 34",
+    "venue_capacity" : 17800,
+    "venue_city" : "Luzern",
+    "venue_name" : "swissporarena",
+    "venue_surface" : "grass"
+  },
+  "fc_nurnberg" : {
+    "apifootball_id" : 171,
+    "apifootball_name" : "FC Nurnberg",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1900,
+    "name" : "FC Nurnberg",
+    "slug" : "fc_nurnberg",
+    "venue_address" : "Max-Morlock-Platz 1",
+    "venue_capacity" : 50000,
+    "venue_city" : "Nürnberg",
+    "venue_name" : "Max-Morlock-Stadion",
+    "venue_surface" : "grass"
+  },
+  "fc_porto" : {
+    "apifootball_id" : 212,
+    "apifootball_name" : "FC Porto",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1893,
+    "image" : "fc_porto.png",
+    "name" : "FC Porto",
+    "slug" : "fc_porto",
+    "venue_address" : "Via Futebol Clube do Porto",
+    "venue_capacity" : 50399,
+    "venue_city" : "Porto",
+    "venue_name" : "Estádio Do Dragão",
+    "venue_surface" : "grass"
+  },
+  "fc_schaffhausen" : {
+    "apifootball_id" : 2182,
+    "apifootball_name" : "FC Schaffhausen",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1896,
+    "image" : "fc_schaffhausen.png",
+    "name" : "FC Schaffhausen",
+    "slug" : "fc_schaffhausen",
+    "venue_address" : "Industriestrasse",
+    "venue_capacity" : 8200,
+    "venue_city" : "Schaffhausen",
+    "venue_name" : "LIPO Park Schaffhausen",
+    "venue_surface" : "artificial turf"
+  },
+  "fc_schalke_04" : {
+    "apifootball_id" : 174,
+    "apifootball_name" : "FC Schalke 04",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1904,
+    "image" : "fc_schalke_04.png",
+    "name" : "FC Schalke 04",
+    "slug" : "fc_schalke_04",
+    "venue_address" : "Arenaring 1",
+    "venue_capacity" : 62271,
+    "venue_city" : "Gelsenkirchen",
+    "venue_name" : "VELTINS-Arena",
+    "venue_surface" : "grass"
+  },
+  "fc_sion" : {
+    "apifootball_id" : 630,
+    "apifootball_name" : "FC Sion",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1909,
+    "image" : "fc_sion.png",
+    "name" : "FC Sion",
+    "slug" : "fc_sion",
+    "venue_address" : "38, rue des Echutes",
+    "venue_capacity" : 16263,
+    "venue_city" : "Sion",
+    "venue_name" : "Stade de Tourbillon",
+    "venue_surface" : "grass"
+  },
+  "fc_st_gallen" : {
+    "apifootball_id" : 1011,
+    "apifootball_name" : "FC ST. Gallen",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1879,
+    "image" : "fc_st_gallen.png",
+    "name" : "FC ST. Gallen",
+    "slug" : "fc_st_gallen",
+    "venue_address" : "Zürcher Strasse 464",
+    "venue_capacity" : 19694,
+    "venue_city" : "St. Gallen",
+    "venue_name" : "Kybunpark",
+    "venue_surface" : "grass"
+  },
+  "fc_st_pauli" : {
+    "apifootball_id" : 186,
+    "apifootball_name" : "FC St. Pauli",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1910,
+    "name" : "FC St. Pauli",
+    "slug" : "fc_st_pauli",
+    "venue_address" : "Auf dem Heiligengeistfeld",
+    "venue_capacity" : 29546,
+    "venue_city" : "Hamburg",
+    "venue_name" : "Millerntor-Stadion",
+    "venue_surface" : "grass"
+  },
+  "fc_thun" : {
+    "apifootball_id" : 1012,
+    "apifootball_name" : "FC Thun",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1898,
+    "image" : "fc_thun.png",
+    "name" : "FC Thun",
+    "slug" : "fc_thun",
+    "venue_address" : "Weststrasse 12",
+    "venue_capacity" : 10398,
+    "venue_city" : "Thun",
+    "venue_name" : "Stockhorn Arena",
+    "venue_surface" : "artificial turf"
+  },
+  "fc_vaduz" : {
+    "apifootball_id" : 660,
+    "apifootball_name" : "FC Vaduz",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Liechtenstein",
+    "founded" : 1932,
+    "image" : "fc_vaduz.png",
+    "name" : "FC Vaduz",
+    "slug" : "fc_vaduz",
+    "venue_address" : "Lettstrasse 74",
+    "venue_capacity" : 7838,
+    "venue_city" : "Vaduz",
+    "venue_name" : "Rheinpark Stadion",
+    "venue_surface" : "grass"
+  },
+  "fc_wil_1900" : {
+    "apifootball_id" : 2179,
+    "apifootball_name" : "FC WIL 1900",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1900,
+    "image" : "fc_wil_1900.png",
+    "name" : "FC WIL 1900",
+    "slug" : "fc_wil_1900",
+    "venue_address" : "Bergholzstrasse",
+    "venue_capacity" : 6958,
+    "venue_city" : "Wil",
+    "venue_name" : "IGP Arena",
+    "venue_surface" : "grass"
+  },
+  "fc_winterthur" : {
+    "apifootball_id" : 2180,
+    "apifootball_name" : "FC Winterthur",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1896,
+    "image" : "fc_winterthur.png",
+    "name" : "FC Winterthur",
+    "slug" : "fc_winterthur",
+    "venue_address" : "Rennweg 5",
+    "venue_capacity" : 14987,
+    "venue_city" : "Winterthur",
+    "venue_name" : "Stadion Schützenwiese",
+    "venue_surface" : "grass"
+  },
+  "fc_zurich" : {
+    "apifootball_id" : 783,
+    "apifootball_name" : "FC Zurich",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1896,
+    "image" : "fc_zurich.png",
+    "name" : "FC Zurich",
+    "slug" : "fc_zurich",
+    "usersCount" : 1,
+    "venue_address" : "Badenerstrasse 500",
+    "venue_capacity" : 26104,
+    "venue_city" : "Zürich",
+    "venue_name" : "Stadion Letzigrund",
+    "venue_surface" : "grass"
+  },
+  "fortuna_dusseldorf" : {
+    "apifootball_id" : 158,
+    "apifootball_name" : "Fortuna Dusseldorf",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1895,
+    "image" : "fortuna_dusseldorf.png",
+    "name" : "Fortuna Dusseldorf",
+    "slug" : "fortuna_dusseldorf",
+    "venue_address" : "Arena-Str. 1",
+    "venue_capacity" : 54600,
+    "venue_city" : "Düsseldorf",
+    "venue_name" : "Merkur Spiel-Arena",
+    "venue_surface" : "grass"
+  },
+  "fsv_mainz_05" : {
+    "apifootball_id" : 164,
+    "apifootball_name" : "FSV Mainz 05",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1905,
+    "image" : "fsv_mainz_05.png",
+    "name" : "FSV Mainz 05",
+    "slug" : "fsv_mainz_05",
+    "venue_address" : "Eugen-Salomon-Straße 1",
+    "venue_capacity" : 34034,
+    "venue_city" : "Mainz",
+    "venue_name" : "OPEL ARENA",
+    "venue_surface" : "grass"
+  },
+  "fuenlabrada" : {
+    "apifootball_id" : 4906,
+    "apifootball_name" : "Fuenlabrada",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "image" : "fuenlabrada.png",
+    "name" : "Fuenlabrada",
+    "slug" : "fuenlabrada",
+    "venue_address" : "Camino San Marcos",
+    "venue_capacity" : 7500,
+    "venue_city" : "Fuenlabrada",
+    "venue_name" : "Estadio Fernando Torres",
+    "venue_surface" : "grass"
+  },
+  "fulham" : {
+    "apifootball_id" : 36,
+    "apifootball_name" : "Fulham",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1879,
+    "name" : "Fulham",
+    "slug" : "fulham",
+    "venue_address" : "Stevenage Road",
+    "venue_capacity" : 25700,
+    "venue_city" : "London",
+    "venue_name" : "Craven Cottage",
+    "venue_surface" : "grass"
+  },
+  "getafe" : {
+    "apifootball_id" : 546,
+    "apifootball_name" : "Getafe",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1983,
+    "image" : "getafe.png",
+    "name" : "Getafe",
+    "slug" : "getafe",
+    "usersCount" : 0,
+    "venue_address" : "Avenida de Teresa de Calcuta",
+    "venue_capacity" : 17393,
+    "venue_city" : "Getafe",
+    "venue_name" : "Coliseum Alfonso Pérez",
+    "venue_surface" : "grass"
+  },
+  "gil_vicente" : {
+    "apifootball_id" : 762,
+    "apifootball_name" : "GIL Vicente",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1924,
+    "image" : "gil_vicente.png",
+    "name" : "GIL Vicente",
+    "slug" : "gil_vicente",
+    "venue_address" : "strada Nacional 103, Vila Boa",
+    "venue_capacity" : 12046,
+    "venue_city" : "Barcelos",
+    "venue_name" : "Estádio Cidade de Barcelos",
+    "venue_surface" : "grass"
+  },
+  "girona" : {
+    "apifootball_id" : 547,
+    "apifootball_name" : "Girona",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1930,
+    "image" : "girona.png",
+    "name" : "Girona",
+    "slug" : "girona",
+    "venue_address" : "Avenida Montlivi 141",
+    "venue_capacity" : 14500,
+    "venue_city" : "Girona",
+    "venue_name" : "Estadi Municipal de Montilivi",
+    "venue_surface" : "grass"
+  },
+  "granada_cf" : {
+    "apifootball_id" : 715,
+    "apifootball_name" : "Granada CF",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1931,
+    "image" : "granada_cf.png",
+    "name" : "Granada CF",
+    "slug" : "granada_cf",
+    "venue_address" : "Calle Pintor Manuel Maldonado",
+    "venue_capacity" : 23156,
+    "venue_city" : "Granada",
+    "venue_name" : "Estadio Nuevo Los Cármenes",
+    "venue_surface" : "grass"
+  },
+  "grasshoppers" : {
+    "apifootball_id" : 1013,
+    "apifootball_name" : "Grasshoppers",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1886,
+    "image" : "grasshoppers.png",
+    "name" : "Grasshoppers",
+    "slug" : "grasshoppers",
+    "venue_address" : "Badenerstrasse 500",
+    "venue_capacity" : 26104,
+    "venue_city" : "Zürich",
+    "venue_name" : "Stadion Letzigrund",
+    "venue_surface" : "grass"
+  },
+  "guadalajara_chivas" : {
+    "apifootball_id" : 2278,
+    "apifootball_name" : "Guadalajara Chivas",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1906,
+    "image" : "guadalajara_chivas.png",
+    "name" : "Guadalajara Chivas",
+    "slug" : "guadalajara_chivas",
+    "venue_address" : "Avenida Circuito JVC Número 2800, Centro JVC",
+    "venue_capacity" : 46609,
+    "venue_city" : "Zapopan",
+    "venue_name" : "Estadio AKRON",
+    "venue_surface" : "artificial turf"
+  },
+  "guimaraes" : {
+    "apifootball_id" : 224,
+    "apifootball_name" : "Guimaraes",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1922,
+    "image" : "guimaraes.png",
+    "name" : "Guimaraes",
+    "slug" : "guimaraes",
+    "venue_address" : "Rua de São Gonçalo 505",
+    "venue_capacity" : 30165,
+    "venue_city" : "Guimarães",
+    "venue_name" : "Estádio Dom Afonso Henriques",
+    "venue_surface" : "grass"
+  },
+  "hamburger_sv" : {
+    "apifootball_id" : 175,
+    "apifootball_name" : "Hamburger SV",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1887,
+    "name" : "Hamburger SV",
+    "slug" : "hamburger_sv",
+    "venue_address" : "Sylvester Allee 7",
+    "venue_capacity" : 57030,
+    "venue_city" : "Hamburg",
+    "venue_name" : "Volksparkstadion",
+    "venue_surface" : "grass"
+  },
+  "hannover_96" : {
+    "apifootball_id" : 166,
+    "apifootball_name" : "Hannover 96",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1896,
+    "name" : "Hannover 96",
+    "slug" : "hannover_96",
+    "venue_address" : "Robert-Enke-Str. 3",
+    "venue_capacity" : 49000,
+    "venue_city" : "Hannover",
+    "venue_name" : "HDI-Arena",
+    "venue_surface" : "grass"
+  },
+  "hertha_berlin" : {
+    "apifootball_id" : 159,
+    "apifootball_name" : "Hertha Berlin",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1892,
+    "image" : "hertha_berlin.png",
+    "name" : "Hertha Berlin",
+    "slug" : "hertha_berlin",
+    "venue_address" : "Olympischer Platz 3",
+    "venue_capacity" : 77116,
+    "venue_city" : "Berlin",
+    "venue_name" : "Olympiastadion Berlin",
+    "venue_surface" : "grass"
+  },
+  "holstein_kiel" : {
+    "apifootball_id" : 191,
+    "apifootball_name" : "Holstein Kiel",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1900,
+    "name" : "Holstein Kiel",
+    "slug" : "holstein_kiel",
+    "venue_address" : "Westring 501",
+    "venue_capacity" : 13400,
+    "venue_city" : "Kiel",
+    "venue_name" : "Holstein-Stadion",
+    "venue_surface" : "grass"
+  },
+  "houston_dynamo" : {
+    "apifootball_id" : 1600,
+    "apifootball_name" : "Houston Dynamo",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2005,
+    "image" : "houston_dynamo.png",
+    "name" : "Houston Dynamo",
+    "slug" : "houston_dynamo",
+    "venue_address" : "2200 Texas Avenue, East End",
+    "venue_capacity" : 22661,
+    "venue_city" : "Houston, Texas",
+    "venue_name" : "BBVA Compass Stadium",
+    "venue_surface" : "grass"
+  },
+  "huddersfield" : {
+    "apifootball_id" : 37,
+    "apifootball_name" : "Huddersfield",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1908,
+    "name" : "Huddersfield",
+    "slug" : "huddersfield",
+    "venue_address" : "Stadium Way",
+    "venue_capacity" : 24554,
+    "venue_city" : "Huddersfield, West Yorkshire",
+    "venue_name" : "John Smith's Stadium",
+    "venue_surface" : "grass"
+  },
+  "huesca" : {
+    "apifootball_id" : 726,
+    "apifootball_name" : "Huesca",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1922,
+    "image" : "huesca.png",
+    "name" : "Huesca",
+    "slug" : "huesca",
+    "venue_address" : "Camino del Alto Cocorón",
+    "venue_capacity" : 7638,
+    "venue_city" : "Huesca",
+    "venue_name" : "Estadio El Alcoraz",
+    "venue_surface" : "grass"
+  },
+  "hull_city" : {
+    "apifootball_id" : 64,
+    "apifootball_name" : "Hull City",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1904,
+    "name" : "Hull City",
+    "slug" : "hull_city",
+    "venue_address" : "Walton Street / Anlaby Road",
+    "venue_capacity" : 25504,
+    "venue_city" : "Hull",
+    "venue_name" : "KCOM Stadium",
+    "venue_surface" : "grass"
+  },
+  "jahn_regensburg" : {
+    "apifootball_id" : 177,
+    "apifootball_name" : "Jahn Regensburg",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 2000,
+    "name" : "Jahn Regensburg",
+    "slug" : "jahn_regensburg",
+    "venue_address" : "Franz-Josef-Strauß-Allee, Oberisling",
+    "venue_capacity" : 15224,
+    "venue_city" : "Regensburg",
+    "venue_name" : "Continental Arena",
+    "venue_surface" : "grass"
+  },
+  "karlsruher_sc" : {
+    "apifootball_id" : 785,
+    "apifootball_name" : "Karlsruher SC",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1898,
+    "name" : "Karlsruher SC",
+    "slug" : "karlsruher_sc",
+    "venue_address" : "Adenauerring 17",
+    "venue_capacity" : 29699,
+    "venue_city" : "Karlsruhe",
+    "venue_name" : "Wildparkstadion",
+    "venue_surface" : "grass"
+  },
+  "las_palmas" : {
+    "apifootball_id" : 534,
+    "apifootball_name" : "Las Palmas",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1949,
+    "image" : "las_palmas.png",
+    "name" : "Las Palmas",
+    "slug" : "las_palmas",
+    "venue_address" : "Avenida Pío XII 29",
+    "venue_capacity" : 31250,
+    "venue_city" : "Las Palmas de Gran Canaria",
+    "venue_name" : "Estadio de Gran Canaria",
+    "venue_surface" : "grass"
+  },
+  "lausanne" : {
+    "apifootball_id" : 1014,
+    "apifootball_name" : "Lausanne",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1896,
+    "image" : "lausanne.png",
+    "name" : "Lausanne",
+    "slug" : "lausanne",
+    "usersCount" : 1,
+    "venue_address" : "Route des Plaines du Loup 7",
+    "venue_capacity" : 15786,
+    "venue_city" : "Lausanne",
+    "venue_name" : "Stade Olympique de la Pontaise",
+    "venue_surface" : "grass"
+  },
+  "leeds" : {
+    "apifootball_id" : 63,
+    "apifootball_name" : "Leeds",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1919,
+    "name" : "Leeds",
+    "slug" : "leeds",
+    "venue_address" : "Elland Road",
+    "venue_capacity" : 40204,
+    "venue_city" : "Leeds, West Yorkshire",
+    "venue_name" : "Elland Road",
+    "venue_surface" : "grass"
+  },
+  "leganes" : {
+    "apifootball_id" : 537,
+    "apifootball_name" : "Leganes",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1928,
+    "image" : "leganes.png",
+    "name" : "Leganes",
+    "slug" : "leganes",
+    "venue_address" : "Calle Arquitectura",
+    "venue_capacity" : 12450,
+    "venue_city" : "Leganés",
+    "venue_name" : "Estadio Municipal de Butarque",
+    "venue_surface" : "grass"
+  },
+  "leicester" : {
+    "apifootball_id" : 46,
+    "apifootball_name" : "Leicester",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1884,
+    "image" : "leicester.png",
+    "name" : "Leicester",
+    "slug" : "leicester",
+    "venue_address" : "Filbert Way",
+    "venue_capacity" : 32262,
+    "venue_city" : "Leicester, Leicestershire",
+    "venue_name" : "King Power Stadium",
+    "venue_surface" : "grass"
+  },
+  "leon" : {
+    "apifootball_id" : 2289,
+    "apifootball_name" : "Leon",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1944,
+    "image" : "leon.png",
+    "name" : "Leon",
+    "slug" : "leon",
+    "venue_address" : "Boulevard Adolfo López Mateos 1810, Colonia La Martinica",
+    "venue_capacity" : 33943,
+    "venue_city" : "León de los Aldamas",
+    "venue_name" : "Estadio León (Nou Camp)",
+    "venue_surface" : "grass"
+  },
+  "levante" : {
+    "apifootball_id" : 539,
+    "apifootball_name" : "Levante",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1909,
+    "image" : "levante.png",
+    "name" : "Levante",
+    "slug" : "levante",
+    "venue_address" : "Calle San Vicente de Paúl 44",
+    "venue_capacity" : 25534,
+    "venue_city" : "Valencia",
+    "venue_name" : "Estadio Ciudad de Valencia",
+    "venue_surface" : "grass"
+  },
+  "lille" : {
+    "apifootball_id" : 79,
+    "apifootball_name" : "Lille",
+    "code" : "LIL",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1944,
+    "image" : "lille.png",
+    "name" : "Lille",
+    "slug" : "lille",
+    "venue_address" : "261, Boulevard de Tournai, l&apos;Hôtel de Ville",
+    "venue_capacity" : 50083,
+    "venue_city" : "Villeneuve d&apos;Ascq",
+    "venue_name" : "Stade Pierre-Mauroy",
+    "venue_surface" : "grass"
+  },
+  "liverpool" : {
+    "apifootball_id" : 40,
+    "apifootball_name" : "Liverpool",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1892,
+    "image" : "liverpool.png",
+    "name" : "Liverpool",
+    "slug" : "liverpool",
+    "venue_address" : "Anfield Road",
+    "venue_capacity" : 55212,
+    "venue_city" : "Liverpool",
+    "venue_name" : "Anfield",
+    "venue_surface" : "grass"
+  },
+  "los_angeles_fc" : {
+    "apifootball_id" : 1616,
+    "apifootball_name" : "Los Angeles FC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2014,
+    "image" : "los_angeles_fc.png",
+    "name" : "Los Angeles FC",
+    "slug" : "los_angeles_fc",
+    "venue_address" : "3939 S Figueroa Street",
+    "venue_capacity" : 22716,
+    "venue_city" : "Los Angeles, California",
+    "venue_name" : "Banc of California Stadium",
+    "venue_surface" : "grass"
+  },
+  "los_angeles_galaxy" : {
+    "apifootball_id" : 1605,
+    "apifootball_name" : "Los Angeles Galaxy",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1995,
+    "image" : "los_angeles_galaxy.png",
+    "name" : "Los Angeles Galaxy",
+    "slug" : "los_angeles_galaxy",
+    "usersCount" : 1,
+    "venue_address" : "18400 Avalon Boulevard, Dominguez Hills",
+    "venue_capacity" : 30510,
+    "venue_city" : "Carson, California",
+    "venue_name" : "Dignity Health Sports Park",
+    "venue_surface" : "grass"
+  },
+  "lugo" : {
+    "apifootball_id" : 716,
+    "apifootball_name" : "Lugo",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1953,
+    "image" : "lugo.png",
+    "name" : "Lugo",
+    "slug" : "lugo",
+    "venue_address" : "Avenida de los deportes",
+    "venue_capacity" : 7840,
+    "venue_city" : "Lugo",
+    "venue_name" : "Estadio Anxo Carro",
+    "venue_surface" : "grass"
+  },
+  "luton" : {
+    "apifootball_id" : 1359,
+    "apifootball_name" : "Luton",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1885,
+    "name" : "Luton",
+    "slug" : "luton",
+    "venue_address" : "1 Maple Road",
+    "venue_capacity" : 10226,
+    "venue_city" : "Luton, Bedfordshire",
+    "venue_name" : "Kenilworth Road",
+    "venue_surface" : "grass"
+  },
+  "lyon" : {
+    "apifootball_id" : 80,
+    "apifootball_name" : "Lyon",
+    "code" : "LYO",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1950,
+    "image" : "lyon.png",
+    "name" : "Lyon",
+    "slug" : "lyon",
+    "venue_address" : "Chemin du Montout",
+    "venue_capacity" : 59186,
+    "venue_city" : "Décines-Charpieu",
+    "venue_name" : "Groupama Stadium",
+    "venue_surface" : "grass"
+  },
+  "malaga" : {
+    "apifootball_id" : 535,
+    "apifootball_name" : "Malaga",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1948,
+    "image" : "malaga.png",
+    "name" : "Malaga",
+    "slug" : "malaga",
+    "venue_address" : "Avenida de la Palmilla / Paseo de Martiricos",
+    "venue_capacity" : 30377,
+    "venue_city" : "Málaga",
+    "venue_name" : "Estadio La Rosaleda",
+    "venue_surface" : "grass"
+  },
+  "mallorca" : {
+    "apifootball_id" : 798,
+    "apifootball_name" : "Mallorca",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1916,
+    "image" : "mallorca.png",
+    "name" : "Mallorca",
+    "slug" : "mallorca",
+    "venue_address" : "Camí dels Reis",
+    "venue_capacity" : 23142,
+    "venue_city" : "Palma de Mallorca",
+    "venue_name" : "Iberostar Estadi",
+    "venue_surface" : "grass"
+  },
+  "manchester_city" : {
+    "apifootball_id" : 50,
+    "apifootball_name" : "Manchester City",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1880,
+    "image" : "manchester_city.png",
+    "name" : "Manchester City",
+    "slug" : "manchester_city",
+    "venue_address" : "Rowsley Street",
+    "venue_capacity" : 55097,
+    "venue_city" : "Manchester",
+    "venue_name" : "Etihad Stadium",
+    "venue_surface" : "grass"
+  },
+  "manchester_united" : {
+    "apifootball_id" : 33,
+    "apifootball_name" : "Manchester United",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1878,
+    "image" : "manchester_united.png",
+    "name" : "Manchester United",
+    "slug" : "manchester_united",
+    "venue_address" : "Sir Matt Busby Way",
+    "venue_capacity" : 76212,
+    "venue_city" : "Manchester",
+    "venue_name" : "Old Trafford",
+    "venue_surface" : "grass"
+  },
+  "maritimo" : {
+    "apifootball_id" : 214,
+    "apifootball_name" : "Maritimo",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1910,
+    "image" : "maritimo.png",
+    "name" : "Maritimo",
+    "slug" : "maritimo",
+    "venue_address" : "Rua do Dr. Pita",
+    "venue_capacity" : 10932,
+    "venue_city" : "Ilha da Madeira",
+    "venue_name" : "Estádio dos Barreiros",
+    "venue_surface" : "grass"
+  },
+  "marseille" : {
+    "apifootball_id" : 81,
+    "apifootball_name" : "Marseille",
+    "code" : "OLM",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1899,
+    "image" : "marseille.png",
+    "name" : "Marseille",
+    "slug" : "marseille",
+    "venue_address" : "3, boulevard Michelet",
+    "venue_capacity" : 67394,
+    "venue_city" : "Marseille",
+    "venue_name" : "Orange Vélodrome",
+    "venue_surface" : "grass"
+  },
+  "metz" : {
+    "apifootball_id" : 112,
+    "apifootball_name" : "Metz",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1932,
+    "image" : "metz.png",
+    "name" : "Metz",
+    "slug" : "metz",
+    "venue_address" : "3, allée Saint-Symphorien",
+    "venue_capacity" : 25636,
+    "venue_city" : "Longeville-lès-Metz",
+    "venue_name" : "Stade Saint-Symphorien",
+    "venue_surface" : "grass"
+  },
+  "middlesbrough" : {
+    "apifootball_id" : 70,
+    "apifootball_name" : "Middlesbrough",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1876,
+    "name" : "Middlesbrough",
+    "slug" : "middlesbrough",
+    "venue_address" : "Dockside Road",
+    "venue_capacity" : 34988,
+    "venue_city" : "Middlesbrough",
+    "venue_name" : "Riverside Stadium",
+    "venue_surface" : "grass"
+  },
+  "millwall" : {
+    "apifootball_id" : 58,
+    "apifootball_name" : "Millwall",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1885,
+    "name" : "Millwall",
+    "slug" : "millwall",
+    "venue_address" : "Zampa Road, Bermondsey",
+    "venue_capacity" : 20146,
+    "venue_city" : "London",
+    "venue_name" : "The Den",
+    "venue_surface" : "grass"
+  },
+  "minnesota_stars_fc" : {
+    "apifootball_id" : 1612,
+    "apifootball_name" : "Minnesota Stars FC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2010,
+    "image" : "minnesota_stars_fc.png",
+    "name" : "Minnesota Stars FC",
+    "slug" : "minnesota_stars_fc",
+    "venue_address" : "400 Snelling Avenue North",
+    "venue_capacity" : 19832,
+    "venue_city" : "Saint Paul, Minnesota",
+    "venue_name" : "Allianz Field",
+    "venue_surface" : "grass"
+  },
+  "mirandes" : {
+    "apifootball_id" : 799,
+    "apifootball_name" : "Mirandes",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1927,
+    "image" : "mirandes.png",
+    "name" : "Mirandes",
+    "slug" : "mirandes",
+    "venue_address" : "Camino de Anduva",
+    "venue_capacity" : 6000,
+    "venue_city" : "Miranda de Ebro",
+    "venue_name" : "Estadio Municipal de Anduva",
+    "venue_surface" : "grass"
+  },
+  "monaco" : {
+    "apifootball_id" : 91,
+    "apifootball_name" : "Monaco",
+    "code" : "AMO",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "Monaco",
+    "founded" : 1919,
+    "image" : "monaco.png",
+    "name" : "Monaco",
+    "slug" : "monaco",
+    "venue_address" : "7, avenue des Castelans",
+    "venue_capacity" : 18523,
+    "venue_city" : "Monaco",
+    "venue_name" : "Stade Louis II",
+    "venue_surface" : "grass"
+  },
+  "monarcas" : {
+    "apifootball_id" : 2284,
+    "apifootball_name" : "Monarcas",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1920,
+    "image" : "monarcas.png",
+    "name" : "Monarcas",
+    "slug" : "monarcas",
+    "venue_address" : "Libramiento Norte, Colonia Leandro Valle",
+    "venue_capacity" : 41056,
+    "venue_city" : "Morelia",
+    "venue_name" : "Estadio Generalísimo José María Morelos y Pavón",
+    "venue_surface" : "grass"
+  },
+  "monterrey" : {
+    "apifootball_id" : 2282,
+    "apifootball_name" : "Monterrey",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1945,
+    "image" : "monterrey.png",
+    "name" : "Monterrey",
+    "slug" : "monterrey",
+    "venue_address" : "Avenida Pablo Livas 2011, Colonia La Pastora",
+    "venue_capacity" : 53500,
+    "venue_city" : "Guadalupe",
+    "venue_name" : "Estadio BBVA Bancomer",
+    "venue_surface" : "grass"
+  },
+  "montpellier" : {
+    "apifootball_id" : 82,
+    "apifootball_name" : "Montpellier",
+    "code" : "MPL",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1974,
+    "image" : "montpellier.png",
+    "name" : "Montpellier",
+    "slug" : "montpellier",
+    "venue_address" : "Avenue de Heidelberg",
+    "venue_capacity" : 32939,
+    "venue_city" : "Montpellier",
+    "venue_name" : "Stade de la Mosson",
+    "venue_surface" : "grass"
+  },
+  "montreal_impact" : {
+    "apifootball_id" : 1614,
+    "apifootball_name" : "Montreal Impact",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "Canada",
+    "founded" : 2010,
+    "image" : "montreal_impact.png",
+    "name" : "Montreal Impact",
+    "slug" : "montreal_impact",
+    "venue_address" : "4750, rue Sherbrooke Est",
+    "venue_capacity" : 20801,
+    "venue_city" : "Montreal, Quebec",
+    "venue_name" : "Stade Saputo",
+    "venue_surface" : "grass"
+  },
+  "moreirense" : {
+    "apifootball_id" : 215,
+    "apifootball_name" : "Moreirense",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "image" : "moreirense.png",
+    "name" : "Moreirense",
+    "slug" : "moreirense",
+    "venue_address" : "Avenida Comendador Joaquim de Almeida Freitas",
+    "venue_capacity" : 13000,
+    "venue_city" : "Moreira de Cónegos",
+    "venue_name" : "Parque Desportivo Comendador Joaquim de Almeida Freitas",
+    "venue_surface" : "grass"
+  },
+  "nantes" : {
+    "apifootball_id" : 83,
+    "apifootball_name" : "Nantes",
+    "code" : "NAN",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1943,
+    "image" : "nantes.png",
+    "name" : "Nantes",
+    "slug" : "nantes",
+    "venue_address" : "5, boulevard de la Beaujoire",
+    "venue_capacity" : 38285,
+    "venue_city" : "Nantes",
+    "venue_name" : "Stade de la Beaujoire - Louis Fonteneau",
+    "venue_surface" : "grass"
+  },
+  "necaxa" : {
+    "apifootball_id" : 2288,
+    "apifootball_name" : "Necaxa",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1923,
+    "image" : "necaxa.png",
+    "name" : "Necaxa",
+    "slug" : "necaxa",
+    "venue_address" : "Avenida Manuel Madrigal 101, Colonia Héroes",
+    "venue_capacity" : 25500,
+    "venue_city" : "Aguascalientes",
+    "venue_name" : "Estadio Victoria de Aguascalientes",
+    "venue_surface" : "grass"
+  },
+  "neuchatel_xamax_fc" : {
+    "apifootball_id" : 1015,
+    "apifootball_name" : "Neuchatel Xamax FC",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1970,
+    "image" : "neuchatel_xamax_fc.png",
+    "name" : "Neuchatel Xamax FC",
+    "slug" : "neuchatel_xamax_fc",
+    "usersCount" : 1,
+    "venue_address" : "Rue de la Pierre-à-Mazel 10, Maladière",
+    "venue_capacity" : 12500,
+    "venue_city" : "Neuchâtel",
+    "venue_name" : "Stade de la Maladière",
+    "venue_surface" : "artificial turf"
+  },
+  "new_england_revolution" : {
+    "apifootball_id" : 1609,
+    "apifootball_name" : "New England Revolution",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1995,
+    "image" : "new_england_revolution.png",
+    "name" : "New England Revolution",
+    "slug" : "new_england_revolution",
+    "venue_address" : "1388 One Patriot Place",
+    "venue_capacity" : 68756,
+    "venue_city" : "Foxborough, Massachusetts",
+    "venue_name" : "Gillette Stadium",
+    "venue_surface" : "artificial turf"
+  },
+  "new_york_city_fc" : {
+    "apifootball_id" : 1604,
+    "apifootball_name" : "New York City FC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2013,
+    "image" : "new_york_city_fc.png",
+    "name" : "New York City FC",
+    "slug" : "new_york_city_fc",
+    "venue_address" : "One East 161st Street, The Bronx",
+    "venue_capacity" : 54251,
+    "venue_city" : "New York City",
+    "venue_name" : "Yankee Stadium",
+    "venue_surface" : "grass"
+  },
+  "new_york_red_bulls" : {
+    "apifootball_id" : 1602,
+    "apifootball_name" : "New York Red Bulls",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1995,
+    "image" : "new_york_red_bulls.png",
+    "name" : "New York Red Bulls",
+    "slug" : "new_york_red_bulls",
+    "venue_address" : "Frank Rogers Boulevard South",
+    "venue_capacity" : 26765,
+    "venue_city" : "Harrison, New Jersey",
+    "venue_name" : "Red Bull Arena",
+    "venue_surface" : "grass"
+  },
+  "newcastle" : {
+    "apifootball_id" : 34,
+    "apifootball_name" : "Newcastle",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1892,
+    "image" : "newcastle.png",
+    "name" : "Newcastle",
+    "slug" : "newcastle",
+    "venue_address" : "St. James&apos; Street",
+    "venue_capacity" : 52389,
+    "venue_city" : "Newcastle upon Tyne",
+    "venue_name" : "St. James' Park",
+    "venue_surface" : "grass"
+  },
+  "nice" : {
+    "apifootball_id" : 84,
+    "apifootball_name" : "Nice",
+    "code" : "NCE",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1904,
+    "image" : "nice.png",
+    "name" : "Nice",
+    "slug" : "nice",
+    "venue_address" : "Boulevard des Jardiniers",
+    "venue_capacity" : 35624,
+    "venue_city" : "Nice",
+    "venue_name" : "Allianz Riviera",
+    "venue_surface" : "grass"
+  },
+  "nimes" : {
+    "apifootball_id" : 92,
+    "apifootball_name" : "Nimes",
+    "code" : "NIM",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1937,
+    "image" : "nimes.png",
+    "name" : "Nimes",
+    "slug" : "nimes",
+    "venue_address" : "123, avenue de la Bouvine",
+    "venue_capacity" : 18482,
+    "venue_city" : "Nîmes",
+    "venue_name" : "Stade des Costières",
+    "venue_surface" : "grass"
+  },
+  "norwich" : {
+    "apifootball_id" : 71,
+    "apifootball_name" : "Norwich",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1902,
+    "image" : "norwich.png",
+    "name" : "Norwich",
+    "slug" : "norwich",
+    "venue_address" : "Carrow Road",
+    "venue_capacity" : 27244,
+    "venue_city" : "Norwich, Norfolk",
+    "venue_name" : "Carrow Road",
+    "venue_surface" : "grass"
+  },
+  "nottingham_forest" : {
+    "apifootball_id" : 65,
+    "apifootball_name" : "Nottingham Forest",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1865,
+    "name" : "Nottingham Forest",
+    "slug" : "nottingham_forest",
+    "venue_address" : "Pavilion Road",
+    "venue_capacity" : 30576,
+    "venue_city" : "Nottingham, Nottinghamshire",
+    "venue_name" : "The City Ground",
+    "venue_surface" : "grass"
+  },
+  "numancia" : {
+    "apifootball_id" : 717,
+    "apifootball_name" : "Numancia",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1945,
+    "image" : "numancia.png",
+    "name" : "Numancia",
+    "slug" : "numancia",
+    "venue_address" : "Avenida Mariano Vicen 16",
+    "venue_capacity" : 9025,
+    "venue_city" : "Soria",
+    "venue_name" : "Nuevo Estadio Los Pajaritos",
+    "venue_surface" : "grass"
+  },
+  "orlando_city_sc" : {
+    "apifootball_id" : 1598,
+    "apifootball_name" : "Orlando City SC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2008,
+    "image" : "orlando_city_sc.png",
+    "name" : "Orlando City SC",
+    "slug" : "orlando_city_sc",
+    "venue_address" : "655 West Church Street",
+    "venue_capacity" : 25527,
+    "venue_city" : "Orlando, Florida",
+    "venue_name" : "Exploria Stadium",
+    "venue_surface" : "grass"
+  },
+  "osasuna" : {
+    "apifootball_id" : 727,
+    "apifootball_name" : "Osasuna",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1920,
+    "image" : "osasuna.png",
+    "name" : "Osasuna",
+    "slug" : "osasuna",
+    "venue_address" : "Carretera El Sadar",
+    "venue_capacity" : 19800,
+    "venue_city" : "Iruñea",
+    "venue_name" : "Estadio El Sadar",
+    "venue_surface" : "grass"
+  },
+  "oviedo" : {
+    "apifootball_id" : 718,
+    "apifootball_name" : "Oviedo",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1926,
+    "image" : "oviedo.png",
+    "name" : "Oviedo",
+    "slug" : "oviedo",
+    "venue_address" : "Calle de Ricardo Vázquez Prada, Barrio de la Ería",
+    "venue_capacity" : 29862,
+    "venue_city" : "Oviedo",
+    "venue_name" : "Estadio Nuevo Carlos Tartiere",
+    "venue_surface" : "grass"
+  },
+  "pachuca" : {
+    "apifootball_id" : 2292,
+    "apifootball_name" : "Pachuca",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1901,
+    "image" : "pachuca.png",
+    "name" : "Pachuca",
+    "slug" : "pachuca",
+    "venue_address" : "Boulevard Felipe Angeles",
+    "venue_capacity" : 30000,
+    "venue_city" : "Pachuca de Soto",
+    "venue_name" : "Estadio Hidalgo",
+    "venue_surface" : "grass"
+  },
+  "pacos_ferreira" : {
+    "apifootball_id" : 234,
+    "apifootball_name" : "Pacos Ferreira",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1950,
+    "image" : "pacos_ferreira.png",
+    "name" : "Pacos Ferreira",
+    "slug" : "pacos_ferreira",
+    "venue_address" : "Rua do Estádio, Apartado 26",
+    "venue_capacity" : 9077,
+    "venue_city" : "Paços de Ferreira",
+    "venue_name" : "Estádio da Capital do Móvel",
+    "venue_surface" : "grass"
+  },
+  "paris_saint_germain" : {
+    "apifootball_id" : 85,
+    "apifootball_name" : "Paris Saint Germain",
+    "code" : "PSG",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1970,
+    "image" : "paris_saint_germain.png",
+    "name" : "Paris Saint Germain",
+    "slug" : "paris_saint_germain",
+    "venue_address" : "24, rue du Commandant Guilbaud",
+    "venue_capacity" : 47929,
+    "venue_city" : "Paris",
+    "venue_name" : "Parc des Princes",
+    "venue_surface" : "grass"
+  },
+  "philadelphia_union" : {
+    "apifootball_id" : 1599,
+    "apifootball_name" : "Philadelphia Union",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2008,
+    "image" : "philadelphia_union.png",
+    "name" : "Philadelphia Union",
+    "slug" : "philadelphia_union",
+    "venue_address" : "Seaport Drive",
+    "venue_capacity" : 19178,
+    "venue_city" : "Chester, Pennsylvania",
+    "venue_name" : "Talen Energy Stadium",
+    "venue_surface" : "grass"
+  },
+  "ponferradina" : {
+    "apifootball_id" : 4907,
+    "apifootball_name" : "Ponferradina",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1922,
+    "image" : "ponferradina.png",
+    "name" : "Ponferradina",
+    "slug" : "ponferradina",
+    "venue_address" : "Avenida de Asturias",
+    "venue_capacity" : 8800,
+    "venue_city" : "Ponferrada",
+    "venue_name" : "Estadio El Toralín",
+    "venue_surface" : "grass"
+  },
+  "portimonense" : {
+    "apifootball_id" : 216,
+    "apifootball_name" : "Portimonense",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1914,
+    "image" : "portimonense.png",
+    "name" : "Portimonense",
+    "slug" : "portimonense",
+    "venue_address" : "Avenida Zeca Afonso Portimão",
+    "venue_capacity" : 9544,
+    "venue_city" : "Portimão",
+    "venue_name" : "Estádio Municipal de Portimão",
+    "venue_surface" : "grass"
+  },
+  "portland_timbers" : {
+    "apifootball_id" : 1617,
+    "apifootball_name" : "Portland Timbers",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2009,
+    "image" : "portland_timbers.png",
+    "name" : "Portland Timbers",
+    "slug" : "portland_timbers",
+    "venue_address" : "1844 SW Morrison Street",
+    "venue_capacity" : 25218,
+    "venue_city" : "Portland, Oregon",
+    "venue_name" : "Providence Park",
+    "venue_surface" : "artificial turf"
+  },
+  "preston" : {
+    "apifootball_id" : 59,
+    "apifootball_name" : "Preston",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1863,
+    "name" : "Preston",
+    "slug" : "preston",
+    "venue_address" : "Deepdale Road",
+    "venue_capacity" : 23408,
+    "venue_city" : "Preston",
+    "venue_name" : "Deepdale",
+    "venue_surface" : "grass"
+  },
+  "puebla" : {
+    "apifootball_id" : 2291,
+    "apifootball_name" : "Puebla",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1944,
+    "image" : "puebla.png",
+    "name" : "Puebla",
+    "slug" : "puebla",
+    "venue_address" : "Calle Calzada Ignacio Zaragoza, Colonia Unidad Deportiva Puebla",
+    "venue_capacity" : 51726,
+    "venue_city" : "Puebla",
+    "venue_name" : "Estadio Cuauhtémoc",
+    "venue_surface" : "grass"
+  },
+  "qpr" : {
+    "apifootball_id" : 72,
+    "apifootball_name" : "QPR",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1885,
+    "name" : "QPR",
+    "slug" : "qpr",
+    "venue_address" : "South Africa Road, Shepherd&apos;s Bush",
+    "venue_capacity" : 18360,
+    "venue_city" : "London",
+    "venue_name" : "The Kiyan Prince Foundation Stadium",
+    "venue_surface" : "grass"
+  },
+  "racing_santander" : {
+    "apifootball_id" : 4665,
+    "apifootball_name" : "Racing Santander",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1913,
+    "image" : "racing_santander.png",
+    "name" : "Racing Santander",
+    "slug" : "racing_santander",
+    "venue_address" : "Calle del Real Racing Club",
+    "venue_capacity" : 22271,
+    "venue_city" : "Santander",
+    "venue_name" : "Campos de Sport de El Sardinero",
+    "venue_surface" : "grass"
+  },
+  "rayo_vallecano" : {
+    "apifootball_id" : 728,
+    "apifootball_name" : "Rayo Vallecano",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1924,
+    "image" : "rayo_vallecano.png",
+    "name" : "Rayo Vallecano",
+    "slug" : "rayo_vallecano",
+    "venue_address" : "Calle Payaso Fofó",
+    "venue_capacity" : 15500,
+    "venue_city" : "Madrid",
+    "venue_name" : "Estadio de Vallecas",
+    "venue_surface" : "grass"
+  },
+  "rb_leipzig" : {
+    "apifootball_id" : 173,
+    "apifootball_name" : "RB Leipzig",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 2009,
+    "image" : "rb_leipzig.png",
+    "name" : "RB Leipzig",
+    "slug" : "rb_leipzig",
+    "venue_address" : "Am Sportforum 3",
+    "venue_capacity" : 44345,
+    "venue_city" : "Leipzig",
+    "venue_name" : "Red Bull Arena",
+    "venue_surface" : "grass"
+  },
+  "reading" : {
+    "apifootball_id" : 53,
+    "apifootball_name" : "Reading",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1871,
+    "name" : "Reading",
+    "slug" : "reading",
+    "venue_address" : "Shooters Way / Junction 11, M4",
+    "venue_capacity" : 24200,
+    "venue_city" : "Reading, Berkshire",
+    "venue_name" : "Madejski Stadium",
+    "venue_surface" : "grass"
+  },
+  "real_betis" : {
+    "apifootball_id" : 543,
+    "apifootball_name" : "Real Betis",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1907,
+    "image" : "real_betis.png",
+    "name" : "Real Betis",
+    "slug" : "real_betis",
+    "venue_address" : "Avenida de Heliópolis",
+    "venue_capacity" : 60721,
+    "venue_city" : "Sevilla",
+    "venue_name" : "Estadio Benito Villamarín",
+    "venue_surface" : "grass"
+  },
+  "real_madrid" : {
+    "apifootball_id" : 541,
+    "apifootball_name" : "Real Madrid",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1902,
+    "image" : "real_madrid.png",
+    "name" : "Real Madrid",
+    "slug" : "real_madrid",
+    "usersCount" : 1,
+    "venue_address" : "Avenida de Concha Espina 1, Chamartín",
+    "venue_capacity" : 85454,
+    "venue_city" : "Madrid",
+    "venue_name" : "Estadio Santiago Bernabéu",
+    "venue_surface" : "grass"
+  },
+  "real_salt_lake" : {
+    "apifootball_id" : 1606,
+    "apifootball_name" : "Real Salt Lake",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2004,
+    "image" : "real_salt_lake.png",
+    "name" : "Real Salt Lake",
+    "slug" : "real_salt_lake",
+    "venue_address" : "9256 South State Street",
+    "venue_capacity" : 21363,
+    "venue_city" : "Sandy, Utah",
+    "venue_name" : "Rio Tinto Stadium",
+    "venue_surface" : "grass"
+  },
+  "real_sociedad" : {
+    "apifootball_id" : 548,
+    "apifootball_name" : "Real Sociedad",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1909,
+    "image" : "real_sociedad.png",
+    "name" : "Real Sociedad",
+    "slug" : "real_sociedad",
+    "venue_address" : "Paseo de Anoeta 1",
+    "venue_capacity" : 32076,
+    "venue_city" : "Donostia-San Sebastián",
+    "venue_name" : "Estadio Municipal de Anoeta",
+    "venue_surface" : "grass"
+  },
+  "reims" : {
+    "apifootball_id" : 93,
+    "apifootball_name" : "Reims",
+    "code" : "REI",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1909,
+    "image" : "reims.png",
+    "name" : "Reims",
+    "slug" : "reims",
+    "venue_address" : "33, Chaussée Bocquaine",
+    "venue_capacity" : 21684,
+    "venue_city" : "Reims",
+    "venue_name" : "Stade Auguste-Delaune II",
+    "venue_surface" : "grass"
+  },
+  "rennes" : {
+    "apifootball_id" : 94,
+    "apifootball_name" : "Rennes",
+    "code" : "REN",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1901,
+    "image" : "rennes.png",
+    "name" : "Rennes",
+    "slug" : "rennes",
+    "venue_address" : "111, route de Lorient",
+    "venue_capacity" : 31127,
+    "venue_city" : "Rennes",
+    "venue_name" : "Roazhon Park",
+    "venue_surface" : "grass"
+  },
+  "rio_ave" : {
+    "apifootball_id" : 226,
+    "apifootball_name" : "Rio Ave",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1939,
+    "image" : "rio_ave.png",
+    "name" : "Rio Ave",
+    "slug" : "rio_ave",
+    "venue_address" : "Rua Dona Maria Pães Ribeiro",
+    "venue_capacity" : 12815,
+    "venue_city" : "Vila do Conde",
+    "venue_name" : "Estádio do Rio Ave Futebol Clube",
+    "venue_surface" : "grass"
+  },
+  "saint_etienne" : {
+    "apifootball_id" : 1063,
+    "apifootball_name" : "Saint Etienne",
+    "code" : "STE",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1920,
+    "image" : "saint_etienne.png",
+    "name" : "Saint Etienne",
+    "slug" : "saint_etienne",
+    "venue_address" : "14, rue Pierre et Paul Guichard",
+    "venue_capacity" : 41965,
+    "venue_city" : "Saint-Ètienne",
+    "venue_name" : "Stade Geoffroy-Guichard",
+    "venue_surface" : "grass"
+  },
+  "san_jose_earthquakes" : {
+    "apifootball_id" : 1596,
+    "apifootball_name" : "San Jose Earthquakes",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1995,
+    "image" : "san_jose_earthquakes.png",
+    "name" : "San Jose Earthquakes",
+    "slug" : "san_jose_earthquakes",
+    "venue_address" : "1123 Coleman Avenue",
+    "venue_capacity" : 18000,
+    "venue_city" : "San Jose, California",
+    "venue_name" : "Avaya Stadium",
+    "venue_surface" : "grass"
+  },
+  "santa_clara" : {
+    "apifootball_id" : 227,
+    "apifootball_name" : "Santa Clara",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1921,
+    "image" : "santa_clara.png",
+    "name" : "Santa Clara",
+    "slug" : "santa_clara",
+    "venue_address" : "Rua Comandante Jaime de Sousa 21",
+    "venue_capacity" : 13277,
+    "venue_city" : "Ponta Delgada, Ilha de São Miguel, Açores",
+    "venue_name" : "Estádio de São Miguel",
+    "venue_surface" : "grass"
+  },
+  "santos_laguna" : {
+    "apifootball_id" : 2285,
+    "apifootball_name" : "Santos Laguna",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1983,
+    "image" : "santos_laguna.png",
+    "name" : "Santos Laguna",
+    "slug" : "santos_laguna",
+    "venue_address" : "Territorio Santos Modelo",
+    "venue_capacity" : 28914,
+    "venue_city" : "Torreón",
+    "venue_name" : "Estadio Nuevo Corona",
+    "venue_surface" : "grass"
+  },
+  "sc_braga" : {
+    "apifootball_id" : 217,
+    "apifootball_name" : "SC Braga",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1921,
+    "image" : "sc_braga.png",
+    "name" : "SC Braga",
+    "slug" : "sc_braga",
+    "venue_address" : "Avenida do Estádio",
+    "venue_capacity" : 30286,
+    "venue_city" : "Braga",
+    "venue_name" : "Estádio Municipal de Braga",
+    "venue_surface" : "grass"
+  },
+  "sc_freiburg" : {
+    "apifootball_id" : 160,
+    "apifootball_name" : "SC Freiburg",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1904,
+    "image" : "sc_freiburg.png",
+    "name" : "SC Freiburg",
+    "slug" : "sc_freiburg",
+    "venue_address" : "Schwarzwaldstraße 193",
+    "venue_capacity" : 25000,
+    "venue_city" : "Freiburg im Breisgau",
+    "venue_name" : "Schwarzwald-Stadion",
+    "venue_surface" : "grass"
+  },
+  "sc_kriens" : {
+    "apifootball_id" : 2186,
+    "apifootball_name" : "SC Kriens",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "founded" : 1944,
+    "image" : "sc_kriens.png",
+    "name" : "SC Kriens",
+    "slug" : "sc_kriens",
+    "venue_address" : "Horwerstrasse 47",
+    "venue_capacity" : 5360,
+    "venue_city" : "Kriens",
+    "venue_name" : "Stadion Kleinfeld",
+    "venue_surface" : "grass"
+  },
+  "sc_paderborn_07" : {
+    "apifootball_id" : 185,
+    "apifootball_name" : "SC Paderborn 07",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1907,
+    "image" : "sc_paderborn_07.png",
+    "name" : "SC Paderborn 07",
+    "slug" : "sc_paderborn_07",
+    "venue_address" : "Paderborner Straße 89",
+    "venue_capacity" : 15306,
+    "venue_city" : "Paderborn",
+    "venue_name" : "Benteler-Arena",
+    "venue_surface" : "grass"
+  },
+  "seattle_sounders" : {
+    "apifootball_id" : 1595,
+    "apifootball_name" : "Seattle Sounders",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 2007,
+    "image" : "seattle_sounders.png",
+    "name" : "Seattle Sounders",
+    "slug" : "seattle_sounders",
+    "venue_address" : "800 Occidental Avenue South",
+    "venue_capacity" : 67385,
+    "venue_city" : "Seattle, Washington",
+    "venue_name" : "CenturyLink Field",
+    "venue_surface" : "artificial turf"
+  },
+  "servette_fc" : {
+    "apifootball_id" : 2184,
+    "apifootball_name" : "Servette FC",
+    "competitions" : {
+      "switzerland_super_league_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Switzerland",
+      "slug" : "switzerland"
+    },
+    "founded" : 1890,
+    "image" : "servette_fc.png",
+    "name" : "Servette FC",
+    "slug" : "servette_fc",
+    "venue_address" : "16, route des Jeunes",
+    "venue_capacity" : 30084,
+    "venue_city" : "Carouge",
+    "venue_name" : "Stade de Genève",
+    "venue_surface" : "grass"
+  },
+  "sevilla" : {
+    "apifootball_id" : 536,
+    "apifootball_name" : "Sevilla",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1890,
+    "image" : "sevilla.png",
+    "name" : "Sevilla",
+    "slug" : "sevilla",
+    "venue_address" : "Avenida de Eduardo Dato",
+    "venue_capacity" : 48649,
+    "venue_city" : "Sevilla",
+    "venue_name" : "Estadio Ramón Sánchez Pizjuán",
+    "venue_surface" : "grass"
+  },
+  "sheffield_utd" : {
+    "apifootball_id" : 62,
+    "apifootball_name" : "Sheffield Utd",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1889,
+    "image" : "sheffield_utd.png",
+    "name" : "Sheffield Utd",
+    "slug" : "sheffield_utd",
+    "venue_address" : "Bramall Lane",
+    "venue_capacity" : 32702,
+    "venue_city" : "Sheffield",
+    "venue_name" : "Bramall Lane",
+    "venue_surface" : "grass"
+  },
+  "sheffield_wednesday" : {
+    "apifootball_id" : 74,
+    "apifootball_name" : "Sheffield Wednesday",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1867,
+    "name" : "Sheffield Wednesday",
+    "slug" : "sheffield_wednesday",
+    "venue_address" : "Penistone Road North, Hillsborough",
+    "venue_capacity" : 39814,
+    "venue_city" : "Sheffield",
+    "venue_name" : "Hillsborough",
+    "venue_surface" : "grass"
+  },
+  "southampton" : {
+    "apifootball_id" : 41,
+    "apifootball_name" : "Southampton",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1885,
+    "image" : "southampton.png",
+    "name" : "Southampton",
+    "slug" : "southampton",
+    "venue_address" : "Britannia Road",
+    "venue_capacity" : 32689,
+    "venue_city" : "Southampton, Hampshire",
+    "venue_name" : "St. Mary's Stadium",
+    "venue_surface" : "grass"
+  },
+  "sporting_cp" : {
+    "apifootball_id" : 228,
+    "apifootball_name" : "Sporting CP",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1906,
+    "image" : "sporting_cp.png",
+    "name" : "Sporting CP",
+    "slug" : "sporting_cp",
+    "venue_address" : "Rua Professor Fernando da Fonseca",
+    "venue_capacity" : 50466,
+    "venue_city" : "Lisboa",
+    "venue_name" : "Estádio José Alvalade",
+    "venue_surface" : "grass"
+  },
+  "sporting_gijon" : {
+    "apifootball_id" : 731,
+    "apifootball_name" : "Sporting Gijon",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1905,
+    "image" : "sporting_gijon.png",
+    "name" : "Sporting Gijon",
+    "slug" : "sporting_gijon",
+    "venue_address" : "Parque de Isabel la Católica",
+    "venue_capacity" : 29538,
+    "venue_city" : "Gijón",
+    "venue_name" : "Estadio Municipal El Molinón",
+    "venue_surface" : "grass"
+  },
+  "sporting_kansas_city" : {
+    "apifootball_id" : 1611,
+    "apifootball_name" : "Sporting Kansas City",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "United States",
+    "founded" : 1995,
+    "image" : "sporting_kansas_city.png",
+    "name" : "Sporting Kansas City",
+    "slug" : "sporting_kansas_city",
+    "venue_address" : "One Sporting Way",
+    "venue_capacity" : 21650,
+    "venue_city" : "Kansas City, Kansas",
+    "venue_name" : "Children's Mercy Park",
+    "venue_surface" : "grass"
+  },
+  "spvgg_greuther_furth" : {
+    "apifootball_id" : 178,
+    "apifootball_name" : "SpVgg Greuther Furth",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1903,
+    "name" : "SpVgg Greuther Furth",
+    "slug" : "spvgg_greuther_furth",
+    "venue_address" : "Laubenweg 60",
+    "venue_capacity" : 18000,
+    "venue_city" : "Fürth",
+    "venue_name" : "Sportpark Ronhof Thomas Sommer",
+    "venue_surface" : "grass"
+  },
+  "stade_brestois_29" : {
+    "apifootball_id" : 106,
+    "apifootball_name" : "Stade Brestois 29",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1950,
+    "image" : "stade_brestois_29.png",
+    "name" : "Stade Brestois 29",
+    "slug" : "stade_brestois_29",
+    "venue_address" : "26, rue de Quimper",
+    "venue_capacity" : 15931,
+    "venue_city" : "Brest",
+    "venue_name" : "Stade Francis-Le Blé",
+    "venue_surface" : "grass"
+  },
+  "stade_lausanne_ouchy" : {
+    "apifootball_id" : 4269,
+    "apifootball_name" : "Stade Lausanne-Ouchy",
+    "competitions" : {
+      "switzerland_challenge_league_2019_2020" : true
+    },
+    "country" : "Switzerland",
+    "image" : "stade_lausanne_ouchy.png",
+    "name" : "Stade Lausanne-Ouchy",
+    "slug" : "stade_lausanne_ouchy",
+    "venue_address" : "Avenue Pierre-de-Coubertin 9",
+    "venue_capacity" : 3200,
+    "venue_city" : "Lausanne",
+    "venue_name" : "Stade Juan-Antonio Samaranch",
+    "venue_surface" : "grass"
+  },
+  "stoke_city" : {
+    "apifootball_id" : 75,
+    "apifootball_name" : "Stoke City",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1868,
+    "name" : "Stoke City",
+    "slug" : "stoke_city",
+    "venue_address" : "Stanley Matthews Way",
+    "venue_capacity" : 30089,
+    "venue_city" : "Stoke-on-Trent, Staffordshire",
+    "venue_name" : "bet365 Stadium",
+    "venue_surface" : "grass"
+  },
+  "strasbourg" : {
+    "apifootball_id" : 95,
+    "apifootball_name" : "Strasbourg",
+    "code" : "STR",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1906,
+    "image" : "strasbourg.png",
+    "name" : "Strasbourg",
+    "slug" : "strasbourg",
+    "venue_address" : "12, rue de l&apos;Extenwoerth",
+    "venue_capacity" : 26109,
+    "venue_city" : "Strasbourg",
+    "venue_name" : "Stade de la Meinau",
+    "venue_surface" : "grass"
+  },
+  "sv_darmstadt_98" : {
+    "apifootball_id" : 181,
+    "apifootball_name" : "SV Darmstadt 98",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1898,
+    "name" : "SV Darmstadt 98",
+    "slug" : "sv_darmstadt_98",
+    "venue_address" : "Nieder-Ramstädter Straße 170",
+    "venue_capacity" : 17468,
+    "venue_city" : "Darmstadt",
+    "venue_name" : "Merck-Stadion am Böllenfalltor",
+    "venue_surface" : "grass"
+  },
+  "sv_sandhausen" : {
+    "apifootball_id" : 189,
+    "apifootball_name" : "SV Sandhausen",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1916,
+    "name" : "SV Sandhausen",
+    "slug" : "sv_sandhausen",
+    "venue_address" : "Jahnstr. 1",
+    "venue_capacity" : 14508,
+    "venue_city" : "Sandhausen",
+    "venue_name" : "BWT-Stadion am Hardtwald",
+    "venue_surface" : "grass"
+  },
+  "sv_wehen" : {
+    "apifootball_id" : 1319,
+    "apifootball_name" : "SV Wehen",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1926,
+    "name" : "SV Wehen",
+    "slug" : "sv_wehen",
+    "venue_address" : "Berliner Straße 9",
+    "venue_capacity" : 13144,
+    "venue_city" : "Wiesbaden",
+    "venue_name" : "BRITA-Arena",
+    "venue_surface" : "grass"
+  },
+  "swansea" : {
+    "apifootball_id" : 76,
+    "apifootball_name" : "Swansea",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "Wales",
+    "founded" : 1912,
+    "name" : "Swansea",
+    "slug" : "swansea",
+    "venue_address" : "Normandy Road",
+    "venue_capacity" : 21028,
+    "venue_city" : "Swansea",
+    "venue_name" : "Liberty Stadium",
+    "venue_surface" : "grass"
+  },
+  "tenerife" : {
+    "apifootball_id" : 719,
+    "apifootball_name" : "Tenerife",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1922,
+    "image" : "tenerife.png",
+    "name" : "Tenerife",
+    "slug" : "tenerife",
+    "venue_address" : "Avenida de San Sebastián",
+    "venue_capacity" : 23660,
+    "venue_city" : "Tenerife",
+    "venue_name" : "Estadio Heliodoro Rodríguez Lopéz",
+    "venue_surface" : "grass"
+  },
+  "tigres_uanl" : {
+    "apifootball_id" : 2279,
+    "apifootball_name" : "Tigres UANL",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1960,
+    "image" : "tigres_uanl.png",
+    "name" : "Tigres UANL",
+    "slug" : "tigres_uanl",
+    "venue_address" : "Calle del Doctor Pedro de Alba, Colonia Ciudad Universitaria",
+    "venue_capacity" : 42000,
+    "venue_city" : "San Nicolás de los Garza",
+    "venue_name" : "Estadio Universitario de Nuevo León",
+    "venue_surface" : "grass"
+  },
+  "toluca" : {
+    "apifootball_id" : 2281,
+    "apifootball_name" : "Toluca",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1917,
+    "image" : "toluca.png",
+    "name" : "Toluca",
+    "slug" : "toluca",
+    "venue_address" : "Avenida Constituyentes Poniente No. 1000, Colonia La Merced",
+    "venue_capacity" : 30000,
+    "venue_city" : "Toluca de Lerdo",
+    "venue_name" : "Estadio Nemesio Díez",
+    "venue_surface" : "grass"
+  },
+  "tondela" : {
+    "apifootball_id" : 218,
+    "apifootball_name" : "Tondela",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "image" : "tondela.png",
+    "name" : "Tondela",
+    "slug" : "tondela",
+    "venue_address" : "Rua Doutor Eurico José Gouveia",
+    "venue_capacity" : 7500,
+    "venue_city" : "Tondela",
+    "venue_name" : "Estádio João Cardoso",
+    "venue_surface" : "grass"
+  },
+  "toronto_fc" : {
+    "apifootball_id" : 1601,
+    "apifootball_name" : "Toronto FC",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "Canada",
+    "founded" : 2006,
+    "image" : "toronto_fc.png",
+    "name" : "Toronto FC",
+    "slug" : "toronto_fc",
+    "venue_address" : "170 Princes’ Boulevard",
+    "venue_capacity" : 36045,
+    "venue_city" : "Toronto, Ontario",
+    "venue_name" : "BMO Field",
+    "venue_surface" : "grass"
+  },
+  "tottenham" : {
+    "apifootball_id" : 47,
+    "apifootball_name" : "Tottenham",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1882,
+    "image" : "tottenham.png",
+    "name" : "Tottenham",
+    "slug" : "tottenham",
+    "venue_address" : "Bill Nicholson Way, 748 High Road",
+    "venue_capacity" : 62062,
+    "venue_city" : "London",
+    "venue_name" : "Tottenham Hotspur Stadium",
+    "venue_surface" : "grass"
+  },
+  "toulouse" : {
+    "apifootball_id" : 96,
+    "apifootball_name" : "Toulouse",
+    "code" : "TOU",
+    "competitions" : {
+      "france_ligue_1_2019_2020" : true
+    },
+    "country" : "France",
+    "founded" : 1937,
+    "image" : "toulouse.png",
+    "name" : "Toulouse",
+    "slug" : "toulouse",
+    "venue_address" : "1, allée Gabriel Biènés",
+    "venue_capacity" : 33150,
+    "venue_city" : "Toulouse",
+    "venue_name" : "Stadium de Toulouse",
+    "venue_surface" : "grass"
+  },
+  "unam___pumas" : {
+    "apifootball_id" : 2286,
+    "apifootball_name" : "U.N.A.M. - Pumas",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1954,
+    "image" : "unam___pumas.png",
+    "name" : "U.N.A.M. - Pumas",
+    "slug" : "unam___pumas",
+    "venue_address" : "Calle Escobar, Colonia Ciudad Universitaria, Coyoacán",
+    "venue_capacity" : 72449,
+    "venue_city" : "D.F.",
+    "venue_name" : "Estadio Olímpico de Universitario",
+    "venue_surface" : "grass"
+  },
+  "union_berlin" : {
+    "apifootball_id" : 182,
+    "apifootball_name" : "Union Berlin",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1966,
+    "image" : "union_berlin.png",
+    "name" : "Union Berlin",
+    "slug" : "union_berlin",
+    "venue_address" : "Hämmerlingstraße 80-88, Köpenick",
+    "venue_capacity" : 22012,
+    "venue_city" : "Berlin",
+    "venue_name" : "Stadion An der Alten Försterei",
+    "venue_surface" : "grass"
+  },
+  "valencia" : {
+    "apifootball_id" : 532,
+    "apifootball_name" : "Valencia",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1919,
+    "image" : "valencia.png",
+    "name" : "Valencia",
+    "slug" : "valencia",
+    "venue_address" : "Avenida de Suecia",
+    "venue_capacity" : 55000,
+    "venue_city" : "Valencia",
+    "venue_name" : "Estadio de Mestalla",
+    "venue_surface" : "grass"
+  },
+  "valladolid" : {
+    "apifootball_id" : 720,
+    "apifootball_name" : "Valladolid",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1928,
+    "image" : "valladolid.png",
+    "name" : "Valladolid",
+    "slug" : "valladolid",
+    "venue_address" : "Avenida del Mundial 82",
+    "venue_capacity" : 26512,
+    "venue_city" : "Valladolid",
+    "venue_name" : "Estadio Municipal José Zorrilla",
+    "venue_surface" : "grass"
+  },
+  "vancouver_whitecaps" : {
+    "apifootball_id" : 1603,
+    "apifootball_name" : "Vancouver Whitecaps",
+    "competitions" : {
+      "usa_major_league_soccer_2019_2020" : true
+    },
+    "country" : "Canada",
+    "founded" : 1986,
+    "image" : "vancouver_whitecaps.png",
+    "name" : "Vancouver Whitecaps",
+    "slug" : "vancouver_whitecaps",
+    "venue_address" : "777 Pacific Boulevard, False Creek",
+    "venue_capacity" : 59687,
+    "venue_city" : "Vancouver, British Columbia",
+    "venue_name" : "BC Place Stadium",
+    "venue_surface" : "artificial turf"
+  },
+  "veracruz" : {
+    "apifootball_id" : 2294,
+    "apifootball_name" : "Veracruz",
+    "competitions" : {
+      "mexico_liga_mx_2019_2020" : true
+    },
+    "country" : "Mexico",
+    "founded" : 1943,
+    "image" : "veracruz.png",
+    "name" : "Veracruz",
+    "slug" : "veracruz",
+    "venue_address" : "Paseo Jacarandas y Paseo Jardín, Fracc. Virginia, Colonia Boca del Río",
+    "venue_capacity" : 26316,
+    "venue_city" : "Veracruz",
+    "venue_name" : "Estadio Luis de la Fuente",
+    "venue_surface" : "grass"
+  },
+  "vfb_stuttgart" : {
+    "apifootball_id" : 172,
+    "apifootball_name" : "VfB Stuttgart",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1893,
+    "name" : "VfB Stuttgart",
+    "slug" : "vfb_stuttgart",
+    "venue_address" : "Mercedesstrasse 87",
+    "venue_capacity" : 60469,
+    "venue_city" : "Stuttgart",
+    "venue_name" : "Mercedes-Benz-Arena",
+    "venue_surface" : "grass"
+  },
+  "vfl_bochum" : {
+    "apifootball_id" : 176,
+    "apifootball_name" : "VfL BOCHUM",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1848,
+    "name" : "VfL BOCHUM",
+    "slug" : "vfl_bochum",
+    "venue_address" : "Castropher Straße 145",
+    "venue_capacity" : 30748,
+    "venue_city" : "Bochum",
+    "venue_name" : "Vonovia Ruhrstadion",
+    "venue_surface" : "grass"
+  },
+  "vfl_osnabruck" : {
+    "apifootball_id" : 1324,
+    "apifootball_name" : "VfL Osnabruck",
+    "competitions" : {
+      "germany_bundesliga_2_2019_2020" : true
+    },
+    "country" : "Germany",
+    "founded" : 1899,
+    "name" : "VfL Osnabruck",
+    "slug" : "vfl_osnabruck",
+    "venue_address" : "Scharnhorststraße 50, Schinkel",
+    "venue_capacity" : 16667,
+    "venue_city" : "Osnabrück",
+    "venue_name" : "Bremer Brücke",
+    "venue_surface" : "grass"
+  },
+  "vfl_wolfsburg" : {
+    "apifootball_id" : 161,
+    "apifootball_name" : "VfL Wolfsburg",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1945,
+    "image" : "vfl_wolfsburg.png",
+    "name" : "VfL Wolfsburg",
+    "slug" : "vfl_wolfsburg",
+    "venue_address" : "In den Allerwiesen 1",
+    "venue_capacity" : 30000,
+    "venue_city" : "Wolfsburg",
+    "venue_name" : "VOLKSWAGEN ARENA",
+    "venue_surface" : "grass"
+  },
+  "villarreal" : {
+    "apifootball_id" : 533,
+    "apifootball_name" : "Villarreal",
+    "competitions" : {
+      "spain_primera_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1923,
+    "image" : "villarreal.png",
+    "name" : "Villarreal",
+    "slug" : "villarreal",
+    "venue_address" : "Plaza Labrador",
+    "venue_capacity" : 24500,
+    "venue_city" : "Villarreal",
+    "venue_name" : "Estadio de la Cerámica",
+    "venue_surface" : "grass"
+  },
+  "vitoria_setubal" : {
+    "apifootball_id" : 219,
+    "apifootball_name" : "Vitoria Setubal",
+    "competitions" : {
+      "portugal_primeira_liga_2019_2020" : true
+    },
+    "country" : "Portugal",
+    "founded" : 1910,
+    "image" : "vitoria_setubal.png",
+    "name" : "Vitoria Setubal",
+    "slug" : "vitoria_setubal",
+    "venue_address" : "Praça Vitoria Futebol Clube",
+    "venue_capacity" : 18694,
+    "venue_city" : "Setúbal",
+    "venue_name" : "Estádio do Bonfim",
+    "venue_surface" : "grass"
+  },
+  "watford" : {
+    "apifootball_id" : 38,
+    "apifootball_name" : "Watford",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1881,
+    "image" : "watford.png",
+    "name" : "Watford",
+    "slug" : "watford",
+    "venue_address" : "Vicarage Road",
+    "venue_capacity" : 21577,
+    "venue_city" : "Watford",
+    "venue_name" : "Vicarage Road",
+    "venue_surface" : "grass"
+  },
+  "werder_bremen" : {
+    "apifootball_id" : 162,
+    "apifootball_name" : "Werder Bremen",
+    "competitions" : {
+      "german_bundesliga_2018_2019" : true,
+      "germany_bundesliga_1_2019_2020" : true
+    },
+    "country" : {
+      "name" : "Germany",
+      "slug" : "germany"
+    },
+    "founded" : 1899,
+    "image" : "werder_bremen.png",
+    "name" : "Werder Bremen",
+    "slug" : "werder_bremen",
+    "venue_address" : "Franz-Böhmert-Straße 1c",
+    "venue_capacity" : 42358,
+    "venue_city" : "Bremen",
+    "venue_name" : "Weserstadion",
+    "venue_surface" : "grass"
+  },
+  "west_brom" : {
+    "apifootball_id" : 60,
+    "apifootball_name" : "West Brom",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1878,
+    "name" : "West Brom",
+    "slug" : "west_brom",
+    "venue_address" : "Halfords Lane",
+    "venue_capacity" : 28003,
+    "venue_city" : "West Bromwich",
+    "venue_name" : "The Hawthorns",
+    "venue_surface" : "grass"
+  },
+  "west_ham" : {
+    "apifootball_id" : 48,
+    "apifootball_name" : "West Ham",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1895,
+    "image" : "west_ham.png",
+    "name" : "West Ham",
+    "slug" : "west_ham",
+    "venue_address" : "Marshgate Lane, Stratford",
+    "venue_capacity" : 60000,
+    "venue_city" : "London",
+    "venue_name" : "London Stadium",
+    "venue_surface" : "grass"
+  },
+  "wigan" : {
+    "apifootball_id" : 61,
+    "apifootball_name" : "Wigan",
+    "competitions" : {
+      "england_championship_2019_2020" : true
+    },
+    "country" : "England",
+    "founded" : 1932,
+    "name" : "Wigan",
+    "slug" : "wigan",
+    "venue_address" : "Robin Park, Loire Drive",
+    "venue_capacity" : 25138,
+    "venue_city" : "Wigan",
+    "venue_name" : "DW Stadium",
+    "venue_surface" : "grass"
+  },
+  "wolves" : {
+    "apifootball_id" : 39,
+    "apifootball_name" : "Wolves",
+    "competitions" : {
+      "england_premier_league_2019_2020" : true,
+      "english_premier_league_2018_2019" : true
+    },
+    "country" : {
+      "name" : "England",
+      "slug" : "england"
+    },
+    "founded" : 1877,
+    "image" : "wolves.png",
+    "name" : "Wolves",
+    "slug" : "wolves",
+    "venue_address" : "Waterloo Road",
+    "venue_capacity" : 31700,
+    "venue_city" : "Wolverhampton, West Midlands",
+    "venue_name" : "Molineux Stadium",
+    "venue_surface" : "grass"
+  },
+  "zaragoza" : {
+    "apifootball_id" : 732,
+    "apifootball_name" : "Zaragoza",
+    "competitions" : {
+      "spain_segunda_division_2019_2020" : true
+    },
+    "country" : "Spain",
+    "founded" : 1932,
+    "image" : "zaragoza.png",
+    "name" : "Zaragoza",
+    "slug" : "zaragoza",
+    "venue_address" : "Calle de Eduardo Ibarra 6",
+    "venue_capacity" : 34596,
+    "venue_city" : "Zaragoza",
+    "venue_name" : "Estadio de la Romareda",
+    "venue_surface" : "grass"
+  }
+}

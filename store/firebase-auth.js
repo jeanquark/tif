@@ -36,7 +36,7 @@ export const actions = {
     },
 
     async signUserUp({ commit, dispatch }, payload) {
-        // Promise is necessary so that redirection does not occur when user is not already loaded in vuex state
+        // Promise is necessary so that redirection does not occur when user is not loaded in vuex state
         return new Promise((resolve, reject) => {
             Auth.createUserWithEmailAndPassword(payload.email, payload.password)
                 .then(authData => {
