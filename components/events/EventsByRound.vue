@@ -1,16 +1,16 @@
 <template>
-	<div>
-		<h2>Events by round</h2>
-		<!-- competition: {{ competition }}<br /><br /> -->
-        <!-- loadedUserTeams: {{ loadedUserTeams }}<br /><br /> -->
+	<!-- <div> -->
+		<!-- <h2>Events by round</h2> -->
         <!-- active_round_tab: {{ active_round_tab }}<br /><br /> -->
-        <!-- loadedActiveRoundTab: {{ loadedActiveRoundTab }}<br /><br /> -->
+		<!-- active_round_slug: {{ active_round_slug }}<br /><br /> -->
+		<!-- loadedCompetitionsById: {{ loadedCompetitionsById }}<br /><br /> -->
         <!-- loadedActiveCompetition: {{ loadedActiveCompetition }}<br /><br /> -->
-		<v-tabs center-active color="yellow" slider-color="blue" style="max-width: 1017px;" v-model="active_round_tab" @change="changeRound()">
-            <v-tab v-for="(round) in loadedActiveCompetition.rounds" :key="round" style="cursor: pointer;">
-                {{ round }}
+		<!-- loadedEventsByCompetitionByRound: {{ loadedEventsByCompetitionByRound }}<br /><br /> -->
+		<v-tabs center-active centered color="yellow" slider-color="blue" style="max-width: 1017px;" v-model="active_round_tab" v-if="loadedCompetitionsById[loadedActiveCompetition.slug]">
+            <v-tab v-for="round in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="round.slug" style="cursor: pointer;" @change="changeRound(round.slug)">
+                {{ round.name }}
             </v-tab>
-            <v-tab-item v-for="(round, index) in loadedActiveCompetition.rounds" :key="index" :transition="false" :reverse-transition="false">
+            <v-tab-item v-for="(round, index) in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="index" :transition="false" :reverse-transition="false">
                 <v-expansion-panels :accordion="true" :value="0">
                     <v-expansion-panel>
                         <v-expansion-panel-header :ripple="true" style="background: var(--v-primary-base);">
@@ -27,7 +27,7 @@
                             </v-row>
                             <span class="text-right mr-4">
                                 <v-btn class="mx-2" style="max-width: 150px;" @click.stop="switchToDate()">By day</v-btn>
-                                <v-btn class="mx-2" style="max-width: 150px;" v-if="!standings" @click.stop="getStandingsByCompetition()">Standings</v-btn>
+                                <v-btn class="mx-2" style="max-width: 150px;" v-if="!standings && loadedCompetitionsById[loadedActiveCompetition.slug]['type'] === 'league'" @click.stop="getStandingsByCompetition()">Standings</v-btn>
                                 <v-btn class="mx-2" style="max-width: 150px;" v-if="standings" @click="getEventsByRound(competition)">By rounds</v-btn>
                             </span>
                         </v-expansion-panel-header>
@@ -37,7 +37,7 @@
                                 	<v-row no-gutters align="center">
                                     	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
                                     	<span>{{ event.homeTeam_name }}</span>
-                                    	[round: {{ event.roundShort }}]
+                                    	[round: {{ event.round_slug }}]
                                     </v-row>
                                 </v-col>
                                 <v-col class="text-center">
@@ -45,8 +45,6 @@
                                     <span v-if="event.statusShort !== 'NS'">
                                     	{{ event.homeTeam_score }} - {{ event.awayTeam_score }}
                                     </span>
-                                    <!-- <span v-else> -->
-                                    <!-- </span> -->
                                 </v-col>
                                 <v-col class="">
                                 	<v-row no-gutters justify="end" align="center">
@@ -114,7 +112,6 @@
 											</td>
 							          	</tr>
 							        </tbody>
-
 								</template>
 							</v-data-table>                                    
                     	</v-expansion-panel-content>
@@ -122,30 +119,29 @@
                 </v-expansion-panels>
             </v-tab-item>
         </v-tabs>
-	</div>
+	<!-- </div> -->
 </template>
 
 <script>
 	import moment from 'moment'
 	import slugify from '~/helpers/slugify'
 	export default {
-		// props: ['competition'],
 		async created () {
 			if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
 				await this.$store.dispatch('userTeams/fetchUserTeams')
 			}
-			await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_tab + 1)
+			await this.$store.dispatch('competitions/fetchCompetitionsById', this.loadedActiveCompetition.slug)
+			// console.log('this.loadedCompetitionsById: ', this.loadedCompetitionsById)
+			// console.log('loadedActiveCompetition.slug: ', this.loadedActiveCompetition.slug)
 			this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
-			// await this.fetchEventsByCompetitionByRound(this.competitionSlug, this.active_round_tab + 1)
+			this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
+			await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
 		},
 		data () {
 			return {
-				// days: ['-10', '-9', '-8', '-7', '-6', '-5', '-4', '-3', '-2', '-1', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-				// active_day_tab: 10,
 				active_round_tab: 0,
+				active_round_slug: '',
 				selectedDate: '',
-				// eventsByDay: true,
-				// eventsByRound: false,
 				standings: false,
 				expandedPanel: '',
 				standingsHeader: [
@@ -161,12 +157,15 @@
 			        { text: 'Goals against', value: 'all.goalsAgainst' },
 			        { text: 'Diff', value: 'goalsDiff' },
 			        { text: 'Last 5 games', value: 'forme' }
-				]
+				],
 			}
 		},
 		computed: {
 			loadedActiveRoundTab () {
 				return this.$store.getters['loadedActiveRoundTab']
+			},
+			loadedCompetitionsById () {
+				return this.$store.getters['competitions/loadedCompetitionsById']
 			},
 			loadedActiveCompetition () {
 				return this.$store.getters['loadedActiveCompetition']
@@ -175,10 +174,10 @@
 				return this.$store.getters['userTeams/loadedUserTeams']
 			},
 			loadedEventsByCompetitionByRound() {
-				console.log('loadedEventsByCompetitionByRound')
-				console.log('this.active_round_tab3: ', this.active_round_tab)
+				// console.log('loadedEventsByCompetitionByRound')
+				// console.log('this.active_round_tab3: ', this.active_round_tab)
 				if (this.$store.getters['events/loadedEventsByCompetitionByRound'] && this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug]) {
-					return this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug][parseInt(this.active_round_tab) + 1]
+					return this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug][this.active_round_slug]
 				}
 				return []
 			},
@@ -196,11 +195,9 @@
 			},
 			async getEventsByRound(competition) {
 				try {
-					console.log('getResultsByRound: ', competition)
-					// this.active_round_tab = parseInt(this.loadedEventsByDateByCompetition[0]['roundShort']) + 1
+					// console.log('getResultsByRound: ', competition)
 					this.standings = false
 					this.active_round_tab = 0
-					// console.log('loadedEventsByDateByCompetition[0][roundShort]: ', this.loadedEventsByDateByCompetition[0]['roundShort'])
 					this.changeRound()
 				} catch (error) {
 					console.log('error: ', error)
@@ -209,12 +206,13 @@
 			switchToDate() {
 				this.$emit('switchToDate')
 			},
-			async changeRound() {
+			async changeRound(roundSlug) {
 				try {
-					console.log('changeRound')
+					console.log('changeRound: ', roundSlug)
 					this.$store.commit('setActiveRoundTab', this.active_round_tab)
-					if (!this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug] || !this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug][parseInt(this.active_round_tab + 1)]) {
-						this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, parseInt(this.active_round_tab) + 1)	
+					this.active_round_slug = roundSlug
+					if (!this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug] || !this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug][roundSlug]) {
+						this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
 					}
 				} catch (error) {
 					console.log('error from changeRound(): ', error)
@@ -230,15 +228,12 @@
 					console.log('error: ', error)
 				}
 			},
-			async fetchEventsByCompetitionByRound(competitionSlug, round) {
+			async fetchEventsByCompetitionByRound(competitionSlug, roundSlug) {
 				try {
-					console.log('competitionSlug: ', competitionSlug, 'round: ', round)
+					console.log('competitionSlug: ', competitionSlug, 'roundSlug: ', roundSlug)
 					this.$store.commit('setLoading', true)
-					await this.$store.dispatch('events/fetchEventsByCompetitionByRound', { competitionSlug, round })
-					// setTimeout(() => {
+					await this.$store.dispatch('events/fetchEventsByCompetitionByRound', { competitionSlug, roundSlug })
 					this.$store.commit('setLoading', false)
-					// }, 2000)
-					// console.log('Done fetching events by competition & round. [fetchEventsByCompetitionByRound]')
 				} catch (error) {
 					this.$store.commit('setLoading', false)
 					console.log('error: ', error)

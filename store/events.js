@@ -1,43 +1,33 @@
 import * as firebase from 'firebase/app'
 import 'firebase/database'
 import Noty from 'noty'
-import axios from 'axios'
 import moment from 'moment'
-import { resolveObject } from 'url'
-import slugify from '~/helpers/slugify'
 
 export const state = () => ({
-    // loadedEvent: {},
     loadedEventsById: {},
     userEventsByDate: {},
     eventsByDateByCompetition: {},
     eventsByCompetitionByRound: {},
-    loadedEventActionsUserNotification: {},
-    // loadedEventHomeTeamNotifications: [],
-    // loadedEventVisitorTeamNotifications: []
+    loadedEventActionsUserNotification: {}
 })
 
 export const mutations = {
     setEmptyEvents(state) {
         state.loadedEvents = []
     },
-    // setEvent(state, payload) {
-    //     state.loadedEvent = payload
-    // },
     setEventsById(state, payload) {
         state.loadedEventsById = Object.assign({}, state.loadedEventsById, {
             [payload.id]: payload
         })
     },
     setUserEventsByDate(state, payload) {
-        console.log('setUserEventsByDate: ', payload)
+        // console.log('setUserEventsByDate: ', payload)
         state.userEventsByDate = Object.assign({}, state.userEventsByDate, {
             [payload.date]: payload.events
         })
     },
     setEventsByDateByCompetition(state, payload) {
-        console.log('Call to event/setEventsByDateByCompetition mutation', payload)
-        // state.loadedEventsByDay = payload
+        // console.log('Call to event/setEventsByDateByCompetition mutation', payload)
         state.eventsByDateByCompetition = Object.assign({}, state.eventsByDateByCompetition, {
 			[payload.date]: Object.assign({}, state.eventsByDateByCompetition[payload.date], {
 				[payload.competition]: payload.events
@@ -45,47 +35,24 @@ export const mutations = {
 		})
     },
     setEventsByCompetitionByRound(state, payload) {
-        console.log('payload2: ', payload)
+        // console.log('setEventsByCompetitionByRound: ', payload)
         // console.log('competitionId: ', payload.competition)
         const competition = payload.competition
-        console.log('competition: ', competition)
+        // console.log('competition: ', competition)
         const round = payload.round
-        console.log('round: ', round)
+        // console.log('round: ', round)
         state.eventsByCompetitionByRound = Object.assign({}, state.eventsByCompetitionByRound, {
             [competition]: Object.assign({}, state.eventsByCompetitionByRound[competition], {
 				[round]: payload.events
             })
         })
     },
-    // setEventUsers(state, payload) {
-    // 	state.loadedEventUsers = payload
-    // },
-    // addEventUser(state, payload) {
-    // 	state.loadedEventUsers.push(...payload)
-    // },
-    // addEventHomeTeamNotification(state, payload) {
-	// 	const notification = `${payload.username} has ${payload.type === 'user_joined_event' ? 'joined' : 'left'} the game`
-	// 	// state.loadedEventHomeTeamNotifications = []
-	// 	state.loadedEventHomeTeamNotifications.unshift(notification)
-	// },
-	// addEventVisitorTeamNotification(state, payload) {
-	// 	const notification = `${payload.username} has ${payload.type === 'user_joined_event' ? 'joined' : 'left'} the game`
-	// 	// state.loadedEventHomeTeamNotifications = []
-	// 	state.loadedEventVisitorTeamNotifications.unshift(notification)
-    // },
     setEventActionsUserNotification(state, payload) {
-        // console.log('payload2: ', payload)
         state.loadedEventActionsUserNotification = payload
     },
     clearEvents(state) {
         state.loadedEvents = {}
-	},
-	// clearEventHomeTeamNotifications(state) {
-    //     state.loadedEventHomeTeamNotifications = []
-	// },
-	// clearEventVisitorTeamNotifications(state) {
-	// 	state.loadedEventVisitorTeamNotifications = []
-	// }
+	}
 }
 
 export const actions = {
@@ -100,39 +67,6 @@ export const actions = {
                     .on('value', function(snapshot) {
                         const event = { ...snapshot.val(), id: snapshot.key }
                         commit('setEventsById', event)
-                        resolve()
-                    })
-
-                // Also add a listener
-                // firebase
-                //     .database()
-                //     .ref(`events/${payload}`)
-                //     .on('child_added', function(data) {
-                //         console.log('CHILD ADDED! ', data)
-                //     })
-                // firebase
-                //     .database()
-                //     .ref(`events/${payload}`)
-                //     .on('child_removed', function(data) {
-                //         console.log('CHILD REMOVED! ', data)
-                //     })
-            } catch (error) {
-                console.log('error: ', error)
-                reject(error)
-            }
-        })
-    },
-    async TOBEDELETED_fetchEvent({ commit }, payload) {
-        console.log('fetchEvent: ', payload)
-        return new Promise((resolve, reject) => {
-            try {
-                firebase
-                    .database()
-                    .ref('/events')
-                    .child(payload)
-                    .on('value', function(snapshot) {
-                        const event = { ...snapshot.val(), id: snapshot.key }
-                        commit('setEvent', event)
                         resolve()
                     })
 
@@ -186,7 +120,7 @@ export const actions = {
 		})
 	},
 	fetchEventsByCompetitionByRound({ commit }, payload) {
-		console.log('fetchEventsByCompetitionByRound action: ', payload.competitionSlug, payload.round)
+		console.log('fetchEventsByCompetitionByRound action: ', payload.competitionSlug, payload.roundSlug)
 		return new Promise((resolve, reject) => {
 			try {
 				firebase
@@ -194,7 +128,7 @@ export const actions = {
 					.ref('/events/')
 					.orderByChild('competition_round')
 					// .equalTo('switzerland_super_league_2019_2020_1')
-					.equalTo(`${payload.competitionSlug}_${payload.round}`)
+					.equalTo(`${payload.competitionSlug}_${payload.roundSlug}`)
 					.on('value', function(snapshot) {
 						const eventsArray = []
 						snapshot.forEach(event => {
@@ -205,7 +139,7 @@ export const actions = {
 						const sortedEventsArray = eventsArray.sort((a, b) => a.timestamp - b.timestamp)
 						// const events = { date: date, events: sortedEventsArray }
 						console.log('sortedEventsArray: ', sortedEventsArray)
-						const events = { round: payload.round, competition: payload.competitionSlug, events: sortedEventsArray }
+						const events = { round: payload.roundSlug, competition: payload.competitionSlug, events: sortedEventsArray }
 						console.log('events: ', events)
 						commit('setEventsByCompetitionByRound', events)
 						resolve()
@@ -260,110 +194,6 @@ export const actions = {
             throw error
         }
     },
-    TOBEDELETED_loadedCompetitionEvents({ commit }, payload) {
-        // console.log('payload: ', payload)
-        const competitionId = parseInt(payload.livescore_api_id)
-        console.log('competitionId: ', competitionId)
-        if (competitionId) {
-            try {
-                firebase
-                    .database()
-                    .ref('/events_new2/')
-                    .orderByChild('competition_id')
-                    .equalTo(competitionId)
-                    // .orderByChild('date')
-                    // .endAt('2018-11-20')
-                    .limitToFirst(10)
-                    .on('value', function(snapshot) {
-                        const eventsArray = []
-                        for (const key in snapshot.val()) {
-                            eventsArray.push({
-                                ...snapshot.val()[key],
-                                id: key
-                            })
-                        }
-                        console.log('eventsArray: ', eventsArray)
-                        commit('setCompetitionEvents', eventsArray)
-                        return eventsArray
-                    })
-            } catch (error) {
-                console.log(error)
-                new Noty({
-                    type: 'error',
-                    text: 'Events not found',
-                    timeout: 5000,
-                    theme: 'metroui'
-                }).show()
-                commit('setError', error, { root: true })
-                commit('setLoading', false, { root: true })
-                return error
-            }
-        }
-    },
-    TOBEDELETED_fetchEventsByCompetitionByRound({ commit }, payload) {
-        const competition = payload.competition.toString()
-        const round = payload.round
-        console.log('competition: ', competition)
-        console.log('round: ', round)
-        try {
-            firebase
-                .database()
-                .ref('/events_new3/')
-                .orderByChild('league_slug')
-                .equalTo(competition)
-                .on('value', function(snapshot) {
-                    const eventsArray = []
-                    snapshot.forEach(event => {
-                        // console.log('event.val().round_short: ', event.val().round_short)
-                        if (event.val().round_short == round) {
-                            eventsArray.push({ ...event.val(), id: event.key })
-                        }
-                    })
-                    eventsArray.sort((a, b) => a.timestamp - b.timestamp)
-                    console.log('eventsArray: ', eventsArray)
-                    commit('setEventsByCompetitionByRound', {
-                        competition,
-                        round,
-                        eventsArray
-                    })
-                    // return eventsArray
-                })
-        } catch (error) {
-            console.log(error)
-            new Noty({
-                type: 'error',
-                text: 'Events not found',
-                timeout: 5000,
-                theme: 'metroui'
-            }).show()
-            commit('setError', error, { root: true })
-            commit('setLoading', false, { root: true })
-            return error
-        }
-    },
-    // fetchEventUsers({ commit }, payload) {
-    //     return new Promise((resolve, reject) => {
-    // 		try {
-    // 			console.log('fetchEventUsers: ', payload)
-    // 			firebase
-    // 				.database()
-    // 				.ref('/eventUsers/')
-    // 				.child(payload)
-    // 				.on('value', function(snapshot) {
-    // 					const eventUsersArray = []
-    // 					for (const key in snapshot.val()) {
-    // 						eventUsersArray.push({ ...snapshot.val()[key] })
-    // 					}
-    // 					console.log('eventUsersArray: ', eventUsersArray)
-    // 					commit('setEventUsers', eventUsersArray)
-    // 					resolve()
-    // 				})
-
-    // 		} catch (error) {
-    // 			reject(error)
-    // 		}
-    //     })
-    // },
     async addUserToEvent({ commit, rootGetters }, payload) {
         try {
             console.log('addUserToEvent: ', payload)
@@ -511,30 +341,13 @@ export const actions = {
                     return action
                 })
         } catch (error) {
+			console.log('error: ', error)
             throw error
         }
     }
-    // updateEventAction({ commit }, payload) {
-    // 	try {
-    // 		console.log('updateEventAction: ', payload)
-
-    // 		let updates = {}
-    // 		updates[`/events/${payload.eventId}/actions/${payload.actionId}/completed`] = true
-    // 		firebase
-    //             .database()
-    //             .ref()
-    // 			.update(updates)
-
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
 }
 
 export const getters = {
-    // loadedEvent(state) {
-    //     return state.loadedEvent
-    // },
     loadedEventsById(state) {
         return state.loadedEventsById
     },
@@ -547,16 +360,7 @@ export const getters = {
     loadedEventsByCompetitionByRound(state) {
         return state.eventsByCompetitionByRound
     },
-    // loadedEventUsers(state) {
-    //     return state.loadedEventUsers
-    // }
     loadedEventActionsUserNotification(state) {
         return state.loadedEventActionsUserNotification
-    },
-    // loadedEventHomeTeamNotifications(state) {
-    //     return state.loadedEventHomeTeamNotifications
-	// },
-	// loadedEventVisitorTeamNotifications(state) {
-    //     return state.loadedEventVisitorTeamNotifications
-    // }
+    }
 }

@@ -3,7 +3,8 @@
 		<!-- <h2>Events by date</h2> -->
         <!-- loadedUserTeams: {{ loadedUserTeams }}<br /><br /> -->
         <!-- loadedActiveDayTab: {{ loadedActiveDayTab }}<br /><br /> -->
-		<v-tabs center-active color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
+		<!-- loadedCompetitionsByDate: {{ loadedCompetitionsByDate }}<br /><br /> -->
+		<v-tabs center-active centered color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
 	        <v-tab v-for="(day, index) in days" :key="index" style="cursor: pointer;">
 	            {{ displayDate(day) }}
 	        </v-tab>
@@ -50,9 +51,9 @@
 	                                <v-img :src="`/images/countries/${country.slug}.png`" max-width="30" class="mr-1"></v-img>
 	                            </v-row>
 	                        </v-row>
-	                        <span class="text-right mr-4" v-if="competition.type === 'league'">
+	                        <span class="text-right mr-4">
 	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && standings" @click.stop="getEventsByDateByCompetition(getDate(day), competition)">By day</v-btn>
-	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && !standings" @click.stop="getStandingsByCompetition()">Standings</v-btn>
+	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index && !standings && competition.type === 'league'" @click.stop="getStandingsByCompetition()">Standings</v-btn>
 	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="expandedPanel === index" @click="switchToRound(competition)">By rounds</v-btn>
 	                        </span>
 	                    </v-expansion-panel-header>
@@ -60,26 +61,7 @@
 	                        <v-row no-gutters justify="start" align="center" class="pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)">
 	                            <v-col class="">
 	                            	<v-row no-gutters align="center">
-	                                	<!-- <v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" contain v-on:error="onImgError" max-width="40"></v-img>&nbsp; -->
-	                                	<v-img
-      :src="`/images/teams/${event.homeTeam_slug}_64_64.png`"
-      lazy-src="https://picsum.photos/id/11/100/60"
-      aspect-ratio="1"
-      class="grey lighten-2"
-      max-width="40"
-      max-height="300"
-      @error="onImgError"
-    >
-      <template v-slot:placeholder>
-        <v-row
-          class="fill-height ma-0"
-          align="center"
-          justify="center"
-        >
-          <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-        </v-row>
-      </template>
-    </v-img>
+	                                	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" contain v-on:error="onImgError" max-width="40"></v-img>&nbsp;
 	                                	<span>{{ event.homeTeam_name }}</span>
 						                &nbsp;[eventId: {{ event.id }}]
 	                                </v-row>

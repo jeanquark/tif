@@ -28,12 +28,13 @@
                 <v-col sm="6" offset-sm="3">
                     <v-autocomplete :items="loadedCompetitions" label="Select a competition" item-text="name" item-value="slug" single-line :return-object="true" v-model="selectedCompetition"></v-autocomplete>
                 </v-col>
-                <v-col sm="6" offset-sm="3" v-if="selectedCompetition.type === 'League'">
+
+                <!-- <v-col sm="6" offset-sm="3" v-if="selectedCompetition.type === 'League'">
                     <v-text-field v-model="selectedCompetition.rounds" type="number" label="Total rounds" hint="Typically 38 for a league with 20 teams" :persistent-hint="true"></v-text-field>
-                </v-col>
+                </v-col> -->
 
                 <v-col cols="12" class="text-center">
-                    <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition || (selectedCompetition.type === 'League' && !selectedCompetition.rounds)" :loading="loading">
+                    <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition" :loading="loading">
                         Add competition
                     </v-btn><br />
                     <v-row justify="center" align="center" v-if="loading">

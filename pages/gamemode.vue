@@ -21,14 +21,14 @@
 					<h4 class="text-center">Ici se trouve la partie "gamemode solo" avec les actions quotidiennes du joueur destinées à faire progresser son fan (travail, loisirs, ...)</h4>
 				</div>
 				
-				<v-row no-gutters class="my-5">
+				<v-row no-gutters class="mt-5">
                 	<events-by-date @switchToRound="onSwitchToRound" v-if="eventsByDate"/>
                 	<events-by-round @switchToDate="onSwitchToDate" v-if="eventsByRound"/>
                 </v-row>
 
-                <v-row no-gutters justify="center" class="my-5">
+                <v-row no-gutters justify="center" class="my-5" v-if="showAddToHomeScreenButton">
                 	<br /><br /><br />
-                    <v-btn color="success" class="elevation-0" @click="addToHomescreen()" v-if="showAddToHomeScreenButton">Install app to homescreen</v-btn>
+                    <v-btn color="success" class="elevation-0" @click="addToHomescreen()">Install app to homescreen</v-btn>
                 </v-row>
 
                 <!--<v-row no-gutters justify="center" align="center" class="my-2" v-if="!showSubscribeToPushNotifications">

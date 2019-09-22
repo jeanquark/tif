@@ -1,37 +1,29 @@
 import * as firebase from 'firebase/app'
 import 'firebase/database'
-import Noty from 'noty'
 import axios from 'axios'
 import slugify from '../helpers/slugify.js'
 import moment from 'moment'
+import { reject } from 'q';
 
 export const state = () => ({
 	competitions: [],
-    competitionsObject: {},
-	// allCompetitions: [],
+    competitionsById: {},
 	loadedCompetitionsByCountry: [],
 	competitionsByDate: {}
 })
 
 export const mutations = {
-    // setEmptyCompetitions(state) {
-    //     state.loadedCompetitions = []
-	// },
-	// setAllCompetitions(state, payload) {
-	// 	state.allCompetitions = payload
- //    },
     setCompetitions(state, payload) {
         console.log('payload: ', payload)
 		state.competitions = payload
     },
-    setCompetitionsObject(state, payload) {
+    setCompetitionsById(state, payload) {
         console.log('payload: ', payload)
-        state.competitionsObject = Object.assign({}, state.competitionsObject, {
+        state.competitionsById = Object.assign({}, state.competitionsById, {
             [payload.id]: payload
         })
     },
     setCompetitionsByCountry(state, payload) {
-        // state.loadedCompetitions = payload
         state.loadedCompetitionsByCountry = Object.assign({}, state.loadedCompetitionsByCountry, {
             [payload.country]: payload.competitions
         })
@@ -39,15 +31,7 @@ export const mutations = {
     createCompetition(state, payload) {
         state.loadedCompetitions.push(payload)
     },
-    // updateCompetition (state, payload) {
-    //     state.loadedCompetitions = payload
-    // },
-    // deleteCompetition (state, competitionId) {
-    //     const loadedCompetitions = state.loadedCompetitions
-    //     state.loadedCompetitions.splice(loadedCompetitions.findIndex(competition => competition.id === competitionId), 1)
-	// }
 	setCompetitionsByDate(state, payload) {
-		// state.competitionsByDate = payload
 		state.competitionsByDate = Object.assign({}, state.competitionsByDate, {
 			[payload.date]: payload.competitions
 		})
@@ -55,24 +39,31 @@ export const mutations = {
 }
 
 export const actions = {
-	fetchCompetition({ commit }, payload) {
-		console.log('Call to fetchCompetition action: ', payload)
-		firebase
-            .database()
-			.ref('/competitions')
-			.orderByChild('slug')
-            .equalTo(payload)
-            .on('value', function(snapshot) {
-				let competition = {}
-                for (const key in snapshot.val()) {
-                    competition = {
-                        ...snapshot.val()[key],
-                        id: key
-                    }
-				}
-				// console.log('competition: ', competition)
-				commit('setCompetitionsObject', competition)
-            })
+	fetchCompetitionsById({ commit }, payload) {
+		return new Promise((resolve, reject) => {
+			try {
+				console.log('Call to fetchCompetition action: ', payload)
+				firebase
+				.database()
+				.ref('/competitions')
+				.orderByChild('slug')
+				.equalTo(payload)
+				.on('value', function(snapshot) {
+					let competition = {}
+					for (const key in snapshot.val()) {
+						competition = {
+							...snapshot.val()[key],
+							id: key
+						}
+					}
+					// console.log('competition: ', competition)
+					commit('setCompetitionsById', competition)
+					resolve()
+				})
+			} catch (error) {
+				reject(error)
+			}
+		})
 	},
 	fetchCompetitions({ commit }) {
         console.log('Call to fetchCompetitions action')
@@ -92,30 +83,34 @@ export const actions = {
             })
     },
     fetchCompetitionsByCountry({ commit }, payload) {
-        // console.log('Call  to fetchCompetitionsByCountry action: ', payload)
-        return new Promise(resolve => {
-            firebase
-                .database()
-                .ref('/competitions')
-                .orderByChild(`countries/${payload}/slug`)
-                .equalTo(payload)
-                .on('value', function(snapshot) {
-                    const competitionsArray = []
-                    for (const key in snapshot.val()) {
-                        if (snapshot.val()[key].active === true) {
-                            competitionsArray.push({
-                                ...snapshot.val()[key],
-                                id: key
-                            })
-                        }
-                    }
-                    const orderedCompetitions = competitionsArray.sort((a, b) => a.ranking_country - b.ranking_country)
-                    commit('setCompetitionsByCountry', {
-                        country: payload,
-                        competitions: orderedCompetitions
-                    })
-                    resolve()
-                })
+		return new Promise((resolve, reject) => {
+			try {
+				// console.log('Call  to fetchCompetitionsByCountry action: ', payload)
+				firebase
+					.database()
+					.ref('/competitions')
+					.orderByChild(`countries/${payload}/slug`)
+					.equalTo(payload)
+					.on('value', function(snapshot) {
+						const competitionsArray = []
+						for (const key in snapshot.val()) {
+							if (snapshot.val()[key].active === true) {
+								competitionsArray.push({
+									...snapshot.val()[key],
+									id: key
+								})
+							}
+						}
+						const orderedCompetitions = competitionsArray.sort((a, b) => a.ranking_country - b.ranking_country)
+						commit('setCompetitionsByCountry', {
+							country: payload,
+							competitions: orderedCompetitions
+						})
+						resolve()
+				})
+			} catch (error) {
+				reject(error)
+			}
         })
     },
     async fetchCompetitionsByDate({ commit }, payload) {
@@ -137,9 +132,6 @@ export const actions = {
     async createCompetition({ commit }, payload) {
         try {
             console.log('payload: ', payload)
-            // commit('setMessage', 'Ceci est un message 4', { root: true })
-            // return
-            // throw 'error'
 
             // 1) Define key from competition slug
             const newCompetitionKey = slugify(payload.country) + '_' + slugify(payload.name) + '_' + parseInt(payload.season) + '_' + (parseInt(payload.season) + 1)
@@ -156,7 +148,11 @@ export const actions = {
 			const competitionImage = `${slugify(payload.country)}_${slugify(payload.name)}.png`
 			const competitionType = slugify(payload.type)
 
-            // 3) Create competition node
+			// 3) Define rounds array
+			const roundsArray = []
+			// const roundsObject = {}
+
+            // 4) Create competition node
             let updates = {}
 
             updates[`/competitions/${newCompetitionKey}/active`] = false
@@ -174,13 +170,10 @@ export const actions = {
             updates[`/competitions/${newCompetitionKey}/image`] = competitionImage
             updates[`/competitions/${newCompetitionKey}/season`] = `${payload.season} - ${parseInt(payload.season) + 1}`
 			updates[`/competitions/${newCompetitionKey}/type`] = competitionType
-            if (payload.rounds) { // Rounds property is specified by user when adding a league-type competition
-                updates[`/competitions/${newCompetitionKey}/rounds`] = parseInt(payload.rounds)
-            }
             updates[`/competitions/${newCompetitionKey}/_created_at`] = moment().unix()
             updates[`/competitions/${newCompetitionKey}/_updated_at`] = moment().unix()
 
-            // 4) Retrieve all fixtures of the competition
+            // 5) Retrieve all fixtures of the competition
             const leagueId = payload.league_id
             const competitionEvents = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/fixtures/league/${leagueId}`, {
                 headers: {
@@ -188,32 +181,41 @@ export const actions = {
                     'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                 }
             })
-            console.log('competitionEvents: ', competitionEvents)
+			console.log('competitionEvents: ', competitionEvents)
+		
 
-            // 5) Retrieve all events, all game statistics and all players statistics related to each fixture
+            // 6) Retrieve all events, all game statistics and all players statistics related to each fixture
             for (let event of competitionEvents.data.api.fixtures) {
                 const eventId = event.fixture_id
                 commit('setMessage', `${event.homeTeam.team_name} vs ${event.awayTeam.team_name}`, { root: true })
 
                 const eventDate = moment(event.event_date).format('YYYY-MM-DD')
-                const roundShort = /\d/.test(event.round) ? event.round.substring(event.round.lastIndexOf('-') + 2) : event.round
+                // const roundShort = /\d/.test(event.round) ? event.round.substring(event.round.lastIndexOf('-') + 2) : event.round
 
-                // 5.1) Update dateCompetitions node
+				if (!roundsArray.find(round => round.slug === slugify(event.round))) {
+					roundsArray.push({ name: event.round, slug: slugify(event.round), timestamp: event.event_timestamp })
+				}
+				// roundsObject[slugify(event.round)] = {
+				// 	name: event.round,
+				// 	slug: slugify(event.round),
+				// 	timestamp: event.event_timestamp,
+				// }
+
+                // 6.1) Update dateCompetitions node
                 const dateCompetition = {
                     name: competitionName,
                     slug: competitionSlug,
                     countries: competitionCountries,
                     image: competitionImage,
 					date: eventDate,
-					type: competitionType,
-                    rounds: payload.rounds ? parseInt(payload.rounds) : null
+					type: competitionType
                 }
                 updates[`dateCompetitions/${slugify(eventDate)}/${competitionSlug}`] = dateCompetition
 
-				// 5.2) Update events node
+				// 6.2) Update events node
 				event['competition_name'] = competitionName
 				event['competition_slug'] = competitionSlug
-                event['competition_round'] = `${competitionSlug}_${roundShort}`
+                event['competition_round'] = `${competitionSlug}_${slugify(event.round)}`
 				event['date_competition'] = `${slugify(eventDate)}_${competitionSlug}`
 				event['date'] = moment(event.event_date).format('YYYY-MM-DD')
 				event['date_iso8601'] = event.event_date
@@ -231,26 +233,23 @@ export const actions = {
 				event['status'] = event.status
 				event['statusShort'] = event.statusShort
                 event['round'] = event.round
-				event['roundShort'] = roundShort
+				event['roundShort'] = null
+				event['round_slug'] = slugify(event.round)
 				event['elapsed'] = event.elapsed
 				event['venue'] = event.venue
 				event['referee'] = event.referee
                 event['notificationScore'] = {
                     homeTeam_id: event.homeTeam.team_id,
-                    // homeTeam_short: ,
                     homeTeam_name: event.homeTeam.team_name,
                     homeTeam_score: event.goalsHomeTeam,
                     awayTeam_id: event.awayTeam.team_id,
-                    // awayTeam_short: ,
                     awayTeam_name: event.awayTeam.team_name,
                     awayTeam_score: event.goalsAwayTeam
                 }
                 event['notificationStatus'] = {
                     homeTeam_id: event.homeTeam.team_id,
-                    // homeTeam_short: ,
                     homeTeam_name: event.homeTeam.team_name,
                     awayTeam_id: event.awayTeam.team_id,
-                    // awayTeam_short: ,
                     awayTeam_name: event.awayTeam.team_name,
                     statusShort: event.statusShort,
                     score: event.score
@@ -266,7 +265,7 @@ export const actions = {
 
                 updates[`/events/${eventId}`] = event
 
-                // 5.3) Update eventEvents node
+                // 6.3) Update eventEvents node
                 const eventEvents = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/events/${eventId}`, {
                     headers: {
                         Accept: 'application/json',
@@ -276,7 +275,7 @@ export const actions = {
                 const events = eventEvents.data.api.events
                 updates[`/eventEvents/${eventId}`] = events
 
-                // 5.4) Update eventGameStatistics node
+                // 6.4) Update eventGameStatistics node
                 const eventGameStatistics = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/statistics/fixture/${eventId}`, {
                     headers: {
                         Accept: 'application/json',
@@ -294,7 +293,7 @@ export const actions = {
                 })
                 updates[`/eventGameStatistics/${eventId}`] = statisticsObject
 
-                // 5.5) Update event/playerStatistics node
+                // 6.5) Update event/playerStatistics node
                 const eventPlayersStatistics = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/players/fixture/${eventId}`, {
                     headers: {
                         Accept: 'application/json',
@@ -304,7 +303,10 @@ export const actions = {
                 const playersStatistics = eventPlayersStatistics.data.api.players
                 updates[`/eventPlayersStatistics/${eventId}`] = playersStatistics
             }
-            console.log('updates: ', updates)
+			// console.log('updates: ', updates)
+			
+			// 7) Update competitions with rounds info
+			updates[`/competitions/${newCompetitionKey}/rounds`] = roundsArray
 
             await firebase
                 .database()
@@ -319,7 +321,6 @@ export const actions = {
         try {
             // console.log('fetchTeamsByCompetition', payload)
             const league_id = payload.apifootball_id
-            // const league_id = payload
             const fetchedTeams = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/teams/league/${league_id}`, {
                 headers: {
                     Accept: 'application/json',
@@ -341,12 +342,11 @@ export const actions = {
                 delete team['team_id']
                 updates[`/teams/${teamSlug}`] = team
             })
-            // console.log('updates: ', updates)
             await firebase
                 .database()
                 .ref()
                 .update(updates)
-            return
+            // return
         } catch (error) {
             console.log('error: ', error)
             throw error
@@ -356,7 +356,7 @@ export const actions = {
     // Update a competition
     async toggleCompetitionActiveStatus({ commit, dispatch }, payload) {
         try {
-			console.log('payload: ', payload)
+			// console.log('payload: ', payload)
             const { competitions, competition } = payload
 
             // 1) Update active competitions file on the server
@@ -439,14 +439,11 @@ export const actions = {
 }
 
 export const getters = {
-	// loadedAllCompetitions(state) {
-	// 	return state.allCompetitions
-	// },
     loadedCompetitions(state) {
         return state.competitions
     },
-    loadedCompetitionsObject(state) {
-        return state.competitionsObject
+    loadedCompetitionsById(state) {
+        return state.competitionsById
     },
     loadedCompetitionsByCountry(state) {
         return state.loadedCompetitionsByCountry

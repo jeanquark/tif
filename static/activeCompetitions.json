@@ -1,5 +1,15 @@
 [
     {
+        "name": "Bundesliga 1",
+        "slug": "germany_bundesliga_1_2019_2020",
+        "apifootball_id": 754
+    },
+    {
+        "name": "Primera Division",
+        "slug": "spain_primera_division_2019_2020",
+        "apifootball_id": 775
+    },
+    {
         "name": "Schweizer Pokal",
         "slug": "switzerland_schweizer_pokal_2019_2020",
         "apifootball_id": 942
