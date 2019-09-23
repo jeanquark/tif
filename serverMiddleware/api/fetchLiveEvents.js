@@ -98,7 +98,7 @@ module.exports = app.use(async function (req, res, next) {
         const livePlayersStatistics = await getLivePlayersStatistics('215994')
         for (let [key, value] of Object.entries(livePlayersStatistics.body.api.players)) {
             updates[`/jm/eventPlayersStatistics/fixtureId/${slugify(key)}`] = value;
-        });
+        }
 
 
         for (let liveMatch of matchesArray) {
