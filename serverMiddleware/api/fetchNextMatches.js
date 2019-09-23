@@ -77,51 +77,51 @@ module.exports = app.use(async function(req, res, next) {
         let updates = {}
         for (let day of days) {
             console.log('day: ', day)
-            // const response = await getDailyMatches(day)
-            // Object.values(response.body.api.fixtures).forEach(match => {
-            //     const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
-            //     if (competition) {
-            //         const id = match.fixture_id
-            //         const date = moment(match.event_date).format('YYYY-MM-DD')
-            //         updates[`/events/${id}/date_iso8601`] = match.event_date
-            //         updates[`/events/${id}/date`] = date
-            //         updates[`/events/${id}/time`] = moment(match.event_date).format('HH:mm')
-            //         updates[`/events/${id}/time_utc`] = moment(match.event_date)
-            //             .utc()
-            //             .format('HH:mm')
-            //         updates[`/events/${id}/timestamp`] = match.event_timestamp
-            //         updates[`/events/${id}/league_id`] = match.league_id
-            //         updates[`/events/${id}/homeTeam_id`] = match.homeTeam.team_id
-            //         updates[`/events/${id}/homeTeam_name`] = match.homeTeam.team_name
-            //         updates[`/events/${id}/homeTeam_slug`] = slugify(match.homeTeam.team_name)
-            //         updates[`/events/${id}/homeTeam_score`] = match.goalsHomeTeam
-            //         updates[`/events/${id}/awayTeam_id`] = match.awayTeam.team_id
-            //         updates[`/events/${id}/awayTeam_name`] = match.awayTeam.team_name
-            //         updates[`/events/${id}/awayTeam_slug`] = slugify(match.awayTeam.team_name)
-            //         updates[`/events/${id}/awayTeam_score`] = match.goalsAwayTeam
-            //         updates[`/events/${id}/score`] = match.score
-            //         updates[`/events/${id}/elapsed`] = match.elapsed
-            //         updates[`/events/${id}/venue`] = match.venue
-            //         updates[`/events/${id}/referee`] = match.referee
-            //         updates[`/events/${id}/status`] = match.status
-            //         updates[`/events/${id}/statusShort`] = match.statusShort
-            //         updates[`/events/${id}/round`] = match.round
-            //         updates[`/events/${id}/round_slug`] = slugify(match.round)
-            //         updates[`/events/${id}/competition_id`] = match.league_id
-            //         updates[`/events/${id}/competition_name`] = competition.name
-            //         updates[`/events/${id}/competition_slug`] = competition.slug
-            //         updates[`/events/${id}/date_homeTeamId`] = `${slugify(date)}_${match.homeTeam.team_id}`
-            //         updates[`/events/${id}/date_awayTeamId`] = `${slugify(date)}_${match.awayTeam.team_id}`
-            //         updates[`/events/${id}/competition_round`] = `${competition.slug}_${slugify(match.round)}`
-            //         updates[`/events/${id}/date_competition`] = `${slugify(date)}_${competition.slug}`
-            //     }
-            // })
+            const response = await getDailyMatches(day)
+            Object.values(response.body.api.fixtures).forEach(match => {
+                const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
+                if (competition) {
+                    const id = match.fixture_id
+                    const date = moment(match.event_date).format('YYYY-MM-DD')
+                    updates[`/events/${id}/date_iso8601`] = match.event_date
+                    updates[`/events/${id}/date`] = date
+                    updates[`/events/${id}/time`] = moment(match.event_date).format('HH:mm')
+                    updates[`/events/${id}/time_utc`] = moment(match.event_date)
+                        .utc()
+                        .format('HH:mm')
+                    updates[`/events/${id}/timestamp`] = match.event_timestamp
+                    updates[`/events/${id}/league_id`] = match.league_id
+                    updates[`/events/${id}/homeTeam_id`] = match.homeTeam.team_id
+                    updates[`/events/${id}/homeTeam_name`] = match.homeTeam.team_name
+                    updates[`/events/${id}/homeTeam_slug`] = slugify(match.homeTeam.team_name)
+                    updates[`/events/${id}/homeTeam_score`] = match.goalsHomeTeam
+                    updates[`/events/${id}/awayTeam_id`] = match.awayTeam.team_id
+                    updates[`/events/${id}/awayTeam_name`] = match.awayTeam.team_name
+                    updates[`/events/${id}/awayTeam_slug`] = slugify(match.awayTeam.team_name)
+                    updates[`/events/${id}/awayTeam_score`] = match.goalsAwayTeam
+                    updates[`/events/${id}/score`] = match.score
+                    updates[`/events/${id}/elapsed`] = match.elapsed
+                    updates[`/events/${id}/venue`] = match.venue
+                    updates[`/events/${id}/referee`] = match.referee
+                    updates[`/events/${id}/status`] = match.status
+                    updates[`/events/${id}/statusShort`] = match.statusShort
+                    updates[`/events/${id}/round`] = match.round
+                    updates[`/events/${id}/round_slug`] = slugify(match.round)
+                    updates[`/events/${id}/competition_id`] = match.league_id
+                    updates[`/events/${id}/competition_name`] = competition.name
+                    updates[`/events/${id}/competition_slug`] = competition.slug
+                    updates[`/events/${id}/date_homeTeamId`] = `${slugify(date)}_${match.homeTeam.team_id}`
+                    updates[`/events/${id}/date_awayTeamId`] = `${slugify(date)}_${match.awayTeam.team_id}`
+                    updates[`/events/${id}/competition_round`] = `${competition.slug}_${slugify(match.round)}`
+                    updates[`/events/${id}/date_competition`] = `${slugify(date)}_${competition.slug}`
+                }
+            })
         }
 
-        await admin
-            .database()
-            .ref()
-            .update(updates)
+        // await admin
+        //     .database()
+        //     .ref()
+        //     .update(updates)
 
         res.send('POST request to API-Football to fetch next matches succeeded!')
     } catch (error) {
