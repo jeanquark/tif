@@ -308,6 +308,30 @@ export const actions = {
 			// 7) Update competitions with rounds info
 			updates[`/competitions/${newCompetitionKey}/rounds`] = roundsArray
 
+
+            // 8) Retrieve current standings for the new competition
+            const response = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagueTable/${leagueId}`, {
+                headers: {
+                    Accept: 'application/json',
+                    'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+                }
+            })
+            Object.values(response.body.api.standings).forEach(teams => {
+                teams.forEach(team => {
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/team_id`] = team.team_id
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/team_name`] = team.teamName
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/team_slug`] = slugify(team.teamName)
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/all`] = team.all
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/home`] = team.home
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/away`] = team.away
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/goalsDiff`] = team.goalsDiff
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/points`] = team.points
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/forme`] = team.forme
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/description`] = team.description
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/lastUpdate`] = team.lastUpdate
+                });
+            });
+
             await firebase
                 .database()
                 .ref()

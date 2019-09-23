@@ -1,14 +1,14 @@
 <template>
-	<!-- <div> -->
+	<div style="min-height: 100vh;">
 		<!-- <h2>Events by round</h2> -->
         <!-- active_round_tab: {{ active_round_tab }}<br /><br /> -->
 		<!-- active_round_slug: {{ active_round_slug }}<br /><br /> -->
-		<!-- loadedCompetitionsById: {{ loadedCompetitionsById }}<br /><br /> -->
+		<!-- loadedCompetitionsById: {{ loadedCompetitionsById['switzerland_super_league_2019_2020']['rounds'].sort((a, b) => b.timestamp - a.timestamp) }}<br /><br /> -->
         <!-- loadedActiveCompetition: {{ loadedActiveCompetition }}<br /><br /> -->
 		<!-- loadedEventsByCompetitionByRound: {{ loadedEventsByCompetitionByRound }}<br /><br /> -->
 		<v-tabs center-active centered color="yellow" slider-color="blue" style="max-width: 1017px;" v-model="active_round_tab" v-if="loadedCompetitionsById[loadedActiveCompetition.slug]">
             <v-tab v-for="round in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="round.slug" style="cursor: pointer;" @change="changeRound(round.slug)">
-                {{ round.name }}
+                Round {{ round.slug.match(/\d+/g).map(Number)[0] }} 
             </v-tab>
             <v-tab-item v-for="(round, index) in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="index" :transition="false" :reverse-transition="false">
                 <v-expansion-panels :accordion="true" :value="0">
@@ -32,12 +32,13 @@
                             </span>
                         </v-expansion-panel-header>
                         <v-expansion-panel-content style="" v-if="!standings">
+                        	[panel is open]
                             <v-row no-gutters justify="start" align="center" class="py-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByCompetitionByRound" :key="index" @click="goToEventPage(event.id)">
                                 <v-col class="">
                                 	<v-row no-gutters align="center">
                                     	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
                                     	<span>{{ event.homeTeam_name }}</span>
-                                    	[round: {{ event.round_slug }}]
+                                    	[round: {{ round.slug.match(/\d+/g).map(Number)[0] }}]
                                     </v-row>
                                 </v-col>
                                 <v-col class="text-center">
@@ -119,7 +120,7 @@
                 </v-expansion-panels>
             </v-tab-item>
         </v-tabs>
-	<!-- </div> -->
+	</div>
 </template>
 
 <script>
@@ -127,15 +128,19 @@
 	import slugify from '~/helpers/slugify'
 	export default {
 		async created () {
-			if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
-				await this.$store.dispatch('userTeams/fetchUserTeams')
+			try {
+				if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
+					await this.$store.dispatch('userTeams/fetchUserTeams')
+				}
+				await this.$store.dispatch('competitions/fetchCompetitionsById', this.loadedActiveCompetition.slug)
+				// console.log('this.loadedCompetitionsById: ', this.loadedCompetitionsById)
+				// console.log('loadedActiveCompetition.slug: ', this.loadedActiveCompetition.slug)
+				this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
+				this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
+				await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
+			} catch (error) {
+				console.log('error: ', error)
 			}
-			await this.$store.dispatch('competitions/fetchCompetitionsById', this.loadedActiveCompetition.slug)
-			// console.log('this.loadedCompetitionsById: ', this.loadedCompetitionsById)
-			// console.log('loadedActiveCompetition.slug: ', this.loadedActiveCompetition.slug)
-			this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
-			this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
-			await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
 		},
 		data () {
 			return {

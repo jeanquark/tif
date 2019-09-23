@@ -12,7 +12,9 @@ export const state = () => ({
 	registerModal: false,
 	message: '',
     activeTab: 'date',
+    activeDate: '',
     activeDateTab: 10,
+    activeDatePanel: [],
     activeRoundTab: 0,
     activeCompetition: {}
 })
@@ -54,9 +56,19 @@ export const mutations = {
     setActiveTab (state, payload) {
         state.activeTab = payload
     },
+    // Set active date
+    setActiveDate (state, payload) {
+        state.activeDate = payload
+    },
     // Set active tab when scrolling through events by date
     setActiveDateTab (state, payload) {
         state.activeDateTab = payload
+    },
+    // Set active panel
+    setActiveDatePanel(state, payload) {
+        console.log('setActiveDatePanel: ', payload)
+        // state.activeDatePanel = 2
+        state.activeDatePanel = payload
     },
     // Set active tab when scrolling throught eventy by round
     setActiveRoundTab (state, payload) {
@@ -166,8 +178,14 @@ export const getters = {
     loadedActiveTab(state) {
         return state.activeTab
     },
+    loadedActiveDate(state) {
+        return state.activeDate
+    },
     loadedActiveDateTab(state) {
         return state.activeDateTab
+    },
+    loadedActiveDatePanel(state) {
+        return state.activeDatePanel
     },
     loadedActiveRoundTab(state) {
         return state.activeRoundTab

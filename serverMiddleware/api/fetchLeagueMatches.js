@@ -1,8 +1,8 @@
-const express = require("express"),
-      moment = require("moment"),
-      admin = require("firebase-admin"),
+const express = require('express'),
+      moment = require('moment'),
+      admin = require('firebase-admin'),
       bodyParser = require('body-parser'),
-      unirest = require("unirest");
+      unirest = require('unirest');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -86,7 +86,7 @@ module.exports = app.use(async function(req, res, next) {
             // if (match.event_timestamp > yesterday) {
 				const id = match.fixture_id
 				// console.log('id: ', id);
-				const roundShort =  /\d/.test(match.round) ? match.round.substring(match.round.lastIndexOf('-') + 2) : match.round
+				// const roundShort =  /\d/.test(match.round) ? match.round.substring(match.round.lastIndexOf('-') + 2) : match.round
 				updates[`/events/${id}/date_iso8601`] = match.event_date
 				updates[`/events/${id}/date`] = moment(match.event_date).format('YYYY-MM-DD')
 				updates[`/events/${id}/time`] = moment(match.event_date).format('HH:mm')
@@ -101,10 +101,10 @@ module.exports = app.use(async function(req, res, next) {
 				updates[`/events/${id}/homeTeam_name`] = match.homeTeam.team_name
 				updates[`/events/${id}/homeTeam_slug`] = slugify(match.homeTeam.team_name)
 				updates[`/events/${id}/homeTeam_score`] = match.goalsHomeTeam
-				updates[`/events/${id}/visitorTeam_id`] = match.awayTeam.team_id
-				updates[`/events/${id}/visitorTeam_name`] = match.awayTeam.team_name
-				updates[`/events/${id}/visitorTeam_slug`] = slugify(match.awayTeam.team_name)
-				updates[`/events/${id}/visitorTeam_score`] = match.goalsAwayTeam
+				updates[`/events/${id}/awayTeam_id`] = match.awayTeam.team_id
+				updates[`/events/${id}/awayTeam_name`] = match.awayTeam.team_name
+				updates[`/events/${id}/awayTeam_slug`] = slugify(match.awayTeam.team_name)
+				updates[`/events/${id}/awayTeam_score`] = match.goalsAwayTeam
 				updates[`/events/${id}/score`] = match.score
 				updates[`/events/${id}/elapsed`] = match.elapsed
 				updates[`/events/${id}/venue`] = match.venue

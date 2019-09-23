@@ -6,7 +6,7 @@
             </v-col>
         </v-hover>
         <v-col cols="8" style="height: 100%;">
-            <v-row no-gutters justify="center" align="center" style="height: 80%;">
+            <v-row no-gutters justify="center" align="center" style="height: 100%;">
                 <v-col cols="12" align-self="stretch">
                     <v-row no-gutters style="height: 70%;">
                         <v-hover v-slot:default="{ hover }">
@@ -54,15 +54,6 @@
                     </v-row>
                 </v-col>
             </v-row>
-            <v-row no-gutters align="center" class="primary" style="height:20%;">
-                <v-col cols="6" class="text-left white--text">
-                    <span class="custom-font">Welcome jeanquark!</span>
-                </v-col>
-                <v-col cols="6" class="text-right white--text">
-                    <v-btn x-small to="/admin" class="success">Admin</v-btn>
-                </v-col>
-            </v-row>
-            
         </v-col>
         
         <v-hover v-slot:default="{ hover }">
@@ -106,6 +97,9 @@
         font-weight: bold;
     }
     .primary:hover {
+        cursor: pointer;
+    }
+    .black:hover {
         cursor: pointer;
     }
     @media screen and (max-width: 960px) {

@@ -122,6 +122,12 @@
 	import Players from '~/components/event/Players'
 	import Statistics from '~/components/event/Statistics'
 	export default {
+		beforeRouteEnter(to, from, next) {
+			console.log('from: ', from)
+			next(vm => {
+				vm.fromRoute = from.path
+			})
+		},
 		components: { Game, Events, Players, Statistics },
 		layout: 'layoutGamemode',
 		// layout: 'layoutScoreMode',
@@ -159,17 +165,20 @@
 		},
 		data() {
 			return {
-				// links: ['Home', 'About Us', 'Team', 'Services', 'Blog', 'Contact Us'],
-				// action: '',
-				// actionsModal: false,
 				eventId: '',
 				event: {},
-				activeComponent: 'game'
+				activeComponent: 'game',
+				fromRoute: '',
 			}
 		},
 		methods: {
 			redirectToHomepage() {
-				this.$router.replace('/gamemode')
+				console.log('fromRoute: ', this.fromRoute)
+				if (this.fromRoute) {
+					this.$router.push(this.fromRoute)
+				} else {
+					this.$router.push('/scoremode')
+				}
 			}
 		}
 	}

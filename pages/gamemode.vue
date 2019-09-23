@@ -22,6 +22,10 @@
 				</div>
 				
 				<v-row no-gutters class="mt-5">
+					<v-col cols="12" class="my-2">
+                        <h3 class="text-center" v-if="eventsByDate">Events by day</h3>
+                        <h3 class="text-center" v-if="eventsByRound">Events by round</h3>
+                    </v-col>
                 	<events-by-date @switchToRound="onSwitchToRound" v-if="eventsByDate"/>
                 	<events-by-round @switchToDate="onSwitchToDate" v-if="eventsByRound"/>
                 </v-row>
