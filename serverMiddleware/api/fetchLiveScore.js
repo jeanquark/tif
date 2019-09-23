@@ -56,10 +56,10 @@ module.exports = app.use(async function(req, res, next) {
         }
         console.log('updates: ', updates)
 
-        // await admin
-        //     .database()
-        //     .ref()
-        //     .update(updates)
+        await admin
+            .database()
+            .ref()
+            .update(updates)
 
         console.log('End of request!')
 

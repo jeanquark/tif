@@ -80,6 +80,7 @@ module.exports = app.use(async function(req, res, next) {
             const response = await getDailyMatches(day)
             Object.values(response.body.api.fixtures).forEach(match => {
                 const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
+                console.log('competition: ', competition)
                 if (competition) {
                     const id = match.fixture_id
                     const date = moment(match.event_date).format('YYYY-MM-DD')
