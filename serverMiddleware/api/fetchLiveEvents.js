@@ -13,34 +13,60 @@ const app = express();
 // const today = moment().format('YYYY-MM-DD');
 // console.log('today: ', today);
 
-function getLiveEvents (fixture) {
-    const url = `https://api-football-v1.p.rapidapi.com/events/${fixture}`;
+function slugify(text) {
+    if (text) {
+        return text
+            .toString()
+            .toLowerCase()
+            .replace(/\s+/g, '_') // Replace spaces with -
+            .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+            .replace(/\-/g, '_') // Replace single - with single _
+            .replace(/\-\-+/g, '_') // Replace multiple - with single _
+            .replace(/^-+/, '') // Trim - from start of text
+            .replace(/ü/, 'u') // Trim - from end of text
+            .replace(/ä/, 'a') // Trim - from end of text
+            .replace(/é/, 'e') // Trim - from end of text
+            .replace(/è/, 'e') // Trim - from end of text
+            .replace(/ö/, 'o') // Trim - from end of text
+    } else {
+        return
+    }
+}
+
+function getLiveEvents (fixtureId) {
+    const url = `https://api-football-v1.p.rapidapi.com/v2/events/${fixtureId}`;
     return unirest.get(url).headers({
         'Accept': 'application/json',
         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
     });
 }
 
-// To be called every minute
+function getLiveGameStatistics (fixtureId) {
+    const url = `https://api-football-v1.p.rapidapi.com/v2/statistics/fixture/${fixtureId}`;
+    return unirest.get(url).headers({
+        'Accept': 'application/json',
+        'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+    });
+}
+
+function getLivePlayersStatistics (fixtureId) {
+    const url = `https://api-football-v1.p.rapidapi.com/v2/players/fixture/${fixtureId}`;
+    return unirest.get(url).headers({
+        'Accept': 'application/json',
+        'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+    });
+}
+
+// To be called every minute to retrieve live events, live game statistics and live player statistics
 module.exports = app.use(async function (req, res, next) {
     try {
-        // Get live games
-        // const liveGames = await admin.database().ref('/events_new3').orderByChild('status').equalTo('Kick Off').once('value');
-        // const snapshot = await admin.database().ref('/events_new3').orderByChild('statusShort').startAt('1H').endAt('2H').once('value');
-        // const liveMatches = await admin.database().ref('/events_new3').orderByChild('statusShort').startAt('NS').endAt('NS').once('value');
-        const liveMatches = await admin.database().ref('/events_new3').orderByChild('elapsed').startAt('1').endAt('90').once('value');
+        // Get live matches
+        console.log('Hello!')
+        const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt('1').endAt('90').once('value');
         // console.log('snapshot: ', snapshot.val());
         let updates = {};
-
-        // Object.values(snapshot.val().forEach(event => {
-        //     console.log('event: ', event);
-        // });
-
-        // for (let liveGame of snapshot) {
-        //     console.log('liveGame: ', liveGame);
-        // }
-
         const matchesArray = [];
+
         liveMatches.forEach(match => {
             matchesArray.push({
                 id: match.val().id
@@ -55,32 +81,63 @@ module.exports = app.use(async function (req, res, next) {
         //         await console.log('abc: ', match);
         //     }
         // });
+        const response = await getLiveGameStatistics('215994');
+        // console.log('Object.keys: ', Object.keys(response.body.api.statistics))
+        // console.log('Object.values: ', Object.values(response.body.api.statistics))
+        console.log('Object.entries: ', Object.entries(response.body.api.statistics))
+        for (let [key, value, index] of Object.entries(response.body.api.statistics)) {
+            console.log('index: ', index)
+            updates[`/jm/eventGameStatistics/fixtureId/${slugify(key)}`] = {
+                name: key,
+                slug: slugify(key),
+                home: value.home,
+                away: value.away
+            }
+        }
+        // Object.values(response.body.api.statistics).forEach((gameStatistics, index) => {
+        //     console.log('gameStatistics: ', gameStatistics, index)
+        //     updates[`/jm/fixtureId/${index}`] = gameStatistics;
+        // });
 
 
-        for (let liveGame of matchesArray) {
+        for (let liveMatch of matchesArray) {
             // console.log('liveGame: ', liveGame);
-            const id = liveGame.id;
-            console.log('id: ', id);
-            const response = await getLiveEvents(id);
-            // console.log('response: ', response);
+            const fixtureId = liveMatch.id;
+            console.log('fixtureId: ', fixtureId);
 
-            Object.values(response.body.api.events).forEach((event, index) => {
-                updates[`/events_new3/${id}/events/${index}/elapsed`] = event.elasped;
-                updates[`/events_new3/${id}/events/${index}/teamName`] = event.teamName;
-                updates[`/events_new3/${id}/events/${index}/player`] = event.player;
-                updates[`/events_new3/${id}/events/${index}/type`] = event.type;
-                updates[`/events_new3/${id}/events/${index}/detail`] = event.detail;
+            const liveEvents = await getLiveEvents(fixtureId);
+            Object.values(liveEvents.body.api.events).forEach((event, index) => {
+                updates[`/eventEvents/${fixtureId}/${index}/elapsed`] = event.elasped;
+                updates[`/eventEvents/${fixtureId}/${index}/teamId`] = event.team_id;
+                updates[`/eventEvents/${fixtureId}/${index}/teamName`] = event.teamName;
+                updates[`/eventEvents/${fixtureId}/${index}/playerId`] = event.player_id;
+                updates[`/eventEvents/${fixtureId}/${index}/player`] = event.player;
+                updates[`/eventEvents/${fixtureId}/${index}/type`] = event.type;
+                updates[`/eventEvents/${fixtureId}/${index}/detail`] = event.detail;
+            });
+
+            const liveGameStatistics = await getLiveGameStatistics(fixtureId)
+            Object.values(liveGameStatistics.body.api.statistics).forEach((gameStatistics, index) => {
+                const slug = slugify(gameStatistics)
+                updates[`/eventGameStatistics/${fixtureId}/${slug}`] = gameStatistics;
+                updates[`/eventGameStatistics/${fixtureId}/${slug}/name`] = gameStatistics;
+                updates[`/eventGameStatistics/${fixtureId}/${slug}/slug`] = gameStatistics;
+            });
+
+            const livePlayersStatistics = await getLivePlayersStatistics(fixtureId)
+            Object.values(livePlayersStatistics.body.api.players).forEach((playersStatistics, index) => {
+                updates[`/eventPlayersStatistics/${fixtureId}/${index}`] = playersStatistics;
             });
         }
 
 
-        await admin.database().ref().update(updates);
+        console.log('updates: ', updates);
+        // await admin.database().ref().update(updates);
 
         res.status(200).send('GET request to APIFootball to get live events succeeded!');
 
     } catch(error) {
-        console.log('error2: ', error)
+        console.log('error: ', error)
         res.end(`GET request to APIFootball to fetch live events failed: ${error}`);
-        // res.send('GET request failed...')
     }
 })

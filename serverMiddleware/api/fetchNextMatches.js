@@ -70,14 +70,16 @@ module.exports = app.use(async function(req, res, next) {
         // console.log('competitions: ', JSON.parse(competitions))
         const activeCompetitions = JSON.parse(competitions)
         activeCompetitions.forEach(competition => {
-            // console.log('competition: ', competition)
+            console.log('competition: ', competition)
         })
 
         // 3) Finally, make external request to API-football to fetch fixtures
         let updates = {}
         for (let day of days) {
+            console.log('day: ', day)
             const response = await getDailyMatches(day)
             Object.values(response.body.api.fixtures).forEach(match => {
+                // console.log('match: ', match)
                 const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
                 // console.log('competition: ', competition)
                 if (competition) {
