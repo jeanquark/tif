@@ -65,23 +65,6 @@ module.exports = app.use(async function(req, res, next) {
         console.log('days: ', days)
 
         // 2) Second, fetch all active competitions
-        // const competitionsArray = []
-        // const competitions = await admin
-        //     .database()
-        //     .ref('/competitions')
-        //     .orderByChild('active')
-        //     .equalTo(true)
-        //     .once('value')
-        // competitions.forEach(competition => {
-        //     competitionsArray.push({
-        //         name: competition.val().name,
-        //         slug: competition.val().slug,
-        //         apifootball_id: competition.val().apifootball_id,
-        //         status: competition.val().status,
-        //         countries: competition.val().countries
-        //     })
-        // })
-
         const readFile = util.promisify(fs.readFile)
         const competitions = await readFile('./static/activeCompetitions.json', 'utf8')
         // console.log('competitions: ', JSON.parse(competitions))
@@ -96,7 +79,7 @@ module.exports = app.use(async function(req, res, next) {
             const response = await getDailyMatches(day)
             Object.values(response.body.api.fixtures).forEach(match => {
                 const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
-                console.log('competition: ', competition)
+                // console.log('competition: ', competition)
                 if (competition) {
                     const id = match.fixture_id
 					// const roundShort = match.round.substring(match.round.lastIndexOf('-') + 2)
