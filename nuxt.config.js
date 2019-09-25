@@ -212,7 +212,6 @@ module.exports = {
 		'nuxt-client-init-module',
 		'fullpage-nuxt',
 		'@nuxtjs/sentry',
-        // '@nuxtjs/axios',
         '@nuxtjs/proxy'
 	],
     proxy: {

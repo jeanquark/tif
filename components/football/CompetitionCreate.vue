@@ -131,24 +131,27 @@
 
 				const fetchedPredictions = await axios.get(`/apifootball/predictions/157462`, {
 					headers: {
-						Accept: 'application/json',
+						// Accept: 'application/json',
+						"content-type":"application/octet-stream",
+						"x-rapidapi-host":"api-football-v1.p.rapidapi.com",
 						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
 					}
 				})
 				console.log('fetchedPredictions: ', fetchedPredictions)
 
-				const fetchedCompetitions = await axios.get(`/apifootball/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
-					headers: {
-						Accept: 'application/json',
-						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
-					}
-				})
-				console.log('fetchedCompetitions: ', fetchedCompetitions)
-				this.loadedCompetitions = fetchedCompetitions.data.api.leagues
+				// const fetchedCompetitions = await axios.get(`/apifootball/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
+				// 	headers: {
+				// 		Accept: 'application/json',
+				// 		'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// console.log('fetchedCompetitions: ', fetchedCompetitions)
+				// this.loadedCompetitions = fetchedCompetitions.data.api.leagues
 
 				// this.$axios.$get(`apifootball/predictions/157462`)
 
-				// fetch("/api", {
+
+				// fetch(`/apifootball/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
 				// 	"method": "GET",
 				// 	"headers": {
 				// 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
@@ -156,11 +159,15 @@
 				// 	}
 				// })
 				// .then(response => {
-				// 	console.log(response);
+				// 	console.log('response: ', response);
+				// 	console.log('response.data: ', response.data);
+				// 	console.log('response.body: ', response.body);
+				// 	console.log('response.data.api: ', response.data.api);
 				// })
 				// .catch(err => {
 				// 	console.log('err: ', err);
 				// });
+
 
 				// fetch("https://api-football-v1.p.rapidapi.com/v2/predictions/157462", {
 				// 	"method": "GET",
