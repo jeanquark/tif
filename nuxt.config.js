@@ -211,8 +211,21 @@ module.exports = {
         ],
 		'nuxt-client-init-module',
 		'fullpage-nuxt',
-		'@nuxtjs/sentry'
+		'@nuxtjs/sentry',
+        // '@nuxtjs/axios',
+        '@nuxtjs/proxy'
 	],
+    proxy: {
+        // Simple proxy
+        // '/apifootball': 'https://api-football-v1.p.rapidapi.com/v2/',
+        '/predictions': 'https://api-football-v1.p.rapidapi.com/v2/predictions/157462',
+        '/apifootball': {
+            target: 'https://api-football-v1.p.rapidapi.com/v2',
+            pathRewrite: {
+                '^/apifootball' : '/'
+            }
+        }
+    },
 	sentry: {
         dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
         config: {} // Additional config

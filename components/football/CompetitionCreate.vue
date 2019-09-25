@@ -118,32 +118,75 @@
 		},
 		methods: {
 			async fetchCompetitionsByCountryAndSeason() {
+
 				console.log('fetchCompetitionsByCountry', this.selectedCountry)
 
-				fetch("https://api-football-v1.p.rapidapi.com/v2/predictions/157462", {
-					"method": "GET",
-					"headers": {
-						"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-						"x-rapidapi-key": process.env.APIFOOTBALL_KEY
+				// const fetchedPredictions = await axios.get(`/predictions`, {
+				// 	headers: {
+				// 		Accept: 'application/json',
+				// 		'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// console.log('fetchedPredictions: ', fetchedPredictions)
+
+				const fetchedPredictions = await axios.get(`/apifootball/predictions/157462`, {
+					headers: {
+						Accept: 'application/json',
+						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
 					}
 				})
-				.then(response => {
-					console.log(response);
-				})
-				.catch(err => {
-					console.log('err: ', err);
-				});
+				console.log('fetchedPredictions: ', fetchedPredictions)
 
-				const fetchedCompetitions = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
+				const fetchedCompetitions = await axios.get(`/apifootball/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
 					headers: {
-						// Accept: 'application/json',
-						"content-type":"application/octet-stream",
-						"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+						Accept: 'application/json',
 						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
 					}
 				})
 				console.log('fetchedCompetitions: ', fetchedCompetitions)
 				this.loadedCompetitions = fetchedCompetitions.data.api.leagues
+
+				// this.$axios.$get(`apifootball/predictions/157462`)
+
+				// fetch("/api", {
+				// 	"method": "GET",
+				// 	"headers": {
+				// 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+				// 		"x-rapidapi-key": process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// .then(response => {
+				// 	console.log(response);
+				// })
+				// .catch(err => {
+				// 	console.log('err: ', err);
+				// });
+
+				// fetch("https://api-football-v1.p.rapidapi.com/v2/predictions/157462", {
+				// 	"method": "GET",
+				// 	"headers": {
+				// 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+				// 		"x-rapidapi-key": process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// .then(response => {
+				// 	console.log(response);
+				// })
+				// .catch(err => {
+				// 	console.log('err: ', err);
+				// });
+
+
+				// const fetchedCompetitions2 = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
+				// 	headers: {
+				// 		// Accept: 'application/json',
+				// 		"content-type":"application/octet-stream",
+				// 		"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+				// 		'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// console.log('fetchedCompetitions2: ', fetchedCompetitions2)
+				// this.loadedCompetitions = fetchedCompetitions2.data.api.leagues
 
 				
 			},
