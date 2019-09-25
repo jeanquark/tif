@@ -37,21 +37,21 @@
 
                     <v-col>
                         <!-- Confederations tabs -->
-                        <v-tabs dark slider-color="blue" fixed-tabs v-model="active_confederation_tab" @change="changeConfederation()">
+                        <v-tabs center-active centered dark fixed-tabs slider-color="blue" v-model="active_confederation_tab" @change="changeConfederation()">
                             <v-tab v-for="(confederation, index) in confederations" :key="index" ripple style="cursor: pointer;">
                                 <v-img :src="`/images/confederations/${confederation.image}`" :aspect-ratio="1" :max-width="50"></v-img>
                             </v-tab>
                         </v-tabs>
 
                         <!-- Countries tabs -->
-                        <v-tabs dark slider-color="blue" fixed-tabs v-model="active_country_tab" @change="changeCountry()" v-if="selectedConfederation">
+                        <v-tabs center-active centered fixed-tabs dark slider-color="blue" v-model="active_country_tab" @change="changeCountry()" v-if="selectedConfederation">
                             <v-tab v-for="(country, index) in loadedCountriesByConfederation[selectedConfederation.slug]" :key="index" ripple style="cursor: pointer;">
                                 <img :src="`/images/countries/${country.image}`" width="40px" />
                             </v-tab>
                         </v-tabs>
 
                         <!-- Competitions tabs -->
-                        <v-tabs dark slider-color="primary" fixed-tabs v-model="active_competition_tab" @change="changeCompetition()" v-if="selectedCountry && loadedCompetitionsByCountry[selectedCountry.slug] &&loadedCompetitionsByCountry[selectedCountry.slug].length > 0">
+                        <v-tabs center-active centered fixed-tabs dark slider-color="primary" v-model="active_competition_tab" @change="changeCompetition()" v-if="selectedCountry && loadedCompetitionsByCountry[selectedCountry.slug] &&loadedCompetitionsByCountry[selectedCountry.slug].length > 0">
                             <v-tab v-for="(competition, index) in loadedCompetitionsByCountry[selectedCountry.slug]" :key="index" ripple style="cursor: pointer;">
                                 {{ competition.name }}
                             </v-tab>
@@ -271,7 +271,7 @@
 			},
 			async fetchTeamsByCompetition(competitionSlug) {
 				try {
-					await this.$store.dispatch('teams/fetchTeamsByCompetition', competitionSlug)
+					await this.$store.dispatch('teams/fetchTeamsByCompetition', { competitionSlug })
 					console.log('Done fetching teams by competition. [fetchTeamsByCompetition]')
 				} catch (error) {
 					console.log('error: ', error)

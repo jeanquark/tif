@@ -1,6 +1,5 @@
 const express = require('express'),
 	  admin = require('firebase-admin'),
-	//   admin = require('../services/firebase-admin-init'),
 	  unirest = require('unirest');
 
 const app = express();
@@ -50,7 +49,7 @@ module.exports = app.use(async function(req, res, next) {
                 })
             }
 		});
-		console.log('competitionsArray: ', competitionsArray);
+		// console.log('competitionsArray: ', competitionsArray);
 
         // console.log('competitionsArray: ', competitionsArray);
 		let updates = {};
@@ -62,8 +61,8 @@ module.exports = app.use(async function(req, res, next) {
 
 			Object.values(response.body.api.standings).forEach(teams => {
 				teams.forEach(team => {
-					// console.log('team: ', team);
-					// updates[`/standings/${competition.slug}/${team.rank}`] = team;
+					console.log('team: ', team);
+					updates[`/standings/${competition.slug}/${team.rank}/rank`] = team.rank;
 					updates[`/standings/${competition.slug}/${team.rank}/team_id`] = team.team_id;
 					updates[`/standings/${competition.slug}/${team.rank}/team_name`] = team.teamName;
 					updates[`/standings/${competition.slug}/${team.rank}/team_slug`] = slugify(team.teamName);

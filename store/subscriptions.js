@@ -52,7 +52,7 @@ export const actions = {
 			}
 		})
 	},
-	async createUserSubscriptions({ commit, rootGetters, dispatch }, { userTeams, pushSubscription, deviceIdentifier }) {
+	async TOBEDELETED_createUserSubscriptions({ commit, rootGetters, dispatch }, { userTeams, pushSubscription, deviceIdentifier }) {
 		try {
 			console.log('createUserSubscriptions action: ', userTeams, JSON.parse(pushSubscription))
 			const newSubscription = JSON.parse(pushSubscription)
@@ -96,53 +96,62 @@ export const actions = {
 			throw error
 		}
 	},
-	
-	async updateUserSubscriptions({ commit, rootGetters, dispatch }, payload) {
+	async createUserSubscriptions({ commit, rootGetters, dispatch }, payload) {
 		try {
-			console.log('updateUserSubscription: ', payload)
+			// console.log('createUserSubscription: ', payload)
+			const { pushSubscription, notificationType, team, deviceIdentifier } = payload
 			const newSubscription = JSON.parse(payload.pushSubscription)
-			let updates = {}
-			if (payload.createNewSubscription) { // Create new subscription
-				const userId = rootGetters['users/loadedUser']['id']
-				console.log('userId: ', userId)
-				const newSubscriptionKey = firebase
-					.database()
-					.ref()
-					.child('/subscriptions/')
-					.push().key
+			// console.log('newSubscription: ', newSubscription)
 
-				const key = `team_${payload.notificationType}`
-				
-				const newSubscriptionObject = {
-					endpoint: newSubscription.endpoint,
-					keys: newSubscription.keys,
-					user_id: userId,
-					team_slug: payload.team.slug,
-					team_name: payload.team.name,
-					team_apifootball_id: payload.team.apifootball_id,
-					notifications: {
-						[payload.notificationType]: true
-					},
-					[key]: `${payload.team.apifootball_id}_${payload.notificationType}`,
-					deviceIdentifier: payload.deviceIdentifier,
-					created_at: moment().unix()
-				}
-				console.log('newSubscriptionObject: ', newSubscriptionObject)
-				updates[`/subscriptions/${newSubscriptionKey}`] = newSubscriptionObject				
-			} else { // Update existing subscription
-				console.log('payload2: ', payload)
-				const key = `team_${payload.notificationType}`
-				let value
-				if (payload.value) {
-					value = `${payload.team.apifootball_id}_${payload.notificationType}`
-				} else {
-					value = null
-				}
-				updates[`/subscriptions/${payload.subscription.id}/notifications/${payload.notificationType}`] = payload.value
-				updates[`/subscriptions/${payload.subscription.id}/${key}`] = value
+			let updates = {}
+			const userId = rootGetters['users/loadedUser']['id']
+			// console.log('userId: ', userId)
+			const newSubscriptionKey = firebase
+				.database()
+				.ref()
+				.child('/subscriptions/')
+				.push().key
+
+			const key = `team_${notificationType}`
+			
+			const newSubscriptionObject = {
+				endpoint: newSubscription.endpoint,
+				keys: newSubscription.keys,
+				user_id: userId,
+				team_slug: team.slug,
+				team_name: team.name,
+				team_apifootball_id: team.apifootball_id,
+				notifications: {
+					[notificationType]: true
+				},
+				[key]: `${team.apifootball_id}_${notificationType}`,
+				deviceIdentifier: deviceIdentifier,
+				created_at: moment().unix()
 			}
+			// console.log('newSubscriptionObject: ', newSubscriptionObject)
+			updates[`/subscriptions/${newSubscriptionKey}`] = newSubscriptionObject				
 			await firebase.database().ref().update(updates)
 			dispatch('fetchUserSubscriptions', newSubscription.endpoint)
+		} catch (error) {
+			console.log('error: ', error)
+			throw error
+		}
+	},
+	async updateUserSubscriptions({ commit, rootGetters, dispatch }, payload) {
+		try {
+			// console.log('updateUserSubscription: ', payload)
+			const { subscription, notificationType, team, value } = payload
+			const key = `team_${notificationType}`
+			let updates = {}
+			let newValue
+			if (value) {
+				newValue = `${payload.team.apifootball_id}_${payload.notificationType}`
+			} else {
+				newValue = null
+			}
+			updates[`/subscriptions/${subscription.id}/notifications/${notificationType}`] = value
+			updates[`/subscriptions/${subscription.id}/${key}`] = newValue
+			await firebase.database().ref().update(updates)
 		} catch (error) {
 			console.log('error: ', error)
 			throw error

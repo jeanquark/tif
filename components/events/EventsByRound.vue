@@ -1,7 +1,8 @@
 <template>
 	<div style="min-height: 100vh;">
 		<!-- <h2>Events by round</h2> -->
-        <!-- active_round_tab: {{ active_round_tab }}<br /><br /> -->
+        active_round_tab: {{ active_round_tab }}<br /><br />
+        loading: {{ loading }}<br /><br />
 		<!-- active_round_slug: {{ active_round_slug }}<br /><br /> -->
 		<!-- loadedCompetitionsById: {{ loadedCompetitionsById['switzerland_super_league_2019_2020']['rounds'].sort((a, b) => b.timestamp - a.timestamp) }}<br /><br /> -->
         <!-- loadedActiveCompetition: {{ loadedActiveCompetition }}<br /><br /> -->
@@ -10,7 +11,7 @@
             <v-tab v-for="round in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="round.slug" style="cursor: pointer;" @change="changeRound(round.slug)">
                 Round {{ round.slug.match(/\d+/g).map(Number)[0] }} 
             </v-tab>
-            <v-tab-item v-for="(round, index) in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="index" :transition="false" :reverse-transition="false">
+            <v-tab-item v-for="(round, index) in loadedCompetitionsById[loadedActiveCompetition.slug]['rounds']" :key="index" :transition="false" :reverse-transition="false" v-if="!loading">
                 <v-expansion-panels :accordion="true" :value="0">
                     <v-expansion-panel>
                         <v-expansion-panel-header :ripple="true" style="background: var(--v-primary-base);">
@@ -31,8 +32,8 @@
                                 <v-btn class="mx-2" style="max-width: 150px;" v-if="standings" @click="getEventsByRound(competition)">By rounds</v-btn>
                             </span>
                         </v-expansion-panel-header>
-                        <v-expansion-panel-content style="" v-if="!standings">
-                        	[panel is open]
+                        <v-expansion-panel-content v-if="!standings">
+                        	<!-- [panel is open] -->
                             <v-row no-gutters justify="start" align="center" class="py-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByCompetitionByRound" :key="index" @click="goToEventPage(event.id)">
                                 <v-col class="">
                                 	<v-row no-gutters align="center">
@@ -55,7 +56,7 @@
                                 </v-col>
                             </v-row>
                         </v-expansion-panel-content>
-                        <v-expansion-panel-content style="border: 1px solid dashed pink;" v-else>
+                        <v-expansion-panel-content style="border: 1px solid dashed pink;" v-if="standings">
                         	<v-data-table
 							    :items="loadedStandingsByCompetition"
 							    :items-per-page="100"
@@ -116,6 +117,9 @@
 								</template>
 							</v-data-table>                                    
                     	</v-expansion-panel-content>
+                    	<!-- <v-expansion-panel-content v-if="loading">
+                    		<h4 class="text-center pa-3">loading...</h4>
+                    	</v-expansion-panel-content> -->
                     </v-expansion-panel>
                 </v-expansion-panels>
             </v-tab-item>
@@ -136,6 +140,7 @@
 				// console.log('this.loadedCompetitionsById: ', this.loadedCompetitionsById)
 				// console.log('loadedActiveCompetition.slug: ', this.loadedActiveCompetition.slug)
 				this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
+				// this.active_round_tab = 10
 				this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
 				await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
 			} catch (error) {
@@ -166,6 +171,9 @@
 			}
 		},
 		computed: {
+			loading () {
+				return this.$store.getters['loading']
+			},
 			loadedActiveRoundTab () {
 				return this.$store.getters['loadedActiveRoundTab']
 			},
@@ -214,13 +222,16 @@
 			async changeRound(roundSlug) {
 				try {
 					console.log('changeRound: ', roundSlug)
-					this.$store.commit('setActiveRoundTab', this.active_round_tab)
+					this.$store.commit('setActiveRoundTab', parseInt(this.active_round_tab) + 1)
 					this.active_round_slug = roundSlug
 					if (!this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug] || !this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug][roundSlug]) {
-						this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
+						this.$store.commit('setLoading', true)
+						await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
+						this.$store.commit('setLoading', false)
 					}
 				} catch (error) {
 					console.log('error from changeRound(): ', error)
+					this.$store.commit('setLoading', false)
 				}
 			},
 			getStandingsByCompetition() {
@@ -236,11 +247,8 @@
 			async fetchEventsByCompetitionByRound(competitionSlug, roundSlug) {
 				try {
 					console.log('competitionSlug: ', competitionSlug, 'roundSlug: ', roundSlug)
-					this.$store.commit('setLoading', true)
 					await this.$store.dispatch('events/fetchEventsByCompetitionByRound', { competitionSlug, roundSlug })
-					this.$store.commit('setLoading', false)
 				} catch (error) {
-					this.$store.commit('setLoading', false)
 					console.log('error: ', error)
 				}
 			},

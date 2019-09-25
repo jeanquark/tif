@@ -50,34 +50,23 @@ export const actions = {
     // Fetch teams by competition
     fetchTeamsByCompetition({ commit }, payload) {
         return new Promise(resolve => {
-            // console.log('fetchTeamsByCompetition: ', payload)
+            console.log('fetchTeamsByCompetition action: ', payload)
+            const { competitionSlug } = payload
             firebase
                 .database()
                 .ref('/teams/')
-                .orderByChild(`competitions/${payload}`)
+                .orderByChild(`competitions/${competitionSlug}`)
                 .equalTo(true)
                 .on('value', function(snapshot) {
                     const teamsArray = []
-                    // for (const key in snapshot.val()) {
-                    //     teamsArray.push({
-                    //         ...snapshot.val()[key],
-                    //         id: key
-                    //     })
-					// }
 					snapshot.forEach(team => {
 						teamsArray.push({
 							...team.val(),
 							id: team.key
 						})
 					})
-                    // console.log('teamsArray: ', teamsArray)
-                    // const orderedTeams = teamsArray.sort(
-                    //     (a, b) => parseInt(b.usersCount || 0) - parseInt(a.usersCount || 0)
-					// )
-					// console.log('orderedTeams: ', orderedTeams)
                     commit('setTeamsByCompetition', {
-                        competition: payload,
-						// teams: orderedTeams
+                        competition: competitionSlug,
 						teams: teamsArray
                     })
                     resolve()

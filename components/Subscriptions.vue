@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<v-row no-gutters justify="center" align="center" class="my-2" v-if="!showSubscribeToPushNotifications">
+		<v-row no-gutters justify="center" align="center" class="my-0" v-if="!showSubscribeToPushNotifications">
             <v-col cols="12" sm="6">
                 <v-alert dark text color="warning" icon="mdi-exclamation" border="left" prominent>
                     You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator.
@@ -8,7 +8,7 @@
             </v-col>
         </v-row>
 
-        <v-row no-gutters justify="center" align="center" class="my-2" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications && loadedUserTeams.length > 0">
+        <v-row no-gutters justify="center" align="center" class="my-0" style="background-color: #ccc;" v-if="showSubscribeToPushNotifications && loadedUserTeams.length > 0">
             <v-col cols="12" class="my-2">
                 <h3 class="text-center">Notifications status on this device</h3>
             </v-col>
@@ -162,9 +162,9 @@
 			},
 			async toggleSubscription(team, notificationType) {
 				try {
-					// console.log('toggleSubscription: ', team, notificationType)
+					console.log('toggleSubscription: ', team, notificationType)
 					const subscription = this.loadedUserSubscriptions.find(subscription => subscription.team_slug === team.slug)
-					// console.log('subscription: ', subscription)
+					console.log('subscription: ', subscription)
 
 					if (Notification.permission === 'default') {
 						document.getElementById('overlay').style.display = 'block'
@@ -176,7 +176,6 @@
 						document.getElementById('overlay').style.display = 'none'
 						return
 					}
-					// console.log('abc')
 					if (!subscription) {
 						// Create new subscription
 						// 1) Register Service Worker
@@ -192,17 +191,15 @@
 						console.log('pushSubscription: ', JSON.stringify(pushSubscription))
 
 						// 3) Add subscriptions to database
-						const subscriptions = await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
+						const subscriptions = await this.$store.dispatch('subscriptions/createUserSubscriptions', {
 							pushSubscription: JSON.stringify(pushSubscription),
 							notificationType,
 							team,
 							deviceIdentifier: `screenWidth=${window.screen.width}&screenHeight=${window.screen.height}&userAgent=${slugify(window.navigator.userAgent)}`,
-							createNewSubscription: true
 						})
-						// console.log('subscriptions: ', subscriptions)
-					} else {
+					} else { // Update existing subscription
 						const value = this.loadedUserSubscriptionsObject[team.slug]['notifications'][notificationType]
-						console.log('value: ', value)
+						// console.log('value: ', value)
 						await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
 							subscription,
 							notificationType,
@@ -212,7 +209,7 @@
 					}
 					new Noty({
 						type: 'success',
-						text: 'Successfully updated subscription!',
+						text: `Successfully ${subscription ? 'updated' : 'created new'} subscription!`,
 						timeout: 5000,
 						theme: 'metroui'
 					}).show()
@@ -220,7 +217,7 @@
 					console.log('error: ', error)
 					new Noty({
 						type: 'error',
-						text: 'Sorry, an error occured and your subscription could not be updated.',
+						text: `Sorry, an error occured and your subscription could not be ${subscription ? 'updated' : 'created'}.`,
 						timeout: 5000,
 						theme: 'metroui'
 					}).show()

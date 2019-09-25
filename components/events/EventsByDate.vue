@@ -3,18 +3,18 @@
 		<!-- selectedDate: {{ selectedDate }}<br /><br /> -->
 		<!-- selectedCompetition.slug: {{ selectedCompetition.slug }}<br /><br /> -->
 		<!-- loadedActiveDatePanel: {{ loadedActiveDatePanel }}<br /><br /> -->
+		<!-- active_day_tab: {{ active_day_tab }}<br /><br /> -->
 		<!-- active_date_panel: {{ active_date_panel }}<br /><br /> -->
 		<!-- this.$store.getters['loadedActiveCompetition']: {{ this.$store.getters['loadedActiveCompetition'] }}<br /><br /> -->
 		<!-- this.$store.getters['loadedActiveDatePanel']: {{ this.$store.getters['loadedActiveDatePanel'] }}<br /><br /> -->
 		<!-- loadedActiveDate: {{ loadedActiveDate }}<br /><br /> -->
 		<!-- loadedEventsByDateByCompetition: {{ loadedEventsByDateByCompetition }}<br /><br /> -->
 		
-		<v-tabs center-active centered color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
+		<v-tabs center-active centered fixed-tabs color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
 	        <v-tab v-for="(day, index) in days" :key="index" style="cursor: pointer;">
 	            {{ displayDate(day) }}
 	        </v-tab>
 	        <v-tab-item v-for="(day, index) in days" :key="index" :transition="false" :reverse-transition="false">
-	        	<!-- loadedUserEventsByDate: {{ loadedUserEventsByDate }}<br /><br /> -->
 	        	<div v-if="$route.path !== '/scoremode'">
 					<h3 class="text-center pt-3" v-if="loadedUserEventsByDate[getDate(day)]">My games:</h3>
 		        	<v-row no-gutters align="center" class="my-2 pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedUserEventsByDate[getDate(day)]" :key="index" @click="goToEventPage(event.id)">
@@ -45,7 +45,7 @@
 		        </div>
 				
 
-	            <v-expansion-panels :multiple="true" :accordion="true" v-model="active_date_panel">
+	            <v-expansion-panels :multiple="false" :accordion="true" v-model="active_date_panel">
 	                <v-expansion-panel class="" v-for="(competition, index) in loadedCompetitionsByDate[getDate(day)]" :key="competition.id" @click="getEventsByDateByCompetition(getDate(day), competition, index)">
 	                    <v-expansion-panel-header :ripple="expandedPanel === index ? false : true" style="background: var(--v-primary-base);">
 	                        <template v-slot:actions>
@@ -60,14 +60,14 @@
 	                            </v-row>
 	                        </v-row>
 	                        <span class="text-right mr-4">
-	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel.includes(index) && standings" @click.stop="getEventsByDateByCompetition(getDate(day), competition)">By day</v-btn>
-	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel.includes(index) && !standings && competition.type === 'league'" @click.stop="getStandingsByCompetition()">Standings</v-btn>
-	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel.includes(index)" @click="switchToRound(competition)">By rounds</v-btn>
+	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel ===index && standings" @click.stop="getEventsByDateByCompetition(getDate(day), competition)">By day</v-btn>
+	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel ===index && !standings && competition.type === 'league'" @click.stop="getStandingsByCompetition()">Standings</v-btn>
+	                            <v-btn small class="mx-2" style="max-width: 150px;" v-if="active_date_panel ===index" @click="switchToRound(competition)">By rounds</v-btn>
 	                        </span>
 	                    </v-expansion-panel-header>
-	                    <v-expansion-panel-content class="ma-0 pa-0" style="" v-if="!standings">
-	                    	[panel is open]
-	                        <v-row no-gutters justify="start" align="center" class="pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="index" @click="goToEventPage(event.id)">
+	                    <v-expansion-panel-content class="ma-0 pa-0" v-if="!standings">
+	                    	<!-- [panel is open] -->
+	                        <v-row no-gutters justify="start" align="center" class="pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="event.id" @click="goToEventPage(event.id)">
 	                            <v-col class="">
 	                            	<v-row no-gutters align="center">
 	                                	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" contain v-on:error="onImgError" max-width="40"></v-img>&nbsp;
@@ -158,7 +158,7 @@
 	            <div class="py-3" v-if="!loading && (!loadedCompetitionsByDate[getDate(day)] || loadedCompetitionsByDate[getDate(day)].length < 1)">
 	            	<h4 class="text-center">No competitions found.</h4>
 	            </div>
-	            <div class="py-3" v-if="loading">
+	            <div class="py-4" v-if="loading">
 	            	<h4 class="text-center">loading...</h4>
 	            </div>
 	        </v-tab-item>
@@ -169,36 +169,30 @@
 <script>
 	import moment from 'moment'
 	import slugify from '~/helpers/slugify'
-	// import userEvents from '~/components/events/UserEvents'
 	export default {
-		// components: { userEvents },
 		async created () {
 			if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
 				await this.$store.dispatch('userTeams/fetchUserTeams')
 			}
-			console.log('date: ', moment().format('YYYY-MM-DD'))
-			this.active_day_tab = this.$store.getters['loadedActiveDateTab'] || 0
-			// console.log('$route.path: ', this.$route.path)
-			this.selectedDate = this.$store.getters['loadedActiveDate'] || ''
-			// this.selectedDate = '2019_09_25'
+			// console.log('date: ', moment().format('YYYY-MM-DD'))
+			// alert(moment().format('YYYY_MM_DD'))
+			this.active_day_tab = this.$store.getters['loadedActiveDateTab'] || 10
+			this.selectedDate = this.$store.getters['loadedActiveDate'] || moment().format('YYYY_MM_DD')
 			this.selectedCompetition = this.$store.getters['loadedActiveCompetition'] || {}
-			// this.selectedCompetition = {
-			// 	slug: 'switzerland_super_league_2019_2020'
-			// }
-			// this.active_date_panel = []
 			if (this.loadedEventsByDateByCompetition && this.loadedEventsByDateByCompetition.length > 0) {
-				this.active_date_panel = [this.$store.getters['loadedActiveDatePanel']] || []
-				// this.active_date_panel = []
+				this.active_date_panel = this.$store.getters['loadedActiveDatePanel']
 			} else {
-				this.$store.commit('setActiveDatePanel', [])
-				// this.active_date_panel = []
+				this.active_date_panel = null
 			}
+			// this.getEventsByDateByCompetition('2019_09_25', { slug: 'switzerland_super_league_2019_2020'}, 1)
+			// this.getEventsByDateByCompetition('2019_09_25', this.selectedCompetition, 1)
+			this.changeDay()
 		},
 		data () {
 			return {
 				days: ['-10', '-9', '-8', '-7', '-6', '-5', '-4', '-3', '-2', '-1', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '10'],
 				// active_day_tab: this.$store.getters['loadedActiveDayTab'] || 10,
-				active_day_tab: 0,
+				active_day_tab: 10,
 				selectedCompetition: {},
 				selectedDate: '',
 				// eventsByDay: true,
@@ -220,7 +214,7 @@
 			        { text: 'Last 5 games', value: 'forme' }
 				],
 				panel: [0, 1],
-				active_date_panel: []
+				active_date_panel: null
 			}
 		},
 		computed: {
@@ -314,9 +308,11 @@
 					this.$store.commit('setActiveDateTab', this.active_day_tab)
 					this.$store.commit('setActiveDate', slugify(date))
 					if (this.loadedEventsByDateByCompetition && this.loadedEventsByDateByCompetition.length > 0) {
-						this.active_date_panel = [this.$store.getters['loadedActiveDatePanel']] || []
+						// this.active_date_panel = [this.$store.getters['loadedActiveDatePanel']] || []
+						this.active_date_panel = this.$store.getters['loadedActiveDatePanel'] || null
 					} else {
-						this.active_date_panel = []
+						// this.active_date_panel = []
+						this.active_date_panel = null
 					}
 					if (!this.$store.getters['competitions/loadedCompetitionsByDate'][this.selectedDate]) {
 						await this.$store.dispatch('competitions/fetchCompetitionsByDate', this.selectedDate)

@@ -82,7 +82,30 @@
             console.log('breakpoint: ', this.$vuetify.breakpoint)
         },
 		data() {
-			return {}
+			return {
+                userTeams: [
+                    {
+                        name: 'Neuchâtel Xamax FC',
+                        slug: 'neuchatel_xamax_fc'
+                    },
+                    {
+                        name: 'FC Sion',
+                        slug: 'fc_sion'
+                    },
+                    {
+                        name: 'FC Basel 1893',
+                        slug: 'fc_basel_1893'
+                    },
+                    {
+                        name: 'FC Zürich',
+                        slug: 'fc_zurich'
+                    },
+                    {
+                        name: 'BSC Young Boys',
+                        slug: 'bsc_young_boys'
+                    }
+                ]
+            }
 		},
 		computed: {
 			loadedUser() {

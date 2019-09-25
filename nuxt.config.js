@@ -1,10 +1,13 @@
-export default {
+require('dotenv').config()
+
+// export default {
+module.exports = {
     mode: 'universal',
     /*
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'This Is Fan',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -204,12 +207,12 @@ export default {
         ],
 		'nuxt-client-init-module',
 		'fullpage-nuxt',
-		// '@nuxtjs/sentry'
+		'@nuxtjs/sentry'
 	],
-	// sentry: {
-    //     dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
-    //     config: {} // Additional config
-    // },
+	sentry: {
+        dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
+        config: {} // Additional config
+    },
     /*
      ** Build configuration
      */
@@ -218,5 +221,7 @@ export default {
          ** You can extend webpack config here
          */
         extend(config, ctx) {}
-    }
+    },
+    dev: (process.env.NODE_ENV !== 'production'),
+    // dev: true
 }

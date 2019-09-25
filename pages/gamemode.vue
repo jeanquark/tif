@@ -79,7 +79,28 @@
             </v-col>
         </v-row>
 		
-		<subscriptions />
+		<v-bottom-sheet v-model="showSubscriptions">
+	      <template v-slot:activator="{ on }">
+	      	<v-row justify="center">
+	        <v-btn
+	          color="primary"
+	          dark
+	          v-on="on"
+	        >
+	          My notifications
+	        </v-btn>
+	    </v-row>
+	      </template>
+	      <v-sheet class="text-center" style="max-height: 80vh; overflow: auto;">
+	        <v-btn
+	          class="my-2"
+	          text
+	          @click="showSubscriptions = !showSubscriptions"
+	        ><v-icon color="primary">mdi-close</v-icon></v-btn>
+
+	        <subscriptions />
+	      </v-sheet>
+	    </v-bottom-sheet>
     </v-container>
 </template>
 
@@ -141,6 +162,7 @@
 				showAddToHomeScreenButton: false,
 				eventsByDate: true,
 				eventsByRound: false,
+				showSubscriptions: false
 				// selectedCompetition: {}
 			}
 		},

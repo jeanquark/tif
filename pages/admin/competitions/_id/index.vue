@@ -33,8 +33,7 @@
 					</v-row>
 					<v-row justify="center">
 						<v-col cols="6" sm="4" md="3" class="pa-4" v-for="team in loadedTeamsByCompetition" :key="team.id">
-							<v-img :src="`/images/teams/${team.image}`" v-if="team.image"></v-img>
-							<v-img src="/images/no_image.png" v-else></v-img>
+							<v-img :src="`/images/teams/${team.image}`"></v-img>
 							<p class="text-center mt-2">{{ team.name }}</p>
 						</v-col>
 					</v-row>
@@ -42,7 +41,7 @@
 
 				<v-card-actions>
 					<v-row justify="center">
-						<v-btn color="success" :loading="loading" @click.stop="fetchTeamsByCompetition()">Get teams</v-btn>
+						<v-btn color="success" :loading="loading" @click.stop="setTeamsByCompetition()">Set teams for this competition</v-btn>
 					</v-row>
 				</v-card-actions>
 			</v-card>
@@ -58,7 +57,7 @@
 			console.log(this.$route.params.id)
         	this.competition = this.$route.params.id
 			await this.$store.dispatch('competitions/fetchCompetitions')
-			await this.$store.dispatch('teams/fetchTeamsByCompetition', this.competition)
+			await this.$store.dispatch('teams/fetchTeamsByCompetition', { competitionSlug: this.competition })
 		},
 		data () {
 			return {
@@ -94,10 +93,10 @@
 			}
 		},
 		methods: {
-			async fetchTeamsByCompetition () {
+			async setTeamsByCompetition () {
 				try {
 					this.$store.commit('setLoading', true, { root: true })
-					await this.$store.dispatch('competitions/fetchTeamsByCompetition', this.loadedCompetition)
+					await this.$store.dispatch('competitions/setTeamsByCompetition', { leagueId: this.loadedCompetition.apifootball_id, competitionSlug: this.loadedCompetition.slug })
 					new Noty({
 						type: 'success',
 						text: 'Teams retrieved successfully!',

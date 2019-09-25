@@ -63,7 +63,7 @@ module.exports = app.use(async function (req, res, next) {
         // Get live matches
         console.log('Hello!')
         const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt('1').endAt('90').once('value');
-        // console.log('snapshot: ', snapshot.val());
+        
         let updates = {};
         const matchesArray = [];
 
@@ -74,61 +74,50 @@ module.exports = app.use(async function (req, res, next) {
         });
         console.log('matchesArray: ', matchesArray);
 
+        // const fixtureId = '167014'
+        // const liveEvents = await getLiveEvents(fixtureId);
+        // for (let [key, value, index] of Object.entries(liveEvents.body.api.events)) {
+        //     updates[`/jm/eventEvents/${fixtureId}/${slugify(key)}`] = value
+        // }
 
-        // liveMatches.forEach((match) => { async match2 => {
-        // liveMatches.forEach(function wrapper (){ 
-        //     async match => {
-        //         await console.log('abc: ', match);
+        // const liveGameStatistics = await getLiveGameStatistics(fixtureId);
+        // for (let [key, value, index] of Object.entries(liveGameStatistics.body.api.statistics)) {
+        //     console.log('index: ', index)
+        //     updates[`/jm/eventGameStatistics/${fixtureId}/${slugify(key)}`] = {
+        //         name: key,
+        //         slug: slugify(key),
+        //         home: value.home,
+        //         away: value.away
         //     }
-        // });
-        const response = await getLiveGameStatistics('215994');
-        // console.log('Object.keys: ', Object.keys(response.body.api.statistics))
-        // console.log('Object.values: ', Object.values(response.body.api.statistics))
-        console.log('Object.entries: ', Object.entries(response.body.api.statistics))
-        for (let [key, value, index] of Object.entries(response.body.api.statistics)) {
-            console.log('index: ', index)
-            updates[`/jm/eventGameStatistics/fixtureId/${slugify(key)}`] = {
-                name: key,
-                slug: slugify(key),
-                home: value.home,
-                away: value.away
-            }
-        }
+        // }
         
-        const livePlayersStatistics = await getLivePlayersStatistics('215994')
-        for (let [key, value] of Object.entries(livePlayersStatistics.body.api.players)) {
-            updates[`/jm/eventPlayersStatistics/fixtureId/${slugify(key)}`] = value;
-        }
+        // const livePlayersStatistics = await getLivePlayersStatistics(fixtureId)
+        // for (let [key, value] of Object.entries(livePlayersStatistics.body.api.players)) {
+        //     updates[`/jm/eventPlayersStatistics/${fixtureId}/${slugify(key)}`] = value;
+        // }
 
 
         for (let liveMatch of matchesArray) {
-            // console.log('liveGame: ', liveGame);
             const fixtureId = liveMatch.id;
-            console.log('fixtureId: ', fixtureId);
+            for (let [key, value] of Object.entries(liveEvents.body.api.events)) {
+                updates[`/eventEvents/${fixtureId}/${slugify(key)}`] = value
+            }
 
-            const liveEvents = await getLiveEvents(fixtureId);
-            Object.values(liveEvents.body.api.events).forEach((event, index) => {
-                updates[`/eventEvents/${fixtureId}/${index}/elapsed`] = event.elasped;
-                updates[`/eventEvents/${fixtureId}/${index}/teamId`] = event.team_id;
-                updates[`/eventEvents/${fixtureId}/${index}/teamName`] = event.teamName;
-                updates[`/eventEvents/${fixtureId}/${index}/playerId`] = event.player_id;
-                updates[`/eventEvents/${fixtureId}/${index}/player`] = event.player;
-                updates[`/eventEvents/${fixtureId}/${index}/type`] = event.type;
-                updates[`/eventEvents/${fixtureId}/${index}/detail`] = event.detail;
-            });
-
-            const liveGameStatistics = await getLiveGameStatistics(fixtureId)
-            Object.values(liveGameStatistics.body.api.statistics).forEach((gameStatistics, index) => {
-                const slug = slugify(gameStatistics)
-                updates[`/eventGameStatistics/${fixtureId}/${slug}`] = gameStatistics;
-                updates[`/eventGameStatistics/${fixtureId}/${slug}/name`] = gameStatistics;
-                updates[`/eventGameStatistics/${fixtureId}/${slug}/slug`] = gameStatistics;
-            });
-
+            const liveGameStatistics = await getLiveGameStatistics(fixtureId);
+            for (let [key, value] of Object.entries(liveGameStatistics.body.api.statistics)) {
+                updates[`/eventGameStatistics/${fixtureId}/${slugify(key)}`] = {
+                    name: key,
+                    slug: slugify(key),
+                    home: value.home,
+                    away: value.away
+                }
+            }
+            
             const livePlayersStatistics = await getLivePlayersStatistics(fixtureId)
-            Object.values(livePlayersStatistics.body.api.players).forEach((playersStatistics, index) => {
-                updates[`/eventPlayersStatistics/${fixtureId}/${index}`] = playersStatistics;
-            });
+            for (let [key, value] of Object.entries(livePlayersStatistics.body.api.players)) {
+                updates[`/eventPlayersStatistics/${fixtureId}/${slugify(key)}`] = value
+            }
+            
         }
 
 

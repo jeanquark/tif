@@ -114,16 +114,30 @@ export const actions = {
         })
     },
     async fetchCompetitionsByDate({ commit }, payload) {
-        console.log('Call to fetchCompetitionsByDay action: ', payload)
-        const snapshot = await firebase
+        console.log('[Call to fetchCompetitionsByDay action: ]', payload)
+        const dateCompetitions = await firebase
             .database()
             .ref(`/dateCompetitions/${payload}`)
             .once('value')
 
+        async function isActive (competitionId) {
+            const competition = await firebase.database().ref(`/competitions/${competitionId}`).once('value')
+            if (competition.val().active) {
+                return true
+            }
+            return false
+        }
+
         const competitionsArray = []
-        snapshot.forEach(competition => {
-            competitionsArray.push({ ...competition.val(), id: competition.key })
-        })
+        for (const key in dateCompetitions.val()) {
+            const isActiveCompetition = await isActive(key)
+            if (isActiveCompetition) {
+                competitionsArray.push({
+                    ...dateCompetitions.val()[key],
+                    id: key
+                })
+            }
+        }
 
         commit('setCompetitionsByDate', { date: payload, competitions: competitionsArray })
     },
@@ -316,8 +330,11 @@ export const actions = {
                     'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                 }
             })
-            Object.values(response.body.api.standings).forEach(teams => {
+            console.log('response.data.api: ', response.data.api)
+            Object.values(response.data.api.standings).forEach(teams => {
                 teams.forEach(team => {
+                    // console.log('team: ', team)
+                    updates[`/standings/${newCompetitionKey}/${team.rank}/rank`] = team.rank
                     updates[`/standings/${newCompetitionKey}/${team.rank}/team_id`] = team.team_id
                     updates[`/standings/${newCompetitionKey}/${team.rank}/team_name`] = team.teamName
                     updates[`/standings/${newCompetitionKey}/${team.rank}/team_slug`] = slugify(team.teamName)
@@ -331,6 +348,7 @@ export const actions = {
                     updates[`/standings/${newCompetitionKey}/${team.rank}/lastUpdate`] = team.lastUpdate
                 });
             });
+            
 
             await firebase
                 .database()
@@ -341,11 +359,18 @@ export const actions = {
             throw error
         }
     },
-    async fetchTeamsByCompetition({ commit }, payload) {
+    // async fetchTeamsByCompetition({ commit }, payload) {
+    //     const { competitionSlug } = payload
+    //     console.log('competitionSlug: ', competitionSl)
+    //     const teams = await firebase.database().ref(`/teams/competitions`).once('value')
+    //     console.log('teams: ', teams)
+    // },
+    async setTeamsByCompetition({ commit }, payload) {
         try {
-            // console.log('fetchTeamsByCompetition', payload)
-            const league_id = payload.apifootball_id
-            const fetchedTeams = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/teams/league/${league_id}`, {
+            console.log('setTeamsByCompetition action', payload)
+            const { leagueId, competitionSlug } = payload
+            
+            const fetchedTeams = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/teams/league/${leagueId}`, {
                 headers: {
                     Accept: 'application/json',
                     'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
@@ -355,22 +380,16 @@ export const actions = {
             let updates = {}
             fetchedTeams.data.api.teams.forEach(team => {
                 const teamSlug = slugify(team.name)
-                team['slug'] = teamSlug
-                team['apifootball_id'] = team.team_id
-                team['apifootball_name'] = team.name
-                team['competitions'] = Object.assign({}, team['competitions'], {
-                    [payload.slug]: true
-                })
-                team['image'] = `${teamSlug}.png`
-                delete team['logo']
-                delete team['team_id']
-                updates[`/teams/${teamSlug}`] = team
+                updates[`/teams/${teamSlug}/slug`] = teamSlug
+                updates[`/teams/${teamSlug}/apifootball_id`] = team.team_id
+                updates[`/teams/${teamSlug}/apifootball_name`] = team.name
+                updates[`/teams/${teamSlug}/image`] = `${teamSlug}.png`
+                updates[`/teams/${teamSlug}/competitions/${competitionSlug}`] = true
             })
             await firebase
                 .database()
                 .ref()
                 .update(updates)
-            // return
         } catch (error) {
             console.log('error: ', error)
             throw error

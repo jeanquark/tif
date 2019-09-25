@@ -66,18 +66,18 @@ export const mutations = {
     },
     // Set active panel
     setActiveDatePanel(state, payload) {
-        console.log('setActiveDatePanel: ', payload)
+        // console.log('setActiveDatePanel: ', payload)
         // state.activeDatePanel = 2
         state.activeDatePanel = payload
     },
     // Set active tab when scrolling throught eventy by round
     setActiveRoundTab (state, payload) {
-        // console.log('setActiveRoundTab: ', payload)
+        console.log('setActiveRoundTab mutation: ', payload)
         state.activeRoundTab = payload
     },
     // Set active competition for retieving events by round
     setActiveCompetition (state, payload) {
-        console.log('setActiveCompetition: ', payload)
+        // console.log('setActiveCompetition: ', payload)
         state.activeCompetition = payload
     }
 }

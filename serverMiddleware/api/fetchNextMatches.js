@@ -53,7 +53,7 @@ module.exports = app.use(async function(req, res, next) {
     try {
         // 1) First, define time window
         const days = []
-        const until = req.body.until || 7
+        const until = req.body.until || 15
         console.log('until: ', until)
         for (let i = 0; i < until; i++) {
             days.push(
@@ -80,8 +80,8 @@ module.exports = app.use(async function(req, res, next) {
             const response = await getDailyMatches(day)
             Object.values(response.body.api.fixtures).forEach(match => {
                 const competition = activeCompetitions.find(competition => competition.apifootball_id == match.league_id)
-                console.log('competition: ', competition)
                 if (competition) {
+                    console.log('competition: ', competition)
                     const id = match.fixture_id
                     const date = moment(match.event_date).format('YYYY-MM-DD')
                     updates[`/events/${id}/date_iso8601`] = match.event_date
@@ -119,10 +119,10 @@ module.exports = app.use(async function(req, res, next) {
             })
         }
 
-        // await admin
-        //     .database()
-        //     .ref()
-        //     .update(updates)
+        await admin
+            .database()
+            .ref()
+            .update(updates)
 
         res.send('POST request to API-Football to fetch next matches succeeded!')
     } catch (error) {
