@@ -1,5 +1,5 @@
 <template>
-	<div style="min-height: 100vh;">
+	<!-- <div style="min-height: 100vh;"> -->
 		<!-- selectedDate: {{ selectedDate }}<br /><br /> -->
 		<!-- selectedCompetition.slug: {{ selectedCompetition.slug }}<br /><br /> -->
 		<!-- loadedActiveDatePanel: {{ loadedActiveDatePanel }}<br /><br /> -->
@@ -163,7 +163,7 @@
 	            </div>
 	        </v-tab-item>
 	    </v-tabs>
-	</div>
+	<!-- </div> -->
 </template>
 
 <script>
@@ -171,7 +171,7 @@
 	import slugify from '~/helpers/slugify'
 	export default {
 		async created () {
-			if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
+			if (this.loadedUser && (!this.loadedUserTeams || this.loadedUserTeams.length < 1)) {
 				await this.$store.dispatch('userTeams/fetchUserTeams')
 			}
 			// console.log('date: ', moment().format('YYYY-MM-DD'))

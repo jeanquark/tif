@@ -12,7 +12,7 @@
             <v-col cols="12" class="my-2">
                 <h3 class="text-center">Notifications status on this device</h3>
             </v-col>
-            <v-col cols="12" sm="6" md="4" v-for="team in loadedUserTeams" :key="team.id">
+            <v-col cols="6" sm="4" md="3" v-for="team in loadedUserTeams" :key="team.id">
                 <v-card class="ma-2 pa-3">
                     <v-card-title primary-title class="text-xs-center">
                         <v-col cols="6">

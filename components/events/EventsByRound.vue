@@ -1,8 +1,8 @@
 <template>
-	<div style="min-height: 100vh;">
+	<!-- <div style="min-height: 100vh;"> -->
 		<!-- <h2>Events by round</h2> -->
-        active_round_tab: {{ active_round_tab }}<br /><br />
-        loading: {{ loading }}<br /><br />
+        <!-- active_round_tab: {{ active_round_tab }}<br /><br /> -->
+        <!-- loading: {{ loading }}<br /><br /> -->
 		<!-- active_round_slug: {{ active_round_slug }}<br /><br /> -->
 		<!-- loadedCompetitionsById: {{ loadedCompetitionsById['switzerland_super_league_2019_2020']['rounds'].sort((a, b) => b.timestamp - a.timestamp) }}<br /><br /> -->
         <!-- loadedActiveCompetition: {{ loadedActiveCompetition }}<br /><br /> -->
@@ -124,7 +124,7 @@
                 </v-expansion-panels>
             </v-tab-item>
         </v-tabs>
-	</div>
+	<!-- </div> -->
 </template>
 
 <script>
@@ -133,14 +133,11 @@
 	export default {
 		async created () {
 			try {
-				if (!this.loadedUserTeams || this.loadedUserTeams.length < 1) {
+				if (this.loadedUser && (!this.loadedUserTeams || this.loadedUserTeams.length < 1)) {
 					await this.$store.dispatch('userTeams/fetchUserTeams')
 				}
 				await this.$store.dispatch('competitions/fetchCompetitionsById', this.loadedActiveCompetition.slug)
-				// console.log('this.loadedCompetitionsById: ', this.loadedCompetitionsById)
-				// console.log('loadedActiveCompetition.slug: ', this.loadedActiveCompetition.slug)
 				this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
-				// this.active_round_tab = 10
 				this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
 				await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
 			} catch (error) {
@@ -173,6 +170,9 @@
 		computed: {
 			loading () {
 				return this.$store.getters['loading']
+			},
+			loadedUser () {
+				return this.$store.getters['users/loadedUser']
 			},
 			loadedActiveRoundTab () {
 				return this.$store.getters['loadedActiveRoundTab']
