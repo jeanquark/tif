@@ -118,15 +118,28 @@
 		},
 		methods: {
 			async fetchCompetitionsByCountryAndSeason() {
+				console.log('fetchCompetitionsByCountry', this.selectedCountry)
+				const fetchedCompetitions = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
+					headers: {
+						// Accept: 'application/json',
+						"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+					}
+				})
+				console.log('fetchedCompetitions: ', fetchedCompetitions)
+				this.loadedCompetitions = fetchedCompetitions.data.api.leagues
+			},
+			async TOBEDELETED_fetchCompetitionsByCountryAndSeason() {
 				console.log('selectedCountry', this.selectedCountry)
 				console.log('selectedSeason: ', this.selectedSeason)
 				// return
-				// const fetchedCompetitions = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
-				// 	headers: {
-				// 		Accept: 'application/json',
-				// 		'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
-				// 	}
-				// })
+				const fetchedCompetitions = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
+					headers: {
+						// Accept: 'application/json',
+						"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
+						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+					}
+				})
 				const response = await axios.post('/api/fetch-competitions-by-country-by-season', { country: this.selectedCountry.name, season: this.selectedSeason })
 				console.log('response: ', response)
 				this.loadedCompetitions = response.data
