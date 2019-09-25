@@ -107,6 +107,10 @@ module.exports = {
             path: '/api/fetch-competitions-by-season', // POST request with {season } as body data
             handler: '~/serverMiddleware/api/fetchCompetitionsBySeason'
         },
+        {
+            path: '/api/fetch-competitions-by-country-by-season', // POST request with { country, season } as body data
+            handler: '~/serverMiddleware/api/fetchCompetitionsByCountryBySeason'
+        },
         // {
         //     path: "/api/fetch-league-standing",
         //     handler: "~/serverMiddleware/api/fetchLeagueStanding"
