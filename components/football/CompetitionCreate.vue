@@ -118,7 +118,6 @@
 		},
 		methods: {
 			async fetchCompetitionsByCountryAndSeason() {
-
 				console.log('fetchCompetitionsByCountry', this.selectedCountry)
 
 				// const fetchedPredictions = await axios.get(`/predictions`, {
