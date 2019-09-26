@@ -217,6 +217,11 @@ module.exports = {
 	],
     axios: {
         proxy: true,
+        // browserBaseURL: "https://api-football-v1.p.rapidapi.com/v2"
+        // baseURL: 
+        //   process.env.NODE_ENV !== "production"
+        //     ? `http://localhost:3000`
+        //     : "https://api-football-v1.p.rapidapi.com/v2"
     },
     proxy: {
         // Simple proxy
