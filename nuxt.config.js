@@ -215,6 +215,9 @@ module.exports = {
         '@nuxtjs/axios',
         '@nuxtjs/proxy'
 	],
+    axios: {
+        proxy: true,
+    },
     proxy: {
         // Simple proxy
         // '/apifootball': 'https://api-football-v1.p.rapidapi.com/v2/',

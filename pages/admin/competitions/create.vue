@@ -247,7 +247,7 @@
 				try {
 					const country = 'Switzerland'
 					const season = '2019'
-					const predictions10 = await this.$axios.$get(`/abc/leagues/country/${country}/${season}`, {
+					const predictions10 = await this.$axios.$get("https://api-football-v1.p.rapidapi.com/v2/predictions/157462", {
 						"headers": {
 							"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
 							"x-rapidapi-key": process.env.APIFOOTBALL_KEY
