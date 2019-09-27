@@ -1,45 +1,45 @@
 <template>
 	<!-- <div style="min-height: 100vh;"> -->
 	<v-container>
+		<!-- selectedDate: {{ selectedDate }}<br /><br /> -->
 		<!-- active_day_tab: {{ active_day_tab }}<br /><br /> -->
+		<!-- active_day_tab2: {{ active_day_tab2 }}<br /><br /> -->
 		<!-- active_date_panel: {{ active_date_panel }}<br /><br /> -->
 		<!-- this.$store.getters['loadedActiveDateTab']: {{ this.$store.getters['loadedActiveDateTab'] }}<br /><br /> -->
 		<!-- this.$store.getters['loadedActiveDatePanel']: {{ this.$store.getters['loadedActiveDatePanel'] }}<br /><br /> -->
 		<!-- loadedEventsByDateByCompetition: {{ loadedEventsByDateByCompetition }}<br /><br /> -->
 		
 		<v-tabs center-active centered fixed-tabs color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
-	        <v-tab v-for="(day, index) in days" :key="index" style="cursor: pointer;">
+	        <v-tab v-for="(day, index) in days" :key="index" style="cursor: pointer; width: 150px;">
 	            {{ displayDate(day) }}
 	        </v-tab>
 	        <v-tab-item v-for="(day, index) in days" :key="index" :transition="false" :reverse-transition="false">
-	        	<div>
-					<h3 class="text-center pt-3" v-if="loadedUserEventsByDate[getDate(day)]">My games:</h3>
-		        	<v-row no-gutters align="center" class="my-2 pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedUserEventsByDate[getDate(day)]" :key="index" @click="goToEventPage(event.id)">
-		        		<v-col class="">
-	                    	<v-row no-gutters align="center">
-	                        	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
-	                        	<span>{{ event.homeTeam_name }}</span>
-				                &nbsp;[eventId: {{ event.id }}]
-	                        </v-row>
-	                    </v-col>
-	                    <v-col class="text-center">
-	                        {{ event.status }} <br />
-	                        <span v-if="event.statusShort !== 'NS'">
-	                            {{ event.homeTeam_score }} - {{ event.awayTeam_score }}
-	                        </span>
-	                        <span v-else>
-	                        	{{ event.timestamp | moment('HH:mm') }}
-	                        </span>
-	                    </v-col>
-	                    <v-col class="">
-	                    	<v-row no-gutters justify="end" align="center">
-	                        	<span>{{ event.awayTeam_name }}</span>&nbsp;
-	                        	<v-img :src="`/images/teams/${event.awayTeam_slug}_64_64.png`" max-width="40"></v-img>
-	                        </v-row>
-	                    </v-col>
-		        	</v-row>
-					<h3 class="text-center py-3" v-if="loadedUserEventsByDate[getDate(day)]">All games:</h3>
-		        </div>
+				<h3 class="text-center pt-3" v-if="loadedUserEventsByDate[getDate(day)]">My games:</h3>
+	        	<v-row no-gutters align="center" class="my-2 pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedUserEventsByDate[getDate(day)]" :key="index" @click="goToEventPage(event.id)">
+	        		<v-col class="">
+                    	<v-row no-gutters align="center">
+                        	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
+                        	<span>{{ event.homeTeam_name }}</span>
+			                &nbsp;[eventId: {{ event.id }}]
+                        </v-row>
+                    </v-col>
+                    <v-col class="text-center">
+                        {{ event.status }} <br />
+                        <span v-if="event.statusShort !== 'NS'">
+                            {{ event.homeTeam_score }} - {{ event.awayTeam_score }}
+                        </span>
+                        <span v-else>
+                        	{{ event.timestamp | moment('HH:mm') }}
+                        </span>
+                    </v-col>
+                    <v-col class="">
+                    	<v-row no-gutters justify="end" align="center">
+                        	<span>{{ event.awayTeam_name }}</span>&nbsp;
+                        	<v-img :src="`/images/teams/${event.awayTeam_slug}_64_64.png`" max-width="40"></v-img>
+                        </v-row>
+                    </v-col>
+	        	</v-row>
+				<h3 class="text-center py-3" v-if="loadedUserEventsByDate[getDate(day)]">All games:</h3>
 				
 
 	            <v-expansion-panels :multiple="false" :accordion="true" v-model="active_date_panel">
@@ -63,11 +63,10 @@
 	                        </span>
 	                    </v-expansion-panel-header>
 	                    <v-expansion-panel-content class="ma-0 pa-0" v-if="!standings">
-	                    	<!-- [panel is open] -->
 	                        <v-row no-gutters justify="start" align="center" class="pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedEventsByDateByCompetition" :key="event.id" @click="goToEventPage(event.id)">
 	                            <v-col class="">
 	                            	<v-row no-gutters align="center">
-	                                	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" contain v-on:error="onImgError" max-width="40"></v-img>&nbsp;
+	                                	<v-img :src="`/images/teams/${event.homeTeam_slug}_64_64.png`" max-width="40"></v-img>&nbsp;
 	                                	<span>{{ event.homeTeam_name }}</span>
 						                &nbsp;[eventId: {{ event.id }}]
 	                                </v-row>
@@ -188,8 +187,10 @@
 		data () {
 			return {
 				days: ['-10', '-9', '-8', '-7', '-6', '-5', '-4', '-3', '-2', '-1', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '10'],
+				days2: ['-10sd', '-9sad hjkhjk', '-8cvvb jj', '-7bvb jkjkl', '-6a', '-5nbvnv', '-4bv jh', '-3bnb', '-2bvn', '-1bvvn', '0nvb', '1bnvbn hj', '2bvnnb', '3vcbvb jkk', '4vbvb', '5 fgfghfgh', '6 dd fg', '7', '8', '9', '10', '10'],
 				// active_day_tab: this.$store.getters['loadedActiveDayTab'] || 10,
 				active_day_tab: 10,
+				active_day_tab2: 10,
 				selectedCompetition: {},
 				selectedDate: '',
 				// eventsByDay: true,
@@ -248,12 +249,9 @@
 					return this.$store.getters['standings/loadedStandingsByCompetition'][this.selectedCompetition.slug]
 				}
 				return []
-			},
+			}
 		},
 		methods: {
-			onImgError () {
-				console.log('onImgError')
-			},
 			displayDate(day) {
 				return moment()
 					.add(day, 'days')

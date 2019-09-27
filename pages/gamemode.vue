@@ -16,7 +16,7 @@
                 	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
 				</div>
 
-				<div class="my-5">
+				<div class="my-5" style="min-height: 200px;">
 					<h2 class="text-center">Page principale gamemode</h2><br />
 					<h4 class="text-center">Ici se trouve la partie "gamemode solo" avec les actions quotidiennes du joueur destinées à faire progresser son fan (travail, loisirs, ...)</h4>
 				</div>
@@ -79,27 +79,28 @@
             </v-col>
         </v-row>
 		
-		<v-bottom-sheet v-model="showSubscriptions">
-	      <template v-slot:activator="{ on }">
-	      	<v-row justify="center">
-	        <v-btn
-	          color="primary"
-	          dark
-	          v-on="on"
-	        >
-	          My notifications
-	        </v-btn>
-	    </v-row>
-	      </template>
-	      <v-sheet class="text-center" style="max-height: 80vh; overflow: auto;">
-	        <v-btn
-	          class="my-2"
-	          text
-	          @click="showSubscriptions = !showSubscriptions"
-	        ><v-icon color="primary">mdi-close</v-icon></v-btn>
-
-	        <subscriptions />
-	      </v-sheet>
+		<v-bottom-sheet v-model="showSubscriptions" v-if="loadedUserTeams">
+	      	<template v-slot:activator="{ on }">
+		      	<v-row justify="center">
+			        <v-btn
+			          color="primary"
+			          dark
+			          v-on="on"
+			        >
+			          My notifications
+			        </v-btn>
+		    	</v-row>
+	      	</template>
+	      	<v-sheet class="text-center" style="max-height: 80vh; overflow: auto;">
+		        <v-btn
+		          class="my-2"
+		          text
+		          @click="showSubscriptions = !showSubscriptions"
+		        >
+		        	<v-icon color="primary">mdi-close</v-icon>
+		        </v-btn>
+	        	<subscriptions />
+	      	</v-sheet>
 	    </v-bottom-sheet>
     </v-container>
 </template>
@@ -172,6 +173,9 @@
 			},
 			loadedActiveTab () {
 				return this.$store.getters['loadedActiveTab']
+			},
+			loadedUserTeams () {
+				return this.$store.getters['userTeams/loadedUserTeams']
 			}
 		},
 		methods: {

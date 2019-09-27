@@ -27,7 +27,7 @@ module.exports = app.use(async function(req, res, next) {
         const response = await getLiveScore()
         
         for (let match of Object.values(response.body.api.fixtures)) {
-            const if = match.fixture_id
+            const id = match.fixture_id
             updates[`/events_jm/${id}/status`] = match.status
             updates[`/events_jm/${id}/statusShort`] = match.statusShort
             updates[`/events_jm/${id}/homeTeam_goals`] = match.goalsHomeTeam
@@ -39,7 +39,7 @@ module.exports = app.use(async function(req, res, next) {
             updates[`/events_jm/${id}/notificationStatus/statusShort`] = match.statusShort
             
             if (activeCompetitions.find(competition => competition.apifootball_id == match.league_id)) {
-                const id = match.fixture_id
+                // const id = match.fixture_id
                 updates[`/events/${id}/status`] = match.status
                 updates[`/events/${id}/statusShort`] = match.statusShort
                 updates[`/events/${id}/homeTeam_goals`] = match.goalsHomeTeam

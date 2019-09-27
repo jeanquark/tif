@@ -36,15 +36,30 @@
                     </v-col>
 
                     <v-col>
+                    	<!-- <v-tabs
+                    		center-active
+                    		centered
+					      	dark
+					      	background-color="teal darken-3"
+					      	show-arrows
+					      	v-model="active_country_tab"
+					      	v-if="loadedCountriesByConfederation[selectedConfederation.slug]"
+					    >
+						    <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
+							<v-tab v-for="(country, index) in loadedCountriesByConfederation[selectedConfederation.slug]" :key="index" ripple style="cursor: pointer;">
+                                <img :src="`/images/countries/${country.image}`" width="40px" />
+                            </v-tab>
+					    </v-tabs> -->
+
                         <!-- Confederations tabs -->
-                        <v-tabs center-active centered dark fixed-tabs slider-color="blue" v-model="active_confederation_tab" @change="changeConfederation()">
+                        <v-tabs center-active centered dark fixed-tabs slider-color="blue" style="max-width: 1017px;" v-model="active_confederation_tab" @change="changeConfederation()">
                             <v-tab v-for="(confederation, index) in confederations" :key="index" ripple style="cursor: pointer;">
                                 <v-img :src="`/images/confederations/${confederation.image}`" :aspect-ratio="1" :max-width="50"></v-img>
                             </v-tab>
                         </v-tabs>
 
                         <!-- Countries tabs -->
-                        <v-tabs center-active centered fixed-tabs dark slider-color="blue" v-model="active_country_tab" @change="changeCountry()" v-if="selectedConfederation">
+                        <v-tabs center-active centered fixed-tabs dark slider-color="blue" style="max-width: 1017px;" v-model="active_country_tab" @change="changeCountry()" v-if="loadedCountriesByConfederation[selectedConfederation.slug]">
                             <v-tab v-for="(country, index) in loadedCountriesByConfederation[selectedConfederation.slug]" :key="index" ripple style="cursor: pointer;">
                                 <img :src="`/images/countries/${country.image}`" width="40px" />
                             </v-tab>

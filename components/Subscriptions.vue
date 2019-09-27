@@ -217,7 +217,7 @@
 					console.log('error: ', error)
 					new Noty({
 						type: 'error',
-						text: `Sorry, an error occured and your subscription could not be ${subscription ? 'updated' : 'created'}.`,
+						text: `Sorry, an error occured and we could not proceed your request.`,
 						timeout: 5000,
 						theme: 'metroui'
 					}).show()

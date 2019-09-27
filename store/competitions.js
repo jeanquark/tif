@@ -114,7 +114,7 @@ export const actions = {
         })
     },
     async fetchCompetitionsByDate({ commit }, payload) {
-        console.log('[Call to fetchCompetitionsByDay action: ]', payload)
+        console.log('[Call to fetchCompetitionsByDate action:] ', payload)
         const dateCompetitions = await firebase
             .database()
             .ref(`/dateCompetitions/${payload}`)
