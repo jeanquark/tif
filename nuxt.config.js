@@ -262,5 +262,9 @@ module.exports = {
         extend(config, ctx) {}
     },
     dev: (process.env.NODE_ENV !== 'production'),
-    // dev: true
+    env: {
+        ABC_KEY: 'abc',
+        VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY,
+        APIFOOTBALL_KEY: process.env.APIFOOTBALL_KEY
+    }
 }

@@ -14,8 +14,10 @@
                 	<!-- loadedActiveTab: {{ loadedActiveTab }}<br /><br /> -->
                 	<!-- eventsByDate: {{ eventsByDate }}<br /><br /> -->
                 	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
-                	vapidPublicKey: {{ vapidPublicKey }}<br /><br />
                 	nodeEnv: {{ nodeEnv }}<br /><br />
+                	abcKey: {{ abcKey }}<br /><br />
+                	vapidPublicKey: {{ vapidPublicKey }}<br /><br />
+                	<!-- apiFootballKey: {{ apiFootballKey }}<br /><br /> -->
 				</div>
 
 				<div class="my-5" style="min-height: 200px;">
@@ -166,8 +168,10 @@
 				eventsByDate: true,
 				eventsByRound: false,
 				showSubscriptions: false,
+				abcKey: process.env.ABC_KEY,
+				nodeEnv: process.env.NODE_ENV,
 				vapidPublicKey: process.env.VAPID_PUBLIC_KEY,
-				nodeEnv: process.env.NODE_ENV
+				apiFootballKey: process.env.APIFOOTBALL_KEY
 				// selectedCompetition: {}
 			}
 		},
