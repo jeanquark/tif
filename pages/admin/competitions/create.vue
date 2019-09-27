@@ -52,7 +52,7 @@
 
 	            <football-competition :activity="selectedActivity" :category="selectedCategory" v-if="selectedCategory.slug === 'football'"></football-competition>
 
-	            <v-card color="grey" class="my-4">
+	            <!-- <v-card color="grey" class="my-4">
 	            	<v-card-title class="justify-center">
 	            		<h3>Essais JM</h3>
 	            	</v-card-title>
@@ -70,7 +70,7 @@
 			        		<v-btn class="amber ma-2 white--text" @click="fetchPredictions10">Fetch predictions 10</v-btn><br />
 			        	</v-row>
 	            	</v-card-text>
-	            </v-card>
+	            </v-card> -->
 			</v-col>
 		</v-row>
 	</v-container>
