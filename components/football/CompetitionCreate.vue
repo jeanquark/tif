@@ -120,7 +120,7 @@
 			}
 		},
 		methods: {
-			async fetchCompetitionsByCountryAndSeason() {
+			async TOBEDELETED_fetchCompetitionsByCountryAndSeason() {
 				const response = await axios.post('/api/fetch-competitions-by-country-by-season', { country: this.selectedCountry.name, season: this.selectedSeason })
 				console.log('response: ', response)
 				this.loadedCompetitions = response.data
@@ -203,7 +203,7 @@
 
 				
 			},
-			async TOBEDELETED_fetchCompetitionsByCountryAndSeason() {
+			async fetchCompetitionsByCountryAndSeason() {
 				console.log('selectedCountry', this.selectedCountry)
 				console.log('selectedSeason: ', this.selectedSeason)
 				// return

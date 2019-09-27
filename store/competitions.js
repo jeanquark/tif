@@ -141,7 +141,7 @@ export const actions = {
 
         commit('setCompetitionsByDate', { date: payload, competitions: competitionsArray })
     },
-    async createCompetition({ commit }, payload) {
+    async TOBEDELETED_createCompetition({ commit }, payload) {
         try {
             const { competition } = payload
             console.log('competition: ', competition)
@@ -153,24 +153,26 @@ export const actions = {
         }
     },
     // Create a new competition
-    async TOBEDELETED_createCompetition({ commit }, payload) {
+    async createCompetition({ commit }, payload) {
         try {
             console.log('payload: ', payload)
+            const { competition } = payload
+            console.log('competition: ', competition)
 
             // 1) Define key from competition slug
-            const newCompetitionKey = slugify(payload.country) + '_' + slugify(payload.name) + '_' + parseInt(payload.season) + '_' + (parseInt(payload.season) + 1)
+            const newCompetitionKey = slugify(competition.country) + '_' + slugify(competition.name) + '_' + parseInt(competition.season) + '_' + (parseInt(competition.season) + 1)
             console.log('newCompetitionKey: ', newCompetitionKey)
 
             // 2) Define countries object
             const competitionCountries = {}
-            competitionCountries[slugify(payload.country)] = {
-                name: payload.country,
-                slug: slugify(payload.country)
+            competitionCountries[slugify(competition.country)] = {
+                name: competition.country,
+                slug: slugify(competition.country)
 			}
-			const competitionName = payload.name
+			const competitionName = competition.name
 			const competitionSlug = newCompetitionKey
-			const competitionImage = `${slugify(payload.country)}_${slugify(payload.name)}.png`
-			const competitionType = slugify(payload.type)
+			const competitionImage = `${slugify(competition.country)}_${slugify(competition.name)}.png`
+			const competitionType = slugify(competition.type)
 
 			// 3) Define rounds array
 			const roundsArray = []
@@ -182,26 +184,30 @@ export const actions = {
             updates[`/competitions/${newCompetitionKey}/active`] = false
             updates[`/competitions/${newCompetitionKey}/activity`] = { name: 'Sport', slug: 'sport' }
             updates[`/competitions/${newCompetitionKey}/category`] = { name: 'Football', slug: 'football' }
-            updates[`/competitions/${newCompetitionKey}/apifootball_id`] = payload.league_id
-            updates[`/competitions/${newCompetitionKey}/apifootball_country`] = payload.country
-			updates[`/competitions/${newCompetitionKey}/apifootball_name`] = payload.name
-			updates[`/competitions/${newCompetitionKey}/apifootball_season`] = payload.season
-            updates[`/competitions/${newCompetitionKey}/season_start`] = payload.season_start
-            updates[`/competitions/${newCompetitionKey}/season_end`] = payload.season_end
+            updates[`/competitions/${newCompetitionKey}/apifootball_id`] = competition.league_id
+            updates[`/competitions/${newCompetitionKey}/apifootball_country`] = competition.country
+			updates[`/competitions/${newCompetitionKey}/apifootball_name`] = competition.name
+			updates[`/competitions/${newCompetitionKey}/apifootball_season`] = competition.season
+            updates[`/competitions/${newCompetitionKey}/season_start`] = competition.season_start
+            updates[`/competitions/${newCompetitionKey}/season_end`] = competition.season_end
             updates[`/competitions/${newCompetitionKey}/name`] = competitionName
             updates[`/competitions/${newCompetitionKey}/slug`] = competitionSlug
             updates[`/competitions/${newCompetitionKey}/countries`] = competitionCountries
             updates[`/competitions/${newCompetitionKey}/image`] = competitionImage
-            updates[`/competitions/${newCompetitionKey}/season`] = `${payload.season} - ${parseInt(payload.season) + 1}`
+            updates[`/competitions/${newCompetitionKey}/season`] = `${competition.season} - ${parseInt(competition.season) + 1}`
 			updates[`/competitions/${newCompetitionKey}/type`] = competitionType
             updates[`/competitions/${newCompetitionKey}/_created_at`] = moment().unix()
             updates[`/competitions/${newCompetitionKey}/_updated_at`] = moment().unix()
 
             // 5) Retrieve all fixtures of the competition
-            const leagueId = payload.league_id
+            const leagueId = competition.id
+            console.log('leagueId: ', leagueId)
+            // return
+            // throw 'new error'
             const competitionEvents = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/fixtures/league/${leagueId}`, {
                 headers: {
-                    Accept: 'application/json',
+                    // Accept: 'application/json',
+                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                     'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                 }
             })
@@ -292,7 +298,8 @@ export const actions = {
                 // 6.3) Update eventEvents node
                 const eventEvents = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/events/${eventId}`, {
                     headers: {
-                        Accept: 'application/json',
+                        // Accept: 'application/json',
+                        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                     }
                 })
@@ -302,7 +309,8 @@ export const actions = {
                 // 6.4) Update eventGameStatistics node
                 const eventGameStatistics = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/statistics/fixture/${eventId}`, {
                     headers: {
-                        Accept: 'application/json',
+                        // Accept: 'application/json',
+                        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                     }
                 })
@@ -320,7 +328,8 @@ export const actions = {
                 // 6.5) Update event/playerStatistics node
                 const eventPlayersStatistics = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/players/fixture/${eventId}`, {
                     headers: {
-                        Accept: 'application/json',
+                        // Accept: 'application/json',
+                        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                         'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                     }
                 })
@@ -336,7 +345,8 @@ export const actions = {
             // 8) Retrieve current standings for the new competition
             const response = await axios.get(`https://api-football-v1.p.rapidapi.com/v2/leagueTable/${leagueId}`, {
                 headers: {
-                    Accept: 'application/json',
+                    // Accept: 'application/json',
+                    "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
                     'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
                 }
             })
@@ -359,11 +369,11 @@ export const actions = {
                 });
             });
             
-
             await firebase
                 .database()
                 .ref()
                 .update(updates)
+
         } catch (error) {
             console.log('error: ', error)
             throw error
