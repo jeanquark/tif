@@ -118,7 +118,11 @@
 		},
 		methods: {
 			async fetchCompetitionsByCountryAndSeason() {
-				console.log('fetchCompetitionsByCountry', this.selectedCountry)
+				const response = await axios.post('/api/fetch-competitions-by-country-by-season', { country: this.selectedCountry.name, season: this.selectedSeason })
+				console.log('response: ', response)
+				this.loadedCompetitions = response.data
+
+
 
 				// const fetchedPredictions = await axios.get(`/predictions`, {
 				// 	headers: {
@@ -128,15 +132,15 @@
 				// })
 				// console.log('fetchedPredictions: ', fetchedPredictions)
 
-				const fetchedPredictions = await axios.get(`/apifootball/predictions/157462`, {
-					headers: {
-						// Accept: 'application/json',
-						"content-type":"application/octet-stream",
-						"x-rapidapi-host":"api-football-v1.p.rapidapi.com",
-						'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
-					}
-				})
-				console.log('fetchedPredictions: ', fetchedPredictions)
+				// const fetchedPredictions = await axios.get(`/apifootball/predictions/157462`, {
+				// 	headers: {
+				// 		// Accept: 'application/json',
+				// 		"content-type":"application/octet-stream",
+				// 		"x-rapidapi-host":"api-football-v1.p.rapidapi.com",
+				// 		'X-RapidAPI-Key': process.env.APIFOOTBALL_KEY
+				// 	}
+				// })
+				// console.log('fetchedPredictions: ', fetchedPredictions)
 
 				// const fetchedCompetitions = await axios.get(`/apifootball/leagues/country/${this.selectedCountry.apifootball_name}/${this.selectedSeason}`, {
 				// 	headers: {
@@ -215,7 +219,7 @@
 				try {
 					console.log('addCompetition: ', this.selectedCompetition)
 					this.$store.commit('setLoading', true)
-					await this.$store.dispatch('competitions/createCompetition', this.selectedCompetition)
+					await this.$store.dispatch('competitions/createCompetition', { competition: this.selectedCompetition })
 					this.$store.commit('setLoading', false)
 					this.$store.commit('clearMessage')
 					this.$router.push('/admin/competitions')

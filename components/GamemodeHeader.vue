@@ -1,7 +1,7 @@
 <template>
     <v-row no-gutters class="elevation-12 custom-height" style="">
 		<v-hover v-slot:default="{ hover }">
-			<v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="" @click="redirectTo('/gamemode')">
+			<v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="" @click="redirectTo('/')">
 				<v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
 			</v-col>
 		</v-hover>
@@ -56,7 +56,7 @@
                 </v-col>
             </v-row>
             <v-row no-gutters align="center" class="primary" style="height:20%;">
-				<v-col cols="6" class="text-left white--text">
+				<v-col cols="6" class="text-left white--text" v-if="loadedUser">
                     <span class="">Welcome {{ loadedUser.username }}!</span>
                 </v-col>
 				<v-col cols="6" class="text-right white--text">
@@ -68,7 +68,7 @@
         </v-col>
         
         <v-hover v-slot:default="{ hover }">
-            <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+            <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="" @click="redirectTo('/gamemode')">
                 <v-img src="/images/tifLogo.png"></v-img>
             </v-col>
         </v-hover>

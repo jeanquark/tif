@@ -66,8 +66,8 @@
 
             <v-row no-gutters justify="center" style="border: 1px solid red;">
                 <v-col cols="12" class="box-player" style="">
-                    L'utilisateur est déjà inscrit
-                    à ThisIsFan.com pour voir cette page
+                    Tu n'es pas encore inscrit
+                    à ThisIsFan.com !
                 </v-col>
             </v-row>
 
@@ -129,8 +129,8 @@
 			})
 		},
 		components: { Game, Events, Players, Statistics },
-		layout: 'layoutGamemode',
-		// layout: 'layoutScoreMode',
+		// layout: 'layoutGamemode',
+		layout: 'layoutScoreMode',
 		async created() {
 			// console.log('this.$route.params.id: ', this.$route.params.id)
 			this.eventId = this.$route.params.id
@@ -155,8 +155,8 @@
 			// }
 			// 3) Lastly, if the page was reloaded, fetch event from database
 			// if (!event) {
-			const abc = await this.$store.dispatch('events/fetchEventById', eventId)
-			console.log('abc: ', abc)
+			// const abc = await this.$store.dispatch('events/fetchEventById', eventId)
+			// console.log('abc: ', abc)
 			event = this.$store.getters['events/loadedEventsById'][eventId]
 			// }
 			console.log('event2: ', event)

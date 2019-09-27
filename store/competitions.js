@@ -141,9 +141,19 @@ export const actions = {
 
         commit('setCompetitionsByDate', { date: payload, competitions: competitionsArray })
     },
-
-    // Create a new competition
     async createCompetition({ commit }, payload) {
+        try {
+            const { competition } = payload
+            console.log('competition: ', competition)
+            const abc = await axios.post('/competitions/create-competition', { competition })
+            console.log('abc: ', abc)
+        } catch (error) {
+            console.log('error: ', error)
+            throw error
+        }
+    },
+    // Create a new competition
+    async TOBEDELETED_createCompetition({ commit }, payload) {
         try {
             console.log('payload: ', payload)
 

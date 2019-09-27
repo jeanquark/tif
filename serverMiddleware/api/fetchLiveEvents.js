@@ -1,7 +1,6 @@
 const express = require('express'),
       moment = require('moment'),
       admin = require('firebase-admin'),
-      slugifyFunction = require('../../helpers/slugify'),
       unirest = require('unirest');
 
 const app = express();
@@ -61,7 +60,6 @@ function getLivePlayersStatistics (fixtureId) {
 module.exports = app.use(async function (req, res, next) {
     try {
         // Get live matches
-        console.log('Hello!')
         const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt('1').endAt('90').once('value');
         
         let updates = {};

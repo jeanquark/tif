@@ -1,5 +1,6 @@
 <template>
-	<v-app id="app" style="background-color: #000;">
+	<!-- <v-app id="app" style="background-color: #000;"> -->
+	<v-app id="app">
 		<v-content v-if="loadingPage" style="">
 			<div class="loader"></div>
 		</v-content>
@@ -34,22 +35,6 @@
 			}, 100)
 		},
 		mounted() {
-			// console.log(Notification.permission)
-			// if (Notification.permission === 'granted') {
-	
-			// }
-			// if ("serviceWorker" in navigator) {
-			// 	window.addEventListener('load', function(registration) {
-			// 		navigator.serviceWorker
-			// 			.register("/sw.js")
-			// 			.then(function() {
-			// 				console.log("Service worker registered with scope: ", registration);
-			// 			})
-			// 			.catch(function(err) {
-			// 				console.log(err);
-			// 			});
-			// 	})
-			// }
 		},
 		data () {
 			return {

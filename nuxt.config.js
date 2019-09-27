@@ -132,6 +132,10 @@ module.exports = {
 			handler: '~/serverMiddleware/competitions/updateCompetitionsFile'
 		},
         {
+            path: '/competitions/create-competition', // POST request with { competition } as body data
+            handler: '~/serverMiddleware/competitions/createCompetition'
+        },
+        {
             path: '/users/delete-user', // POST request with { userId } as body data
             handler: '~/serverMiddleware/users/deleteUser'
         }
@@ -218,10 +222,11 @@ module.exports = {
     axios: {
         proxy: true,
         // browserBaseURL: "https://api-football-v1.p.rapidapi.com/v2"
-        baseURL: 
-          process.env.NODE_ENV !== "production"
-            ? `http://localhost:3000`
-            : "https://api-football-v1.p.rapidapi.com/v2"
+        // baseURL: 
+        //   process.env.NODE_ENV !== "production"
+        //     ? `http://localhost:3000`
+        //     : "https://api-football-v1.p.rapidapi.com/v2",
+        prefix: 'https://api-football-v1.p.rapidapi.com/v2'
     },
     proxy: {
         // Simple proxy
@@ -234,10 +239,10 @@ module.exports = {
             },
             // changeOrigin: true
         },
-        '/abc/': {
+        '/abc': {
             target: 'https://api-football-v1.p.rapidapi.com/v2',
             pathRewrite: {
-                '^/abc/' : ''
+                '^/abc' : '/'
             },
             changeOrigin: true
         }

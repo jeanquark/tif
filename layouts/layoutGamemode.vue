@@ -34,26 +34,10 @@
 			}, 100)
 		},
 		mounted() {
-			// console.log(Notification.permission)
-			// if (Notification.permission === 'granted') {
-	
-			// }
-			// if ("serviceWorker" in navigator) {
-			// 	window.addEventListener('load', function(registration) {
-			// 		navigator.serviceWorker
-			// 			.register("/sw.js")
-			// 			.then(function() {
-			// 				console.log("Service worker registered with scope: ", registration);
-			// 			})
-			// 			.catch(function(err) {
-			// 				console.log(err);
-			// 			});
-			// 	})
-			// }
 		},
 		data () {
 			return {
-				loadingPage: true,
+				loadingPage: true
 			}
 		},
 		computed: {

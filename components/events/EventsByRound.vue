@@ -139,7 +139,9 @@
 				await this.$store.dispatch('competitions/fetchCompetitionsById', this.loadedActiveCompetition.slug)
 				this.active_round_tab = this.$store.getters['loadedActiveRoundTab'] || 0
 				this.active_round_slug = this.loadedCompetitionsById[this.loadedActiveCompetition.slug]['rounds'][this.active_round_tab]['slug']
-				await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
+				if (!this.$store.getters['events/loadedEventsByCompetitionByRound'] || !this.$store.getters['events/loadedEventsByCompetitionByRound'][this.loadedActiveCompetition.slug]) {
+					await this.fetchEventsByCompetitionByRound(this.loadedActiveCompetition.slug, this.active_round_slug)
+				}
 			} catch (error) {
 				console.log('error: ', error)
 			}

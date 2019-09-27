@@ -26,18 +26,7 @@
 	                            <h2>Add a new competition</h2>
 	                        </v-card-text>
 	                    </v-card-title>
-	                    <v-row justify="center">
-			        		<v-btn class="red ma-2 white--text" @click="fetchPredictions1">Fetch predictions 1</v-btn><br />
-			        		<v-btn class="orange ma-2 white--text" @click="fetchPredictions2">Fetch predictions 2</v-btn><br />
-			        		<v-btn class="yellow ma-2 white--text" @click="fetchPredictions3">Fetch predictions 3</v-btn><br />
-			        		<v-btn class="blue ma-2 white--text" @click="fetchPredictions4">Fetch predictions 4</v-btn><br />
-			        		<v-btn class="light-blue ma-2 white--text" @click="fetchPredictions5">Fetch predictions 5</v-btn><br />
-			        		<v-btn class="cyan ma-2 white--text" @click="fetchPredictions6">Fetch predictions 6</v-btn><br />
-			        		<v-btn class="teal ma-2 white--text" @click="fetchPredictions7">Fetch predictions 7</v-btn><br />
-			        		<v-btn class="light-green ma-2 white--text" @click="fetchPredictions8">Fetch predictions 8</v-btn><br />
-			        		<v-btn class="lime ma-2 white--text" @click="fetchPredictions9">Fetch predictions 9</v-btn><br />
-			        		<v-btn class="amber ma-2 white--text" @click="fetchPredictions10">Fetch predictions 10</v-btn><br />
-			        	</v-row>
+	                   
 	                    <v-container fluid v-if="loadedCategories != ''">
 							<v-row>
 								<v-col cols="6">
@@ -62,6 +51,26 @@
 	            </v-card>
 
 	            <football-competition :activity="selectedActivity" :category="selectedCategory" v-if="selectedCategory.slug === 'football'"></football-competition>
+
+	            <v-card color="grey" class="my-4">
+	            	<v-card-title class="justify-center">
+	            		<h3>Essais JM</h3>
+	            	</v-card-title>
+	            	<v-card-text>
+	            		<v-row justify="center">
+			        		<v-btn class="red ma-2 white--text" @click="fetchPredictions1">Fetch predictions 1</v-btn><br />
+			        		<v-btn class="orange ma-2 white--text" @click="fetchPredictions2">Fetch predictions 2</v-btn><br />
+			        		<v-btn class="yellow ma-2 white--text" @click="fetchPredictions3">Fetch predictions 3</v-btn><br />
+			        		<v-btn class="blue ma-2 white--text" @click="fetchPredictions4">Fetch predictions 4</v-btn><br />
+			        		<v-btn class="light-blue ma-2 white--text" @click="fetchPredictions5">Fetch predictions 5</v-btn><br />
+			        		<v-btn class="cyan ma-2 white--text" @click="fetchPredictions6">Fetch predictions 6</v-btn><br />
+			        		<v-btn class="teal ma-2 white--text" @click="fetchPredictions7">Fetch predictions 7</v-btn><br />
+			        		<v-btn class="light-green ma-2 white--text" @click="fetchPredictions8">Fetch predictions 8</v-btn><br />
+			        		<v-btn class="lime ma-2 white--text" @click="fetchPredictions9">Fetch predictions 9</v-btn><br />
+			        		<v-btn class="amber ma-2 white--text" @click="fetchPredictions10">Fetch predictions 10</v-btn><br />
+			        	</v-row>
+	            	</v-card-text>
+	            </v-card>
 			</v-col>
 		</v-row>
 	</v-container>
@@ -176,7 +185,7 @@
 			},
 			async fetchPredictions5 () {
 				try {
-					const predictions5 = await axios.get(`/apifootball/predictions/157462`, {
+					const predictions5 = await this.$axios.$get(`/predictions/157462`, {
 						"headers": {
 							"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
 							"x-rapidapi-key": process.env.APIFOOTBALL_KEY
@@ -191,7 +200,7 @@
 				try {
 					const country = 'Switzerland'
 					const season = '2019'
-					const predictions6 = await axios.get(`/apifootball/leagues/country/${country}/${season}`, {
+					const predictions6 = await this.$axios.$get(`/apifootball/leagues/country/${country}/${season}`, {
 						"headers": {
 							"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
 							"x-rapidapi-key": process.env.APIFOOTBALL_KEY
@@ -232,7 +241,7 @@
 				try {
 					const country = 'Switzerland'
 					const season = '2019'
-					const predictions9 = await this.$axios.$get(`/apifootball/leagues/country/${country}/${season}`, {
+					const predictions9 = await this.$axios.$get(`/leagues/country/${country}/${season}`, {
 						"headers": {
 							"x-rapidapi-host": "api-football-v1.p.rapidapi.com",
 							"x-rapidapi-key": process.env.APIFOOTBALL_KEY

@@ -1,13 +1,10 @@
 <template>
 	<!-- <div style="min-height: 100vh;"> -->
-		<!-- selectedDate: {{ selectedDate }}<br /><br /> -->
-		<!-- selectedCompetition.slug: {{ selectedCompetition.slug }}<br /><br /> -->
-		<!-- loadedActiveDatePanel: {{ loadedActiveDatePanel }}<br /><br /> -->
+	<v-container>
 		<!-- active_day_tab: {{ active_day_tab }}<br /><br /> -->
 		<!-- active_date_panel: {{ active_date_panel }}<br /><br /> -->
-		<!-- this.$store.getters['loadedActiveCompetition']: {{ this.$store.getters['loadedActiveCompetition'] }}<br /><br /> -->
+		<!-- this.$store.getters['loadedActiveDateTab']: {{ this.$store.getters['loadedActiveDateTab'] }}<br /><br /> -->
 		<!-- this.$store.getters['loadedActiveDatePanel']: {{ this.$store.getters['loadedActiveDatePanel'] }}<br /><br /> -->
-		<!-- loadedActiveDate: {{ loadedActiveDate }}<br /><br /> -->
 		<!-- loadedEventsByDateByCompetition: {{ loadedEventsByDateByCompetition }}<br /><br /> -->
 		
 		<v-tabs center-active centered fixed-tabs color="yellow" slider-color="blue" style="max-width: 1017px;" @change="changeDay()" v-model="active_day_tab">
@@ -15,7 +12,7 @@
 	            {{ displayDate(day) }}
 	        </v-tab>
 	        <v-tab-item v-for="(day, index) in days" :key="index" :transition="false" :reverse-transition="false">
-	        	<div v-if="$route.path !== '/scoremode'">
+	        	<div>
 					<h3 class="text-center pt-3" v-if="loadedUserEventsByDate[getDate(day)]">My games:</h3>
 		        	<v-row no-gutters align="center" class="my-2 pa-2" :class="index % 2 === 0 ? 'background-grey' : ''" v-for="(event, index) in loadedUserEventsByDate[getDate(day)]" :key="index" @click="goToEventPage(event.id)">
 		        		<v-col class="">
@@ -163,7 +160,7 @@
 	            </div>
 	        </v-tab-item>
 	    </v-tabs>
-	<!-- </div> -->
+	</v-container>
 </template>
 
 <script>
@@ -271,7 +268,12 @@
 			},
 			goToEventPage(eventId) {
 				console.log('Go to event page')
-				this.$router.push(`/events/${eventId}`)
+				console.log('$route.path: ', this.$route.path)
+				if (this.$route.path === '/scoremode') {
+					this.$router.push(`/scoremode/events/${eventId}`)
+				} else {
+					this.$router.push(`/events/${eventId}`)
+				}
 			},
 			async getEventsByDateByCompetition(date, competition, index) {
 				try {
@@ -309,7 +311,7 @@
 					this.$store.commit('setActiveDate', slugify(date))
 					if (this.loadedEventsByDateByCompetition && this.loadedEventsByDateByCompetition.length > 0) {
 						// this.active_date_panel = [this.$store.getters['loadedActiveDatePanel']] || []
-						this.active_date_panel = this.$store.getters['loadedActiveDatePanel'] || null
+						this.active_date_panel = this.$store.getters['loadedActiveDatePanel']
 					} else {
 						// this.active_date_panel = []
 						this.active_date_panel = null

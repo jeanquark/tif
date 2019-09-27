@@ -1,7 +1,7 @@
 <template>
     <v-row no-gutters class="elevation-12 custom-height" style="">
         <v-hover v-slot:default="{ hover }">
-            <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="">
+            <v-col cols="2" class="d-flex justify-center align-center" :class="hover ? 'black' : 'primary'" style="" @click="redirectTo('/')">
                 <v-img src="/images/tifLogo.png" max-height="100%" style=""></v-img>
             </v-col>
         </v-hover>
@@ -83,6 +83,9 @@
                 console.log('logout')
                 await this.$store.dispatch('firebase-auth/signOut')
                 this.$router.push('/')
+            },
+            redirectTo(path) {
+                this.$router.push(path)
             }
         }
     }

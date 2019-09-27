@@ -39,7 +39,8 @@ module.exports = app.use(async function(req, res) {
 				seasonStart: league.season_start,
 				seasonEnd: league.season_end,
 				standings: league.standings,
-				isCurrent: league.is_current
+				isCurrent: league.is_current,
+				type: league.type
 			})
 		})
 		// console.log('competitions: ', competitions)
