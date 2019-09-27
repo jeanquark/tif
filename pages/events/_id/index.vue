@@ -27,8 +27,8 @@
                     <div class="box-pf" style="border: 1px dashed green;">10.456 PF</div>
                 </v-col>
                 <v-col cols="2" class="text-center">
-                    <div class="box-livestatus" v-if="event.status === '1H' || '2H'">
-                        {{ event.status }}
+                    <div class="box-livestatus" v-if="event.status === '1H' || '2H' || 'Halftime'">
+                        {{ event.status }}<br />
 						<span v-if="event.statusShort === '1H' || event.statusShort === '2H'">{{ event.elapsed }} minutes</span>
                     </div>
                 </v-col>
@@ -49,7 +49,10 @@
                 <v-col cols="4" class="text-center" style="border: 1px dashed red;">
                     <div class="box-livescore" style="">
                         <span class="text-center title" style="" v-if="event.statusShort === 'FT'">
-							{{ event.score.fulltime }}
+							{{ event.score.fulltime }}<br />
+						</span>
+						<span v-if="event.statusShort === '1H' || event.statusShort === '2H'">
+							{{ event.homeTeam_goals }} - {{ event.awayTeam_goals }}
 						</span>
 						<span style="text-align: center;" v-else>
 							{{ event.date }}<br />
@@ -67,7 +70,7 @@
             <v-row no-gutters justify="center" style="border: 1px solid red;">
                 <v-col cols="12" class="box-player" style="">
                     L'utilisateur est déjà inscrit
-                    à ThisIsFan.com pour voir cette page
+                    à ThisIsFan.com
                 </v-col>
             </v-row>
 

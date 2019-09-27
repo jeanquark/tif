@@ -14,8 +14,8 @@
                 	<!-- loadedActiveTab: {{ loadedActiveTab }}<br /><br /> -->
                 	<!-- eventsByDate: {{ eventsByDate }}<br /><br /> -->
                 	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
-                	nodeEnv: {{ nodeEnv }}<br /><br />
-                	abcKey: {{ abcKey }}<br /><br />
+                	<!-- nodeEnv: {{ nodeEnv }}<br /><br /> -->
+                	<!-- abcKey: {{ abcKey }}<br /><br /> -->
                 	<!-- vapidPublicKey: {{ vapidPublicKey }}<br /><br /> -->
                 	<!-- apiFootballKey: {{ apiFootballKey }}<br /><br /> -->
 				</div>

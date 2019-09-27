@@ -44,7 +44,10 @@
                                 </v-col>
                                 <v-col class="text-center">
                                     {{ event.date | moment('LL') }}<br />
-                                    <span v-if="event.statusShort !== 'NS'">
+                                    <span v-if="event.statusShort === '1H' || event.statusShort === '2H'">
+                                    	{{ event.homeTeam_goals }} - {{ event.awayTeam_goals }}
+                                    </span>
+                                    <span v-if="event.statusShort === 'FT'">
                                     	{{ event.homeTeam_score }} - {{ event.awayTeam_score }}
                                     </span>
                                 </v-col>

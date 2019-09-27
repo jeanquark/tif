@@ -60,17 +60,22 @@ function getLivePlayersStatistics (fixtureId) {
 module.exports = app.use(async function (req, res, next) {
     try {
         // Get live matches
-        const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt('1').endAt('90').once('value');
+        // const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt('0').endAt('90').once('value');
+        // const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').equalTo(0).once('value');
+        const liveMatches = await admin.database().ref('/events').orderByChild('elapsed').startAt(1).endAt(89).once('value');
         
         let updates = {};
         const matchesArray = [];
 
         liveMatches.forEach(match => {
+            console.log('match: ', match)
             matchesArray.push({
-                id: match.val().id
+                id: match.key
             });
         });
         console.log('matchesArray: ', matchesArray);
+        // return
+        // throw 'new_error'
 
         // const fixtureId = '167014'
         // const liveEvents = await getLiveEvents(fixtureId);
@@ -97,6 +102,7 @@ module.exports = app.use(async function (req, res, next) {
 
         for (let liveMatch of matchesArray) {
             const fixtureId = liveMatch.id;
+            const liveEvents = await getLiveEvents(fixtureId)
             for (let [key, value] of Object.entries(liveEvents.body.api.events)) {
                 updates[`/eventEvents/${fixtureId}/${slugify(key)}`] = value
             }

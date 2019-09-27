@@ -24,11 +24,14 @@
                         </v-row>
                     </v-col>
                     <v-col class="text-center">
-                        {{ event.status }} <br />
-                        <span v-if="event.statusShort !== 'NS'">
+                        {{ event.status }}<br />
+                        <span v-if="event.statusShort === 'FT'">
                             {{ event.homeTeam_score }} - {{ event.awayTeam_score }}
                         </span>
-                        <span v-else>
+                        <span v-if="event.statusShort === '1H' || event.statusShort === '2H'">
+                        	{{ event.homeTeam_goals }} - {{ event.awayTeam_goals }}
+                        </span>
+                        <span v-if="event.statusShort === 'NS'">
                         	{{ event.timestamp | moment('HH:mm') }}
                         </span>
                     </v-col>
@@ -73,10 +76,13 @@
 	                            </v-col>
 	                            <v-col class="text-center">
 	                                {{ event.status }} <br />
-	                                <span v-if="event.statusShort !== 'NS'">
-	                                    {{ event.homeTeam_score }} - {{ event.awayTeam_score }}
+	                                <span v-if="event.statusShort === '1H' || event.statusShort === '2H'">
+	                                    {{ event.homeTeam_goals }} - {{ event.awayTeam_goals }}
 	                                </span>
-	                                <span v-else>
+	                                <span v-if="event.statusShort === 'FT'">
+	                                	{{ event.homeTeam_score }} - {{ event.awayTeam_score }}
+	                                </span>
+	                                <span v-if="event.statusShort === 'NS'">
 	                                	{{ event.timestamp | moment('HH:mm') }}
 	                                </span>
 	                            </v-col>

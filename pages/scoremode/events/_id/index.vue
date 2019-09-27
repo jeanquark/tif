@@ -49,7 +49,10 @@
                 <v-col cols="4" class="text-center" style="border: 1px dashed red;">
                     <div class="box-livescore" style="">
                         <span class="text-center title" style="" v-if="event.statusShort === 'FT'">
-							{{ event.score.fulltime }}
+							{{ event.score.fulltime }}<br />
+						</span>
+						<span v-if="event.statusShort === '1H' || event.statusShort === '2H'">
+							{{ event.homeTeam_goals }} - {{ event.awayTeam_goals }}
 						</span>
 						<span style="text-align: center;" v-else>
 							{{ event.date }}<br />
