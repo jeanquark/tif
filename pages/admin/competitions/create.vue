@@ -128,6 +128,7 @@
 		methods: {
 			async fetchPredictions1 () {
 				try {
+					console.log('process.env.APIFOOTBALL_KEY: ', process.env.APIFOOTBALL_KEY)
 					const predictions1 = await fetch("https://api-football-v1.p.rapidapi.com/v2/predictions/157462", {
 						"method": "GET",
 						"headers": {

@@ -14,6 +14,8 @@
                 	<!-- loadedActiveTab: {{ loadedActiveTab }}<br /><br /> -->
                 	<!-- eventsByDate: {{ eventsByDate }}<br /><br /> -->
                 	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
+                	vapidPublicKey: {{ vapidPublicKey }}<br /><br />
+                	nodeEnv: {{ nodeEnv }}<br /><br />
 				</div>
 
 				<div class="my-5" style="min-height: 200px;">
@@ -79,7 +81,7 @@
             </v-col>
         </v-row>
 		
-		<v-bottom-sheet v-model="showSubscriptions" v-if="loadedUserTeams">
+		<v-bottom-sheet v-model="showSubscriptions" v-if="loadedUserTeams && loadedUserTeams.length > 0">
 	      	<template v-slot:activator="{ on }">
 		      	<v-row justify="center">
 			        <v-btn
@@ -163,7 +165,9 @@
 				showAddToHomeScreenButton: false,
 				eventsByDate: true,
 				eventsByRound: false,
-				showSubscriptions: false
+				showSubscriptions: false,
+				vapidPublicKey: process.env.VAPID_PUBLIC_KEY,
+				nodeEnv: process.env.NODE_ENV
 				// selectedCompetition: {}
 			}
 		},

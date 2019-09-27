@@ -103,6 +103,7 @@
 			},
 			urlBase64ToUint8Array(base64String) {
 				try {
+					console.log('urlBase64ToUint8Array(base64String): ', base64String)
 					const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
 					const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/')
 					const rawData = window.atob(base64)
@@ -180,6 +181,8 @@
 						// Create new subscription
 						// 1) Register Service Worker
 						const registration = await navigator.serviceWorker.register('/sw.js')
+						console.log('process.env.VAPID_PUBLIC_KEY: ', process.env.VAPID_PUBLIC_KEY)
+						console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 
 						// 2) Subscribe a user with PushManager
 						const subscribeOptions = {

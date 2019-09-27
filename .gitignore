@@ -95,3 +95,6 @@ dist
 .serviceAccountKey.js
 .serviceAccountKey.json
 .serviceAccountKey-tif-jm.json
+
+# Static json
+./static/activeCompetitions.json

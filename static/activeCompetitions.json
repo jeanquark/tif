@@ -1,5 +1,30 @@
 [
     {
+        "name": "Premier League",
+        "slug": "england_premier_league_2019_2020",
+        "apifootball_id": 524
+    },
+    {
+        "name": "Ligue 1",
+        "slug": "france_ligue_1_2019_2020",
+        "apifootball_id": 525
+    },
+    {
+        "name": "Bundesliga 1",
+        "slug": "germany_bundesliga_1_2019_2020",
+        "apifootball_id": 754
+    },
+    {
+        "name": "Primeira Liga",
+        "slug": "portugal_primeira_liga_2019_2020",
+        "apifootball_id": 766
+    },
+    {
+        "name": "Primera Division",
+        "slug": "spain_primera_division_2019_2020",
+        "apifootball_id": 775
+    },
+    {
         "name": "Challenge League",
         "slug": "switzerland_challenge_league_2019_2020",
         "apifootball_id": 585
@@ -8,5 +33,10 @@
         "name": "Super League",
         "slug": "switzerland_super_league_2019_2020",
         "apifootball_id": 576
+    },
+    {
+        "name": "Major League Soccer",
+        "slug": "usa_major_league_soccer_2019_2020",
+        "apifootball_id": 294
     }
 ]
