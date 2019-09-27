@@ -27,19 +27,19 @@ module.exports = app.use(async function(req, res, next) {
         const response = await getLiveScore()
         
         for (let match of Object.values(response.body.api.fixtures)) {
-            const id = match.fixture_id
-            updates[`/events_jm/${id}/status`] = match.status
-            updates[`/events_jm/${id}/statusShort`] = match.statusShort
-            updates[`/events_jm/${id}/homeTeam_goals`] = match.goalsHomeTeam
-            updates[`/events_jm/${id}/awayTeam_goals`] = match.goalsAwayTeam
-            updates[`/events_jm/${id}/score`] = match.score
-            updates[`/events_jm/${id}/elapsed`] = match.elapsed
-            updates[`/events_jm/${id}/notificationScore/homeTeam_score`] = match.goalsHomeTeam
-            updates[`/events_jm/${id}/notificationScore/awayTeam_score`] = match.goalsAwayTeam
-            updates[`/events_jm/${id}/notificationStatus/statusShort`] = match.statusShort
+            // const id = match.fixture_id
+            // updates[`/events_jm/${id}/status`] = match.status
+            // updates[`/events_jm/${id}/statusShort`] = match.statusShort
+            // updates[`/events_jm/${id}/homeTeam_goals`] = match.goalsHomeTeam
+            // updates[`/events_jm/${id}/awayTeam_goals`] = match.goalsAwayTeam
+            // updates[`/events_jm/${id}/score`] = match.score
+            // updates[`/events_jm/${id}/elapsed`] = match.elapsed
+            // updates[`/events_jm/${id}/notificationScore/homeTeam_score`] = match.goalsHomeTeam
+            // updates[`/events_jm/${id}/notificationScore/awayTeam_score`] = match.goalsAwayTeam
+            // updates[`/events_jm/${id}/notificationStatus/statusShort`] = match.statusShort
             
             if (activeCompetitions.find(competition => competition.apifootball_id == match.league_id)) {
-                // const id = match.fixture_id
+                const id = match.fixture_id
                 updates[`/events/${id}/status`] = match.status
                 updates[`/events/${id}/statusShort`] = match.statusShort
                 updates[`/events/${id}/homeTeam_goals`] = match.goalsHomeTeam
@@ -51,7 +51,7 @@ module.exports = app.use(async function(req, res, next) {
                 updates[`/events/${id}/notificationStatus/statusShort`] = match.statusShort
             }
         }
-        console.log('updates: ', updates)
+        // console.log('updates: ', updates)
 
         await admin
             .database()

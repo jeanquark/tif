@@ -154,11 +154,10 @@
 			}
 			// }
 			// 3) Lastly, if the page was reloaded, fetch event from database
-			// if (!event) {
-			// const abc = await this.$store.dispatch('events/fetchEventById', eventId)
-			// console.log('abc: ', abc)
-			event = this.$store.getters['events/loadedEventsById'][eventId]
-			// }
+			if (!event.id) {
+				await this.$store.dispatch('events/fetchEventById', eventId)
+				event = this.$store.getters['events/loadedEventsById'][eventId]
+			}
 			console.log('event2: ', event)
 			this.event = event
 			// }
