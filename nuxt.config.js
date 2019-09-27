@@ -219,35 +219,35 @@ module.exports = {
         '@nuxtjs/axios',
         // '@nuxtjs/proxy'
 	],
-    axios: {
-        proxy: true,
-        // browserBaseURL: "https://api-football-v1.p.rapidapi.com/v2"
-        // baseURL: 
-        //   process.env.NODE_ENV !== "production"
-        //     ? `http://localhost:3000`
-        //     : "https://api-football-v1.p.rapidapi.com/v2",
-        prefix: 'https://api-football-v1.p.rapidapi.com/v2'
-    },
-    proxy: {
-        // Simple proxy
-        // '/apifootball': 'https://api-football-v1.p.rapidapi.com/v2/',
-        '/predictions': 'https://api-football-v1.p.rapidapi.com/v2/predictions/157462',
-        '/apifootball': {
-            target: 'https://api-football-v1.p.rapidapi.com/v2',
-            pathRewrite: {
-                '^/apifootball' : '/'
-            },
-            // changeOrigin: true
-        },
-        '/abc': {
-            target: 'https://api-football-v1.p.rapidapi.com/v2',
-            pathRewrite: {
-                '^/abc' : '/'
-            },
-            changeOrigin: true
-        }
+    // axios: {
+    //     proxy: true,
+    //     // browserBaseURL: "https://api-football-v1.p.rapidapi.com/v2"
+    //     // baseURL: 
+    //     //   process.env.NODE_ENV !== "production"
+    //     //     ? `http://localhost:3000`
+    //     //     : "https://api-football-v1.p.rapidapi.com/v2",
+    //     prefix: 'https://api-football-v1.p.rapidapi.com/v2'
+    // },
+    // proxy: {
+    //     // Simple proxy
+    //     // '/apifootball': 'https://api-football-v1.p.rapidapi.com/v2/',
+    //     '/predictions': 'https://api-football-v1.p.rapidapi.com/v2/predictions/157462',
+    //     '/apifootball': {
+    //         target: 'https://api-football-v1.p.rapidapi.com/v2',
+    //         pathRewrite: {
+    //             '^/apifootball' : '/'
+    //         },
+    //         // changeOrigin: true
+    //     },
+    //     '/abc': {
+    //         target: 'https://api-football-v1.p.rapidapi.com/v2',
+    //         pathRewrite: {
+    //             '^/abc' : '/'
+    //         },
+    //         changeOrigin: true
+    //     }
 
-    },
+    // },
 	sentry: {
         dsn: process.env.NODE_ENV !== 'production' ? '' : process.env.SENTRY_DSN,
         config: {} // Additional config

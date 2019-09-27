@@ -2,8 +2,8 @@
 	<div>
 		<v-row no-gutters justify="center" align="center" class="my-0" v-if="!showSubscribeToPushNotifications">
             <v-col cols="12" sm="6">
-                <v-alert dark text color="warning" icon="mdi-exclamation" border="left" prominent>
-                    You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator.
+                <v-alert dark text color="warning" icon="mdi-exclamation" border="left" prominent style="line-height: 1.5em;">
+                    You have disabled push notifications from this site on this device. To receive score notifications for your favorite teams, modify the notifications parameter in your navigator (not available if your navigator is in private mode).
                 </v-alert>
             </v-col>
         </v-row>
@@ -166,6 +166,7 @@
 					console.log('toggleSubscription: ', team, notificationType)
 					const subscription = this.loadedUserSubscriptions.find(subscription => subscription.team_slug === team.slug)
 					console.log('subscription: ', subscription)
+					console.log('Notification.permission: ', Notification.permission)
 
 					if (Notification.permission === 'default') {
 						document.getElementById('overlay').style.display = 'block'
@@ -175,47 +176,49 @@
 							this.showSubscribeToPushNotifications = false
 						}
 						document.getElementById('overlay').style.display = 'none'
-						return
+						// return
 					}
-					if (!subscription) {
-						// Create new subscription
-						// 1) Register Service Worker
-						const registration = await navigator.serviceWorker.register('/sw.js')
-						console.log('process.env.VAPID_PUBLIC_KEY: ', process.env.VAPID_PUBLIC_KEY)
-						console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+					if (Notification.permission === 'granted') {
+						if (!subscription) {
+							// Create new subscription
+							// 1) Register Service Worker
+							const registration = await navigator.serviceWorker.register('/sw.js')
+							console.log('process.env.VAPID_PUBLIC_KEY: ', process.env.VAPID_PUBLIC_KEY)
+							console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
 
-						// 2) Subscribe a user with PushManager
-						const subscribeOptions = {
-							userVisibleOnly: true,
-							applicationServerKey: this.urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
+							// 2) Subscribe a user with PushManager
+							const subscribeOptions = {
+								userVisibleOnly: true,
+								applicationServerKey: this.urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
+							}
+
+							const pushSubscription = await registration.pushManager.subscribe(subscribeOptions)
+							console.log('pushSubscription: ', JSON.stringify(pushSubscription))
+
+							// 3) Add subscriptions to database
+							const subscriptions = await this.$store.dispatch('subscriptions/createUserSubscriptions', {
+								pushSubscription: JSON.stringify(pushSubscription),
+								notificationType,
+								team,
+								deviceIdentifier: `screenWidth=${window.screen.width}&screenHeight=${window.screen.height}&userAgent=${slugify(window.navigator.userAgent)}`,
+							})
+						} else { // Update existing subscription
+							const value = this.loadedUserSubscriptionsObject[team.slug]['notifications'][notificationType]
+							// console.log('value: ', value)
+							await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
+								subscription,
+								notificationType,
+								team,
+								value
+							})
 						}
-
-						const pushSubscription = await registration.pushManager.subscribe(subscribeOptions)
-						console.log('pushSubscription: ', JSON.stringify(pushSubscription))
-
-						// 3) Add subscriptions to database
-						const subscriptions = await this.$store.dispatch('subscriptions/createUserSubscriptions', {
-							pushSubscription: JSON.stringify(pushSubscription),
-							notificationType,
-							team,
-							deviceIdentifier: `screenWidth=${window.screen.width}&screenHeight=${window.screen.height}&userAgent=${slugify(window.navigator.userAgent)}`,
-						})
-					} else { // Update existing subscription
-						const value = this.loadedUserSubscriptionsObject[team.slug]['notifications'][notificationType]
-						// console.log('value: ', value)
-						await this.$store.dispatch('subscriptions/updateUserSubscriptions', {
-							subscription,
-							notificationType,
-							team,
-							value
-						})
+						new Noty({
+							type: 'success',
+							text: `Successfully ${subscription ? 'updated' : 'created new'} subscription!`,
+							timeout: 5000,
+							theme: 'metroui'
+						}).show()
 					}
-					new Noty({
-						type: 'success',
-						text: `Successfully ${subscription ? 'updated' : 'created new'} subscription!`,
-						timeout: 5000,
-						theme: 'metroui'
-					}).show()
 				} catch (error) {
 					console.log('error: ', error)
 					new Noty({

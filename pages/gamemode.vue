@@ -16,7 +16,7 @@
                 	<!-- eventsByRound: {{ eventsByRound }}<br /><br /> -->
                 	nodeEnv: {{ nodeEnv }}<br /><br />
                 	abcKey: {{ abcKey }}<br /><br />
-                	vapidPublicKey: {{ vapidPublicKey }}<br /><br />
+                	<!-- vapidPublicKey: {{ vapidPublicKey }}<br /><br /> -->
                 	<!-- apiFootballKey: {{ apiFootballKey }}<br /><br /> -->
 				</div>
 

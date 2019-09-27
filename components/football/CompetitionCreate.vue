@@ -34,12 +34,12 @@
                 </v-col> -->
 
                 <v-col cols="12" class="text-center">
-                    <!-- <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition" :loading="loading">
+                    <v-btn color="primary" @click.stop="addCompetition" :disabled="!selectedCompetition" :loading="loading">
                         Add competition
-                    </v-btn><br /> -->
-                    <v-btn color="primary" @click.stop="addCompetition" :disabled="true" :loading="loading">
-                        Add competition (not working currently)
                     </v-btn><br />
+                    <!-- <v-btn color="primary" @click.stop="addCompetition" :disabled="true" :loading="loading">
+                        Add competition (not working currently)
+                    </v-btn><br /> -->
                     <v-row justify="center" align="center" v-if="loading">
                         <v-col>
                             <p class="text-center">
