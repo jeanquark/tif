@@ -27,73 +27,71 @@
                 <!-- <div style="height: 200px;"></div> -->
                 <!-- <v-row no-gutters style="border: 2px solid green;" v-if="eventsByDay"> -->
                 <!-- <v-col> -->
-                
+
                 <v-row no-gutters class="mt-5">
                     <v-col cols="12" class="my-2">
                         <h3 class="text-center" v-if="eventsByDate">Events by day</h3>
                         <h3 class="text-center" v-if="eventsByRound">Events by round</h3>
                     </v-col>
-                    <events-by-date @switchToRound="onSwitchToRound" v-if="eventsByDate"/>
-                    <events-by-round @switchToDate="onSwitchToDate" v-if="eventsByRound"/>
+                    <events-by-date @switchToRound="onSwitchToRound" v-if="eventsByDate" />
+                    <events-by-round @switchToDate="onSwitchToDate" v-if="eventsByRound" />
                 </v-row>
-
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
-	import moment from 'moment'
-	import ScoremodeHeader from '~/components/ScoremodeHeader'
-    import EventsByDate from '~/components/events/EventsByDate'
-    import EventsByRound from '~/components/events/EventsByRound'
-	import { ContentLoader } from 'vue-content-loader'
-	import slugify from '~/helpers/slugify'
-	export default {
-		components: { ScoremodeHeader, EventsByDate, EventsByRound, ContentLoader },
-		layout: 'layoutScoreMode',
-		async created() {
-            this.eventsByDate = this.$store.getters['loadedActiveTab'] === 'date'
-            this.eventsByRound = this.$store.getters['loadedActiveTab'] === 'round'
-		},
-		data() {
-			return {
-                eventsByDate: true,
-                eventsByRound: false,
-			}
-		},
-		computed: {
-			loading() {
-				return this.$store.getters['loading']
-			},
-			loadedUserTeams() {
-				return this.$store.getters['userTeams/loadedUserTeams']
-			},
-			loadedCompetitions() {
-				// return this.$store.getters['competitions/loadedCompetitions'].filter(competition => competition.active === true)
-				return this.$store.getters['competitions/loadedCompetitions']
-			}
-		},
-		methods: {
-            onSwitchToRound(competition) {
-                console.log('onSwitchToRound: ', competition)
-                this.eventsByDate = false
-                this.eventsByRound = true
-                // this.selectedCompetition = competition
-                this.$store.commit('setActiveTab', 'round')
-                // this.$store.commit('setActiveRoundTab', 2)
-                this.$store.commit('setActiveCompetition', competition)
-            },
-            onSwitchToDate() {
-                console.log('onSwitchToDate')
-                this.eventsByRound = false
-                this.eventsByDate = true
-                this.$store.commit('setActiveTab', 'date')
-            }
-		}
-	}
+import moment from 'moment'
+import ScoremodeHeader from '~/components/ScoremodeHeader'
+import EventsByDate from '~/components/events/EventsByDate'
+import EventsByRound from '~/components/events/EventsByRound'
+import { ContentLoader } from 'vue-content-loader'
+import slugify from '~/helpers/slugify'
+
+export default {
+    components: { ScoremodeHeader, EventsByDate, EventsByRound, ContentLoader },
+    layout: 'layoutScoreMode',
+    async created() {
+        this.eventsByDate = this.$store.getters['loadedActiveTab'] === 'date'
+        this.eventsByRound = this.$store.getters['loadedActiveTab'] === 'round'
+    },
+    data() {
+        return {
+            eventsByDate: true,
+            eventsByRound: false
+        }
+    },
+    computed: {
+        loading() {
+            return this.$store.getters['loading']
+        },
+        loadedUserTeams() {
+            return this.$store.getters['userTeams/loadedUserTeams']
+        },
+        loadedCompetitions() {
+            // return this.$store.getters['competitions/loadedCompetitions'].filter(competition => competition.active === true)
+            return this.$store.getters['competitions/loadedCompetitions']
+        }
+    },
+    methods: {
+        onSwitchToRound(competition) {
+            console.log('onSwitchToRound: ', competition)
+            this.eventsByDate = false
+            this.eventsByRound = true
+            // this.selectedCompetition = competition
+            this.$store.commit('setActiveTab', 'round')
+            // this.$store.commit('setActiveRoundTab', 2)
+            this.$store.commit('setActiveCompetition', competition)
+        },
+        onSwitchToDate() {
+            console.log('onSwitchToDate')
+            this.eventsByRound = false
+            this.eventsByDate = true
+            this.$store.commit('setActiveTab', 'date')
+        }
+    }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

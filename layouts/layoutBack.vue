@@ -83,12 +83,12 @@
 						to: '/admin/competitions',
 						exact: false
 					},
-					// {
-					// 	icon: 'mdi-soccer',
-					// 	text: 'Teams',
-					// 	to: '/admin/teams',
-					// 	exact: false
-					// },
+					{
+						icon: 'mdi-soccer',
+						text: 'Teams',
+						to: '/admin/teams',
+						exact: false
+					},
 					// {
 					// 	icon: 'mdi-stadium',
 					// 	text: 'Stadiums',

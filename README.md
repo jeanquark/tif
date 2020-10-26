@@ -59,7 +59,7 @@ Une fois le code en local, rendez-vous à son emplacement avec l'invité de comm
 npm install
 npm run dev
 ```
-une fenêtre du navigateur devrait automatiquement s'ouvrir. Si ce n'est pas le cas, tapez *localhost:8080* dans la barre d'adresse et vous y êtes!
+une fenêtre du navigateur devrait automatiquement s'ouvrir. Si ce n'est pas le cas, tapez *localhost:8080* (ou l'adresse indiquée dans la console) dans la barre d'adresse et vous y êtes!
 *(Il faudra encore me demander les identifiants Firebase pour que tout fonctionne ;-)*
 
 ## Extension
