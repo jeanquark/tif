@@ -37,7 +37,7 @@ export const mutations = {
 export const actions = {
     // Get a particular team
     async fetchTeam({ commit }, payload) {
-        // console.log('payload: ', payload)
+        console.log('fetchTeam payload: ', payload)
         const team = await firebase
             .database()
             .ref('/teams')

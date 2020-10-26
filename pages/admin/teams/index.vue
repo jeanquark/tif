@@ -42,7 +42,7 @@
                             <tbody>
                                 <tr v-for="(item, index) in items" :key="index">
                                     <td>{{ index + 1 }}</td>
-                                    <td>{{ item.name }}</td>
+                                    <td><router-link :to="`/teams/${item.slug}`">{{ item.name }}</router-link></td>
                                     <td>{{ item.slug }}</td>
                                     <td class="text-center" :value="item.active">
                                         <v-checkbox color="success" v-model="item.active" class="text-center" @change="toggleTeamActiveStatus(item)"></v-checkbox>
